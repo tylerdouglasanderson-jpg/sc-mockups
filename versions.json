@@ -3,18 +3,28 @@
   "v": "r9",
   "mockup": "C-058_recipe_book.html",
   "msg": "Round 9: full-screen device links, green scrollbar back, long-press card actions.",
-  "date": "2026-11-24"
+  "date": "2026-11-24",
+  "name": "Recipes"
  },
  {
   "v": "r11",
   "mockup": "C-058_recipe_book.html",
   "msg": "Round 11: Recipes naming, Add to Plan everywhere, Collections menu, notes edit in place, bowl icon for no photo; Start Cooking, Add to Plan and heart in the recipe title; Mark It Made removed",
-  "date": "2026-11-24"
+  "date": "2026-11-24",
+  "name": "Recipes"
  },
  {
   "v": "groceries-r13",
   "mockup": "groceries_v3.html",
   "msg": "Groceries page (computer) round 13: one list with store folder tabs, smart add, check at home, live 'someone shopping' view, simple Put Away. Phone and iPad layouts are rough; judge the desktop link.",
+  "date": "2026-11-24",
+  "name": "Groceries"
+ },
+ {
+  "v": "r12",
+  "mockup": "C-058_recipe_book.html",
+  "name": "Recipes",
+  "msg": "Round 12: cards back to the tight pile; the card under the mouse lifts gently and shows Add to Plan / Start Cooking in its title row. iPad: the open card shows them.",
   "date": "2026-11-24"
  }
 ]
