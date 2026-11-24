@@ -10,5 +10,11 @@
   "mockup": "C-058_recipe_book.html",
   "msg": "Round 11: Recipes naming, Add to Plan everywhere, Collections menu, notes edit in place, bowl icon for no photo; Start Cooking, Add to Plan and heart in the recipe title; Mark It Made removed",
   "date": "2026-11-24"
+ },
+ {
+  "v": "groceries-r13",
+  "mockup": "groceries_v3.html",
+  "msg": "Groceries page (computer) round 13: one list with store folder tabs, smart add, check at home, live 'someone shopping' view, simple Put Away. Phone and iPad layouts are rough; judge the desktop link.",
+  "date": "2026-11-24"
  }
 ]
