@@ -180,5 +180,12 @@
   "name": "Add and Edit a Recipe",
   "msg": "addedit-r4: site name in source, one-line tick, grey Save says why, clearer leave box",
   "date": "2026-11-25"
+ },
+ {
+  "v": "plan-r28",
+  "mockup": "index.html",
+  "name": "Plan",
+  "msg": "Plan a week v3, round 28: Tyler's 23 round-23 notes built; panel 8+",
+  "date": "2026-11-25"
  }
 ]
