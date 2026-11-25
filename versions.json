@@ -47,5 +47,12 @@
   "name": "Recipes",
   "msg": "Recipe buttons back on the right (Add to Plan + heart, Start Cooking under). Agreed and frozen.",
   "date": "2026-11-24"
+ },
+ {
+  "v": "icons-r11",
+  "mockup": "icons.html",
+  "name": "Icons",
+  "msg": "Menu icon set, round 11: every menu icon in the grocery-bag family, colour and plain, menu size and big size. Pick Today, Kitchen (jars or fridge), Prep's place, and Cook.",
+  "date": "2026-11-24"
  }
 ]
