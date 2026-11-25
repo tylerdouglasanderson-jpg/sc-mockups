@@ -117,5 +117,12 @@
   "name": "Groceries",
   "msg": "Groceries round 33 (agreed, frozen for the build queue): Jump to Aisle stays with you on the list, shop the whole list at one store, then keep the rest or move it all to the next store.",
   "date": "2026-11-25"
+ },
+ {
+  "v": "plan-r20",
+  "mockup": "index.html",
+  "name": "Plan",
+  "msg": "Plan a week v3, round 20: outside panel 8+ on every lens",
+  "date": "2026-11-25"
  }
 ]
