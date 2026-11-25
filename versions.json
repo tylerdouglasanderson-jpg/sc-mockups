@@ -138,5 +138,12 @@
   "name": "Add + Edit a Recipe",
   "msg": "Add + Edit a Recipe, first look (rounds 1-18, panel 6 all 8s)",
   "date": "2026-11-25"
+ },
+ {
+  "v": "addedit-r2",
+  "mockup": "index.html",
+  "name": "Add and Edit a Recipe",
+  "msg": "Recipes opens already open, no rename (Tyler 08:06)",
+  "date": "2026-11-25"
  }
 ]
