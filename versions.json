@@ -159,5 +159,12 @@
   "name": "Plan",
   "msg": "Plan a week v3, round 23: Decide My Week, changed after import, names; panel 8+",
   "date": "2026-11-25"
+ },
+ {
+  "v": "icons-r12",
+  "mockup": "ICON_STYLE.html",
+  "name": "Icon style sheet",
+  "msg": "Icon style sheet r12: your 4 answers built in; for your OK",
+  "date": "2026-11-25"
  }
 ]
