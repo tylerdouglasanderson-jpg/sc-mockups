@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head><script>window.SC_FULL='phone'</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-title" content="SupperCraft bowl icon">
+<title>No-photo bowl icon iPhone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap" rel="stylesheet">
+<style>
+/* Page colours: the icon sheet's copy of app palettes light.js / darkProof.js (ICON_STYLE.html). */
+.th-light{--page:#EDE5D8;--card:#FAF6EE;--ink:#1E1E1C;--quiet:#54524A;--ph:#605E55;--accent:#4B6947;--sage-light:#E4EDE2;--chip:#E4D9C6;--subbar:#E4D3B3;--sbd:#5C3D0A;--sbs:#7A5030;
+ --header:#6B3E14;--header-text:#FAF4EB;--border:rgba(0,0,0,.09);--grid:rgba(0,0,0,.07);--grid4:rgba(0,0,0,.16);--shadow:45,33,22;
+ /* C-058 tile + card tokens (agreed C-058 :root) */
+ --endpaper:#F3E9D6;--tan-line:#D2BE98;--muted:#605E55;--icard:#FFFDF7;--ink2:#3F3D37;--iblue:rgba(80,120,170,.16);--ired:rgba(196,72,60,.55);--sage-mid:#3F6B38;--amber:#9A5B12;--rt:#9A6A12;--fav:#B5482F;
+ /* no-photo tile: the agreed icon sheet r12 (section 3): fill page, 1 px border inside, placeholder icon.
+    (C-058 itself still says endpaper + tan-line: a note for the build, see BRIEF.md.) */
+ --nop-bg:var(--page);--nop-line:var(--border);--nop-ink:var(--ph)}
+.th-dark{--page:#1A1815;--card:#24211D;--ink:#EEE8DC;--quiet:#C6BFB1;--ph:#ADA698;--accent:#A3C49D;--sage-light:#22301F;--chip:#3A3329;--subbar:#2E2619;--sbd:#E3C99A;--sbs:#CDB08C;
+ --header:#3A220C;--header-text:#F3EBDD;--border:rgba(255,255,255,.12);--grid:rgba(255,255,255,.08);--grid4:rgba(255,255,255,.18);--shadow:0,0,0;
+ /* dark proof: the sheet's no-photo tile = page fill, border line, placeholder icon */
+ --icard:var(--card);--ink2:var(--quiet);--iblue:rgba(255,255,255,.06);--ired:rgba(196,106,106,.5);--sage-mid:var(--accent);--amber:#E0B56A;--rt:#E0B56A;--fav:#C46A6A;--muted:var(--ph);
+ --nop-bg:var(--page);--nop-line:var(--border);--nop-ink:var(--ph)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--page);color:var(--ink);font-size:15px;line-height:1.45;overflow-x:hidden}
+.hdr{background:var(--header);color:var(--header-text);height:52px;display:flex;align-items:center;padding:0 20px}
+.hdr .wm{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:22px}
+.tan{background:var(--subbar);min-height:46px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:6px 20px;border-bottom:1px solid var(--border)}
+.tan .t{font-weight:600;font-size:16px;color:var(--sbd)}
+.tan .sub{font-size:14px;color:var(--sbs)}
+.seg{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--ink);cursor:pointer}
+.seg button.on{background:var(--sage-light);color:var(--accent);border-color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(var(--shadow),.055),0 6px 16px rgba(var(--shadow),.055)}
+h2{font-size:18px;margin:0 0 6px}h3{font-size:15px;margin:14px 0 8px}p{margin:4px 0 8px}
+.q{color:var(--quiet);font-size:14px}
+code,pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:var(--chip);border-radius:6px}
+code{padding:0 4px;overflow-wrap:anywhere}
+pre{padding:8px 10px;margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:14px}
+.opt{border:1px solid var(--border);border-radius:10px;padding:12px;min-width:0}
+.opt.pick{border:2px solid var(--accent)}
+.opt .nm{font-weight:700;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.opt .pk{font-size:12.5px;font-weight:700;color:var(--accent);background:var(--sage-light);border-radius:6px;padding:0 8px}
+.opt .why{font-size:13.5px;color:var(--quiet);margin:2px 0 8px}
+.strip{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 14px;padding:10px 12px;border-radius:8px;background:var(--card);color:var(--ph);border:1px solid var(--border)}
+.strip .sz{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--quiet)}
+.strip svg{display:block}
+.g128{position:relative;width:128px;height:128px}
+.g128 .gr{position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/16px 16px}
+.g128 .safe{position:absolute;left:10.67px;top:10.67px;width:106.67px;height:106.67px;outline:1px dashed var(--grid4);pointer-events:none}
+.g128 svg{position:relative}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+@media (max-width:560px){.two{grid-template-columns:minmax(0,1fr)}}
+.side{min-width:0}
+.side>.lab{font-size:12px;font-weight:600;color:var(--quiet);margin-bottom:4px}
+.nb{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:8px 10px;border-radius:8px;background:var(--card);color:var(--ink);border:1px solid var(--border);margin-top:6px}
+.nb .me{outline:1px dashed var(--grid4);outline-offset:2px;border-radius:2px}
+.nb .sep{width:1px;align-self:stretch;background:var(--border)}
+/* ---------- C-058 context (copied from agreed C-058 CSS, trimmed) ---------- */
+.ctx{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;margin-top:8px}
+.ctx .col{display:flex;flex-direction:column;gap:10px;min-width:0;flex:1 1 300px}
+.ic{position:relative;display:flex;flex-direction:column;width:100%;max-width:420px;height:148px;padding:0 14px;text-align:left;border-radius:4px;color:var(--ink);
+ background:repeating-linear-gradient(to bottom,transparent 0 21px,var(--iblue) 21px 22px) 0 58px/100% 90px no-repeat,var(--icard);
+ box-shadow:0 -1px 3px rgba(40,26,8,.10),0 2px 5px rgba(40,26,8,.16),0 0 0 1px rgba(60,40,10,.12)}
+.ich{display:flex;align-items:center;gap:8px;height:46px;margin:0 -14px;padding:4px 14px 0;border-bottom:1.5px solid var(--ired)}
+.ich b{flex:1;min-width:0;font-size:15.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.im{display:flex;gap:6px 14px;align-items:center;height:26px;font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden}
+.im .hv{font-weight:600;color:var(--sage-mid)}.im .rt{color:var(--rt);font-weight:600}
+.ico{width:16px;height:16px;flex:none;vertical-align:-3px;margin-right:3px}
+.icb{display:flex;gap:12px;padding:10px 0 0}
+.th{width:84px;height:68px;border-radius:4px;flex:none;box-shadow:inset 0 0 0 1px rgba(40,26,8,.2);
+ background:radial-gradient(circle 3px at 38% 38%,#5F8F4A 0 2.5px,transparent 3px),radial-gradient(circle 3px at 60% 62%,#5F8F4A 0 2.5px,transparent 3px),radial-gradient(circle 3px at 55% 36%,#F2E6C8 0 2px,transparent 2.6px),
+ radial-gradient(circle 31px at 50% 52%,var(--food) 0 18px,rgba(0,0,0,.16) 19px,#F4EEE3 20px 27px,#CFC2AA 28px 29px,transparent 30px),repeating-linear-gradient(45deg,#C9B79A 0 6px,#BCA684 6px 12px)}
+.th.nop{background:var(--nop-bg);box-shadow:inset 0 0 0 1px var(--nop-line);color:var(--nop-ink)}
+.th.nop svg{display:block;position:relative;top:50%;translate:0 -50%;margin:0 auto;width:24px;height:24px}
+.th.p64{width:64px;height:48px}
+.ix{flex:1;min-width:0;font-size:13.5px;line-height:22px;color:var(--ink2)}
+.ix .src{font-size:12px;color:var(--muted)}
+.rows{width:100%;max-width:420px;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.row{display:flex;gap:12px;align-items:center;padding:10px 14px;background:var(--card);border-bottom:1px solid var(--border);color:var(--ink)}
+.row:last-child{border-bottom:0}
+.row .th{width:56px;height:48px}
+.row.ph .th{width:48px;height:42px}
+.row b{flex:1;min-width:0;font-size:15px;font-weight:600}
+.row .m{font-size:13px;color:var(--ink2);text-align:right;line-height:18px}
+.ctxlab{font-size:12px;font-weight:600;color:var(--quiet)}
+.only-round .rnd:not(.show){display:none}
+</style>
+</head>
+<body class="th-light">
+<div class="hdr"><span class="wm">SupperCraft</span></div>
+<div class="tan"><span class="t">No-photo bowl (I-001)</span><span class="sub">register row 1, everyday line icon</span>
+ <div class="seg" id="seg"></div></div>
+<div class="wrap" id="app"></div>
+<script>
+const LU={ /* Lucide 1.51 path data, copied from lucide-react-native dist/esm/icons/*.mjs */
+ soup:['M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z','M7 21h10','M19.5 12 22 6','M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62','M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62','M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62'],
+ search:['m21 21-4.34-4.34','<circle cx="11" cy="11" r="8"/>'],
+ funnel:['M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z'],
+ 'book-open':['M12 5v16','M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z'],
+ clock:['<circle cx="12" cy="12" r="10"/>','M12 6v6l4 2']
+};
+/* Rounds: newest last. d = ONE path string (drawnIcon(name, d)); lu = a Lucide icon used as is. */
+const ROUNDS=[
+ {n:1,opts:[
+  {id:'A',name:'A. Lucide soup, as is',lu:'soup',why:'The honest baseline: is a new drawing worth it?'},
+  {id:'B',name:'B. Rim bowl, two wisps',d:'M3 13a9 3 0 0 1 18 0a9 3 0 0 1-18 0a9 8 0 0 0 18 0M9 7c-1.25-1.25 1.25-2.5 0-5M15 7c-1.25-1.25 1.25-2.5 0-5',why:'Seen a little from above: the rim is an oval, so it reads as a bowl you look into, not soup\'s flat side view.'},
+  {id:'C',name:'C. Shallow bowl, two wisps',d:'M3 13h18a9 7 0 0 1-18 0zM9 9c-1.25-1.25 1.25-2.5 0-5M15 9c-1.25-1.25 1.25-2.5 0-5',why:'The sheet\'s step 2 cleaned up: no spoon, no base line, shallower than soup, two wisps.'},
+  {id:'D',name:'D. Heaped bowl, no steam',d:'M3 13h18a9 7 0 0 1-18 0zM6 13a6 5 0 0 1 12 0',why:'A bowl with food heaped in it. No steam, so nothing like soup.'}
+ ]},
+ {n:2,opts:[
+  {id:'B',name:'B. Round 1 pick, unchanged',d:'M3 13a9 3 0 0 1 18 0a9 3 0 0 1-18 0a9 8 0 0 0 18 0M9 7c-1.25-1.25 1.25-2.5 0-5M15 7c-1.25-1.25 1.25-2.5 0-5',why:'For comparison. Deep body reads a little like a pot; steam only 3 above the rim.'},
+  {id:'F',name:'F. Rim bowl, lower and shallower',d:'M3 14a9 3 0 0 1 18 0a9 3 0 0 1-18 0a9 7 0 0 0 18 0M9 7c-1.25-1.25 1.25-2.5 0-5M15 7c-1.25-1.25 1.25-2.5 0-5',why:'Rim moved down 1, body 1 shallower: steam now 4 above the rim (the sheet\'s spacing rule), less pot-like.'},
+  {id:'G',name:'G. Rim bowl with a flat foot',d:'M3 14a9 3 0 0 1 18 0a9 3 0 0 1-18 0c0 4 2.5 7 6 7h6c3.5 0 6-3 6-7M9 7c-1.25-1.25 1.25-2.5 0-5M15 7c-1.25-1.25 1.25-2.5 0-5',why:'The bottom flattens into a short base, like a real bowl sitting on a table. Nothing in Lucide or T-2147 has this shape.'},
+  {id:'H',name:'H. Rim bowl, one wisp',d:'M3 15a9 3 0 0 1 18 0a9 3 0 0 1-18 0a9 6 0 0 0 18 0M12 8c-1.5-1.5 1.5-3 0-6',why:'The quietest: one tall wisp in the middle. Soup has three, so this is the furthest from it.'}
+ ]},
+ {n:3,opts:[
+  {id:'F',name:'F. Round 2 pick, unchanged',d:'M3 14a9 3 0 0 1 18 0a9 3 0 0 1-18 0a9 7 0 0 0 18 0M9 7c-1.25-1.25 1.25-2.5 0-5M15 7c-1.25-1.25 1.25-2.5 0-5',why:'For comparison.'},
+  {id:'I',name:'I. Steam closer together',d:'M3 14a9 3 0 0 1 18 0a9 3 0 0 1-18 0a9 7 0 0 0 18 0M10 7c-1.25-1.25 1.25-2.5 0-5M14 7c-1.25-1.25 1.25-2.5 0-5',why:'Wisps 4 apart (the least the sheet allows), so the steam rises from the middle of the bowl, not its edges.'},
+  {id:'J',name:'J. Thinner rim',d:'M3 14a9 2.5 0 0 1 18 0a9 2.5 0 0 1-18 0a9 7 0 0 0 18 0M9 7c-1.25-1.25 1.25-2.5 0-5M15 7c-1.25-1.25 1.25-2.5 0-5',why:'A flatter oval rim: less like a mouth at 20, more like a bowl seen from the side.'},
+  {id:'K',name:'K. Thinner rim, steam closer',d:'M3 14a9 2.5 0 0 1 18 0a9 2.5 0 0 1-18 0a9 7 0 0 0 18 0M10 7c-1.25-1.25 1.25-2.5 0-5M14 7c-1.25-1.25 1.25-2.5 0-5',why:'I and J together.'}
+ ]},
+ {n:4,opts:[
+  {id:'J',name:'J. Round 3 pick, unchanged',d:'M3 14a9 2.5 0 0 1 18 0a9 2.5 0 0 1-18 0a9 7 0 0 0 18 0M9 7c-1.25-1.25 1.25-2.5 0-5M15 7c-1.25-1.25 1.25-2.5 0-5',why:'For comparison. The panel saw a grinning face at 20-24: rim front + body = lips, two straight wisps = eyes.'},
+  {id:'L',name:'L. Side bowl with a lip, uneven steam',d:'M3 12h18M4 12a8 8 0 0 0 16 0M9 8c-1-1-1-2 0-3s1-2 0-3M14.5 8c-1-.67-1-1.33 0-2s1-1.33 0-2',why:'No front rim, so no second lip. The lip sticks out past the bowl (soup\'s does not). Two S-shaped wisps, one tall and one short, so they never pair up as eyes.'},
+  {id:'M',name:'M. Rice bowl on a small foot',d:'M3 12h18M4 12c0 4 2 6.5 5 7v2h6v-2c3-.5 5-3 5-7M9 8c-1-1-1-2 0-3s1-2 0-3M14.5 8c-1-.67-1-1.33 0-2s1-1.33 0-2',why:'Like L, but the bowl stands on a short foot ring. Soup has a long flat line under it; this has a little box.'},
+  {id:'N',name:'N. Side bowl with a lip, one wisp',d:'M3 12h18M4 12a8 8 0 0 0 16 0M12 8c-1.25-1-1.25-2 0-3s1.25-2 0-3',why:'One tall wisp in the middle: a face needs two eyes, so there is none. Soup has three wisps.'},
+  {id:'O',name:'O. J fixed: narrower, deeper, uneven steam',d:'M4 13a8 2 0 0 1 16 0a8 2 0 0 1-16 0a8 7 0 0 0 16 0M9.5 7c-1-.83-1-1.67 0-2.5s1-1.67 0-2.5M14.5 7c-1-.58-1-1.17 0-1.75s1-1.17 0-1.75',why:'Keeps J\'s open oval rim but thinner, the bowl narrowed to 4..20, and uneven S wisps 4 above the back rim.'}
+ ]},
+ {n:5,opts:[
+  {id:'L',name:'L. Round 4 pick, unchanged',d:'M3 12h18M4 12a8 8 0 0 0 16 0M9 8c-1-1-1-2 0-3s1-2 0-3M14.5 8c-1-.67-1-1.33 0-2s1-1.33 0-2',why:'For comparison. Tall wisp tops at 2, a little above soup, funnel and book-open (3).'},
+  {id:'P',name:'P. L moved down 1',d:'M3 13h18M4 13a8 8 0 0 0 16 0M9.5 9c-1-1-1-2 0-3s1-2 0-3M14.5 9c-1-.67-1-1.33 0-2s1-1.33 0-2',why:'Top at 3 and bottom at 21, like its Lucide neighbours. Wisps 5 apart, 4 above the lip.'},
+  {id:'Q',name:'Q. N moved down 1 (one wisp)',d:'M3 13h18M4 13a8 8 0 0 0 16 0M12 9c-1.25-1-1.25-2 0-3s1.25-2 0-3',why:'The one-wisp bowl, same 3..21 span as P.'},
+  {id:'R',name:'R. P with calmer steam',d:'M3 13h18M4 13a8 8 0 0 0 16 0M9.5 9c-.8-1-.8-2 0-3s.8-2 0-3M14.5 9c-.8-.67-.8-1.33 0-2s.8-1.33 0-2',why:'Same as P, but the wisps swing a little less, so at 20 they look less like the letter z.'},
+  {id:'S',name:'S. P with a wider lip',d:'M2 13h20M4 13a8 8 0 0 0 16 0M9.5 9c-1-1-1-2 0-3s1-2 0-3M14.5 9c-1-.67-1-1.33 0-2s1-1.33 0-2',why:'The lip sticks out 2 past the bowl, to push it further from soup\'s flush rim.'}
+ ]},
+ {n:6,opts:[
+  {id:'Q',name:'Q. Round 5 pick, unchanged',d:'M3 13h18M4 13a8 8 0 0 0 16 0M12 9c-1.25-1-1.25-2 0-3s1.25-2 0-3',why:'For comparison. Panel: soup\'s twin at 20-24 (the 1-unit lip nub vanishes), the wisp reads as a "2", empty top at 128.'},
+  {id:'U',name:'U. Wide shallow dish, two soft wisps',d:'M3 12h18a9 7 0 0 1-18 0zM9.5 8c-1.5-1.8 1.5-3.2 0-5M14.5 8c-1.4-1.4 1.4-2.6 0-4',why:'A new bowl shape: 18 wide but only 7 deep (soup is 9 deep, a half circle). Lip raised to 12. Each wisp bends only once, so it cannot make a "2".'},
+  {id:'V',name:'V. Rice bowl on a small foot',d:'M3 12h18c0 3.3-2.3 5.6-5.5 6.4L15 20H9l-.5-1.6C5.3 17.6 3 15.3 3 12ZM9.5 8c-1.5-1.8 1.5-3.2 0-5M14.5 8c-1.4-1.4 1.4-2.6 0-4',why:'Same width, sides that taper in, and a short foot ring joined to the bowl. Soup has a loose base line; ice-cream-bowl has a tall stem. This sits low.'},
+  {id:'W',name:'W. Flat-bottom bowl',d:'M3 12h18c0 3.5-1.8 5.9-4.5 7h-9C4.8 17.9 3 15.5 3 12ZM9.5 8c-1.5-1.8 1.5-3.2 0-5M14.5 8c-1.4-1.4 1.4-2.6 0-4',why:'Curved sides that end in a flat bottom 9 wide: a noodle bowl. No round belly, so it cannot be soup.'},
+  {id:'X',name:'X. Wide shallow dish, one soft wisp',d:'M3 12h18a9 7 0 0 1-18 0zM12 8c-1.5-1.8 1.5-3.2 0-5',why:'U with one wisp, to test one against two now that the bowl is no longer soup\'s.'}
+ ]},
+ {n:7,opts:[
+  {id:'V',name:'V. Round 6 pick, unchanged',d:'M3 12h18c0 3.3-2.3 5.6-5.5 6.4L15 20H9l-.5-1.6C5.3 17.6 3 15.3 3 12ZM9.5 8c-1.5-1.8 1.5-3.2 0-5M14.5 8c-1.4-1.4 1.4-2.6 0-4',why:'For comparison. Not soup any more, but at 20 the two upright wisps go nearly straight, like two short bars, and the 6-wide foot blurs.'},
+  {id:'Y',name:'Y. V with leaning steam',d:'M3 12h18c0 3.3-2.3 5.6-5.5 6.4L15 20H9l-.5-1.6C5.3 17.6 3 15.3 3 12ZM9 8c-1.2-1.6 1.8-2.4 1-5M14 8c-1.1-1.3 1.6-2 1-4',why:'Both wisps drift 1 to the right as they rise, the way steam does. Two slanted marks read as moving steam, not as eyes and not as a "2".'},
+  {id:'Z',name:'Z. Y with a wider foot',d:'M3 12h18c0 3.4-2.4 5.8-5.6 6.6L16 20H8l.6-1.4C5.4 17.8 3 15.4 3 12ZM9 8c-1.2-1.6 1.8-2.4 1-5M14 8c-1.1-1.3 1.6-2 1-4',why:'Foot 8 wide and a little lower on the bowl, so at 20 it shows as a clear flat base. Still no stem (ice-cream-bowl has a stem) and no loose base line (soup has one).'},
+  {id:'AA',name:'AA. Wider foot, one wisp',d:'M3 12h18c0 3.4-2.4 5.8-5.6 6.6L16 20H8l.6-1.4C5.4 17.8 3 15.4 3 12ZM12 8c-1.6-1.8 1.6-3.2 0-5',why:'Z with one soft wisp: the calmest. Tests whether the foot bowl still says "hot food" with one wisp.'}
+ ]},
+ {n:8,opts:[
+  {id:'Z',name:'Z. Round 7 pick, unchanged',d:'M3 12h18c0 3.4-2.4 5.8-5.6 6.6L16 20H8l.6-1.4C5.4 17.8 3 15.4 3 12ZM9 8c-1.2-1.6 1.8-2.4 1-5M14 8c-1.1-1.3 1.6-2 1-4',why:'For comparison. Panel: the foot step is too short (1.4) so its corners blob; the wisps are "//" ticks at 20 and beans at 128; it stops at 20, one above its neighbours.'},
+  {id:'AB',name:'AB. Box foot, matched bow wisps',d:'M3 13h18c0 3.5-2.5 6-6 6v2H9v-2c-3.5 0-6-2.5-6-6ZM9 9c0-1 1.4-1.4 1.4-3S9 4 9 3M14 9c0-1 1.4-1.4 1.4-3s-1.4-2-1.4-3',why:'The bowl curve ends flat at 19, then the foot drops straight down 2 to 21 (6 wide): a clear step, corners on whole units. Two copies of one wisp, 5 apart, 9 to 3: straight up, one soft bow (1.4) to the right, straight up again.'},
+  {id:'AC',name:'AC. Foot that tapers in, matched bow wisps',d:'M3 13h18c0 3.5-2.5 6-5 6l-1 2H9l-1-2c-2.5 0-5-2.5-5-6ZM9 9c0-1 1.4-1.4 1.4-3S9 4 9 3M14 9c0-1 1.4-1.4 1.4-3s-1.4-2-1.4-3',why:'Y\'s idea done right: the foot is 8 wide where it meets the bowl and narrows to 6 at 21 (sides lean in, no flare). Same wisps as AB.'},
+  {id:'AD',name:'AD. Box foot, small S wisps',d:'M3 13h18c0 3.5-2.5 6-6 6v2H9v-2c-3.5 0-6-2.5-6-6ZM9.5 9c-1-.8-1-2.2 0-3s1-2.2 0-3M14.5 9c-1-.8-1-2.2 0-3s1-2.2 0-3',why:'AB\'s bowl with the usual steam wave: two matched S wisps that swing only 0.75 each way, so they stay calm and do not hook into a "2".'}
+ ]}
+];
+const PICK={1:'B',2:'F',3:'J',4:'L',5:'Q',6:'V',7:'Z',8:'AB'};
+const Q=new URLSearchParams(location.search);
+if(Q.get('theme')==='dark')document.body.className='th-dark';
+const ONLY=Q.get('round');
+const pathEl=p=>p.startsWith('<')?p:`<path d="${p}"/>`;
+function svg(o,size,cls=''){const inner=o.lu?LU[o.lu].map(pathEl).join(''):`<path d="${o.d}"/>`;
+ return `<svg class="${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;}
+const nbr=(o,s)=>['soup','search','funnel','book-open','clock'].map(k=>svg({lu:k},s)).join('')+`<span class="sep"></span>`+svg(o,s,'me');
+function sizes(o,rid,th){return `<div class="side ${th}"><div class="lab">${th==='th-dark'?'Dark (proof palette), placeholder tone':'Light, placeholder tone'}</div><div class="strip">${[16,20,24,32,64].map(s=>`<div class="sz" id="${th==='th-dark'?'d':'l'}${rid}${o.id}s${s}">${svg(o,s)}${s}</div>`).join('')}<div class="sz"><div class="g128" id="${th==='th-dark'?'d':'l'}${rid}${o.id}s128"><div class="gr"></div><div class="safe"></div>${svg(o,128)}</div>128</div></div>
+ <div class="nb">${nbr(o,20)}</div><div class="nb">${nbr(o,24)}</div></div>`;}
+const PHOTO=c=>`<div class="th" style="--food:${c}"></div>`;
+function ctx(o,th){const nop=`<div class="th nop" title="No photo yet">${svg(o,24)}</div>`;
+ const I_CLOCK=svg({lu:'clock'},16,'ico');
+ const card=(n,t,c,photo)=>`<div class="ic"><div class="ich"><b>${n}</b></div><div class="im"><span>${I_CLOCK}${t} min</span><span>Made 1×</span><span class="hv">Have 4 of 8</span></div><div class="icb">${photo?PHOTO(c):nop}<div class="ix"><div>Fast, use any veg.</div><div class="src">Your own recipe</div></div></div></div>`;
+ return `<div class="side ${th}" style="background:var(--page);padding:10px;border-radius:10px"><div class="ctxlab">${th==='th-dark'?'Dark (proof)':'Light'}: C-058 card 84x68, pile 64x48, list row 56x48, iPhone row 48x42</div><div class="ctx"><div class="col">
+ ${card('Ginger Beef Stir-Fry',25,'#7A4A2A',false)}${card('Chicken Tikka Masala',45,'#C0682E',true)}
+ <div style="display:flex;gap:10px;align-items:center">${PHOTO('#D07A3A').replace('class="th"','class="th p64"')}<div class="th nop p64">${svg(o,24)}</div><span class="ctxlab">pile tiles</span></div></div>
+ <div class="col"><div class="rows">
+  <div class="row">${PHOTO('#C0682E')}<b>Chicken Tikka Masala</b><div class="m">45 min<br>Have 6 of 9</div></div>
+  <div class="row">${nop}<b>Ginger Beef Stir-Fry</b><div class="m">25 min<br>Have 4 of 8</div></div>
+  <div class="row">${nop}<b>Naan Pizza</b><div class="m">15 min<br>Have 4 of 5</div></div></div>
+  <div class="rows"><div class="row ph">${PHOTO('#C0682E')}<b>Chicken Tikka Masala</b><div class="m">45 min</div></div>
+  <div class="row ph">${nop}<b>Ginger Beef Stir-Fry</b><div class="m">25 min</div></div></div></div></div></div>`;}
+function render(){let h=`<div class="card"><h2>A recipe with no photo yet</h2><p class="q">Its photo spot shows a quiet paper tile with a small bowl in the middle. Everyday line icon (Lucide family: 24 grid, line 2, round ends, no fill), placeholder tone, 24 px in the tile. Must not look like Lucide <code>soup</code> (that is "lunch" in the app). ★ marks my pick each round. Brief: <code>BRIEF.md</code>; grades: <code>ITERATIONS.md</code>.</p></div>`;
+ for(const r of [...ROUNDS].reverse()){h+=`<div class="card rnd${ONLY==r.n?' show':''}" id="round${r.n}"><h2>Round ${r.n}</h2><div class="opts">`;
+  for(const o of r.opts){const pk=PICK[r.n]===o.id;
+   h+=`<div class="opt${pk?' pick':''}" id="o${r.n}${o.id}"><div class="nm">${o.name}${pk?'<span class="pk">★ my pick</span>':''}</div><div class="why">${o.why}</div>
+   <div class="two">${sizes(o,r.n,'th-light')}${sizes(o,r.n,'th-dark')}</div>
+   <h3>In the Recipe Book</h3><div class="two" style="grid-template-columns:minmax(0,1fr)">${ctx(o,'th-light')}${ctx(o,'th-dark')}</div>
+   <pre>${o.lu?'Lucide '+o.lu+' (6 parts)':o.d}</pre></div>`;}
+  h+=`</div></div>`;}
+ document.getElementById('app').innerHTML=h;
+ if(ONLY)document.body.classList.add('only-round');
+ document.getElementById('seg').innerHTML=[`<button class="${!ONLY?'on':''}" onclick="location.search=''">All rounds</button>`,...ROUNDS.map(r=>`<button class="${ONLY==r.n?'on':''}" onclick="location.search='?round=${r.n}'">Round ${r.n}</button>`),`<button onclick="const u=new URLSearchParams(location.search);u.set('theme',document.body.className==='th-dark'?'light':'dark');location.search=u">Light / Dark page</button>`].join('');}
+render();
+</script>
+<script>if(window.SC_FULL)document.documentElement.dataset.full=window.SC_FULL;</script>
+</body>
+</html>
