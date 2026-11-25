@@ -82,5 +82,12 @@
   "name": "Groceries",
   "msg": "Groceries round 25: Either/Any Store items show on every store's list and leave all lists once bought or dropped; new menu icons (recipe box, jars, storage tub); try a 3-store household under More.",
   "date": "2026-11-24"
+ },
+ {
+  "v": "plan-r9",
+  "mockup": "index.html",
+  "name": "Plan",
+  "msg": "Plan a week v3, round 9: week board + Claude, start card, recipe card picker, plans ahead, Import Groceries",
+  "date": "2026-11-24"
  }
 ]
