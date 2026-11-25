@@ -173,5 +173,12 @@
   "name": "Add and Edit a Recipe",
   "msg": "addedit-r3: gave panel slides in, reset to what we read (red, asks first), one-row phone strip",
   "date": "2026-11-25"
+ },
+ {
+  "v": "addedit-r4",
+  "mockup": "index.html",
+  "name": "Add and Edit a Recipe",
+  "msg": "addedit-r4: site name in source, one-line tick, grey Save says why, clearer leave box",
+  "date": "2026-11-25"
  }
 ]
