@@ -26,5 +26,12 @@
   "name": "Recipes",
   "msg": "Round 12: cards back to the tight pile; the card under the mouse lifts gently and shows Add to Plan / Start Cooking in its title row. iPad: the open card shows them.",
   "date": "2026-11-24"
+ },
+ {
+  "v": "r13",
+  "mockup": "C-058_recipe_book.html",
+  "name": "Recipes",
+  "msg": "Hover pulls the card up a little (stays in the pile); cards show only Add to Plan, on every card on touch; recipe two columns only when Expanded; iPad upright and iPhone open straight to the list",
+  "date": "2026-11-24"
  }
 ]
