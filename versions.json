@@ -166,5 +166,12 @@
   "name": "Icon style sheet",
   "msg": "Icon style sheet r12: your 4 answers built in; for your OK",
   "date": "2026-11-25"
+ },
+ {
+  "v": "addedit-r3",
+  "mockup": "index.html",
+  "name": "Add and Edit a Recipe",
+  "msg": "addedit-r3: gave panel slides in, reset to what we read (red, asks first), one-row phone strip",
+  "date": "2026-11-25"
  }
 ]
