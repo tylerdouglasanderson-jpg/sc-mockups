@@ -54,5 +54,12 @@
   "name": "Icons",
   "msg": "Menu icon set, round 11: every menu icon in the grocery-bag family, colour and plain, menu size and big size. Pick Today, Kitchen (jars or fridge), Prep's place, and Cook.",
   "date": "2026-11-24"
+ },
+ {
+  "v": "groceries-r19",
+  "mockup": "groceries_v3.html",
+  "name": "Groceries",
+  "msg": "Groceries round 19: To Sort folder (no guessed stores), Other Store menu, Check on Phone, plus phone and iPad with full Shopping mode (Start Shopping, tap into the cart, Done Shopping, Put Away).",
+  "date": "2026-11-24"
  }
 ]
