@@ -145,5 +145,12 @@
   "name": "Add and Edit a Recipe",
   "msg": "Recipes opens already open, no rename (Tyler 08:06)",
   "date": "2026-11-25"
+ },
+ {
+  "v": "groceries-r35",
+  "mockup": "groceries_v3.html",
+  "name": "Groceries",
+  "msg": "Groceries round 35 (agreed, building): if a plan changes after import, its rows turn gray with a why line, and a calm 'Update your grocery list?' card shows what changes.",
+  "date": "2026-11-25"
  }
 ]
