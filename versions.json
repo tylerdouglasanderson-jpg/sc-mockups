@@ -68,5 +68,12 @@
   "name": "Icons",
   "msg": "Icons round 17: your picks locked (Today sunrise, Kitchen jars), Leftovers is now a storage tub, no indent in the menu, Recipe Book A (wooden Family Recipe Book) or B (index cards in a recipe box).",
   "date": "2026-11-24"
+ },
+ {
+  "v": "groceries-r22",
+  "mockup": "groceries_v3.html",
+  "name": "Groceries",
+  "msg": "Groceries round 22: Add a Plan's Groceries (pull in this week, next week or both), app's own iPad menu, calmer shopping rows, one progress bar.",
+  "date": "2026-11-24"
  }
 ]
