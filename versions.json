@@ -96,5 +96,12 @@
   "name": "Recipes",
   "msg": "C-058 r16: design-iterate rounds 4-6, CH-1..17 toggles vs r15",
   "date": "2026-11-24"
+ },
+ {
+  "v": "r17",
+  "mockup": "C-058_recipe_book.html",
+  "name": "Recipes",
+  "msg": "C-058 r17: plain-words explanations in the Changes panel",
+  "date": "2026-11-24"
  }
 ]
