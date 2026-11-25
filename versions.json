@@ -33,5 +33,12 @@
   "name": "Recipes",
   "msg": "Hover pulls the card up a little (stays in the pile); cards show only Add to Plan, on every card on touch; recipe two columns only when Expanded; iPad upright and iPhone open straight to the list",
   "date": "2026-11-24"
+ },
+ {
+  "v": "r14",
+  "mockup": "C-058_recipe_book.html",
+  "name": "Recipes",
+  "msg": "Top card no longer slides under the search box (the card below slides down instead); recipe buttons sit on their own line under the title on every screen",
+  "date": "2026-11-24"
  }
 ]
