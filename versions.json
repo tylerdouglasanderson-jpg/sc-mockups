@@ -152,5 +152,12 @@
   "name": "Groceries",
   "msg": "Groceries round 35 (agreed, building): if a plan changes after import, its rows turn gray with a why line, and a calm 'Update your grocery list?' card shows what changes.",
   "date": "2026-11-25"
+ },
+ {
+  "v": "plan-r23",
+  "mockup": "index.html",
+  "name": "Plan",
+  "msg": "Plan a week v3, round 23: Decide My Week, changed after import, names; panel 8+",
+  "date": "2026-11-25"
  }
 ]
