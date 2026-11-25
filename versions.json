@@ -61,5 +61,12 @@
   "name": "Groceries",
   "msg": "Groceries round 19: To Sort folder (no guessed stores), Other Store menu, Check on Phone, plus phone and iPad with full Shopping mode (Start Shopping, tap into the cart, Done Shopping, Put Away).",
   "date": "2026-11-24"
+ },
+ {
+  "v": "icons-r17",
+  "mockup": "icons.html",
+  "name": "Icons",
+  "msg": "Icons round 17: your picks locked (Today sunrise, Kitchen jars), Leftovers is now a storage tub, no indent in the menu, Recipe Book A (wooden Family Recipe Book) or B (index cards in a recipe box).",
+  "date": "2026-11-24"
  }
 ]
