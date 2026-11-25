@@ -103,5 +103,12 @@
   "name": "Recipes",
   "msg": "C-058 r17: plain-words explanations in the Changes panel",
   "date": "2026-11-24"
+ },
+ {
+  "v": "groceries-r29",
+  "mockup": "groceries_v3.html",
+  "name": "Groceries",
+  "msg": "Groceries round 29: Import Groceries (clear notice when an approved plan isn't on the list; needs = recipes minus your Kitchen), Jump to Aisle lands at the top, smooth check-off animation, change the amount on the shopping row.",
+  "date": "2026-11-24"
  }
 ]
