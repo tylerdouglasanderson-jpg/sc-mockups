@@ -1,0 +1,1731 @@
+<!doctype html>
+<html lang="en"><head><script>window.SC_FULL='ipad'</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Recipes iPad">
+<title>Recipes iPad</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{--page:#EDE5D8;--card:#FAF6EE;--ink:#1E1E1C;--ink2:#3F3D37;--muted:#605E55;--ph:#9A968A;--sage:#1F3A1C;--sage-mid:#3F6B38;--sage-light:#E4EDE2;--sage-line:#B9CDB4;
+--tan:#E4D3B3;--tan-line:#D2BE98;--border:rgba(0,0,0,.09);--amber:#9A5B12;--amber-light:#F6E7CC;--ired:rgba(196,72,60,.55);--iblue:rgba(80,120,170,.16);--icard:#FFFDF7;
+--wood1:#7A5232;--wood2:#5E3D22;--wood3:#8C6240;--endpaper:#F3E9D6;--endink:rgba(63,94,59,.22);--k:1}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"IBM Plex Sans",system-ui,sans-serif;background:#efece7;color:#222}
+button{font:inherit;color:inherit}
+/* ---------- viewer controls (outside the device) ---------- */
+#ctl{position:sticky;top:0;z-index:100;background:#f8f6f2;border-bottom:1px solid #ddd;padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#ctl h1{font-size:16px;margin:0 8px 0 0;font-weight:700}
+.seg{display:inline-flex;border:1px solid #cfc6b5;border-radius:9px;overflow:hidden;background:#fff}
+.seg button{border:0;background:none;padding:7px 12px;font-size:13.5px;cursor:pointer;border-right:1px solid #e4ddd0}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--sage);color:#fff;font-weight:600}
+.cb{border:1px solid #cfc6b5;background:#fff;border-radius:9px;padding:7px 12px;font-size:13.5px;cursor:pointer}
+.cb.on{background:#FFF1A8;border-color:#d9c25a}
+#wrap{display:flex;gap:18px;padding:16px;align-items:flex-start}
+#stage{flex:1;min-width:0}
+#scaler{transform-origin:0 0}
+/* full-screen mode (?full=ipad or ?full=phone): the real device is the frame */
+html.full,html.full body{height:100%;overflow:hidden;background:var(--page)}
+html.full #ctl,html.full #notes{display:none !important}
+html.full #wrap{padding:0;gap:0;display:block}
+html.full #dev{border:0;border-radius:0;box-shadow:none}
+#notes{flex:0 0 300px;display:flex;flex-direction:column;gap:12px;position:sticky;top:70px}
+.note{background:#FFF6B8;border:1px solid #E6D774;border-radius:4px;padding:10px 12px;font-size:13.5px;line-height:1.45;box-shadow:0 2px 6px rgba(0,0,0,.08);rotate:-.4deg}
+.note:nth-child(2n){rotate:.5deg}
+.note b{display:block;font-size:14px;margin-bottom:2px}
+.note ul{margin:4px 0 0;padding-left:18px}
+@media (max-width:1000px){#wrap{flex-direction:column}#notes{position:static;flex:none;width:100%}}
+
+/* ---------- the device ---------- */
+#dev{position:relative;background:var(--page);border:10px solid #22211f;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(0,0,0,.18);color:var(--ink)}
+#dev.computer{border-radius:10px;border-width:8px}
+.wood{height:50px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:#F6E9D2;
+  background:repeating-linear-gradient(92deg,rgba(255,255,255,.035) 0 3px,transparent 3px 9px),linear-gradient(180deg,var(--wood3),var(--wood2));box-shadow:inset 0 -1px 0 rgba(0,0,0,.3);z-index:20}
+.wood .wm{font-family:Fraunces,serif;font-weight:600;font-style:italic;font-size:21px;letter-spacing:.01em}
+.wood .av{width:30px;height:30px;border-radius:50%;background:#F6E9D2;color:var(--wood2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.dbody{flex:1;display:flex;min-height:0;position:relative}
+/* rail (C-055) */
+.rail{flex:none;background:var(--card);border-right:1px solid var(--border);padding:14px 8px;display:flex;flex-direction:column;gap:2px;overflow:hidden;z-index:15}
+.rail.wide{width:220px}
+.rail.slim{width:64px;align-items:center;padding:14px 0}
+.cap{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:10px;background:var(--sage);color:#fff;font-weight:600;font-size:15px;margin-bottom:10px;cursor:pointer}
+.cap .plus{width:22px;text-align:center;font-size:22px;line-height:1}
+.rail.slim .cap{width:44px;height:44px;padding:0;justify-content:center;border-radius:50%}
+.rail.slim .w{display:none}
+.it{display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;font-size:15px;color:var(--ink2);cursor:pointer}
+.it:hover{background:rgba(0,0,0,.03)}
+.it.cur{background:var(--sage-light);color:var(--sage);font-weight:600}
+.it svg{width:22px;height:22px;flex:none}
+.rail.slim .it{width:44px;height:44px;padding:0;justify-content:center}
+.rdiv{height:1px;background:var(--border);margin:8px 6px}
+.rail.slim .rdiv{width:32px;margin:8px 0}
+.main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative}
+/* tan bar (C-025 + C-057) */
+.tan{height:46px;flex:none;background:var(--tan);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 12px 0 24px;gap:10px;z-index:12}
+.phone .tan{padding:0 6px 0 14px}
+.tl{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
+.tan .t{font-style:italic;font-weight:600;font-size:16px;white-space:nowrap}
+.tan .bar{width:1px;height:18px;background:rgba(0,0,0,.25);flex:none}
+.tan .d{font-style:italic;font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tback{border:0;background:none;font-size:24px;line-height:1;padding:0 4px 2px 0;cursor:pointer;color:var(--ink);display:none}
+.act{border:0;font-size:13.5px;font-weight:600;height:32px;box-sizing:border-box;padding:0 13px;line-height:32px;border-radius:8px;background:var(--sage);color:#fff;white-space:nowrap;cursor:pointer}
+.act2{border:1px solid var(--sage-line);font-size:13.5px;font-weight:600;height:32px;box-sizing:border-box;padding:0 12px;line-height:30px;border-radius:8px;background:rgba(255,255,255,.5);color:var(--sage);white-space:nowrap;cursor:pointer}
+.dots{border:1px solid rgba(92,61,10,.20);background:rgba(255,255,255,.35);box-sizing:border-box;width:32px;height:32px;border-radius:8px;font-size:19px;line-height:32px;padding:0;cursor:pointer;color:#5C3D0A}
+.dots:hover,.dots.on{background:rgba(0,0,0,.07)}
+.dots:hover,.dots.on{background:rgba(0,0,0,.07)}
+.phone .tan .act2{display:none}
+/* the book area */
+.book{flex:1;position:relative;min-height:0;overflow:hidden;perspective:6400px;perspective-origin:50% 50%;
+  background:radial-gradient(ellipse 75% 65% at 20% 8%,rgba(255,252,245,.45),transparent 72%),
+   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .24 0 0 0 0 .17 0 0 0 1.1 -.42'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0/220px 220px,
+   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E") 0 0/600px 600px,
+   linear-gradient(160deg,#DCD5C9,#CDC4B6 55%,#BFB5A6)}
+/* ---------- cover: one hinge in the middle ---------- */
+/* the cover is the round-4 wooden cover (Nov 3): plank grain, carved frame, engraved title, one 180 deg swing and a small settle */
+.book{--woodr4:repeating-linear-gradient(90deg,rgba(60,30,8,0) 0 6px,rgba(60,30,8,.16) 6px 7px,rgba(60,30,8,0) 7px 13px,rgba(255,226,180,.07) 13px 15px,rgba(60,30,8,0) 15px 23px,rgba(60,30,8,.10) 23px 25px,rgba(60,30,8,0) 25px 34px),
+  repeating-linear-gradient(93deg,rgba(40,20,4,.10) 0 1px,transparent 1px 19px),linear-gradient(90deg,#7C4D22,#95633A 22%,#87572A 48%,#9C693E 76%,#7F5026);--engrave:#4E2E12}
+.cover{position:absolute;top:34px;bottom:14px;left:calc(50% + 12px);right:14px;z-index:4;transform-origin:0 50%;transform:translate3d(0,0,24px);transform-style:preserve-3d;cursor:pointer}
+.narrow .cover{left:14px;top:14px;transform:none}
+.cfr,.cbk{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:4px 12px 12px 4px;background-color:#8B5A2B;background-image:var(--woodr4)}
+.cfr{box-shadow:inset 8px 0 9px -6px rgba(0,0,0,.45),inset 0 0 0 1px rgba(40,20,4,.35),0 12px 28px rgba(40,26,8,.30),0 2px 4px rgba(40,26,8,.2)}
+.cfr::before{content:"";position:absolute;left:18px;top:0;bottom:0;width:2px;background:rgba(40,20,4,.35);box-shadow:1px 0 0 rgba(255,226,180,.12)}
+.cframe{position:absolute;inset:30px 30px 34px 42px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;
+  box-shadow:inset 0 2px 2px rgba(40,20,4,.45),inset 0 -1px 0 rgba(255,226,180,.18),0 1px 0 rgba(255,226,180,.18)}
+.narrow .cframe{inset:22px 20px 26px 32px}
+.cfr .ct,.cfr .cm,.cfr .cc{color:var(--engrave);text-shadow:0 1px 0 rgba(255,226,180,.30),0 -1px 1px rgba(30,14,2,.55)}
+.cfr .ct{font-weight:700;font-size:44px;line-height:1.08;letter-spacing:.01em;padding:0 10px}
+.narrow .cfr .ct{font-size:34px}
+.cfr .cr{width:80px;height:3px;border-radius:2px;background:rgba(60,30,8,.45);box-shadow:0 1px 0 rgba(255,226,180,.25),inset 0 1px 1px rgba(20,8,0,.5)}
+.cfr .cm{font-style:italic;font-weight:600;font-size:17px}
+.cfr .cc{font-weight:600;font-size:15px}
+.cfr .hint{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:13px;color:#F3E3C6;opacity:.85}
+.cbk{transform:rotateY(180deg);border-radius:12px 4px 4px 12px;box-shadow:inset 0 0 0 1px rgba(40,20,4,.35),inset 0 -3px 0 rgba(40,20,4,.35),inset 3px 0 0 rgba(40,20,4,.28),inset -14px 0 16px -10px rgba(0,0,0,.5),0 18px 30px -12px rgba(30,20,8,.45),0 4px 10px rgba(40,26,8,.2)}
+.cbk::after{content:"";position:absolute;inset:12px;border-radius:3px;
+  background:radial-gradient(circle,var(--endink) 0 1.4px,transparent 2px) 0 0/16px 16px,radial-gradient(circle,var(--endink) 0 1.4px,transparent 2px) 8px 8px/16px 16px,var(--endpaper);
+  box-shadow:inset -22px 0 22px -14px rgba(40,20,4,.55),inset -3px 0 0 rgba(40,20,4,.12),inset 0 0 0 1px rgba(60,40,10,.28),0 0 0 1px rgba(255,230,190,.14)}
+/* the wooden spine: a hinge 24px wide. Closed, it stands on edge with its outside facing left; it swings down as the cover opens and ends flat as the gutter */
+.spine{position:absolute;top:34px;bottom:14px;left:calc(50% - 12px);width:24px;z-index:9;pointer-events:none;transform-origin:100% 50%;transform:rotateY(90deg);transform-style:preserve-3d;transition:opacity .2s}
+.spine.open{transform:none}
+.spine i{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background-color:#8B5A2B}
+.spine .sin{border-radius:3px;background-image:linear-gradient(90deg,rgba(30,14,2,.55),rgba(30,14,2,.15) 18%,rgba(255,226,180,.18) 50%,rgba(30,14,2,.15) 82%,rgba(30,14,2,.55)),var(--woodr4);box-shadow:inset 0 0 0 1px rgba(30,14,2,.30)}
+.spine .sout{transform:rotateY(180deg);border-radius:10px;background-image:linear-gradient(180deg,transparent 0 46px,rgba(40,20,4,.45) 46px 48px,rgba(255,226,180,.14) 48px 49px,transparent 49px calc(100% - 49px),rgba(40,20,4,.45) calc(100% - 49px) calc(100% - 47px),rgba(255,226,180,.14) calc(100% - 47px) calc(100% - 46px),transparent 0),linear-gradient(90deg,rgba(30,14,2,.45),rgba(255,226,180,.12) 50%,rgba(30,14,2,.45)),var(--woodr4)}
+.spine .sin::after{content:'';position:absolute;inset:0;border-radius:10px;opacity:0;background-image:linear-gradient(180deg,transparent 0 46px,rgba(40,20,4,.45) 46px 48px,rgba(255,226,180,.14) 48px 49px,transparent 49px calc(100% - 49px),rgba(40,20,4,.45) calc(100% - 49px) calc(100% - 47px),rgba(255,226,180,.14) calc(100% - 47px) calc(100% - 46px),transparent 0),linear-gradient(90deg,rgba(30,14,2,.45),rgba(255,226,180,.12) 50%,rgba(30,14,2,.45)),var(--woodr4);background-color:#8B5A2B}
+.book.xpOn .spine{opacity:0}
+.narrow .spine{display:none}
+.cover.open{transform:translate3d(-24px,0,0) rotateY(-180deg);pointer-events:none}
+.narrow .cover.open{transform:rotateY(-180deg)}
+.cfr::after,.cbk::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;z-index:5}
+.cfr::after{background:linear-gradient(270deg,rgba(20,10,2,.55),rgba(20,10,2,.15))}
+.cbk::before{background:linear-gradient(90deg,rgba(20,10,2,.5),rgba(20,10,2,.12))}
+.cover.opening .cfr::after{animation:shadeF calc(1.4s * var(--k)) forwards}
+.cover.opening .cbk::before{animation:shadeB calc(1.4s * var(--k)) forwards}
+@keyframes shadeF{0%{opacity:0}45%{opacity:.85}100%{opacity:.85}}
+@keyframes shadeB{0%,45%{opacity:.9}84%{opacity:.08}100%{opacity:0}}
+.cover.opening{z-index:12;pointer-events:none}
+.desk-hint{position:absolute;left:14px;top:34px;bottom:14px;width:calc(50% - 26px);display:flex;align-items:center;justify-content:center;color:var(--muted);font-style:italic;font-size:14px;z-index:1}
+.narrow .desk-hint{display:none}
+/* ---------- deck (left half) ---------- */
+.deck{position:absolute;top:34px;bottom:14px;left:14px;width:calc(50% - 26px);z-index:6;display:flex;flex-direction:column;padding:0}
+.narrow .deck{inset:0;width:auto;padding:0;background:var(--page)}
+/* the search panel floats on the inside of the cover: even gaps left, right and top */
+.head{margin:24px 24px 0;flex:none;position:relative;z-index:3}
+.narrow .head{margin:0}
+.head:has(.fpop.show){z-index:60}
+.wide .head{margin-top:34px}
+.narrow .srow{flex-wrap:wrap}.narrow .srow .srch{flex:1 1 100%}.narrow .srow .fbtn,.narrow .srow .addbtn{flex:1;justify-content:center}
+.deck.closed{visibility:hidden}
+.mtabs{display:flex;gap:2px;padding:0 6px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.mtab{border:1px solid var(--tan-line);border-bottom:0;background:#EFE3CB;border-radius:8px 8px 0 0;padding:6px 12px 5px;font-size:13.5px;font-weight:500;color:var(--ink2);cursor:pointer;white-space:nowrap;position:relative;top:1px}
+.mtab.on{background:var(--icard);font-weight:700;color:var(--ink);z-index:2}
+.mtab small{color:var(--muted);font-weight:500;margin-left:4px}
+.tools{background:var(--icard);border:1px solid var(--tan-line);border-radius:0 6px 6px 6px;padding:8px 10px;display:flex;flex-direction:column;gap:7px;box-shadow:0 2px 5px rgba(40,26,8,.08)}
+.narrow .tools{border-radius:0;border-left:0;border-right:0}
+.narrow .mtabs{padding:8px 10px 0;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}
+.srch{display:flex;align-items:center;gap:8px;border:1px solid var(--tan-line);border-radius:8px;background:#fff;padding:6px 10px}
+.srch input{border:0;outline:0;flex:1;font:inherit;font-size:14px;background:none;min-width:0}
+.srch .x{border:0;background:none;cursor:pointer;color:var(--muted);font-size:15px;display:none}
+.srch.has .x{display:block}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--tan-line);background:#fff;border-radius:6px;padding:3px 9px;font-size:13px;cursor:pointer;color:var(--ink2)}
+.chip.on{background:var(--sage-light);border-color:var(--sage-line);color:var(--sage);font-weight:600}
+.chip.on i{font-style:normal;margin-left:6px;opacity:.7}
+.chips:not(.has) .cnt{margin-left:0}
+.narrow .chips:not(.has) .cnt{display:none}
+.chips .clr{border:0;background:none;color:var(--sage-mid);font-size:12.5px;font-weight:600;cursor:pointer;text-decoration:underline;padding:0 2px}
+.cnt{font-size:12.5px;color:var(--muted);margin-left:auto;align-self:center}
+.dscroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:16px 36px 40px 24px}
+.wide .dscroll{margin:-34px 10px 0 10px;padding:52px 26px 44px 14px;scrollbar-width:thin;
+ -webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 22px,#000 64px,#000 calc(100% - 14px),transparent);
+ mask-image:linear-gradient(to bottom,transparent 0,transparent 22px,#000 64px,#000 calc(100% - 14px),transparent)}
+.narrow .dscroll{padding:0 0 20px}
+.empty{padding:30px 10px;color:var(--muted);font-style:italic;text-align:center}
+/* index cards */
+.ic{--tilt:calc(var(--t0,0) * 1deg);position:relative;display:flex;flex-direction:column;justify-content:flex-start;width:100%;height:148px;padding:0 14px;text-align:left;border:0;border-radius:4px;cursor:pointer;color:var(--ink);
+  background:repeating-linear-gradient(to bottom,transparent 0 21px,var(--iblue) 21px 22px) 0 58px/100% 90px no-repeat,var(--icard);
+  box-shadow:0 -1px 3px rgba(40,26,8,.10),0 2px 5px rgba(40,26,8,.16),0 0 0 1px rgba(60,40,10,.12);
+  rotate:var(--tilt);transition:translate calc(.22s * var(--k)) cubic-bezier(.2,.7,.2,1),box-shadow calc(.22s * var(--k))}
+.ic+.ic{margin-top:-98px}
+.ich{display:flex;align-items:center;gap:8px;height:46px;margin:0 -14px;padding:4px 14px 0;border-bottom:1.5px solid var(--ired)}
+.ich b{flex:1;min-width:0;font-size:15.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ich .fav{color:#B5482F;font-size:14px}
+.badge{display:none;border-radius:5px;background:var(--sage-light);color:var(--sage);border:1px solid var(--sage-line);font-size:12px;font-weight:700;padding:1px 10px;flex:none}
+.ic.open .badge{display:inline-block}
+.icb{display:flex;gap:12px;padding:10px 0 0}
+.th{width:84px;height:68px;border-radius:4px;flex:none;box-shadow:inset 0 0 0 1px rgba(40,26,8,.2);
+  background:radial-gradient(circle 3px at 38% 38%,#5F8F4A 0 2.5px,transparent 3px),radial-gradient(circle 3px at 60% 62%,#5F8F4A 0 2.5px,transparent 3px),radial-gradient(circle 3px at 55% 36%,#F2E6C8 0 2px,transparent 2.6px),
+  radial-gradient(circle 31px at 50% 52%,var(--food) 0 18px,rgba(0,0,0,.16) 19px,#F4EEE3 20px 27px,#CFC2AA 28px 29px,transparent 30px),repeating-linear-gradient(45deg,#C9B79A 0 6px,#BCA684 6px 12px)}
+.ix{flex:1;min-width:0;font-size:13.5px;line-height:22px;color:var(--ink2)}
+.ix .hv{font-weight:600;color:var(--sage-mid)}
+.ix .hv.lo{color:var(--amber)}
+.ic.open{translate:0 -6px;border-left:4px solid #1F3A1C}
+.ic.lift{translate:26px 0;z-index:40!important;animation:jig calc(.25s * var(--k)) ease-out;box-shadow:0 10px 22px rgba(40,26,8,.28),0 2px 5px rgba(40,26,8,.18),0 0 0 1px rgba(60,40,10,.14)}
+@keyframes jig{0%{rotate:var(--tilt)}25%{rotate:-3deg}55%{rotate:2.5deg}80%{rotate:-1deg}100%{rotate:var(--tilt)}}
+/* meta line under the title */
+.im{display:flex;gap:6px 14px;align-items:center;height:26px;font-size:12.5px;color:var(--ink2);white-space:nowrap;overflow:hidden}
+.im .hv{font-weight:600;color:var(--sage-mid)}.im .hv.lo{color:var(--amber)}
+.ix .src{font-size:12px;color:var(--muted)}
+/* ---------- card pile looks (computer and iPad sideways) ---------- */
+/* every look: paper face lit from the top, a thin paper edge, and a soft shadow each card throws onto the card behind it */
+.wide[class*=pile] .ic{height:150px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.7),rgba(255,255,255,0) 40px),
+   repeating-linear-gradient(to bottom,transparent 0 23px,var(--iblue) 23px 24px) 0 48px/100% calc(100% - 48px) no-repeat,var(--icard);
+  box-shadow:0 -3px 7px -2px rgba(40,26,8,.22),0 4px 8px -2px rgba(40,26,8,.18),0 1px 0 #EDE4D0,0 2px 0 rgba(90,64,24,.22),0 0 0 1px rgba(60,40,10,.13)}
+.wide[class*=pile] .icb{padding-top:6px}
+.wide[class*=pile] .th{width:64px;height:48px}
+.wide[class*=pile] .ix{font-size:13px;line-height:24px}
+.wide[class*=pile] .ic.lift{box-shadow:0 -3px 9px -2px rgba(40,26,8,.24),0 14px 26px rgba(40,26,8,.30),0 1px 0 #EDE4D0,0 2px 0 rgba(90,64,24,.22),0 0 0 1px rgba(60,40,10,.15)}
+/* A. neat stack: square to the page, each card shows its name and one line of facts */
+.wide.pileA .ic{--tilt:calc(var(--j) * .5deg);width:96%;margin-left:calc(2% + var(--dx) * 4px)}
+.wide.pileA .ic+.ic{margin-top:-64px}
+/* B. loose pile: tossed in by hand, a little crooked and off-line, still every name and fact line clear */
+.wide.pileB .ic{--tilt:calc(var(--j) * 1.4deg);width:88%;margin-left:calc(6% + var(--dx) * 18px)}
+.wide.pileB .ic+.ic{margin-top:calc(-60px + var(--pk) * -6px)}
+.wide.pileB .ic.lift{translate:18px -4px}
+/* in a stack only the top card's photo shows; covered photos never poke out at the side */
+.wide.pileA .ic:not(:last-child):not(.lift) .th,.wide.pileB .ic:not(:last-child):not(.lift) .th{visibility:hidden}
+/* C. two across: cards spread out two by two, the right row set a little lower, each one showing its whole face */
+.wide.pileC .dscroll{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-content:start}
+.wide.pileC .addcard{grid-column:1/-1}
+.wide.pileC .ic{--tilt:calc(var(--j) * 2deg);height:176px;margin:0 0 -30px!important;padding:0 12px}
+.wide.pileC .ic[data-i="1"]{top:46px}
+.wide.pileC .ich{height:auto;min-height:46px;margin:0 -12px;padding:6px 12px 4px}
+.wide.pileC .ich b{white-space:normal;line-height:19px;font-size:15px}
+.wide.pileC .im{gap:4px 10px;flex-wrap:wrap;height:auto;line-height:24px}
+.wide.pileC .im .hv{display:none}
+.wide.pileC .th{display:none}
+.wide.pileC .ic.lift{translate:0 -10px}
+.wide.pileC .ic.open{translate:0 -4px}
+/* D. recipe box: cards stand square like in a file box, each with a colored tab on its top edge, set at a different spot so every tab shows */
+.wide.pileD .ic{--tilt:0deg;width:94%;margin-left:3%;overflow:visible}
+.wide.pileD .ic+.ic{margin-top:-62px}
+.wide.pileD .dscroll{padding-top:66px}
+.wide.pileD .ic::before{content:attr(data-t);position:absolute;top:-19px;height:20px;padding:0 10px;font-size:11px;font-weight:600;line-height:21px;color:#3D2A10;border-radius:6px 6px 0 0;box-shadow:0 -1px 3px rgba(40,26,8,.18),0 0 0 1px rgba(60,40,10,.12);right:4%;background:#C8D8B4}
+.wide.pileD .ic[data-q="1"]::before{right:17%}
+.wide.pileD .ic[data-k=chicken]::before{background:#F0D49A}.wide.pileD .ic[data-k=veg]::before{background:#C8D8B4}.wide.pileD .ic[data-k=freeze]::before{background:#B8CDE0}.wide.pileD .ic[data-k=u30]::before{background:#E8B4A4}
+.wide.pileD .ic[data-q="2"]::before{right:30%}
+.wide.pileD .ic[data-q="3"]::before{right:10%}
+.wide.pileD .ic:not(:last-child):not(.lift) .th{visibility:hidden}
+.wide.pileA .ic:not(:last-child):not(.lift) .ix,.wide.pileB .ic:not(:last-child):not(.lift) .ix,.wide.pileD .ic:not(:last-child):not(.lift) .ix{visibility:hidden}
+.wide.pileD .ic.lift{translate:0 -22px}
+.wide.pileA .ic.lift+.ic,.wide.pileB .ic.lift+.ic{translate:0 14px;transition:translate .2s}
+.narrow .ic .im{font-size:12.5px;color:#6B5A44;height:22px}
+/* narrow: a plain list */
+.narrow .ic{rotate:0deg;height:auto;margin:0!important;border-radius:0;background:var(--card);box-shadow:none;border-bottom:1px solid var(--border);padding:10px 14px;display:flex;gap:12px;align-items:center;translate:none!important;animation:none}
+.narrow .ic .ich{display:contents}
+.narrow .ic .icb{display:contents}
+.narrow .ic .th{width:56px;height:48px;order:-1}
+.narrow .ic .ix{order:3;flex:none;font-size:13px;text-align:right;line-height:18px}
+.narrow .ic .ix .ab{display:none}
+.narrow .ic .ich b{order:2;white-space:normal}
+.narrow .ic .badge,.narrow .ic .fav{display:none}
+/* ---------- recipe pane (right half) ---------- */
+.pane{position:absolute;top:34px;bottom:14px;right:14px;width:calc(50% - 26px);z-index:7;container-type:inline-size}
+.narrow .pane{inset:0;width:auto;transform:translateX(100%);transition:transform calc(.26s * var(--k)) cubic-bezier(.2,.7,.2,1);background:var(--page);z-index:9;box-shadow:-8px 0 20px rgba(0,0,0,.12)}
+.narrow .pane.show{transform:none}
+.pane.closed{visibility:hidden}
+.rcard{position:absolute;inset:0;border-radius:6px;overflow:hidden;background:var(--icard);
+  box-shadow:0 1px 2px rgba(40,26,8,.10),0 8px 26px rgba(40,26,8,.16),0 0 0 1px rgba(60,40,10,.12)}
+.narrow .rcard{border-radius:0;box-shadow:none;inset:0}
+.rscroll{position:absolute;inset:0;overflow-y:auto;padding:0 34px 60px 26px;scroll-behavior:smooth;scrollbar-width:thin;background:var(--icard)}
+.narrow .rscroll{padding:0 22px 60px 16px}
+.rcard.swap .rscroll{animation:swap calc(.26s * var(--k)) cubic-bezier(.2,.7,.2,1) both}
+@keyframes swap{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* header */
+.rh{height:112px;display:flex;gap:16px;align-items:flex-end;padding:14px 0 12px}
+.rh{position:relative}
+.rh .ph{width:118px;height:84px;flex:none;border-radius:2px;rotate:-2deg;margin:0 6px 2px 4px;position:relative;
+  box-shadow:0 0 0 5px #fff,0 0 0 6px rgba(60,40,10,.14),0 4px 10px 4px rgba(40,26,8,.16)}
+.rh .ph::after{content:"";position:absolute;top:-12px;left:50%;width:46px;height:16px;translate:-50% 0;rotate:3deg;background:rgba(236,226,190,.82);box-shadow:0 1px 2px rgba(40,26,8,.12)}
+.narrow .rh .ph{width:84px;height:62px}
+.photoB .rh .ph{display:none}
+.rh h2{font-family:Fraunces,serif;font-weight:600;font-size:26px;line-height:1.1;margin:0}
+.narrow .rh h2{font-size:22px}
+.rh .by{font-size:13px;color:var(--muted);margin-top:4px}
+.rh .by a{color:var(--sage-mid)}
+.jump{position:sticky;top:0;z-index:3;background:var(--icard);display:flex;gap:4px;flex-wrap:wrap;padding:8px 0 7px;border-bottom:1px solid var(--border);margin:0 -4px}
+.jump button{border:0;background:none;padding:3px 8px;border-radius:6px;font-size:13px;color:var(--sage-mid);font-weight:600;cursor:pointer}
+.jump button:hover{background:var(--sage-light)}
+.facts{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:var(--ink2);padding:12px 0 2px}
+.facts b{color:var(--ink)}
+.hist{font-size:13.5px;color:var(--muted);padding:4px 0}
+.hist .st{color:#B07D1A;display:inline-flex;vertical-align:baseline}
+.hist .st button{border:0;background:none;padding:0 1px;color:inherit;font-size:15px;line-height:1;cursor:pointer;transition:transform .12s}
+.hist .st button:hover{transform:scale(1.2)}
+.ract{display:flex;gap:8px;flex-wrap:wrap;padding:8px 0}
+.pill{border:1px solid var(--tan-line);background:#fff;border-radius:6px;padding:4px 12px;font-size:13px;cursor:pointer}
+.pill.on{background:#FBE3DC;border-color:#E3A896;color:#8F2F1C}
+.marks{display:flex;gap:6px;flex-wrap:wrap;padding:4px 0 8px}
+.mk{font-size:12.5px;border-radius:4px;padding:2px 8px;background:var(--sage-light);color:var(--sage);border:1px solid var(--sage-line)}
+.mk.t{background:#F1EADC;color:var(--ink2);border-color:var(--tan-line)}
+.sec{padding:14px 0 6px;border-top:1px dashed rgba(0,0,0,.12);margin-top:6px}
+.sec h3{font-family:Fraunces,serif;font-weight:600;font-size:18px;margin:0 0 8px;display:flex;align-items:center;gap:10px}
+.sec p{margin:0 0 6px;font-size:14.5px;line-height:1.55;color:var(--ink2)}
+.yn{background:#FFF8D6;border:1px solid #EBDD9A;border-radius:4px;padding:8px 10px;font-size:14px;color:var(--ink2);font-style:italic}
+/* ingredients + steps */
+.two{display:grid;grid-template-columns:1fr;gap:0 28px}
+@container (min-width:600px){.rcard.xp .two{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.rcard.xp .two .sec.stp{border-top:1px dashed rgba(0,0,0,.12)}}
+.srv{display:inline-flex;align-items:center;border:1px solid var(--tan-line);border-radius:8px;overflow:hidden;margin-left:auto;font-family:"IBM Plex Sans";font-size:14px;font-weight:500}
+.srv button{border:0;background:#fff;width:30px;height:28px;cursor:pointer;font-size:16px}
+.srv span{padding:0 10px;background:#fff;border-left:1px solid var(--tan-line);border-right:1px solid var(--tan-line);line-height:28px}
+.onhand{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;background:var(--sage-light);border:1px solid var(--sage-line);border-radius:6px;padding:7px 10px;font-size:13.5px;margin-bottom:8px}
+.onhand button{border:0;background:none;color:var(--sage);font-weight:700;cursor:pointer;padding:0;text-decoration:underline}
+.grp{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}
+.ing{display:flex;gap:8px;align-items:baseline;font-size:14.5px;padding:4px 0;border-bottom:1px solid rgba(80,120,170,.12)}
+.ing .q{min-width:62px;font-weight:600;color:var(--ink)}
+.ing .n{flex:1;color:var(--ink2)}
+.ing .ok{color:var(--sage-mid);font-size:13px}
+.ing .short{color:var(--amber);font-size:12.5px;font-weight:600;background:var(--amber-light);border-radius:4px;padding:0 6px}
+.ing .sw,.ing .sub{border:0;background:none;color:var(--sage-mid);font-size:12.5px;font-weight:600;cursor:pointer;padding:0;text-decoration:underline}
+.ing .sub{font-size:14.5px}
+.stphd{font-size:13px;color:var(--muted);margin:-2px 0 8px}
+.stp ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.stp li{counter-increment:s;position:relative;padding:6px 0 10px 36px;font-size:14.5px;line-height:1.55;color:var(--ink2)}
+.stp li::before{content:counter(s);position:absolute;left:0;top:6px;width:24px;height:24px;border-radius:50%;background:var(--tan);color:var(--ink);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.stp li b{color:var(--ink)}
+.tmr{border:1px solid var(--sage-line);background:#fff;color:var(--sage);border-radius:999px;font-size:12.5px;font-weight:600;padding:1px 9px;cursor:pointer;margin-left:4px;white-space:nowrap}
+.tmr.run{background:var(--sage);color:#fff}
+/* folds */
+.fold{border-top:1px dashed rgba(0,0,0,.12);margin-top:6px}
+.fh{width:100%;display:flex;align-items:center;gap:10px;border:0;background:none;padding:12px 0;cursor:pointer;text-align:left}
+.fh h3{font-family:Fraunces,serif;font-weight:600;font-size:17px;margin:0}
+.fh .sm{font-size:13px;color:var(--muted)}
+.fh .chev{margin-left:auto;transition:rotate calc(.24s * var(--k)) ease;color:var(--muted)}
+.fold.open .chev{rotate:180deg}
+.fb{display:grid;grid-template-rows:0fr;transition:grid-template-rows calc(.24s * var(--k)) cubic-bezier(.2,.7,.2,1)}
+.fold.open .fb{grid-template-rows:1fr}
+.fi{overflow:hidden;font-size:14.5px;line-height:1.55;color:var(--ink2)}
+.fi>div{padding:0 0 12px}
+.fi ul{margin:0;padding-left:20px}
+/* scroll-bar marks */
+.marksbar{display:none}
+.tick{position:absolute;right:2px;width:12px;height:4px;border-radius:2px;background:var(--tan-line);cursor:pointer;transition:background .15s,width .15s}
+.tick:hover{background:var(--sage-mid);width:16px}
+.tick .lb{position:absolute;right:22px;top:50%;translate:6px -50%;opacity:0;pointer-events:none;white-space:nowrap;background:var(--sage);color:#fff;font-size:12.5px;font-weight:600;padding:3px 9px;border-radius:6px;transition:opacity calc(.16s * var(--k)),translate calc(.16s * var(--k))}
+.tick:hover .lb{opacity:1;translate:0 -50%}
+/* binder page (sub-recipe) */
+.binder{position:absolute;inset:0;z-index:8;transform:translateX(105%);transition:transform calc(.28s * var(--k)) cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.binder.show{transform:none;pointer-events:auto}
+.binder .rcard{box-shadow:-10px 0 24px rgba(40,26,8,.22),0 0 0 1px rgba(60,40,10,.12)}
+.bback{border:0;background:none;color:var(--sage-mid);font-weight:600;font-size:13.5px;cursor:pointer;padding:12px 0 0}
+/* menu, drawer, toast */
+.menu{position:absolute;right:10px;top:96px;z-index:40;background:#FFFDF7;border:1px solid #D2BE98;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.18);min-width:220px;padding:6px;opacity:0;translate:0 -6px;pointer-events:none;transition:opacity calc(.16s * var(--k)),translate calc(.16s * var(--k))}
+.menu.show{opacity:1;translate:0 0;pointer-events:auto}
+.menu button{display:flex;width:100%;border:0;background:none;padding:9px 12px;border-radius:7px;font-size:14.5px;cursor:pointer;text-align:left;gap:8px}
+.menu button:hover{background:var(--sage-light)}
+/* Coming Later: a feature we know about but have not built. Shown so you know it is coming; it does nothing yet. */
+.menu button.later{color:#9A9184;cursor:default;align-items:center}
+.menu button.later:hover{background:none}
+.cl{margin-left:auto;font-size:11px;font-weight:600;color:#6B5B40;border:1px dashed #B89F72;border-radius:6px;padding:1px 8px;line-height:16px;white-space:nowrap;background:#FBF6EC}
+.menu .mh{font-size:12px;color:var(--muted);padding:6px 12px 2px;text-transform:uppercase;letter-spacing:.06em}
+.menu hr{border:0;border-top:1px solid var(--border);margin:4px 6px}
+.menu .only-phone{display:none}
+.phone .menu .only-phone{display:flex}
+.scrim{position:absolute;inset:0;z-index:35;background:rgba(30,20,10,.22);opacity:0;pointer-events:none;transition:opacity calc(.2s * var(--k))}
+.scrim.show{opacity:1;pointer-events:auto}
+.toast{position:absolute;left:50%;bottom:24px;translate:-50% 20px;z-index:60;background:var(--ink);color:#fff;border-radius:10px;padding:10px 16px;font-size:14px;opacity:0;pointer-events:none;transition:opacity calc(.2s * var(--k)),translate calc(.2s * var(--k));max-width:80%;text-align:center}
+.toast.show{opacity:1;translate:-50% 0}
+.phone .toast{bottom:84px}
+/* phone bar + More drawer */
+.pbar{display:none;height:64px;flex:none;background:var(--card);border-top:1px solid var(--border);z-index:45;position:relative}
+.phone .pbar{display:flex}
+.tb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11.5px;color:var(--ink2);cursor:pointer;border:0;background:none}
+.tb svg{width:22px;height:22px}
+.tb.cur{color:var(--sage);font-weight:700}
+.tb .plus{width:42px;height:42px;border-radius:50%;background:var(--sage);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
+.drawer{position:absolute;left:0;right:0;bottom:64px;z-index:44;background:var(--card);border-radius:16px 16px 0 0;padding:10px 16px 18px;box-shadow:0 -6px 20px rgba(0,0,0,.14);translate:0 110%;transition:translate calc(.26s * var(--k)) cubic-bezier(.2,.7,.2,1)}
+.drawer.show{translate:0 0}
+#dev:not(.phone) .drawer{display:none}
+.drawer .grab{width:40px;height:4px;border-radius:2px;background:#ccc;margin:0 auto 12px}
+.drawer .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.drawer .g{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 4px;border-radius:10px;font-size:13px;color:var(--ink2);cursor:pointer}
+.drawer .g.cur{background:var(--sage-light);color:var(--sage);font-weight:700}
+.drawer .g svg{width:26px;height:26px}
+
+/* ================= OPTIONS (switch them in the top bar) ================= */
+#ctl .orow{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;width:100%;font-size:12.5px;color:#555}
+#ctl .orow label{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#333}
+#ctl .orow .seg button{padding:5px 10px;font-size:12.5px}
+#ctl .orow .seg button .pk{font-size:10px;vertical-align:1px;margin-left:3px;opacity:.8}
+.book{--woodbg:var(--woodr4)}
+.srow{display:flex;gap:8px;align-items:center}.srow .srch{flex:1;min-width:0}
+
+/* --- Search panel --- */
+.wide .head .tools{box-shadow:0 4px 14px rgba(40,26,8,.18),0 1px 3px rgba(40,26,8,.12)}
+/* A: floating panel, even endpaper around it (Tyler's way) */
+/* B: one header card pinned on top, tabs inside it */
+.wide.srchB .head{background:var(--icard);border-radius:4px;padding:12px 12px 10px;rotate:-.5deg;
+  box-shadow:0 5px 14px rgba(40,26,8,.2),0 1px 3px rgba(40,26,8,.14),0 0 0 1px rgba(60,40,10,.12)}
+.wide.srchB .head::before,.wide.srchB .head::after{content:"";position:absolute;top:-9px;width:64px;height:20px;background:rgba(236,224,190,.78);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.wide.srchB .head::before{left:18px;rotate:-4deg}.wide.srchB .head::after{right:18px;rotate:3deg}
+.wide.srchB .mtabs{padding:0 0 10px;border-bottom:1.5px solid var(--ired);margin-bottom:10px;gap:5px;flex-wrap:wrap}
+.wide.srchB .mtab{border:0;background:none;border-radius:999px;padding:4px 11px;top:0}
+.wide.srchB .mtab.on{background:var(--sage);color:#fff}.wide.srchB .mtab.on small{color:#D9E6D6}
+.wide.srchB .tools{border:0;box-shadow:none;padding:0;background:none}
+/* C: slim: tabs + one search line, filters tucked behind a button */
+/* one row, one height: search, Filters, Add a recipe are all 34px */
+.srow .srch,.srow .fbtn,.srow .addbtn{height:34px;box-sizing:border-box;border-radius:8px}
+.srow .srch{padding:0 10px}
+.fbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--tan-line);background:#fff;padding:0 12px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink2);white-space:nowrap}
+.fbtn svg{width:15px;height:15px}
+.fbtn .fc{display:none;min-width:18px;height:18px;border-radius:9px;background:var(--sage);color:#fff;font-size:11.5px;line-height:18px;text-align:center;padding:0 5px;box-sizing:border-box}
+.fbtn.on{border-color:var(--sage-line);color:var(--sage)}.fbtn.on .fc{display:inline-block}
+.fbtn.open{background:var(--sage-light);border-color:var(--sage-line);color:var(--sage)}
+/* the filter popup: floats over the cards, never pushes them down */
+.fpop{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:40;background:#FFFDF7;border:1px solid var(--tan-line);border-radius:10px;
+  box-shadow:0 14px 34px rgba(40,26,8,.26),0 2px 6px rgba(40,26,8,.14);flex-direction:column;max-height:min(440px,52vh);overflow:auto;rotate:0deg}
+.wide.srchB .fpop{left:0;right:0}
+.fpop.show{display:flex;animation:fpopIn calc(.16s * var(--k)) cubic-bezier(.2,.7,.2,1)}
+@keyframes fpopIn{from{opacity:0;transform:translateY(-8px) scale(.985)}to{opacity:1;transform:none}}
+.fph{display:flex;align-items:center;gap:10px;padding:12px 14px 10px;border-bottom:1.5px solid var(--ired)}
+.fph b{font-size:15px;flex:1}
+.fph button{border:0;background:none;cursor:pointer;color:var(--sage-mid);font-weight:600;font-size:13px}
+.fph .fx{color:var(--muted);font-size:16px;padding:0 2px}
+.fpb{overflow-y:auto;padding:4px 14px 8px;flex:1;min-height:0}
+.fg{padding:9px 0 3px}
+.fgh{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fgc{display:flex;flex-wrap:wrap;gap:6px}
+.fchip{border:1px solid var(--tan-line);background:#fff;border-radius:6px;padding:5px 10px;font:inherit;font-size:13.5px;cursor:pointer;color:var(--ink2);display:inline-flex;align-items:center;gap:6px}
+.fchip small{color:var(--muted);font-size:11.5px}
+.fchip:hover{border-color:var(--sage-line)}
+.fchip.on{background:var(--sage);border-color:var(--sage);color:#fff}.fchip.on small{color:#D9E6D6}
+.fchip.none{opacity:.45}
+.fpf{display:flex;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid var(--tan-line);background:#FBF6EA}
+.fpf span{flex:1;font-size:12.5px;color:var(--muted)}
+.fpf .fshow{border:0;background:var(--sage);color:#fff;border-radius:8px;height:34px;padding:0 16px;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.narrow .fpop{left:8px;right:8px;max-height:480px;rotate:0deg}
+/* the old folder tabs (FolderDrawer), standing up off the top of the left page */
+.ftabs{display:none}
+.wide .ftabs{display:flex;position:absolute;top:-20px;left:30px;right:24px;height:33px;z-index:4;align-items:flex-end;pointer-events:none}
+.ftab{pointer-events:auto;position:relative;height:32px;border:0;background:none;padding:2px 17px 0;margin-right:-6px;font:inherit;font-size:13.5px;font-weight:500;color:var(--ink2);cursor:pointer;white-space:nowrap;display:flex;align-items:center}
+.ftab svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.ftab span{position:relative}
+.ftab small{color:var(--muted);margin-left:5px;font-weight:500;font-size:12px}
+.ftab.on{font-weight:700;color:var(--ink)}
+.ftab:not(.on):hover{transform:translateY(-2px)}
+.ftab{transition:transform calc(.12s * var(--k))}
+/* Tyler 11-23: no folder tabs. The list buttons sit at the top of the pinned search card (option B), on every device */
+.wide .ftabs{display:none}
+.wide.srchB .mtabs,.narrow .mtabs{display:flex}
+.wide.srchB .mtab,.narrow .mtab{border:1px solid var(--tan-line);background:#fff;border-radius:6px;padding:0 11px;height:30px;top:0;display:inline-flex;align-items:center;font-size:13.5px}
+.wide.srchB .mtab:hover,.narrow .mtab:hover{border-color:var(--sage-line)}
+.wide.srchB .mtab.on,.narrow .mtab.on{background:var(--sage);border-color:var(--sage);color:#fff}
+.wide.srchB .mtab.on small,.narrow .mtab.on small{color:#D9E6D6}
+.narrow .mtabs{gap:5px;padding:10px 10px 2px}
+/* --- Add / Import a recipe --- */
+.addbtn{display:none;border:1px solid var(--sage-line);background:var(--sage-light);color:var(--sage);border-radius:7px;padding:4px 10px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.addA .addbtn.inA{display:inline-flex;align-items:center}
+.addB .addbtn.inB{display:inline-block;background:rgba(255,255,255,.5)}
+.phone.addB .addbtn.inB{display:none}
+.addcard{display:none}
+.addC .addcard{display:flex}
+.wide .addcard{position:relative;width:100%;height:84px;margin-bottom:12px;border:2px dashed rgba(60,40,10,.28);border-radius:4px;background:rgba(255,253,247,.65);
+  align-items:center;gap:12px;padding:0 16px;cursor:pointer;color:var(--sage);text-align:left;rotate:.4deg}
+.wide .addcard:hover{background:var(--icard);border-color:var(--sage-line)}
+.addcard .pl{width:34px;height:34px;border-radius:50%;background:var(--sage);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.addcard b{display:block;font-size:15px}.addcard small{color:var(--muted);font-size:12.5px}
+.narrow .addcard{width:100%;border:0;border-bottom:1px solid var(--border);background:var(--card);align-items:center;gap:12px;padding:10px 14px;cursor:pointer;color:var(--sage);text-align:left}
+.narrow .addcard .pl{width:56px;height:40px;border-radius:6px}
+.menu [data-m="add"]{display:none}
+.phone.addB .menu [data-m="add"]{display:flex}
+/* --- Flag for next plan (one look everywhere) --- */
+.flg{flex:none;font-size:11px;font-weight:700;color:#8F2F1C;background:#FBE3DC;border:1px solid #E3A896;border-radius:4px;padding:0 6px;line-height:17px;white-space:nowrap}
+.narrow .ic .flg{display:inline-block;margin-left:6px;vertical-align:1px}
+.flagline{display:flex;align-items:center;gap:8px;font-size:13.5px;color:#8F2F1C}
+.flagline button{border:0;background:none;color:var(--sage-mid);font-weight:600;cursor:pointer;padding:0;text-decoration:underline;font-size:13px}
+.flagbtn{display:none;border:1px solid var(--sage-line);background:rgba(255,255,255,.5);width:32px;height:32px;box-sizing:border-box;padding:0;border-radius:8px;cursor:pointer;font-size:15px;color:var(--sage)}
+.flagbtn.on{background:#FBE3DC;border-color:#E3A896;color:#8F2F1C}
+.planB .flagbtn{display:inline-block}
+.planB .act2{display:none}
+.planB .menu .only-phone{display:flex}
+.pill.fl{display:none}.planC .pill.fl{display:inline-block}
+.planA .act2::after{content:" ▾";font-size:11px}
+.pmenu{position:absolute;top:44px;z-index:41;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.18);min-width:230px;padding:6px;display:none}
+.pmenu.show{display:block}
+.pmenu button{display:flex;width:100%;border:0;background:none;padding:9px 12px;border-radius:7px;font-size:14.5px;cursor:pointer;text-align:left;gap:8px}
+.pmenu button:hover{background:var(--sage-light)}
+.pmenu small{display:block;color:var(--muted);font-size:12px}
+.toast button{border:0;background:none;color:#B9E3AF;font-weight:700;margin-left:10px;cursor:pointer;text-decoration:underline}
+.toast.undo{pointer-events:auto}
+
+/* --- Behind the recipe card (wide): the inside of the back cover, wood edge + the same fabric endpaper as the left --- */
+.wide .pane{background-color:#8B5A2B;background-image:var(--woodbg);border-radius:4px 12px 12px 4px;box-shadow:inset 14px 0 16px -10px rgba(0,0,0,.5),inset 0 0 0 1px rgba(40,20,4,.35),inset 0 -3px 0 rgba(40,20,4,.35),inset -3px 0 0 rgba(40,20,4,.28),0 18px 30px -12px rgba(30,20,8,.45),0 4px 10px rgba(40,26,8,.2)}
+.wide .pane::before{content:"";position:absolute;inset:12px;border-radius:3px;
+  background:radial-gradient(circle,var(--endink) 0 1.4px,transparent 2px) 0 0/16px 16px,radial-gradient(circle,var(--endink) 0 1.4px,transparent 2px) 8px 8px/16px 16px,var(--endpaper);box-shadow:inset 22px 0 22px -14px rgba(40,20,4,.55),inset 3px 0 0 rgba(40,20,4,.12),inset 0 0 0 1px rgba(60,40,10,.28),0 0 0 1px rgba(255,230,190,.14)}
+.wide .pane .rcard{inset:76px 24px 24px;transition:top calc(.4s * var(--k)) cubic-bezier(.3,.7,.2,1),left calc(.4s * var(--k)) cubic-bezier(.3,.7,.2,1),right calc(.4s * var(--k)) cubic-bezier(.3,.7,.2,1),bottom calc(.4s * var(--k)) cubic-bezier(.3,.7,.2,1),background-color calc(.4s * var(--k)),border-radius calc(.4s * var(--k)),box-shadow calc(.4s * var(--k))}
+/* --- Pinned jump buttons: above the card, never on it --- */
+.pnav{position:absolute;z-index:6;display:flex;gap:2px;align-items:center;flex-wrap:nowrap;overflow:hidden;transition:opacity calc(.2s * var(--k))}
+.pjs{flex:1;min-width:0;height:100%;display:flex;gap:inherit;align-items:inherit;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth}
+.pjs::-webkit-scrollbar{display:none}
+#dev.wide.srchB .mtabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}#dev.wide.srchB .mtabs>button{flex:none}
+#dev.ipadside.srchB .mtabs{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
+.pjs.fr{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent calc(100% - 8px));mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent calc(100% - 8px))}
+.pjs.fl{-webkit-mask-image:linear-gradient(90deg,transparent,#000 34px);mask-image:linear-gradient(90deg,transparent,#000 34px)}
+.pjs.fl.fr{-webkit-mask-image:linear-gradient(90deg,transparent,#000 34px,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,transparent,#000 34px,#000 calc(100% - 34px),transparent)}
+.book.xpOn .pnav{opacity:0;pointer-events:none}
+/* expanded: the jump bar floats at the top of the big card and stays there while you scroll */
+.book.xpOn .pnav.pxp{opacity:1;pointer-events:auto;z-index:30;height:40px;background:transparent;box-shadow:none;border:0}
+.pnav button{border:0;background:none;padding:5px 11px;border-radius:6px;font-size:13.5px;color:var(--sage-mid);font-weight:600;cursor:pointer;white-space:nowrap}
+.pnav button:hover{background:var(--sage-light)}
+.pnav button.on{background:var(--sage-light);color:var(--sage)}
+.pnav .pt{font-size:12px;color:var(--muted);font-weight:500;margin-right:6px;white-space:nowrap;flex:none;align-self:center}
+/* A: a floating panel, same look and gaps as the search panel on the left */
+.navA .pnav{background:var(--icard);border:1px solid var(--tan-line);border-radius:6px;padding:0 8px;box-shadow:0 4px 14px rgba(40,26,8,.18),0 1px 3px rgba(40,26,8,.12)}
+.wide.navA .pnav{top:24px;left:24px;right:24px;height:40px}
+/* phone / iPad upright: the same strip pinned at the top of the recipe */
+.narrow .pnav{top:0;left:0;right:0;height:44px;padding:0 10px;border-radius:0;border-left:0;border-right:0;border-top:0;box-shadow:0 2px 5px rgba(40,26,8,.08)}
+.narrow .pane .rcard{inset:44px 0 0}
+
+/* --- Index-card lines: 28px rows, lines move with the words --- */
+/* the card: white header, red line at 112px, blue line under every 28px row (text sits on it) */
+.linesA .rscroll{background:linear-gradient(var(--ired),var(--ired)) 0 111px/100% 1.5px no-repeat,
+  repeating-linear-gradient(to bottom,transparent 0 20.8px,var(--iblue) 20.8px 22px,transparent 22px 28px) 0 112px/100% calc(100% - 112px) no-repeat,var(--icard);background-attachment:local}
+.linesB .rscroll{background:linear-gradient(var(--ired),var(--ired)) 0 111px/100% 1.5px no-repeat,var(--icard);background-attachment:local}
+.linesB .two{background:repeating-linear-gradient(to bottom,transparent 0 20.8px,var(--iblue) 20.8px 22px,transparent 22px 28px);margin:0 -34px 0 -26px;padding:0 34px 0 26px}
+.narrow.linesB .two{margin:0 -22px 0 -16px;padding:0 22px 0 16px}
+/* everything in A, and Ingredients/Steps in B, snaps to the 28px rows */
+.linesA .facts{padding:0;gap:0 14px;line-height:28px}
+.linesA .hist,.linesA .flagline{padding:0;line-height:28px;min-height:28px}
+.linesA .ract{padding:2px 0;gap:4px 8px}
+.linesA .pill{line-height:20px;padding:0 12px;height:24px;margin-top:-3px;margin-bottom:3px}
+.linesA .marks{padding:0;gap:6px;height:28px;align-items:center;overflow:hidden}
+.linesA .mk{line-height:18px;padding:0 8px;margin-top:-6px}
+.linesA .sec,.linesA .fold{padding:28px 0 0;margin:0;border-top:0}
+.linesA .fh{padding:0;height:28px}
+.linesA .fh h3{line-height:28px}
+.linesA .fi{line-height:28px}.linesA .fi>div{padding:0}.linesA .fi p{margin:0}
+.linesA .sec h3,.linesB .two .sec h3{line-height:28px;height:28px;margin:0}
+.linesA .sec p{margin:0;line-height:28px}
+.linesA .yn{border:0;box-shadow:inset 0 0 0 1px #EBDD9A;padding:0 10px;line-height:28px}
+.linesA .onhand,.linesB .two .onhand{border:0;box-shadow:inset 0 0 0 1px var(--sage-line);padding:0 10px;line-height:28px;gap:0 10px;margin:0;border-radius:4px}
+.linesA .grp,.linesB .two .grp{margin:0;line-height:28px;height:28px}
+.linesA .ing,.linesB .two .ing{padding:0;line-height:28px;min-height:28px;border-bottom:0}
+.linesA .ing,.linesB .two .ing{align-items:flex-start}.linesA .ing>*,.linesB .two .ing>*{line-height:28px}
+.linesA .srv,.linesB .two .srv{height:24px;margin-top:-4px}
+.linesA .srv button,.linesB .two .srv button{height:22px}
+.linesA .srv span,.linesB .two .srv span{line-height:22px}
+.linesA .stphd,.linesB .two .stphd{margin:0;line-height:28px}
+.linesA .stp li,.linesB .two .stp li{padding:0 0 0 36px;line-height:28px}
+.linesA .stp li::before,.linesB .two .stp li::before{top:3px;width:22px;height:22px;font-size:12px}
+.linesA .tmr,.linesB .two .tmr{line-height:18px;position:absolute;right:0;top:3px;margin:0}
+.linesA .stp li,.linesB .two .stp li{padding-right:78px}
+.linesA .two .sec.stp,.linesB .two .sec.stp{border-top:0}
+.linesB .two .sec{border-top:0;padding:28px 0 0;margin:0}
+.linesA .bback{position:absolute;top:4px;left:26px;padding:0}
+.linesA .rh{padding:22px 0 12px}
+/* --- Expand: the card grows into a butter sheet over the whole work area --- */
+.xbtn{position:absolute;top:9px;right:12px;z-index:6;display:flex;align-items:center;gap:6px;border:1px solid transparent;background:rgba(255,253,247,.9);
+  color:var(--muted);font:inherit;font-size:12.5px;font-weight:600;padding:4px 9px 4px 7px;border-radius:7px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.xbtn:hover{background:var(--sage-light);color:var(--sage);border-color:var(--sage-line)}
+.xbtn svg{width:15px;height:15px}
+.narrow .xbtn{display:none}
+.wide .rh{padding-right:84px}
+@container (max-width:560px){.xbtn span{display:none}.xbtn{padding:5px}.wide .rh{padding-right:34px}}
+.book.xpOn .pane{z-index:20}
+.rscroll{transition:opacity calc(.12s * var(--k)) ease}
+.rcard.xfade .rscroll{opacity:0}
+#dev .rcard.xp{background-color:#FFF7E3;border-radius:10px;box-shadow:0 2px 4px rgba(40,26,8,.10),0 18px 50px rgba(40,26,8,.30),0 0 0 1px rgba(60,40,10,.10)}
+#dev .rcard.xp .rscroll{top:52px;border-top:1px solid rgba(60,40,10,.12);background:#FFF7E3;container-type:inline-size;padding:16px max(48px,calc(50% - 500px)) 80px}
+#dev .rcard.xp .xbtn{background:rgba(255,247,227,.9)}
+
+/* ---------- recipe card round 7 ---------- */
+.pnav .xbtn{position:static;flex:none;margin-left:6px;background:none}
+.wide .rcard:not(.xp)>.xbtn{display:none}
+.book.xpOn .pnav .xbtn{display:none}
+.wide .rh{padding-right:0}
+.linesA .rscroll{-webkit-mask-image:linear-gradient(transparent,#000 10px);mask-image:linear-gradient(transparent,#000 10px)}
+.facts span+span::before{content:"·";color:var(--muted);margin-right:14px}
+.facts{gap:4px 0}.facts span+span::before{margin-left:0}.facts span{margin-right:14px}
+.hist .st{gap:2px;margin-left:12px}
+.hist .st button{font-size:17px}
+.pill.on{background:#fff;border-color:var(--tan-line);color:var(--ink)}
+.pill .hrt{color:#B5452E}
+.pill.fl.on{color:var(--sage);border-color:var(--sage-line)}
+.marks .mk{background:#F1EADC;color:var(--ink2);border-color:var(--tan-line)}
+.gr{background:#F6EEDC;box-shadow:inset 0 0 0 1px var(--tan-line);border-radius:4px;padding:0 10px;font-size:13.5px;color:var(--ink2);line-height:28px;margin-top:28px}
+.gr b{color:var(--ink);margin-right:8px}
+.srvl{margin-left:auto;margin-right:8px;font-family:"IBM Plex Sans";font-size:12.5px;font-weight:500;color:var(--muted)}
+h3 .srvl+.srv{margin-left:0}
+.ing .q{min-width:72px;font-variant-numeric:tabular-nums}
+.ing .need{background:none;box-shadow:inset 0 0 0 1px currentColor}
+.linesA .ing .short{line-height:18px;margin-top:5px}
+.ing .sw{font-weight:500;color:var(--muted);text-decoration:none}
+.ing .sw:hover{text-decoration:underline;color:var(--sage-mid)}
+.ing .sub::before{content:"";display:inline-block;width:11px;height:8px;border:1.3px solid currentColor;border-radius:1.5px;margin-right:6px;vertical-align:1px;background:linear-gradient(currentColor,currentColor) 0 2px/100% 1px no-repeat}
+.stp li::before{box-shadow:0 0 0 1px rgba(60,40,10,.15)}
+.linesA .fold+.fold{padding-top:0}
+
+/* phone list: photo on the left; name, then facts, then source */
+.narrow .ic{display:grid!important;grid-template-columns:56px 1fr;column-gap:12px;row-gap:1px;align-items:center;justify-content:stretch}
+.narrow .ic .th{grid-column:1;grid-row:1/span 3;align-self:center}
+.narrow .ic .ich b{grid-column:2;grid-row:1;font-size:15px;line-height:20px}
+.narrow .ic .im{grid-column:2;grid-row:2;gap:12px;height:20px}
+.narrow .ic .ix{grid-column:2;grid-row:3;text-align:left;font-size:12px;line-height:16px}
+.narrow .ic .flg{grid-column:2;grid-row:1;justify-self:end}
+
+/* recipe card round 8 (Gemini pass) */
+.gr b{display:inline-block;min-width:78px;color:var(--ink)}
+.linesA .marks{height:auto;align-items:flex-start;row-gap:8px;padding:4px 0}
+.linesA .marks .mk{margin-top:0}
+.fh h3{font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;color:var(--ink2)}
+.fh:hover{background:rgba(63,107,56,.06)}
+.fh .chev{font-size:15px;color:var(--sage-mid)}
+.yne{margin-left:auto;border:0;background:none;font:500 12.5px 'IBM Plex Sans',sans-serif;color:var(--sage-mid);cursor:pointer;padding:0 2px}
+.yne:hover{text-decoration:underline}
+.linesA .yn{box-shadow:none;background:rgba(255,244,186,.62);border-left:3px solid #D9B44A;border-radius:0 4px 4px 0;padding:0 10px 0 12px}
+.ic.open .ich{background:rgba(228,237,226,.55)}
+
+/* step circle and timer sit ON the rule, like writing on a ruled card */
+.linesA .stp li::before,.linesB .two .stp li::before{top:1px;width:20px;height:20px;font-size:11.5px}
+.linesA .tmr,.linesB .two .tmr{top:1px}
+
+/* round 3 critique */
+.linesA .stp li:not(:has(.tmr)),.linesB .two .stp li:not(:has(.tmr)){padding-right:0}
+.gr{background:none;box-shadow:inset 3px 0 0 #D9C7A0;border-radius:0;padding:0 10px 0 13px}
+.gr b{font-weight:700}
+#dev .gr>div{display:grid;grid-template-columns:auto 1fr;column-gap:10px}#dev .gr>div>b{margin:0}
+.linesA .ing .short.need,.ing .short.need{background:var(--amber);color:#fff;box-shadow:none}
+.ing .sw{font-size:12.5px;margin-left:2px}.ing .sw:hover{text-decoration:underline}
+.fh .sm{max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.linesA .rh{padding-top:12px}
+.wide.pileD .ic+.ic{margin-top:-50px}
+.wide.pileD .ic[data-k=chicken]::before{right:38%;background:#EFC3A0}
+.wide.pileD .ic[data-k=veg]::before{right:26%}
+.wide.pileD .ic[data-k=freeze]::before{right:14%}
+.wide.pileD .ic[data-k=u30]::before{right:2%;background:#E9D08A}
+.narrow .ftabs{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.ing .rcp{font-size:12.5px;color:var(--muted)}
+.linesA .stp li::before,.linesB .two .stp li::before{top:3px;width:19px;height:19px;font-size:11px}
+.linesA .tmr,.linesB .two .tmr{top:2px;height:21px;line-height:19px;box-sizing:border-box}
+.linesA .stp li::before,.linesB .two .stp li::before{top:1px;width:19px;height:19px}
+.linesA .tmr,.linesB .two .tmr{top:1px;height:19px;line-height:17px}
+.linesA .ing .short{margin-top:0;line-height:17px;height:19px;align-self:flex-start;margin-top:1px}
+
+.pnav .xbtn{color:var(--ink,#3F3D37);border-left:1px solid rgba(0,0,0,.09);border-radius:0 6px 6px 0;margin-left:8px;padding-left:12px}
+.facts{gap:0}.facts span{margin-right:8px}
+.tmr.run{min-width:60px;font-variant-numeric:tabular-nums}
+
+/* ===== round 6 (11-24) ===== */
+/* 1 spine: covers meet the spine square, no edge lines beside it */
+#dev .cbk{border-radius:12px 0 0 12px;box-shadow:inset 0 1px 0 rgba(40,20,4,.35),inset 1px 0 0 rgba(40,20,4,.35),inset 0 -3px 0 rgba(40,20,4,.35),inset 3px 0 0 rgba(40,20,4,.28),inset -14px 0 16px -10px rgba(0,0,0,.5),0 18px 30px -12px rgba(30,20,8,.45),0 4px 10px rgba(40,26,8,.2)}
+#dev.wide .pane{border-radius:0 12px 12px 0;box-shadow:inset 14px 0 16px -10px rgba(0,0,0,.5),inset 0 1px 0 rgba(40,20,4,.35),inset -1px 0 0 rgba(40,20,4,.35),inset 0 -3px 0 rgba(40,20,4,.35),inset -3px 0 0 rgba(40,20,4,.28),0 18px 30px -12px rgba(30,20,8,.45),0 4px 10px rgba(40,26,8,.2)}
+#dev .spine{left:calc(50% - 14px);width:28px}
+#dev .spine .sin{border-radius:0;box-shadow:inset 0 1px 0 rgba(30,14,2,.30),inset 0 -1px 0 rgba(30,14,2,.30)}
+/* 2 one scrollbar look everywhere, tinted per place */
+#dev *{scrollbar-width:thin;scrollbar-color:rgba(120,92,50,.45) transparent}
+#dev .rscroll{scrollbar-color:rgba(63,107,56,.42) transparent}
+#dev .fpop,#dev .fpb{scrollbar-color:rgba(63,107,56,.42) transparent}
+#dev *::-webkit-scrollbar{width:8px;height:8px}#dev *::-webkit-scrollbar-track{background:transparent}
+#dev *::-webkit-scrollbar-thumb{background:rgba(120,92,50,.45);border-radius:8px;border:2px solid transparent;background-clip:padding-box}
+#dev .rscroll::-webkit-scrollbar-thumb,#dev .fpop::-webkit-scrollbar-thumb,#dev .fpb::-webkit-scrollbar-thumb{background-color:rgba(63,107,56,.42)}
+
+#dev.wide .dscroll{margin-bottom:12px;padding-bottom:56px;
+ -webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 22px,#000 64px,#000 calc(100% - 64px),transparent);
+ mask-image:linear-gradient(to bottom,transparent 0,transparent 22px,#000 64px,#000 calc(100% - 64px),transparent)}
+/* 3 more at a glance on each card */
+.im .rt{color:#9A6A12;font-weight:600}
+.ix .tg{display:flex;gap:4px;margin-top:2px;line-height:18px}
+.ix .tg span{font-size:11px;padding:0 7px;border-radius:999px;background:rgba(63,107,56,.10);color:var(--sage)}
+.narrow .ic .ix .tg,.wide.pileC .ix .tg{display:none}
+.wide[class*=pile] .ix{line-height:20px}
+/* 4 search card: level, no tape, sits a little higher */
+#dev.wide.srchB .head{rotate:0deg;margin-top:16px}
+#dev.wide.srchB .head::before,#dev.wide.srchB .head::after{display:none}
+/* 5 the clear button is a real button */
+#dev .chips .clr{display:inline-flex;align-items:center;gap:5px;height:28px;box-sizing:border-box;border:1px dashed var(--sage-line);background:none;border-radius:6px;padding:0 10px;font:inherit;font-size:13px;font-weight:600;color:var(--sage-mid);text-decoration:none;cursor:pointer}
+#dev .empty .clr{display:inline-flex;align-items:center;height:28px;border:1px dashed var(--sage-line);background:none;border-radius:6px;padding:0 10px;margin-left:6px;font:inherit;font-size:13px;font-weight:600;color:var(--sage-mid);cursor:pointer;font-style:normal}#dev .empty .clr:hover,#dev .chips .clr:hover{background:#E4EDE2;border-style:solid}
+#dev .chips .clr svg{width:13px;height:13px}
+#dev .chips .clr:hover{background:var(--sage-light);border-style:solid}
+/* 6 header sits centered: less above, more below (still 4 ruled lines tall) */
+#dev .rh,#dev .linesA .rh{height:84px;padding:6px 0 22px;align-items:center}
+#dev .rh,#dev .linesA .rh{height:auto;min-height:84px}
+#dev .facts{clip-path:inset(-4px -4px -4px 22px);margin-left:-22px;gap:4px 0}#dev .facts span{margin:0 0 0 22px;position:relative;white-space:nowrap}#dev .facts span::before,#dev .facts span+span::before{content:"·";position:absolute;left:-14px;margin:0;color:var(--muted)}
+#dev .rcard.xp .rscroll{padding-top:2px}
+/* 7 expand button: one rounded button, no divider */
+#dev .pnav .xbtn{border-left:0;border-radius:7px;padding:0 10px;margin-left:6px}
+#dev .pnav .xbtn:hover{background:var(--sage-light);color:var(--sage)}
+/* 11 notes Edit is a real button */
+.yne{border:1px solid var(--sage-line);border-radius:999px;padding:0 12px;height:24px;background:#fff;font-weight:600}
+.yne:hover{background:var(--sage-light);text-decoration:none;color:var(--sage)}
+/* 12 stepper: minus and plus centered */
+#dev .srv button{display:inline-flex;align-items:center;justify-content:center;line-height:1;padding:0 0 1px}
+/* 13 changed marks blink once */
+.ing.flash>span:last-child,.onhand.flash b{animation:flash calc(.9s * var(--k)) ease-out}
+@keyframes flash{0%{background:#F6DC8A}100%{background:transparent}}
+.ing .short,.ing .ok{border-radius:4px}
+/* 15 source */
+.srcrow{margin-bottom:6px}.skind{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:0 8px;border-radius:4px;background:#F1E6CD;color:#6B5A44;line-height:20px}
+.srcrow+p a{color:var(--sage-mid);text-decoration:underline;text-decoration-color:var(--sage-line);text-underline-offset:2px}.srcrow+p a:hover{color:var(--sage-dark,#1F3A1C)}
+.fb .smut{color:var(--muted);font-size:12.5px}
+/* 16 ingredient group names stand out */
+#dev .grp{color:var(--ink);text-decoration:underline;text-decoration-color:var(--ired);text-decoration-thickness:1.5px;text-underline-offset:4px}
+/* 17 onhand: green box, Add on the right */
+#dev .onhand .allset{margin-left:auto;color:var(--sage);font-weight:600}
+#dev .onhand button{margin-left:auto;text-decoration:none;background:#fff;border:1px solid var(--sage-line);border-radius:999px;padding:0 12px;height:22px;line-height:20px;font-size:12.5px}
+#dev .onhand button:hover{background:var(--sage);color:#fff;border-color:var(--sage)}
+/* 19 hover highlights get room on both sides */
+#dev .fh{margin-left:-10px;margin-right:-10px;padding-left:10px;padding-right:10px;width:calc(100% + 20px);border-radius:6px}
+#dev .ing .sw{padding:0 4px;margin-left:-2px;border-radius:4px}#dev .ing .sw:hover{background:var(--sage-light);text-decoration:none}
+/* 21 the part-recipe never blocks the jump bar */
+#dev .binder.show{pointer-events:none}#dev .binder.show .rcard{pointer-events:auto}
+#dev .pnav{z-index:9}
+/* 22 back link: sticky at the top, rounded hover */
+#dev .bback,#dev .linesA .bback{position:sticky;top:6px;left:auto;z-index:5;display:flex;align-items:center;gap:4px;width:max-content;height:28px;margin:8px -10px 0;padding:0 10px;border-radius:7px;background:rgba(253,249,238,.96);box-shadow:0 1px 3px rgba(40,26,8,.10)}
+#dev .bback:hover{background:var(--sage-light);color:var(--sage)}
+#dev .bback,#dev .linesA .bback{width:calc(100% + 60px);margin:8px -34px 0 -26px;padding:0 26px;border-radius:0;background:#FDF9EE;box-shadow:0 1px 0 rgba(40,26,8,.10)}
+/* 23 the part-recipe line is a little card, not a link */
+#dev .ing .sub{display:inline-flex;align-items:center;text-decoration:none;background:var(--sage-light);border:1px solid var(--sage-line);border-radius:6px;padding:0 8px;line-height:22px;color:var(--sage);font-weight:600}
+#dev .ing .sub:hover{background:#D5E4D1;border-color:var(--sage-mid)}
+#dev .ing .sub::before{vertical-align:0}
+/* 24 expanded split: main recipe on tan at left, the part at right */
+#dev .rcard.xsplit>.xbtn{display:none}
+#dev .rcard.xp.xsplit .rscroll,#dev .binder .rcard.xp .rscroll{padding-left:40px;padding-right:40px}
+#dev .binder .rcard.xp{box-shadow:-10px 0 24px rgba(40,26,8,.22),0 18px 50px rgba(40,26,8,.30),0 0 0 1px rgba(60,40,10,.10)}
+
+/* ===== round 7 (11-24) ===== */
+/* r7-5/6 header fills the rows above the red line, centered; facts start below it */
+#dev .rh,#dev .linesA .rh{box-sizing:border-box;height:112px;min-height:112px;padding-top:0;padding-bottom:0;align-items:center}
+#dev .bback+.rh,#dev .linesA .bback+.rh{height:76px;min-height:76px}
+#dev .bback+.rh .th{width:72px;height:56px}
+#dev .book.xpOn .bback{display:none}
+#dev .book.xpOn .bback+.rh{height:112px;min-height:112px}
+#dev .book.xpOn .bback+.rh .th{width:84px;height:68px}
+#dev .bback+.rh{margin-top:6px}
+#dev .book.xpOn .bback+.rh{margin-top:0}
+.fi .pa{padding-left:0}
+/* r7-2 search card top level with the jump bar */
+#dev.wide.srchB .head{margin-top:var(--srchT,24px)}
+/* r7-3 recipe count stays at the right, never jumps */
+#dev .chips{position:relative;padding-right:92px;min-height:28px}
+#dev .chips .cnt,#dev.narrow .chips .cnt,#dev .chips:not(.has) .cnt{position:absolute;right:0;top:0;height:28px;line-height:28px;margin:0;display:block;white-space:nowrap}
+#dev.wide .chips{min-height:28px;align-items:center}
+/* r7-4/10 no pills: every action button is a rounded rectangle (STANDARDS) */
+#dev .pill,#dev .onhand button{border-radius:8px}
+#dev .yne,#dev .tmr{border-radius:5px}
+#dev .pnav button{border-radius:8px}
+#dev .onhand button{display:inline-flex;align-items:center;gap:5px;height:24px;line-height:22px;padding:0 10px 0 8px;font-weight:600;color:var(--sage);border-color:var(--sage-line)}
+#dev .onhand button svg{width:14px;height:14px;flex:none}
+#dev .onhand button:hover{background:var(--sage-light);color:var(--sage);border-color:var(--sage-mid)}
+/* r7-7 Expand looks and hovers exactly like a jump button */
+#dev .xbtn,#dev .xside{top:12px;right:12px;border:0;background:none;color:var(--sage-mid);font-size:13.5px;font-weight:600;padding:5px 11px;border-radius:8px;gap:6px}
+#dev .rcard.xp .xbtn{background:none}
+#dev .rcard.xp .xbtn:hover{background:var(--sage-light)}
+#dev .xbtn:hover,#dev .xside:hover,#dev .rcard.xp .xbtn:hover{background:var(--sage-light);color:var(--sage-mid);border:0}
+#dev .pnav .xbtn{padding:5px 11px;border-radius:8px;margin-left:6px}
+/* r7-11 expanded with a part-recipe open */
+#dev .xside{position:absolute;z-index:6;display:none;align-items:center;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+#dev .xside svg{width:14px;height:14px}
+#dev .rcard.xp.xsplit>.xbook,#dev .binder .rcard.xp>.xclose{display:flex}
+#dev .binder .rcard.xp>.xbtn{display:none}
+#dev #pnavL{display:none}
+#dev .book.xpOn.xsub #pnavL{display:flex;opacity:1;pointer-events:auto;z-index:30;height:40px;background:transparent;box-shadow:none;border:0}
+/* r7-10 card tags match the recipe page tags (rectangles, same colors) */
+#dev .ix .tg span{border-radius:4px;background:#F1EADC;color:var(--ink2);box-shadow:inset 0 0 0 1px var(--tan-line);line-height:16px}
+/* r7-9 links that leave the app get a small arrow */
+.ext{display:inline-block;margin-left:1px;text-decoration:none;vertical-align:.32em;line-height:0}.ext .tip{width:.62em;height:.62em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+/* r7-18 prep ahead */
+.pa{list-style:none;margin:0;padding:0}.pa li{display:flex;gap:10px;white-space:nowrap;overflow:hidden}.pa b{font-weight:600}.pa .when{color:var(--sage);font-weight:600}.pa .how{color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+/* r7-16 card hover options */
+#dev.computer.hoverB .ic{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:translate calc(.22s * var(--k)) cubic-bezier(.2,.7,.2,1),box-shadow .2s,transform .12s ease-out}
+#dev.computer.hoverB .ic:hover{z-index:40 !important;box-shadow:0 12px 24px rgba(40,26,8,.28),0 2px 5px rgba(40,26,8,.18),0 0 0 1px rgba(60,40,10,.14)}
+#dev.computer.hoverB.wide[class*=pile] .ic:hover .ix,#dev.computer.hoverB.wide[class*=pile] .ic:hover .th{visibility:visible}
+/* r10-1 card quick actions: two small buttons in the card's top line, right of the heart. They take their own room; the title truncates, nothing is covered */
+.iacts{display:none;flex:none;align-items:center;gap:5px}
+.ia{position:relative;display:inline-flex;align-items:center;height:26px;box-sizing:border-box;padding:0 9px;border-radius:7px;border:1px solid var(--sage-line);background:#fff;color:var(--sage);font:inherit;font-size:12px;font-weight:600;line-height:1;white-space:nowrap;cursor:pointer}
+.ia1{border-color:var(--sage);background:var(--sage);color:#fff}
+.ia:hover{background:var(--sage-light)}.ia1:hover{background:#1F3A1C;color:#fff}
+/* r12: the buttons sit in the title row, right of the heart. Computer: they show on the card that lifts gently under the mouse
+   (or on keyboard focus). iPad sideways piles: on the open card. Two across, iPad upright and phone rows: on every card.
+   While they show, the name may wrap to a second line inside the same 46px row, so it is never cut short. */
+:is(#dev.computer.hoverA .ic.lift,#dev.computer.hoverB .ic:hover,#dev.computer .ic:focus-visible,#dev.computer .ic:has(.ia:focus-visible),#dev:not(.computer) .ic) .iacts{display:flex}
+:is(#dev.computer.hoverA .ic.lift,#dev.computer.hoverB .ic:hover,#dev.computer .ic:focus-visible,#dev.computer .ic:has(.ia:focus-visible),#dev:not(.computer) .ic) .ich b{white-space:normal;line-height:19px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+:is(#dev.computer.hoverA .ic.lift,#dev.computer.hoverB .ic:hover,#dev.computer .ic:focus-visible,#dev.computer .ic:has(.ia:focus-visible),#dev:not(.computer) .ic) .badge,:is(#dev.computer.hoverA .ic.lift,#dev.computer.hoverB .ic:hover,#dev.computer .ic:focus-visible,#dev.computer .ic:has(.ia:focus-visible),#dev:not(.computer) .ic) .flg{display:none}
+
+/* two across: the columns are narrow, so while the buttons show the name may take up to three short lines */
+#dev.wide.pileC .ic .ich b{-webkit-line-clamp:3!important}
+/* r13 computer hover: the card under the mouse slides up out of the pile a little. It stays behind the cards in front of it
+   (never on top of them) and the pile does not move, so you can run the mouse down the names fast. */
+#dev.computer.wide.pileA .ic.lift,#dev.computer.wide.pileB .ic.lift,#dev.computer.wide.pileD .ic.lift{z-index:var(--z)!important;translate:0 calc(-1 * var(--up,38px))}
+/* r14 when the card can't rise (top of the pile, under the search box), the card below it slides down the rest of the way instead */
+#dev.computer.wide.pileA .ic.lift+.ic,#dev.computer.wide.pileB .ic.lift+.ic,#dev.computer.wide.pileD .ic.lift+.ic{translate:0 var(--down,0px);transition:translate .2s}
+/* touch: each button's tap area is 44px tall, the button itself stays small */
+#dev:not(.computer) .ia::after{content:"";position:absolute;left:-2px;right:-2px;top:50%;height:44px;translate:0 -50%}
+.ich .fav{flex:none;display:inline-flex}
+#dev .ic{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#dev .ic:focus-visible{outline:2px solid var(--sage-mid);outline-offset:-2px}
+
+/* phone and iPad upright rows: buttons in a third column on the title line; facts and source use the full width */
+#dev.narrow .ic{grid-template-columns:56px minmax(0,1fr) auto}
+#dev.narrow .ic .im,#dev.narrow .ic .ix{grid-column:2/-1}
+#dev.narrow .ic .iacts{grid-column:3;grid-row:1;align-self:center}
+#dev.narrow .ic .ich b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+/* r9 one recipe count on phone: the tan bar keeps it */
+#dev.phone .chips .cnt{display:none !important}
+#dev.phone .chips:not(.has){min-height:0;padding:0;margin:0}
+#dev.phone .chips:not(.has):empty{display:none}
+/* r9 empty book: no recipe to act on */
+#dev.bookB .tan .bar,#dev.bookB #tdet,#dev.bookB #pnav,#dev.bookB #pnav .xbtn,#dev.bookB .rcard .xbtn,#dev.bookB .rcard .marksbar{visibility:hidden}
+/* r9 empty states */
+#dev .empty b{display:block;font-style:normal;font-size:15px;color:var(--ink);margin-bottom:4px}
+#dev .empty .eb{display:flex;justify-content:center;gap:8px;margin-top:12px}#dev .empty .eb .clr{margin-left:0}
+#dev .e0r{padding:120px 30px;text-align:center;color:var(--muted);font-style:italic}#dev .e0r b{display:block;font-style:normal;font-size:20px;color:var(--ink);margin-bottom:6px}
+/* r7-14 binding: the fold darkens softly toward the middle (no hard line) */
+#dev.bindB .spine .sin,#dev.bindB .spine .sin::after{background-image:linear-gradient(90deg,rgba(24,11,2,.40),rgba(24,11,2,.50) 30%,rgba(16,7,0,.60) 50%,rgba(24,11,2,.50) 70%,rgba(24,11,2,.40)),var(--woodr4)}
+#dev.bindB .spine .sin::after{border-radius:0}
+#dev.bindB.wide .pane{box-shadow:inset 30px 0 26px -12px rgba(0,0,0,.50),inset 0 1px 0 rgba(40,20,4,.35),inset -1px 0 0 rgba(40,20,4,.35),inset 0 -3px 0 rgba(40,20,4,.35),inset -3px 0 0 rgba(40,20,4,.28),0 18px 30px -12px rgba(30,20,8,.45),0 4px 10px rgba(40,26,8,.2)}
+#dev.bindB .cbk{box-shadow:inset 0 1px 0 rgba(40,20,4,.35),inset 1px 0 0 rgba(40,20,4,.35),inset 0 -3px 0 rgba(40,20,4,.35),inset 3px 0 0 rgba(40,20,4,.28),inset -30px 0 26px -12px rgba(0,0,0,.50),0 18px 30px -12px rgba(30,20,8,.45),0 4px 10px rgba(40,26,8,.2)}
+#dev.bindB.wide .pane::before{box-shadow:inset 3px 0 0 rgba(40,20,4,.12),inset 0 0 0 1px rgba(60,40,10,.28),0 0 0 1px rgba(255,230,190,.14)}
+#dev.bindB .cbk::after{box-shadow:inset -3px 0 0 rgba(40,20,4,.12),inset 0 0 0 1px rgba(60,40,10,.28),0 0 0 1px rgba(255,230,190,.14)}
+/* round 9: normal page colour behind the book (Tyler 11-24) */
+#dev .book{background:var(--page)}
+
+/* ===== round 10 (11-24) ===== */
+/* r10-2 phone list: smaller type, tighter rows (each row stays at least 44px tall) */
+#dev.phone .ic{grid-template-columns:48px minmax(0,1fr) auto;column-gap:10px;row-gap:0;padding:8px 12px;min-height:44px}
+#dev.phone .ic .th{width:48px;height:42px}
+#dev.phone .ic .ich b{font-size:14px;line-height:18px}
+#dev.phone .ic .im{font-size:11.5px;height:18px;gap:10px}
+#dev.phone .ic .ix{font-size:11px;line-height:15px}
+#dev.phone .iacts{gap:4px}
+#dev.phone .ia{height:24px;padding:0 7px;font-size:11.5px;border-radius:6px}
+#dev.phone .addcard{padding:8px 12px;gap:10px}
+#dev.phone .addcard .pl{width:48px;height:40px}
+#dev.phone .addcard b{font-size:14px}#dev.phone .addcard small{font-size:11.5px}
+/* r10-3 no dead space under the last recipe: the last row ends right above the bar */
+#dev.narrow .dscroll{padding-bottom:0}
+#dev.phone .dscroll>.ic:last-child{border-bottom:0}
+html.full #dev.ipadup .dscroll{padding-bottom:env(safe-area-inset-bottom,0px)}
+/* r10-4 phone tab bar: clear of the home indicator and the rounded screen corners */
+#dev.phone .pbar{height:calc(64px + env(safe-area-inset-bottom,0px));padding:0 max(18px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(18px,env(safe-area-inset-left,0px))}
+#dev.phone .drawer{bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+#dev.phone .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+html.full #dev.phone .wood{height:calc(50px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px)}
+/* r10-5 line icons in the card facts, sized and colored like the words */
+.im>span{display:inline-flex;align-items:center;gap:3px}
+.ico{width:1.1em;height:1.1em;flex:none;vertical-align:-.18em}
+.ich .fav .ico{width:1em;height:1em}
+/* r10-6 phone part-recipe: Back bar pinned flush at the top, no sideways drag */
+.rscroll{overflow-x:hidden}
+#dev.narrow .rscroll{touch-action:pan-y;overscroll-behavior-x:none}
+#dev.narrow .binder .bback{top:0;margin:0 -22px 0 -16px;width:calc(100% + 38px);padding:0 16px}
+#dev.narrow .binder .rscroll{-webkit-mask-image:none;mask-image:none}
+#dev.narrow .binder .bback+.rh{margin-top:8px}
+/* r10-7 filters: a light scrim under the panel catches taps outside it */
+.fscrim{display:none;position:absolute;inset:-3000px;z-index:50;background:rgba(40,26,8,.06)}
+.fscrim.show{display:block}
+#dev .deck.fopen{z-index:11}
+#dev .deck.fopen .head{z-index:60}
+/* r10-8 open book: top gap the same as the sides */
+#dev.wide .cover,#dev.wide .spine,#dev.wide .deck,#dev.wide .pane,#dev.wide .desk-hint{top:14px}
+/* r10-9 no photo: a paper tile the same size (r11-6: with a little bowl and steam, I_BOWL) */
+#dev .th.nop{background:var(--endpaper);box-shadow:inset 0 0 0 1px var(--tan-line);color:var(--muted)}
+#dev .th.nop svg{display:block;position:relative;top:50%;translate:0 -50%;margin:0 auto;width:22px;height:22px}
+/* r10-10 the ruled lines belong to the page that scrolls, so lines and words move together */
+.linesA .rscroll,.linesB .rscroll{background:var(--icard)}
+.rpage{position:relative;isolation:isolate;min-height:100%}
+.rpage::before{content:"";position:absolute;z-index:-1;top:0;bottom:-60px;left:-60px;right:-34px;pointer-events:none}
+.narrow .rpage::before{right:-22px}
+/* r11b: --rl is where the red line sits (the header's height): 112px, or 140px (one more ruled line) when the recipe's buttons drop under the title */
+.rpage{--rl:112px}
+.linesA .rpage::before{background:linear-gradient(var(--ired),var(--ired)) 0 calc(var(--rl) - 1px)/100% 1.5px no-repeat,
+  repeating-linear-gradient(to bottom,transparent 0 20.8px,var(--iblue) 20.8px 22px,transparent 22px 28px) 0 var(--rl)/100% calc(100% - var(--rl)) no-repeat}
+.linesB .rpage::before{background:linear-gradient(var(--ired),var(--ired)) 0 calc(var(--rl) - 1px)/100% 1.5px no-repeat}
+#dev .rcard.xp .rpage{position:static}
+#dev .rcard.xp .rpage::before{display:none}
+
+/* ===== round 11 (11-24) ===== */
+/* r11-4/11 one name, Add to Plan, and one per place (r11b: it lives in the recipe's title row; the tan bar and the ⋯ menu do not repeat it) */
+#dev .pill.fl{display:none}
+#dev #plan,#dev .rtacts [data-flag]{min-width:100px;text-align:center}
+#dev .act2.on{background:var(--sage-light)}
+/* two across on iPad sideways: narrower cards, so a little less padding and slightly smaller button words; if they still do not fit, the second button drops to its own line */
+#dev.ipadside.pileC .ic{padding:0 8px}
+#dev.ipadside.pileC .ich{margin:0 -8px;padding:6px 8px 4px}
+#dev.ipadside.pileC .iacts{gap:4px}
+#dev.ipadside.pileC .ia{padding:0 5px;font-size:11.5px}
+/* r11-5 Move to Collection: a small menu that pops out beside the first one (on the phone it takes the first menu's place, with ‹ Back on top) */
+.menu .mar{margin-left:auto;padding-left:14px;color:var(--muted)}
+.menu button.on{background:var(--sage-light)}
+.msub{min-width:200px}
+.menu .mback{color:var(--sage-mid);font-weight:600}
+#dev .menu.under{opacity:0;translate:0 -6px;pointer-events:none}
+.mnew{display:flex;gap:6px;align-items:center;padding:3px 4px}
+.mnew input{flex:1;min-width:0;height:32px;box-sizing:border-box;border:1px solid var(--tan-line);border-radius:7px;background:#fff;padding:0 9px;font:inherit;font-size:14px;color:var(--ink)}
+.mnew input:focus{outline:2px solid rgba(63,107,56,.28);outline-offset:0;border-color:var(--sage-line)}
+#dev:not(.computer) .mnew input{font-size:16px}
+#dev .menu .mnew button{display:inline-flex;align-items:center;width:auto;flex:none;height:32px;padding:0 12px;border-radius:7px;background:var(--sage);color:#fff;font-size:13.5px;font-weight:600}
+#dev .menu .mnew button:hover{background:var(--sage-mid)}
+#dev .menu .mnew button:disabled{opacity:.45;cursor:default;background:var(--sage)}
+/* r11-7 notes edit in place: the same note block becomes the typing area, so font, size, line height, padding and ruled lines are the same; nothing moves */
+#dev .yn{white-space:pre-wrap;overflow-wrap:anywhere;cursor:text}
+#dev.linesA .yn{min-height:28px}
+#dev:not(.linesA) .yn{min-height:36px;min-height:calc(1lh + 18px)}
+#dev .yn:empty::before{content:attr(data-ph);color:var(--muted)}
+#dev .yn.ned:empty::before{content:none}
+#dev .yn.ned{outline:2px solid rgba(63,107,56,.28);outline-offset:1px;caret-color:var(--sage)}
+/* Done and Cancel sit where Edit sat; same 24px height, so the header does not shift */
+.ynb{margin-left:auto;display:inline-flex;align-items:center;gap:4px;flex:none}
+#dev .ynb .yne{margin-left:0}
+#dev .yncx,#dev .ynok{display:none}
+#dev .nsec.nedit [data-ne]{display:none}
+#dev .nsec.nedit .yncx,#dev .nsec.nedit .ynok{display:inline-block}
+#dev .yncx{border-color:transparent;background:none;color:var(--muted)}
+#dev .yncx:hover{background:rgba(0,0,0,.05);color:var(--ink2);border-color:transparent}
+
+/* ===== round 11b (11-24) ===== */
+/* r11b-2 the recipe's buttons live in its title section: Start Cooking (main), Add to Plan, ♥ Favorite. Same 32px height, 8px corners and type as the old tan-bar buttons.
+   Room beside the photo (computer): a small row at the top right, above the title. Not enough room (iPad, phone, Expanded, Quick Naan): the row drops to its
+   own line under "from …", left aligned, and the header grows one ruled line (--rl 140px) so the title is never covered. */
+#dev .pane{container-name:rpane}
+#dev .rh{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"ph act" "ph txt";align-content:center;align-items:center;column-gap:0;row-gap:2px;height:var(--rl);min-height:var(--rl)}
+#dev .bback+.rh{height:calc(var(--rl) - 36px);min-height:calc(var(--rl) - 36px)}
+#dev .book.xpOn .bback+.rh{height:var(--rl);min-height:var(--rl)}
+#dev .rh>.ph{grid-area:ph;margin-right:22px}
+#dev .rh>.rht{grid-area:txt;min-width:0}
+#dev .rh>.rtacts{grid-area:act;justify-self:end}
+.rtacts{display:flex;align-items:center;gap:6px;flex-wrap:nowrap}
+.rtacts .act,.rtacts .act2{text-align:center}
+.rtacts .act:hover{background:#2B4A27}
+.rtacts .act2:hover{background:var(--sage-light)}
+.rfav{display:inline-flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box;width:32px;height:32px;padding:0;border-radius:8px;border:1px solid var(--sage-line);background:rgba(255,255,255,.5);color:#B5482F;cursor:pointer}
+.rfav .ico{width:17px;height:17px;vertical-align:0}
+.rfav:hover{background:#FBEDE8;border-color:#E3A896}
+.rfav.on{background:#FDF1EC;border-color:#E3A896}
+/* r15 (Tyler): wide panes keep the buttons on the right. Top line: Add to Plan + heart; Start Cooking under them (narrow enough to leave the title room),
+   all sitting at the bottom right of the header just above the red line. The title gets the middle column
+   and is never pushed. Narrow panes (iPhone, iPad upright, panes under 540px) keep the stacked header. */
+#dev .rpage{--rl:112px}
+#dev .rh{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ph txt act";column-gap:0;row-gap:0}
+#dev .rh>.rht{padding-right:14px}
+#dev .rh>.rtacts{justify-self:end;align-self:end;margin-bottom:8px;display:grid;grid-template-columns:auto auto;
+  grid-template-areas:"plan fav" "cook cook";gap:6px}
+#dev .rh>.rtacts [data-cook]{grid-area:cook;justify-self:end}
+#dev .rh>.rtacts [data-flag]{grid-area:plan}
+#dev .rh>.rtacts .rfav{grid-area:fav;justify-self:end}
+#dev.narrow .rpage{--rl:140px}
+#dev.narrow .rh{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"ph txt" "act act";row-gap:8px}
+#dev.narrow .rh>.rht{padding-right:0}
+#dev.narrow .rh>.rtacts{justify-self:start;align-self:center;margin-bottom:0;display:flex}
+@container rpane (max-width:539px){
+ #dev .rpage{--rl:140px}
+ #dev .rh{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"ph txt" "act act";row-gap:8px}
+ #dev .rh>.rht{padding-right:0}
+ #dev .rh>.rtacts{justify-self:start;align-self:center;margin-bottom:0;display:flex}
+}
+/* phone: all three on one line, a little less padding, no sideways scroll */
+#dev.phone .rtacts{gap:6px;max-width:100%}
+#dev.phone .rtacts .act{padding:0 12px}
+#dev.phone .rtacts .act2{padding:0 10px}
+
+/* ===== Changes since r15 (design-iterate, 11-24). Each change is on only while <html> has class ch-N, so Tyler can keep some and drop others.
+   With every ch-N off the page is exactly r15. The panel: #chs in the top controls; in ?full= mode a small Changes button on the wood bar. ===== */
+#ctl .orow.chs label{font-weight:500}
+#ctl .orow.chs input{margin:0 2px 0 0;accent-color:var(--sage)}
+#ctl .orow.chs .seg button{padding:5px 10px;font-size:12.5px}
+#chfab,#chpop{display:none}
+html.full:not(.shots) #chfab{display:inline-flex;position:fixed;top:12px;left:50%;translate:-50% 0;z-index:200;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:7px;border:1px solid rgba(246,233,210,.45);background:rgba(94,61,34,.55);color:#F6E9D2;font:600 12.5px "IBM Plex Sans",sans-serif;cursor:pointer}
+html.full:not(.shots) #chpop.show{display:block;position:fixed;top:44px;left:50%;translate:-50% 0;z-index:201;width:min(360px,calc(100vw - 20px));max-height:calc(100vh - 60px);overflow:auto;background:var(--card);border:1px solid var(--tan-line);border-radius:10px;box-shadow:0 8px 24px rgba(40,26,8,.22);padding:10px 12px;font-size:13.5px;color:var(--ink)}
+@media (max-width:600px){#chfab .lg{display:none}}
+#chpop .chb{display:flex;flex-direction:column;gap:2px}
+#chpop .chb>b{margin-bottom:4px}
+#chpop label{display:flex;align-items:flex-start;gap:8px;min-height:36px;padding:7px 2px;line-height:1.3;cursor:pointer}
+#chpop input{margin-top:2px;width:18px;height:18px;flex:none;accent-color:var(--sage)}
+#chpop .seg{margin-top:6px;align-self:flex-start}
+#chpop .seg button{padding:7px 14px}
+/* CH-2 (r4) a sub-recipe's byline is just "Your own recipe": the sticky "‹ Back to Chicken Tikka Masala" line above already names the parent (JS).
+   Narrow headers (stacked buttons) now fit in r15's height, so they get no extra ruled line. Wide headers keep one extra line: Add to Plan + ♥ over
+   Start Cooking is 70px tall, more than the 76px left under the Back strip allows with its margin. On wide pages r15 also put the header 6px low
+   (8px Back margin + 6px header margin), which left every Quick Naan row 6px off the blue lines; the header now starts right under Back */
+.ch-2 #dev.wide .book:not(.xpOn) .binder .rpage{--rl:140px}
+@container rpane (max-width:539px){.ch-2 #dev.wide .book:not(.xpOn) .binder .rpage{--rl:140px}}
+.ch-2 #dev.wide .book:not(.xpOn) .binder .bback+.rh{margin-top:0}
+/* CH-3 (r4) iPad and iPhone: every target is at least 44pt and targets keep 8pt apart (DESIGN.md 2.10.1). Tap areas never overlap.
+   Small controls keep their look and get an invisible 44pt tap area (::after) that reaches only into empty space; where two rows of targets would
+   collide, the row gets room instead. The search row, filter chips and menu rows become real 44pt controls, as the kit's SearchField and Chip are. */
+.ch-3 #dev:not(.computer) :is(.tback,.dots,.av,.mtab,.chip,.chips .clr,.empty .clr,.fph button,.fchip,.pjs button,.pnav .xbtn,.act,.act2,.rfav,.hist .st button,.yne,.srv button,.onhand button,.sw,.sub,.fh,.fi a){position:relative}
+.ch-3 #dev:not(.computer) :is(.tback,.dots,.av,.mtab,.chip,.chips .clr,.empty .clr,.fph button,.pjs button,.pnav .xbtn,.xside,.act,.act2,.rfav,.hist .st button,.yne,.srv button,.onhand button,.sw,.sub,.tmr,.fh,.fi a)::after{content:"";position:absolute;
+  top:var(--ht,min(0px,calc(50% - 22px)));bottom:var(--hb,min(0px,calc(50% - 22px)));left:var(--hl,min(0px,calc(50% - 22px)));right:var(--hr,min(0px,calc(50% - 22px)))}
+/* tan bar: ‹ and ⋯ are 44 wide; the avatar on the wood bar too */
+.ch-3 #dev:not(.computer) .tback{min-width:44px;height:44px;padding:0 10px 2px 0;margin-left:-10px}
+/* collection buttons, search row, filter chips: 8pt apart, and the search row and chips are real 44pt controls */
+.ch-3 #dev:not(.computer) .mtabs.mtabs{gap:8px}
+.ch-3 #dev:not(.computer) .head .tools{gap:8px}
+.ch-3 #dev:not(.computer) .srow{gap:8px}
+.ch-3 #dev:not(.computer) .srow .srch,.ch-3 #dev:not(.computer) .srow .fbtn,.ch-3 #dev:not(.computer) .srow .addbtn{height:44px}
+.ch-3 #dev:not(.computer) .chips{gap:8px}
+.ch-3 #dev:not(.computer) .chips.has,.ch-3 #dev.ipadside .chips{min-height:44px}
+.ch-3 #dev:not(.computer) .chips .cnt{height:44px;line-height:44px}
+.ch-3 #dev:not(.computer) .chips .chip,.ch-3 #dev:not(.computer) .chips .clr{height:44px;padding:0 12px;display:inline-flex;align-items:center}
+.ch-3 #dev.narrow .mtabs.mtabs{padding-bottom:4px}
+/* Filters panel: chips 44pt and 8pt apart; Clear all, ✕ and Show N Recipes 44pt */
+.ch-3 #dev:not(.computer) .fgc{gap:8px}
+.ch-3 #dev:not(.computer) .fchip{min-height:44px;padding:0 12px}
+.ch-3 #dev:not(.computer) .fph{padding:4px 6px 4px 14px;gap:8px}
+.ch-3 #dev:not(.computer) .fph button{min-width:44px;height:44px;padding:0 8px}
+.ch-3 #dev:not(.computer) .fpf .fshow{height:44px}
+/* menus and the rail: each row is at least 44pt (rows of a list sit edge to edge, as in any list) */
+.ch-3 #dev:not(.computer) .menu button{min-height:44px;align-items:center}
+.ch-3 #dev:not(.computer) .rail .it,.ch-3 #dev:not(.computer) .rail .cap{min-height:44px}
+/* list rows: Add to Plan's tap area stays inside its own row (r15 let it reach 5px into the row above) */
+.ch-3 #dev:not(.computer) .ia::after{top:-5px;bottom:-15px;left:-2px;right:-2px;height:auto;translate:none}
+.ch-3 #dev.ipadup .ia::after{top:-7px;bottom:-11px}
+.ch-3 #dev.wide:not(.computer) .ia::after{top:-9px;bottom:-9px}
+/* jump bar: buttons 8pt apart; the bar is 44 tall, so each tap area is the bar's height */
+.ch-3 #dev:not(.computer) .pjs{gap:8px}
+/* recipe title row: 8pt between Start Cooking, Add to Plan and ♥ (the ♥ reaches 6pt each side) */
+.ch-3 #dev:not(.computer) .rtacts{gap:8px}
+.ch-3 #dev:not(.computer) .rh>.rtacts{gap:8px 14px}
+.ch-3 #dev:not(.computer) .rtacts .rfav{margin-left:6px}
+/* stars: one 44pt cell each, as the kit's star picker (STAR_TARGET 44) */
+.ch-3 #dev:not(.computer) .hist .st{gap:8px;margin-left:10px}
+.ch-3 #dev.narrow .hist{display:flex;flex-wrap:wrap;align-items:center}
+.ch-3 #dev.phone .hist .st{margin-left:-10px}
+.ch-3 #dev:not(.computer) .hist .st button{width:36px;--hl:-4px;--hr:-4px}
+.ch-3 #dev:not(.computer) .pnav .xbtn{margin-left:10px;top:0;right:0}
+/* Edit (notes) and Serves − / +: the tap area reaches up into the empty ruled row above, never down onto the note or the grocery button */
+.ch-3 #dev:not(.computer) .nsec h3 .yne{--ht:-20px;--hb:0px}
+.ch-3 #dev:not(.computer) .srv button{width:44px;--ht:-22px;--hb:0px;--hl:0px;--hr:0px}
+.ch-3 #dev:not(.computer) .srv{overflow:visible;margin-top:-6px}
+.ch-3 #dev:not(.computer) .srv button:first-child{border-radius:7px 0 0 7px}
+.ch-3 #dev:not(.computer) .srv button:last-child{border-radius:0 7px 7px 0}
+/* Add N to Grocery List: reaches down into the group-name row under it */
+.ch-3 #dev:not(.computer) .onhand button{--ht:0px;--hb:-20px}
+/* steps with a timer take at least two ruled rows, so two timers are never closer than 56pt; each timer's tap area sits inside its own step */
+.ch-3 #dev:not(.computer) .stp li:has(.tmr){min-height:56px}
+.ch-3 #dev:not(.computer) .stp .tmr{--ht:-8px;--hb:-17px}
+/* folds: one empty ruled row between fold headers, so each 44pt tap area (8pt above and below the 28pt row) keeps 12pt from the next */
+.ch-3 #dev:not(.computer).linesA .fold+.fold{padding-top:28px}
+.ch-3 #dev:not(.computer) .fh{--ht:-8px;--hb:-8px}
+/* Source links: one link per two ruled rows */
+.ch-3 #dev:not(.computer) .fi p a{display:inline-block;margin-bottom:28px}
+/* Back to Chicken Tikka Masala: a 44pt strip; the sub-recipe header grows one ruled line to make room */
+.ch-3 #dev:not(.computer) .bback,.ch-3 #dev:not(.computer) .linesA .bback{height:44px}
+.ch-3 #dev:not(.computer) .book:not(.xpOn) .binder .bback+.rh{height:calc(var(--rl) - 52px);min-height:calc(var(--rl) - 52px)}
+.ch-3 #dev:not(.computer) .book:not(.xpOn) .binder .rpage{--rl:168px}
+.ch-3 #dev.wide:not(.computer) .book:not(.xpOn) .binder .bback+.rh{margin-top:0}
+/* the note is a text field: at least 44pt tall on touch, so two ruled rows */
+.ch-3 #dev:not(.computer).linesA .yn{min-height:56px}
+/* empty state buttons: 8pt apart already; tap areas 44pt */
+.ch-3 #dev:not(.computer) .empty .eb{gap:8px}
+/* CH-4 the collection buttons row fades only at an edge where more buttons hide (left too, once you scroll), the same soft fade as the jump bar.
+   Computer gets it too (at 1280 "On Plan" was cut with no hint), plus the mouse wheel scrolls it sideways, and the picked one scrolls into view */
+.ch-4 #dev .mtabs.mtabs.mtabs{-webkit-mask-image:none;mask-image:none}
+.ch-4 #dev .mtabs.mtabs.mtabs.mfr{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent calc(100% - 6px));mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent calc(100% - 6px))}
+.ch-4 #dev .mtabs.mtabs.mtabs.mfl{-webkit-mask-image:linear-gradient(90deg,transparent 6px,#000 40px);mask-image:linear-gradient(90deg,transparent 6px,#000 40px)}
+.ch-4 #dev .mtabs.mtabs.mtabs.mfl.mfr{-webkit-mask-image:linear-gradient(90deg,transparent 6px,#000 40px,#000 calc(100% - 44px),transparent calc(100% - 6px));mask-image:linear-gradient(90deg,transparent 6px,#000 40px,#000 calc(100% - 44px),transparent calc(100% - 6px))}
+.ch-4 #dev .mtabs{scroll-behavior:smooth}
+/* CH-5 iPad upright: Search, Filters and + Add a Recipe share one row (it is 820 wide, like the left page on a computer), and the recipe count lives
+   only in the tan bar, as on the phone. Saves about 70px above the list */
+.ch-5 #dev.ipadup .srow{flex-wrap:nowrap}
+.ch-5 #dev.ipadup .srow .srch{flex:1 1 auto}
+.ch-5 #dev.ipadup .srow .fbtn,.ch-5 #dev.ipadup .srow .addbtn{flex:none;padding:0 14px}
+.ch-5 #dev.ipadup .chips .cnt{display:none!important}
+.ch-5 #dev.ipadup .chips{padding-right:0}
+.ch-5 #dev.ipadup .chips:not(.has){display:none}
+/* CH-6 empty states get a picture (DESIGN.md 4.8.3: a picture and a clear next step): the same tile and line icon as a recipe with no photo yet.
+   Bowl for an empty book, a magnifier for no search matches, the filter funnel for no filter matches */
+#dev .empty .eic{display:none}
+.ch-6 #dev .empty .eic{display:flex;align-items:center;justify-content:center;width:72px;height:60px;margin:0 auto 12px;border-radius:4px;background:var(--icard);box-shadow:0 -1px 3px rgba(40,26,8,.10),0 2px 5px rgba(40,26,8,.16),0 0 0 1px rgba(60,40,10,.12);color:var(--muted);rotate:-1.5deg}
+/* r4: a card is cream with the card shadow (DESIGN 4.5.1); flat lists (iPad upright, iPhone) have no tilt */
+.ch-6 #dev.narrow .empty .eic{rotate:0deg}
+.ch-6 #dev .empty .eic svg{width:28px;height:28px}
+.ch-6 #dev .empty{padding-top:44px}
+/* CH-7 iPad upright and iPhone list rows show the ♥ for a favorite, right of the name and before Add to Plan, the same order as the cards on the left page */
+/* r4: the ♥ sits right after the name (the name column is only as wide as the name; a spacer takes the rest), and the phone keeps its 48px photo column */
+.ch-7 #dev.narrow .ic{grid-template-columns:56px minmax(0,auto) auto minmax(0,1fr) auto}
+.ch-7 #dev.phone .ic{grid-template-columns:48px minmax(0,auto) auto minmax(0,1fr) auto}
+.ch-7 #dev.narrow .ic .ich .fav{display:inline-flex;grid-column:3;grid-row:1;align-self:center;margin:0 0 0 6px}
+.ch-7 #dev.narrow .ic .iacts{grid-column:5;margin-left:8px}
+/* CH-8 Expanded follows the big card's own width, not the book page's: on a computer or iPad sideways the buttons sit on the right (Add to Plan + ♥, Start Cooking
+   under), as r15 does for every wide pane, and Shrink keeps its word. At 1280 r15 stacked them under the title and showed only the icon, though the card is ~1000px wide */
+.ch-8 #dev.wide .book.xpOn #rmain.xp:not(.xsplit) .rpage{--rl:112px}
+.ch-8 #dev.wide .book.xpOn #rmain.xp:not(.xsplit) .rh{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ph txt act";row-gap:0}
+.ch-8 #dev.wide .book.xpOn #rmain.xp:not(.xsplit) .rh>.rht{padding-right:14px}
+.ch-8 #dev.wide .book.xpOn #rmain.xp:not(.xsplit) .rh>.rtacts{justify-self:end;align-self:end;margin-bottom:8px;display:grid}
+.ch-8 #dev.wide .rcard.xp>.xbtn span{display:inline}
+.ch-8 #dev.wide .rcard.xp>.xbtn{padding:5px 11px}
+/* CH-9 one dark-green fill per screen (DESIGN 2.2.2): only Start Cooking keeps the sage-dark fill (and Show N Recipes inside the Filters panel, which is that panel's one main button).
+   A picked collection or filter is "selected", not an action (2.2.3): sage-light fill, sage-text words and border; filter chips get the 2pt border (4.4.4), drawn
+   as an inset line so nothing reflows. Capture is mid sage with an ink plus (3.2.2), and the other small fills follow */
+.ch-9 #dev .mtabs .mtab.on.on{background:var(--sage-light);border-color:#4B6947;color:#4B6947}
+.ch-9 #dev .mtabs .mtab.on.on small{color:#4B6947}
+.ch-9 #dev .fchip.on{background:var(--sage-light);border-color:#4B6947;color:#4B6947;box-shadow:inset 0 0 0 1px #4B6947;font-weight:600}
+.ch-9 #dev .fchip.on small{color:#4B6947}
+.ch-9 #dev .chip.on{border-color:#4B6947;color:#4B6947;box-shadow:inset 0 0 0 1px #4B6947}
+.ch-9 #dev .fbtn.on{border-color:#4B6947;color:#4B6947}
+.ch-9 #dev .fbtn .fc{background:var(--sage-light);color:#4B6947;box-shadow:inset 0 0 0 1px #4B6947}
+.ch-9 #dev .cap,.ch-9 #dev .tb .plus,.ch-9 #dev .addcard .pl{background:#8FAF8A;color:var(--ink)}
+.ch-9 #dev .tmr.run{background:var(--sage-light);color:#4B6947;border-color:#4B6947}
+.ch-9 #dev .menu .mnew button{background:#8FAF8A;color:var(--ink)}
+.ch-9 #dev .menu .mnew button:hover{background:#82A37C}
+/* r6: the one dark fill carries cream words (header-text #FAF4EB), not pure white (2.2.2) */
+.ch-9 #dev .rtacts .act,.ch-9 #dev .fpf .fshow{color:#FAF4EB}
+/* CH-10 one font: DESIGN 2.5.5 has no serif anywhere and italic only in the wordmark. Titles and headings use IBM Plex Sans 600; the wordmark is the app's
+   own (Plex Sans Italic 600, kit Wordmark.tsx); the cover's engraved "SupperCraft" is the wordmark too, so it keeps its italic. Every other italic goes */
+.ch-10 #dev :is(.rh h2,.sec h3,.fh h3){font-family:"IBM Plex Sans",system-ui,sans-serif;font-weight:600;letter-spacing:-.005em}
+.ch-10 #dev .wood .wm{font-family:"IBM Plex Sans",system-ui,sans-serif;font-style:italic;font-weight:600}
+.ch-10 #dev :is(.tan .t,.tan .d,.empty,.desk-hint,.e0r,.yn,i){font-style:normal}
+/* CH-11 no coloured stripe on any card edge (DESIGN 4.5.2): the open card's 4px green left edge becomes a 1px sage-text line all round; the note and
+   Get ready boxes lose their 3px left stripes and get a 1px line all round (drawn inside, so the ruled rows do not move) */
+.ch-11 #dev .ic.open{border-left:0;outline:1px solid #4B6947;outline-offset:-1px}
+.ch-11 #dev.linesA .yn{border-left:0;border-radius:4px;box-shadow:inset 0 0 0 1px #DCC27A;padding:0 10px}
+.ch-11 #dev .gr{box-shadow:inset 0 0 0 1px var(--tan-line);border-radius:4px;padding:0 10px}
+/* CH-12 compact collection buttons: side padding 11 to 8px and gaps 5 to 4px, so all five fit at computer 1280; on iPad sideways the last one is a whole word under the fade */
+.ch-12 #dev .mtabs.mtabs{gap:4px}
+.ch-12 #dev .mtabs .mtab.mtab{padding:0 8px}
+.ch-12 #dev .mtabs .mtab small{margin-left:3px}
+/* iPad sideways: the left page is only 382px and touch keeps 8pt between buttons (CH-3), so the buttons are 6px a side with 13px words; "On Plan" then shows as a whole word under the fade */
+.ch-12 #dev.ipadside .mtabs .mtab.mtab{padding:0 6px;font-size:13px}
+.ch-12 #dev.ipadside .mtabs .mtab small{margin-left:2px}
+/* CH-13 nothing under 12px (DESIGN 2.5.2), and phone body text at least 13: phone row facts and source, Add to Plan, collection counts, filter group names
+   and counts, card tags, step numbers, the On Plan mark, Coming Later, the phone tab bar and the Source kind */
+.ch-13 #dev .mtab small,.ch-13 #dev .ftab small{font-size:12px}
+.ch-13 #dev .ia,.ch-13 #dev.phone .ia,.ch-13 #dev.ipadside.pileC .ia{font-size:12px}
+.ch-13 #dev.phone .ic .im{font-size:13px;height:20px}
+.ch-13 #dev.phone .ic .ix{font-size:13px;line-height:18px}
+.ch-13 #dev .fgh,.ch-13 #dev .fchip small,.ch-13 #dev .fbtn .fc{font-size:12px}
+.ch-13 #dev .ix .tg span{font-size:12px}
+.ch-13 #dev .stp li::before{font-size:12px;width:20px;height:20px}
+.ch-13 #dev .flg,.ch-13 #dev .cl,.ch-13 #dev .skind,.ch-13 #dev.wide.pileD .ic::before{font-size:12px}
+.ch-13 #dev .tb{font-size:12px}
+.ch-13 #dev.phone .addcard small{font-size:13px}
+/* CH-14 every action looks like a button (DESIGN 4.2.1), Title Case (4.2.5), no "…" in labels (4.2.12): the empty state's Clear the Search and Clear Filters
+   are solid outlined 44pt buttons styled like Filters; Filters' Clear All is an outlined button; Show N Recipes; New Collection and Pick a Day lose the "…" (JS) */
+.ch-14 #dev .empty .clr{height:44px;border:1px solid var(--tan-line);border-style:solid;background:#fff;border-radius:8px;padding:0 16px;font-size:13.5px;color:var(--ink2)}
+.ch-14 #dev .empty .clr:hover{background:var(--sage-light);border-color:var(--sage-line);color:var(--sage)}
+.ch-14 #dev .fph .fclr{display:inline-flex;align-items:center;height:30px;border:1px solid var(--tan-line);background:#fff;border-radius:8px;padding:0 12px;color:var(--ink2)}
+.ch-14 #dev .fph .fclr:hover{background:var(--sage-light);border-color:var(--sage-line);color:var(--sage)}
+.ch-14 #dev:not(.computer) .fph .fclr{height:44px}
+/* r6: the ingredient swap ("or Greek yogurt") was grey words that underline on hover, a text-only action (4.2.1, 3.4.4); it is now a small outlined button on the row */
+.ch-14 #dev .ing .sw{display:inline-flex;align-items:center;height:22px;line-height:20px;margin-left:6px;padding:0 8px;border:1px solid var(--tan-line);border-radius:6px;background:#fff;color:var(--ink2);font-weight:500;text-decoration:none;vertical-align:1px}
+.ch-14 #dev .ing .sw:hover{background:var(--sage-light);border-color:var(--sage-line);color:var(--sage);text-decoration:none}
+/* CH-16 the open recipe is not in the list on the left (search or filters hide it): a slim strip at the top of the right page says so, with the way back */
+.nfs{display:none}
+.ch-16 #dev.wide .book:not(.xpOn) #rmain.nf>.nfs{display:flex;position:absolute;left:0;right:0;top:0;height:40px;z-index:5;align-items:center;gap:10px;padding:0 10px 0 16px;background:#F6EEDC;border-bottom:1px solid var(--tan-line);font-size:13.5px;color:var(--ink2)}
+.ch-16 #dev.wide .book:not(.xpOn) #rmain.nf>.rscroll{top:40px}
+.nfs .nfm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nfs .nfm b{color:var(--ink);font-weight:600}
+.nfs button{flex:none;display:inline-flex;align-items:center;height:30px;border:1px solid var(--tan-line);background:#fff;border-radius:8px;padding:0 12px;font:inherit;font-size:13px;font-weight:600;color:var(--ink2);cursor:pointer}
+.nfs button:hover{background:var(--sage-light);border-color:var(--sage-line);color:var(--sage)}
+.ch-16 #dev:not(.computer) .nfs button{position:relative}
+.ch-16 #dev:not(.computer) .nfs button::after{content:"";position:absolute;inset:-7px 0}
+/* CH-17 small fixes: (a) Expanded at 1280: no stray dashed line above Steps (a 5-class r15 rule beat the ruled-card rule);
+   (b) a lifted card's tags are never cut by the card in front: the card rises up to 44px (was 38) and the card in front slides down just enough (JS) */
+.ch-17 #dev.linesA .rcard.xp .two .sec.stp{border-top:0}
+</style></head><body>
+<div id="ctl">
+  <h1>Recipe Book</h1>
+  <div class="seg" id="devs"><button data-d="computer" class="on">Computer</button><button data-d="ipadside">iPad sideways</button><button data-d="ipadup">iPad upright</button><button data-d="phone">Phone</button></div>
+  <button class="cb" id="replay">Replay the cover</button>
+  <button class="cb" id="slow">Slow motion (3×)</button>
+  <span style="font-size:12.5px;color:#666">Mockup only. Nothing here is built yet.</span>
+  <div class="orow" id="opts"></div>
+  <div class="orow chs" id="chs"></div>
+</div>
+<button id="chfab" aria-haspopup="dialog" aria-controls="chpop" aria-label="Changes since r15">Changes<span class="lg"> since r15</span> ▾</button>
+<div id="chpop" role="dialog" aria-label="Changes since r15"><div class="chb"></div></div>
+<div id="wrap">
+  <div id="stage"><div id="scaler"><div id="dev"></div></div></div>
+  <aside id="notes"></aside>
+</div>
+<script>
+/* ---------------- data ---------------- */
+/* the collections (shown as the buttons on the search card). All, Not Tried and On Plan fill themselves; you can move a recipe into the others */
+const TABS=[['all','All'],['fav','Favorites'],['new','Not Tried'],['want','Want to Try'],['next','On Plan']];
+const MOVABLE=k=>k==='fav'||k==='want'||k.startsWith('c_');
+const FGROUPS=[['Diet',[['veg','Vegetarian'],['vegan','Vegan'],['gf','Gluten-free'],['df','Dairy-free'],['lowcarb','Low-carb']]],
+ ['Time',[['u15','Under 15 min'],['u30','Under 30 min'],['u60','Under 1 hour'],['ahead','Make-ahead'],['slow','Slow cooker']]],
+ ['Main ingredient',[['chicken','Chicken'],['beef','Beef'],['pork','Pork'],['fish','Fish'],['shrimp','Shrimp'],['beans','Beans & lentils'],['tofu','Tofu'],['eggs','Eggs']]],
+ ['Cuisine',[['ital','Italian'],['mex','Mexican'],['ind','Indian'],['asian','Asian'],['amer','American'],['med','Mediterranean']]],
+ ['Keeps well',[['freeze','Freezer-friendly'],['left','Good leftovers'],['lunch','Packs for lunch']]],
+ ['Your lists',[['nextplan','On Plan'],['kid','Kid-friendly'],['wk','Weeknight'],['company','For company']]]];
+const FILTERS=FGROUPS.flatMap(g=>g[1]),FL=Object.fromEntries(FILTERS);
+const TAGX={tikka:'gf ind left company ahead',lemon:'ital wk kid',tacos:'mex beans wk kid',chili:'amer left lunch slow gf df ahead',stirfry:'beef asian df wk',soup:'amer gf lunch kid',
+ curry:'ind beans vegan gf df left lunch',salmon:'fish gf df lowcarb wk',pancake:'amer kid eggs',risotto:'ital gf company',ramen:'asian pork eggs',fajita:'mex gf df wk kid',
+ lasagna:'ital left ahead company',shak:'med eggs gf lowcarb',pho:'asian gf df slow',naanpizza:'ind ital kid wk',enchi:'mex left ahead',banana:'amer lunch kid'};
+const R=[
+ {id:'tikka',n:'Chicken Tikka Masala',t:50,c:'#C0612B',fav:1,made:3,tags:['chicken','freeze'],tabs:['want'],src:'Serious Eats',ab:'Smoky, creamy, mild heat.',have:'8 of 11'},
+ {id:'lemon',n:'Lemon Garlic Pasta',t:20,c:'#E6C65A',fav:1,made:6,tags:['veg','u30'],src:'Your own',ab:'Weeknight go-to, 1 pot.',have:'6 of 6'},
+ {id:'tacos',n:'Black Bean Tacos',t:25,c:'#5B3A2A',fav:1,made:4,tags:['veg','u30'],src:'Budget Bytes',ab:'Crispy shells, lime crema.',have:'5 of 7'},
+ {id:'chili',n:'Turkey Chili',t:60,c:'#9C3B22',fav:0,made:2,tags:['freeze'],src:'NYT Cooking',ab:'Makes a big pot. Freezes well.',have:'7 of 9'},
+ {id:'stirfry',n:'Ginger Beef Stir-Fry',t:25,c:'#7A4A2A',fav:0,made:1,nop:1,tags:['u30'],src:'Your own',ab:'Fast, use any veg.',have:'4 of 8'},
+ {id:'soup',n:'Tomato Basil Soup',t:35,c:'#D2552F',fav:1,made:5,tags:['veg','freeze'],src:'Smitten Kitchen',ab:'Grilled cheese partner.',have:'6 of 7'},
+ {id:'curry',n:'Chickpea Coconut Curry',t:30,c:'#D9A23A',fav:0,made:0,tags:['veg','u30','freeze'],src:'Minimalist Baker',ab:'Pantry staples only.',have:'7 of 8'},
+ {id:'salmon',n:'Sheet-Pan Salmon',t:25,c:'#E28B6A',fav:0,made:2,tags:['u30'],src:'Your own',ab:'One pan, 4 servings.',have:'3 of 6'},
+ {id:'pancake',n:'Buttermilk Pancakes',t:20,c:'#E7C58A',fav:1,made:9,tags:['veg','u30'],src:'Joy of Cooking',ab:'Saturday mornings.',have:'6 of 6'},
+ {id:'risotto',n:'Mushroom Risotto',t:45,c:'#B8A07A',fav:0,made:0,tags:['veg'],tabs:['want'],src:'Bon Appétit',ab:'Stir, stir, stir.',have:'5 of 8'},
+ {id:'ramen',n:'Miso Ramen',t:40,c:'#C9863E',fav:0,made:0,tags:[],tabs:['want'],src:'Just One Cookbook',ab:'Soft egg on top.',have:'2 of 9'},
+ {id:'fajita',n:'Chicken Fajitas',t:30,c:'#B9532E',fav:0,made:3,tags:['chicken','u30'],src:'Your own',ab:'Peppers and onions.',have:'6 of 8'},
+ {id:'lasagna',n:'Spinach Lasagna',t:80,c:'#B4442B',fav:0,made:1,tags:['veg','freeze'],src:'Grandma Ann',ab:'Make two, freeze one.',have:'7 of 11'},
+ {id:'shak',n:'Shakshuka',t:30,c:'#C4402A',fav:0,made:0,tags:['veg','u30'],src:'Ottolenghi',ab:'Eggs in spicy tomato.',have:'6 of 7'},
+ {id:'pho',n:'Chicken Pho',t:90,c:'#C8A060',fav:0,made:0,tags:['chicken'],tabs:['want'],src:'Hot Thai Kitchen',ab:'Toast the spices first.',have:'4 of 12'},
+ {id:'naanpizza',n:'Naan Pizza',t:15,c:'#D07A3A',fav:0,made:2,nop:1,tags:['veg','u30'],src:'Your own',ab:'Uses leftover naan.',have:'4 of 5'},
+ {id:'enchi',n:'Green Chicken Enchiladas',t:55,c:'#7E8F3A',fav:1,made:2,tags:['chicken','freeze'],src:'Pioneer Woman',ab:'Salsa verde, lots of cheese.',have:'6 of 9'},
+ {id:'banana',n:'Banana Bread',t:70,c:'#8A5A2E',fav:1,made:7,tags:['veg','freeze'],src:'King Arthur',ab:'3 very ripe bananas.',have:'7 of 7'}
+];
+R.forEach((r,i)=>{r.tilt=[-.5,.35,-.2,.45,-.4,.25,-.3,.5,-.45,.15][i%10];r.tabs=r.tabs||[];
+ if(r.fav)r.tabs.push('fav'); if(!r.made)r.tabs.push('new'); r.tabs.push('all');
+ r.tags=[...new Set([...r.tags,...TAGX[r.id].split(' '),...(r.t<=15?['u15']:[]),...(r.t<=30?['u30']:[]),...(r.t<=60?['u60']:[])])];});
+const hasTab=(r,k)=>k==='next'?!!S.flags[r.id]:r.tabs.includes(k);
+const hasTag=(r,f)=>f==='nextplan'?!!S.flags[r.id]:r.tags.includes(f);
+const tabCount=k=>S.o.book==='B'?0:R.filter(r=>hasTab(r,k)).length;
+/* full detail for the main recipe; the others reuse a short version */
+const TIKKA={serves:4,
+ groups:[['For the chicken',[[1.5,'lb','chicken thighs, cut in chunks',1],[0.75,'cup','plain yogurt',1,'Greek yogurt'],[2,'tsp','garam masala',1],[1,'tsp','salt',1]]],
+  ['For the sauce',[[2,'tbsp','butter',1],[1,'','onion, diced',1],[4,'clove','garlic',1],[1,'tbsp','fresh ginger',0],[2,'can','crushed tomatoes (14 oz)',1,null,1],[0.5,'cup','heavy cream',0]]],
+  ['For serving',[[1,'batch','Quick Naan',1,null,0,'naan']]]],
+ steps:[['Mix the yogurt, {garam} garam masala and salt. Coat the chicken.',0],['Let it sit at least 20 minutes.',20],['Broil the chicken on a sheet pan until charred at the edges.',10],['Melt the {butter} butter in a big pan. Cook the onion until soft.',8],['Add the garlic and ginger. Stir 1 minute.',1],['Pour in the {tom} crushed tomatoes. Simmer.',15],['Stir in the {cream} cream.',0],['Add the chicken. Simmer 5 more minutes.',5],['Serve with rice and Quick Naan.',0]]};
+const NAAN={n:'Quick Naan',t:25,c:'#E2B776',serves:4,
+ groups:[['Dough',[[2,'cup','flour',1],[0.75,'cup','plain yogurt',1],[2,'tsp','baking powder',1],[0.5,'tsp','salt',1]]],['Top',[[2,'tbsp','melted butter',1],[1,'tbsp','chopped cilantro',0]]]],
+ steps:[['Mix everything into a soft dough.',0],['Rest it 10 minutes.',10],['Roll into 4 ovals.',0],['Cook in a hot dry pan, 2 minutes a side.',2],['Brush with butter and cilantro.',0]]};
+function shortDetail(r){return {serves:4,groups:[['Ingredients',[[1,'lb','main ingredient',1],[1,'','onion',1],[2,'clove','garlic',1],[1,'tbsp','olive oil',1],[1,'tsp','salt',1],[0.5,'cup','something you\'re out of',0]]]],
+ steps:[['Prep everything first.',0],['Cook the onion and garlic until soft.',6],['Add the main ingredient and cook through.',12],['Taste, season and serve.',0]]};}
+
+/* ---------------- state ---------------- */
+const S={d:'computer',tab:'all',q:'',f:new Set(),sel:'tikka',srv:4,lift:null,coverSeen:false,phoneOpen:false,swaps:{},favs:{},more:false,flags:{},notes:{},ned:null,mvNew:false,colN:0,o:{srch:'B',nav:'A',lines:'A',pile:'B',plan:'C',add:'A',photo:'A',hover:'A',bind:'B',book:'A'},rate:{},xp:false};
+/* the numbered changes since r15 (CH-N), each with its own toggle in the "Changes since r15" panel */
+const CHG=[[1,'Your own recipes say "Your own recipe" (no outside-link arrow)'],[2,'Sub-recipe title gets one more line'],[3,'Bigger tap areas on iPad and iPhone'],[4,'Collection buttons fade only where more hide'],[5,'iPad upright: search, Filters and Add on one row'],[6,'Empty states get a small picture'],[7,'iPad upright and iPhone rows show the ♥'],[8,'Expanded: buttons on the right on computer and iPad sideways'],[9,'One dark-green fill: picked collections and filters are light green'],[10,'One font: no serif, no italics (except the wordmark)'],[11,'No coloured stripes on card edges'],[12,'Compact collection buttons, so all five fit'],[13,'No text under 12px (phone facts 13px)'],[14,'Clear buttons look like buttons; Title Case, no "…"'],[15,'Jump bar starts on Top and never jumps to the last button'],[16,'"Not in this search" strip over a hidden recipe'],[17,'Small fixes: Expanded dashed line, lifted card tags']];
+const CH=n=>document.documentElement.classList.contains('ch-'+n);
+const JUMP=[['Top','Top'],['Your notes','Notes'],['Ingredients','Ingredients'],['Steps','Steps'],['Leftovers and storage','Storage']];
+const XOUT='M9.5 2.5h4v4M13.5 2.5 9 7M6.5 13.5h-4v-4M2.5 13.5 7 9',XIN='M13 3 9 7M9 3.5V7h3.5M3 13l4-4M7 12.5V9H3.5';
+const XSIDE=(c,t,d,l)=>`<button class="xside ${c}" data-${c} title="${t}"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg><span>${l}</span></button>`;
+const XBTN=`<button class="xbtn" data-xp title="Expand"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${XOUT}"/></svg><span>Expand</span></button>`;
+const OPTS=[['lines','Card lines',[['A','Whole card ruled',1],['B','Only Ingredients + Steps']]],
+ ['plan','Add to Plan',[['A','Title row, with a day menu'],['C','Title row, one tap',1]]],
+ ['photo','Recipe photo',[['A','Has a photo',1],['B','No photo']]],
+ ['pile','Card pile',[['A','Neat stack'],['B','Loose pile',1],['C','Two across'],['D','Recipe box tabs']]],
+ ['hover','Card hover',[['A','Lift + actions',1],['B','Tilt + actions']]],
+ ['bind','Binding',[['A','As before'],['B','Soft fold',1]]],
+ ['book','Book',[['A','18 recipes',1],['B','Empty (no recipes yet)']]]];
+function renderOpts(){$('#opts').innerHTML='<b style="color:#333">Try the options:</b>'+OPTS.map(([k,l,v])=>`<label>${l}<span class="seg">${v.map(([c,n,pk])=>`<button data-ok="${k}" data-ov="${c}" class="${S.o[k]===c?'on':''}" title="${n}">${c}. ${n}${pk?'<span class="pk">★</span>':''}</button>`).join('')}</span></label>`).join('')+'<span>★ = my pick</span>';
+ $$('#opts [data-ok]').forEach(b=>b.onclick=()=>{S.o[b.dataset.ok]=b.dataset.ov;renderOpts();build();});}
+const DEV={computer:{w:1440,h:900,rail:'wide',narrow:0},ipadside:{w:1180,h:820,rail:'wide',narrow:0},ipadup:{w:820,h:1180,rail:'slim',narrow:1},phone:{w:390,h:844,rail:null,narrow:1}};
+const K=()=>S.slow?3:1;
+const touch=()=>S.d!=='computer';
+/* touch screen: the iPad or phone device mode, or a real touch screen */
+const coarse=()=>S.d!=='computer'||matchMedia('(pointer:coarse)').matches;
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+/* ---------------- icons ---------------- */
+const IC={today:'<path d="M4 6h16v14H4z M4 10h16 M8 3v4 M16 3v4"/>',plan:'<path d="M4 5h16v15H4z M4 9h16 M8 13h3 M13 13h3 M8 16h3"/>',
+ book:'<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z M5 17a3 3 0 0 1 3-3h11"/>',shop:'<path d="M3 5h3l2 10h10l2-7H7 M9 19a1 1 0 1 0 0 .1 M17 19a1 1 0 1 0 0 .1"/>',
+ kitchen:'<path d="M6 3h12v18H6z M6 10h12 M9 6v2 M9 13v3"/>',history:'<path d="M12 7v5l3 2 M4 12a8 8 0 1 0 2.5-5.8 M4 4v4h4"/>',
+ prep:'<path d="M4 18l9-9 3 3-9 9H4z M14 6l2-2 4 4-2 2"/>',reminders:'<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z M10 20a2 2 0 0 0 4 0"/>',
+ leftovers:'<path d="M4 11h16l-2 8H6z M7 11V8h10v3 M10 5h4"/>',more:'<path d="M5 12h.1 M12 12h.1 M19 12h.1"/>'};
+const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
+const MAIN=[['today','Today'],['plan','Plan'],['book','Recipes'],['shop','Shop'],['kitchen','Kitchen']];
+const EXTRA=[['history','History'],['prep','Prep'],['reminders','Reminders'],['leftovers','Leftovers']];
+
+/* ---------------- notes ---------------- */
+const NOTES={
+ all:[['What this is','Round 11 of the recipe book (11-24), with the small 11b follow-up just below. The maps below say where each round-11 ask shows; the round-7 map is under them. Standards everywhere: one themed scrollbar, buttons are rounded rectangles (never pills) with Title Case words, and links that leave the app get a small arrow tip<span class="ext"><svg class="tip" viewBox="0 0 10 10" aria-hidden="true"><path d="M3 2.2h4.8V7"/></svg></span> (just the point, no shaft). Switch devices at the top. Turn on <i>Slow motion</i> to see each move clearly.'],
+  ['Round 11b: the recipe\'s buttons','<b>No Mark It Made</b>: there is no Done Cooking button. Finishing a cooking session (from <i>Start Cooking</i>) is what counts a recipe as made; "Made 3 times, last on Oct 28" stays as plain text under the facts. <b>Buttons in the title</b>: <i>Start Cooking</i> (the filled green main button), <i>Add to Plan</i> and a ♥ Favorite (filled when it is a favorite) sit in a small row at the top right of the recipe\'s title section, the same height, corners and type as the old tan-bar buttons. Where there is no room beside the photo (iPad sideways and upright, phone, Expanded, Quick Naan) the row drops to its own line under "from …", left aligned, and the header grows by one ruled line, so the title is never covered. The old Add to Plan and Favorite buttons under the facts are gone. <b>Tan bar</b>: only ‹ Back (when there is one) and ⋯ (Move to Collection ›, Edit, Share / Print), so each recipe page has exactly one Start Cooking and one Add to Plan. <b>Card buttons</b> match, on every device: <i>Add to Plan</i> (outline), then <i>Start Cooking</i> (filled green) at the right, next to the heart.'],
+  ['Round 11: where each ask is','<b>1 Name</b>: the rail, the phone\'s More drawer and the tan bar all say <i>Recipes</i>. <b>2 Cover</b>: stays closed 3 s, then opens by itself; it says only <i>Tap to Open</i>, no countdown. <b>3</b> <i>+ Add a Recipe</i> everywhere. <b>4 One name</b>: <i>Add to Plan</i> on every card and in the recipe\'s title row. Once added it reads <i>✓ On Plan</i> and the recipe shows under the <b>On Plan</b> collection; tap again to take it off. <b>5 Collections</b>: ⋯ → <i>Move to Collection ›</i> opens a small menu beside the first one (on the phone it takes the menu\'s place, with <i>‹ Back</i> on top). Pick one, or <i>New Collection…</i> to name a new one; the recipe moves there. <b>6 No photo</b>: Ginger Beef Stir-Fry and Naan Pizza show a small bowl with steam, drawn like the card icons, in a tile the same size as a photo. <b>7 Notes</b>: tap <i>Edit</i> or the note itself and type right there; <i>Done</i> and <i>Cancel</i> sit where Edit was. <b>8</b> Edit, Share and Print in ⋯ are as before. <b>10 Pile cards</b> (round 12): back to the tight pile; the card under the mouse lifts gently, and its two buttons sit in the title row, right of the name (a long name wraps to two lines instead of being cut). <b>11 One Add to Plan per place</b>: the recipe\'s title row has it (11b), so the tan bar and the ⋯ menu do not repeat it.'],
+  ['Round 7: where each ask is','<b>1 Scrollbars</b>: every scroll area, same thin themed bar. <b>2 Search card</b>: its top lines up with the jump bar on the right. <b>3 Count</b>: add a filter; "18 recipes" stays put and only the number changes. <b>4 Notes Edit</b>: rounded rectangle. <b>5 Header</b>: photo, title and "from Serious Eats" sit centered above the red line. <b>6 Facts</b>: time, serves and difficulty sit just below the red line. <b>7 Expand</b>: hover it; it acts just like a jump button. <b>8 Shrink</b>: the label turns back to Expand only when the card lands. <b>9 Arrow tip</b><span class="ext"><svg class="tip" viewBox="0 0 10 10" aria-hidden="true"><path d="M3 2.2h4.8V7"/></svg></span>: "Serious Eats" and the Source links. <b>10 No pills</b>: grocery button, timers, Add to Plan, Favorite, Edit, tags. <b>11 Expanded + Quick Naan</b>: no tan; the naan card has <i>Close</i> top right; the main card keeps its own jump bar plus <i>Back to book</i>; no "Back to Chicken Tikka Masala" there. In the book view, that sticky Back stays. <b>14 Binding</b>: soft fold, no shadow on the dotted pages, no flash when the cover opens. <b>16 Card hover</b>: Lift, now with buttons on the lifted card. <b>17</b>: Clear all stays dashed. <b>18 Content</b>: no allergen (Nut-free) anywhere; new <i>Prep ahead</i> fold; "You need" row gone.'],
+ ['1. The cover','All wood now, no leather. The spine starts on edge, outside facing left, and swings down as the cover opens. While it moves you see its outside, with the wood bands. Once flat it becomes the gutter between the pages. The right-hand page is there the whole time the cover turns, not popped in at the end. The binding sits dead center. The cover says <i>Tap to Open</i>; tap it, or it opens by itself after 3 s. <i>Replay the cover</i> shows it again.'],
+  ['2. Collections','No folders (Tyler, 11-23). Your collections are plain buttons with rounded corners at the top of the pinned search card: All, Favorites, Not Tried, Want to Try, On Plan, then any you make. All, Not Tried and On Plan fill themselves. The phone has the same buttons in one row that slides sideways. To move a recipe: ⋯ in the tan bar → <i>Move to Collection ›</i>. A small menu pops out beside the first one with your collections; pick one and both menus close with "Moved to …". <i>New Collection…</i> turns into a name box with <i>Create</i> (Enter works too); the new collection shows up with the others. On the phone the list takes the menu\'s place, with <i>‹ Back</i> on top. (Quick is gone: the Under 30 min filter does the same job.)'],
+  ['3. Search and filters','The pinned note card, now level and untaped, lined up with the jump bar. Search, Filters and + Add a Recipe are one row, all the same height, with rounded-rectangle buttons. <b>Filters</b> opens a panel that floats over everything, with the tags in groups (Diet, Time, Main ingredient, Cuisine, Keeps well, Your lists), each showing how many recipes it matches. Pick as many as you like, then <i>Show N recipes</i>. Only the tags you picked stay on the card, each with an ✕. Each new one drops in and settles; the card grows down first if it needs a new row. <i>Clear all</i> is a small dashed button with a reset arrow.'],
+  ['4. Add to Plan','One name everywhere (was "Save for Next Plan" and "Plan It"). <i>Add to Plan</i> puts the recipe on your plan list, no day yet. It is on every card, and in the recipe\'s title row between <i>Start Cooking</i> and the ♥: one per place, never two. Once added, the button reads <i>✓ On Plan</i>, the card gets a small "On Plan" mark, and the recipe shows under the <b>On Plan</b> collection, so you find it when you plan. Tap it again to take it off (the message has Undo).'],
+  ['5. Your notes','Tap <i>Edit</i>, or tap the note. The same note turns into a typing area right where it is: same font, size and ruled lines, so nothing moves; it grows one line at a time as you type. A faint green edge shows you are typing, with the cursor at the end. <i>Done</i> keeps it, <i>Cancel</i> puts the old note back; they sit where Edit was. Keys: Esc = Cancel, Ctrl+Enter (⌘+Enter on a Mac) = Done. Tapping somewhere else keeps what you typed. On the iPad and phone the page scrolls so the note sits in the upper middle, above the keyboard. Notes stay until you reload (mockup).'],
+  ['Try the options','★ is my pick. <b>Card pile</b>: ways the small cards lie on the left page. A a neat stack, B a loose pile tossed in by hand (my pick), C two across. Every card shows its name and a line of facts: time, how often you made it, and how much you have. <b>Card lines</b>: A rules the whole card (your pick), B only Ingredients and Steps. In both, every line of words now sits right on a blue line, all the way down. <b>Add to Plan</b>: A the title-row button opens a small menu under it (Pick a Day… or No Day Yet), C the title-row button adds it in one tap (my pick). (The old B, a ⚑ icon in the tan bar, is gone: the tan bar holds only ‹ and ⋯.) <b>Recipe photo</b>: A a taped snapshot, B no photo. <b>Card hover</b> (computer): A the card lifts gently and shows two buttons in its title row, right of the name: <i>Add to Plan</i> and <i>Start Cooking</i> (my pick, your pick too); B the same buttons, but the card tilts toward the mouse. <b>Binding</b>: A as before, B a soft fold (my pick): the wide wooden spine darkens toward the middle, the dotted backdrop sits on the wood with wood showing on all four sides, no shadow on the dots, and it is dark from the moment the cover opens. Behind the book is the normal page color.']],
+ computer:[['6. Cards (computer)','Rest the mouse on a card (or Tab to it): after a short pause it slides up a little out of the pile (it stays behind the cards in front of it, never on top) and shows <i>Add to Plan</i> in its title row, right of the name and heart. Cards have no Start Cooking button: that lives on the open recipe. A long name wraps to two lines instead of being cut. The other cards stay in their tight pile, so you can run the mouse down them fast. Click anywhere else on the card to open it on the right.'],
+  ['7. The recipe card','One big index card. Its title section (photo, name, "from Serious Eats", then a line of buttons under them, the same on every screen) holds the recipe\'s buttons: <i>Start Cooking</i>, <i>Add to Plan</i> and ♥ at the top right, or on their own line under "from …" when the card is narrow. Try servings − 4 +, <i>Add 3 to Grocery List</i> (its little cart becomes the new grocery icon later), <i>swap</i>, a timer, the folds at the bottom, and the jump panel above the card (the part you are reading lights up). Tap the stars to rate.'],
+  ['8. Expand','<b>Expand</b> (top right of the card) grows it over the whole work area, with Ingredients and Steps side by side. The jump buttons come with it: a slim bar at the top of the big card that stays put while you scroll, out of the title\'s way. The recipe\'s buttons sit on their own line under "from …". <b>Shrink</b> or Esc puts it back; the button says Shrink until the card has landed.'],
+  ['9. Quick Naan','Under Ingredients → For serving (the green chip with the card icon). It slides in like a binder page, and the jump bar works inside it. It has its own <i>Start Cooking</i>, <i>Add to Plan</i> and ♥ row in its title section, on its own line under "from …". <i>Back to Chicken Tikka Masala</i> stays at the top while you scroll. In Expanded, the main recipe moves to the left half with its own jump bar and a <i>Back to book</i> button, and the naan fills the right with <i>Close</i> at the top right.'],
+  ['10. The tan bar','It names the page: <i>Recipes</i>, with the open recipe\'s name beside it. It holds only ‹ Back (when there is one) and ⋯, both 32 px with the same room above and below. Start Cooking and Add to Plan moved into the recipe\'s title section (11b). The ⋯ menu opens right under it: Move to Collection ›, Edit, Share / Print.'],
+  ['11. Coming Later','Things we know we want but have not built yet stay in the menu, greyed, with a dashed <i>Coming Later</i> tag (Edit, Share / Print). Tapping one only says it is on our list. They all go on one running list so we can build them later.'],
+  ['12. Book name','The cover says <i>Anderson Family Cookbook</i>: your household name plus Cookbook. You can change it in Settings, Household.']],
+ ipadside:[['iPad sideways','Same layout as the computer, but touch: cards do not react to hover; one tap opens. Every card shows <i>Add to Plan</i> in its title row, right of the name (no hover on touch). The other cards stay tight in the pile so they are easy to scan. Ingredients and Steps stack in one column; they sit side by side only in Expanded view. The recipe card is narrower here, so its Start Cooking / Add to Plan / ♥ row sits on its own line under "from …". Editing a note scrolls it to the upper middle, above the keyboard.']],
+ ipadup:[['iPad upright','No book cover: it opens straight to the list. Slim rail (it says <i>Recipes</i>), a plain list. Tap a recipe: it slides in from the right over the list. Every row shows <i>Add to Plan</i> at the top right. On the recipe, <i>Start Cooking</i>, <i>Add to Plan</i> and ♥ sit on their own line under "from …". ‹ in the tan bar slides it back. Editing a note scrolls it to the upper middle, above the keyboard.']],
+ phone:[['Phone','Bottom bar (More is lit because Recipes lives in More: tap More to see). No book cover: it opens straight to the list. Plain list; the recipe slides in over it. Every row shows <i>Add to Plan</i> at the top right; the name wraps to two lines beside them. The recipe count lives only in the tan bar. On the recipe, <i>Start Cooking</i>, <i>Add to Plan</i> and ♥ fit on one line under "from …"; the tan bar holds only ‹ and ⋯. ⋯ → <i>Move to Collection ›</i> swaps the menu for the collection list, with <i>‹ Back</i> on top. Editing a note scrolls it to the upper middle, above the keyboard.']]
+};
+function renderNotes(){const n=[...NOTES.all,...(NOTES[S.d]||[]),...(S.d==='computer'?[]:NOTES.computer.slice(1,3))];
+ document.getElementById('notes').innerHTML=n.map(([h,p])=>`<div class="note"><b>${h}</b>${p}</div>`).join('');}
+
+/* ---------------- helpers ---------------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+function fmt(x){if(!x)return'';const w=Math.floor(x+1e-9),f=x-w;const fr=[[0,''],[.25,'¼'],[1/3,'⅓'],[.5,'½'],[2/3,'⅔'],[.75,'¾'],[1,'']];
+ let best=fr[0],d=9;for(const p of fr){const dd=Math.abs(f-p[0]);if(dd<d){d=dd;best=p}}let ww=w+(best[0]===1?1:0);return (ww?ww:'')+best[1]||'0';}
+function toast(m){const t=$('.toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('show'),2200);}
+function toastUndo(m,undo){const t=$('.toast');t.innerHTML='';t.append(m);const b=document.createElement('button');b.textContent='Undo';b.onclick=()=>{undo();t.classList.remove('show','undo');};t.append(b);
+ t.classList.add('show','undo');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('show','undo'),4000);}
+function curCard(){return $('.binder').classList.contains('show')?$('.binder .rcard'):$('#rmain');}
+function curId(){return $('.binder').classList.contains('show')?'naan':S.sel;}
+/* r11-4 one name: Add to Plan. Added recipes read ✓ On Plan and show under the On Plan collection */
+/* r11b the Add to Plan button sits in each recipe page's title row (main card: #plan; Quick Naan: its own) */
+function refreshFlag(){const one=S.o.plan!=='A';
+ [[$('#rmain'),S.sel],[$('.binder .rcard'),'naan']].forEach(([c,cid])=>{if(!c)return;const on=one&&!!S.flags[cid];
+  $$('.rtacts [data-flag]',c).forEach(pl=>{pl.textContent=on?'✓ On Plan':'Add to Plan';pl.classList.toggle('on',on);pl.title=on?'On the Plan (tap to take it off)':'Add to Plan';});});
+ if($('#pmflag'))$('#pmflag').firstChild.textContent=S.flags[S.pmId||curId()]?'✓ On Plan, No Day Yet':'No Day Yet';renderTabs();}
+/* option A: the day menu opens under the title-row button, left edges lined up, kept inside the screen */
+function openPlanMenu(b,id){const m=$('#pmenu'),on=!(m.classList.contains('show')&&S.pmId===id);closeMenu();if(!on)return;S.pmId=id;
+ $('#pmflag').firstChild.textContent=S.flags[id]?'✓ On Plan, No Day Yet':'No Day Yet';
+ const p=m.offsetParent||m.parentElement,pr=p.getBoundingClientRect(),br=b.getBoundingClientRect(),k=pr.width/(p.offsetWidth||pr.width)||1;
+ m.classList.add('show');const w=m.offsetWidth,left=Math.max(8,Math.min((br.left-pr.left)/k,p.clientWidth-w-8));
+ Object.assign(m.style,{top:((br.bottom-pr.top)/k+4)+'px',left:left+'px',right:'auto'});
+ $('#scrim').classList.add('show');$('#scrim').style.opacity=0;}
+/* re-draw whichever recipe page shows this recipe, keeping its scroll */
+function refreshRecipe(id){[[$('#rmain'),S.sel],[$('.binder .rcard'),'naan']].forEach(([c,cid])=>{if(!c||cid!==id)return;if(cid==='naan'&&!$('.binder').classList.contains('show'))return;if(c.id==='rmain'&&S.o.book==='B')return;
+ const sc=c.querySelector('.rscroll'),top=sc.scrollTop;renderRecipe(c,cid,false);c.querySelector('.rscroll').scrollTop=top;});}
+function setFlag(id,quiet){S.flags[id]=!S.flags[id];refreshRecipe(id);
+ const ds=$('#dscroll'),dt=ds.scrollTop;renderDeck(false);ds.scrollTop=dt;refreshFlag();
+ if(!quiet)toastUndo(S.flags[id]?`Added ${rec(id).n} to the Plan. Find it under On Plan.`:'Taken off the Plan.',()=>setFlag(id,true));}
+function addRecipe(){closeMenu();toast('Opens the Import a Recipe page: a link, a photo, or type it in (its own page, not in this mockup)');}
+function visible(extra){if(S.o.book==='B')return [];const q=S.q.trim().toLowerCase(),fs=[...S.f,...(extra?[extra]:[])];return R.filter(r=>hasTab(r,S.tab)&&(!q||r.n.toLowerCase().includes(q))&&fs.every(f=>hasTag(r,f)));}
+/* folder tab outline, ported from the app's FolderDrawer (drawerTabPaths) */
+function ftPath(W,open){const H=32,s=6,r=7,f=4,L=.5,R=W-.5,top=1.5,len=Math.hypot(s,H-top),ux=s/len,uy=(H-top)/len,n=v=>+v.toFixed(2);
+ const tl=`L${n(L+s-r*ux)} ${n(top+r*uy)} Q${n(L+s)} ${n(top)} ${n(L+s+r)} ${n(top)} L${n(R-s-r)} ${n(top)} Q${n(R-s)} ${n(top)} ${n(R-s+r*ux)} ${n(top+r*uy)}`;
+ if(!open)return{fill:`M${L-.5} ${H} ${tl} L${R+.5} ${H} Z`,stroke:`M${L} ${H+.5} ${tl} L${R} ${H+.5}`};
+ const a=`${n(L+f*ux)} ${n(H+.5-f*uy)}`,b=`${n(R-f*ux)} ${n(H+.5-f*uy)}`;
+ return{fill:`M${L-f} ${H+1} L${L-f} ${H} Q${L} ${H} ${a} ${tl} L${b} Q${R} ${H} ${R+f} ${H} L${R+f} ${H+1} Z`,stroke:`M${L-f} ${H+.5} Q${L} ${H+.5} ${a} ${tl} L${b} Q${R} ${H+.5} ${R+f} ${H+.5}`};}
+const FCOL=['#E8D6B2','#E2CDA4','#DCC598','#D6BD8C','#E5D2AC','#DFC99E'];
+function renderTabs(){const mt=$('.mtabs'),ft=$('.ftabs');if(!mt)return;
+ const lab=([k,l])=>`<span>${esc(l)}<small>${tabCount(k)}</small></span>`;
+ mt.innerHTML=TABS.map(t=>`<button class="mtab ${t[0]===S.tab?'on':''}" data-tab="${t[0]}">${lab(t)}</button>`).join('');
+ ft.innerHTML=TABS.map((t,i)=>`<button class="ftab ${t[0]===S.tab?'on':''}" data-tab="${t[0]}" style="z-index:${t[0]===S.tab?50:20-i}"><svg></svg>${lab(t)}</button>`).join('');
+ $$('[data-tab]').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));drawTabs();mtFade(true);}
+/* CH-4 the collection row: fade only the edge that hides more buttons; keep the picked one in view */
+function mtFade(show){const m=$('.mtabs');if(!m)return;const on=CH(4);
+ if(on&&show){const b=m.querySelector('.on');if(b){const l=b.offsetLeft-m.offsetLeft,r=l+b.offsetWidth;if(l<m.scrollLeft+20)m.scrollLeft=Math.max(0,l-30);else if(r>m.scrollLeft+m.clientWidth-20)m.scrollLeft=r-m.clientWidth+30;}}
+ m.classList.toggle('mfl',on&&m.scrollLeft>2);m.classList.toggle('mfr',on&&m.scrollLeft+m.clientWidth<m.scrollWidth-2);}
+function drawTabs(){$$('.ftab').forEach((b,i)=>{const W=b.offsetWidth;if(!W)return;const on=b.classList.contains('on'),p=ftPath(W,on),sv=b.querySelector('svg');
+ sv.setAttribute('width',W);sv.setAttribute('height',34);sv.setAttribute('viewBox',`0 0 ${W} 34`);
+ sv.innerHTML=`<path d="${p.fill}" fill="${on?'var(--endpaper)':FCOL[i%FCOL.length]}"/><path d="${p.stroke}" fill="none" stroke="#B9A988" stroke-width="1"/>`;});}
+function setTab(k){if(k===S.tab)return;$$('[data-tab]').forEach(x=>{x.classList.toggle('on',x.dataset.tab===k);});
+ $$('.ftab').forEach((x,i)=>x.style.zIndex=x.dataset.tab===k?50:20-i);drawTabs();shuffle(()=>S.tab=k);}
+const FIC='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2 3.2h12l-4.6 5.3v4.4l-2.8 1.4V8.5z"/></svg>';
+/* CH-14 button words: Title Case, no "…" (DESIGN 4.2.5, 4.2.12) */
+const L14=(a,b)=>CH(14)?b:a;
+function fpopHTML(){return `<div class="fph"><b>Filter recipes</b><button class="fclr">${L14('Clear all','Clear All')}</button><button class="fx" aria-label="Close">✕</button></div>
+ <div class="fpb">${FGROUPS.map(([g,items])=>`<div class="fg"><div class="fgh">${g}</div><div class="fgc">${items.map(([k,l])=>`<button class="fchip" data-ff="${k}">${l}<small></small></button>`).join('')}</div></div>`).join('')}</div>
+ <div class="fpf"><span>Pick as many as you like. Cards must match all of them.</span><button class="fshow"></button></div>`;}
+/* everything that shows the filters: the button, the chip row under search, and the popup */
+function refreshFilters(){const n=visible().length,f=$('#fbtn');if(!f)return;const prev=S.fk,keys=[...S.f],chg=prev&&prev.join()!==keys.join();S.fk=keys;
+ const ch0=$('.chips'),h0=ch0?ch0.offsetHeight:0,c0=$('#cnt')?.getBoundingClientRect();
+ f.classList.toggle('on',!!S.f.size);f.querySelector('.fc').textContent=S.f.size;
+ const ch=$('.chips');ch.classList.toggle('has',!!S.f.size);
+ ch.innerHTML=[...S.f].map(k=>`<button class="chip on" data-f="${k}" title="Remove this filter">${FL[k]}<i>✕</i></button>`).join('')+(S.f.size>1?'<button class="clr" data-fclr title="Remove every filter"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 3.5v3.5h3.5"/><path d="M3.4 7A5 5 0 1 1 4.6 11"/></svg>'+L14('Clear all','Clear All')+'</button>':'')+`<span class="cnt" id="cnt">${n} ${n===1?'recipe':'recipes'}</span>`;
+ $$('[data-f]',ch).forEach(b=>b.onclick=()=>toggleF(b.dataset.f));$$('[data-fclr]',ch).forEach(b=>b.onclick=clearF);
+ if(chg&&!matchMedia('(prefers-reduced-motion: reduce)').matches)chipAnim(ch,h0,c0,keys.filter(k=>!prev.includes(k)));
+ $$('#fpop [data-ff]').forEach(b=>{const k=b.dataset.ff,on=S.f.has(k),c=on?n:visible(k).length;b.classList.toggle('on',on);b.classList.toggle('none',!on&&!c);b.querySelector('small').textContent=c;});
+ const sh=$('#fpop .fshow');if(sh)sh.textContent=n?`Show ${n} ${n===1?L14('recipe','Recipe'):L14('recipes','Recipes')}`:L14('No recipes match','No Recipes Match');try{updateBar();}catch(e){}}
+function chipAnim(ch,h0,c0,added){const k=K(),h1=ch.offsetHeight,grow=h1!==h0,d=grow?220*k:0,cnt=$('#cnt');
+ if(grow){ch.style.overflow='hidden';ch.animate([{height:h0+'px'},{height:h1+'px'}],{duration:d,easing:'cubic-bezier(.2,.7,.2,1)'}).finished.then(()=>ch.style.overflow='');}
+ if(cnt&&c0){const c1=cnt.getBoundingClientRect(),dx=c0.left-c1.left,dy=c0.top-c1.top;if(dy)cnt.animate([{transform:`translateY(${dy}px)`,opacity:.35},{transform:'none',opacity:1}],{duration:340*k,delay:d*.5,easing:'cubic-bezier(.25,.8,.25,1)',fill:'backwards'});}
+ added.forEach((key,i)=>{const c=ch.querySelector(`[data-f="${key}"]`);if(!c)return;c.animate([{opacity:0,transform:'translateY(-12px) scale(.9)'},{opacity:1,transform:'translateY(0) scale(1.04)',offset:.35},{transform:'translateX(-3px) rotate(-2deg)',offset:.5},{transform:'translateX(3px) rotate(1.5deg)',offset:.65},{transform:'translateX(-1.5px) rotate(-.6deg)',offset:.8},{transform:'none'}],{duration:420*k,delay:d+120*k+i*70*k,easing:'ease-out',fill:'backwards'});});}
+function toggleF(k){S.f.has(k)?S.f.delete(k):S.f.add(k);refreshFilters();shuffle(()=>{});}
+function clearF(){if(!S.f.size)return;S.f.clear();refreshFilters();shuffle(()=>{});}
+function setFpop(on){const p=$('#fpop');if(!p)return;p.classList.toggle('show',on);$('#fbtn').classList.toggle('open',on);$('#fscrim')?.classList.toggle('show',on);$('.deck')?.classList.toggle('fopen',on);if(on)refreshFilters();}
+/* r10-7 a tap outside the open Filters panel only closes it. Over the book the scrim takes the tap (it closes on click, so nothing under it gets one);
+   anywhere else in the device (tan bar, rail, bottom bar) the panel closes on press and the click that follows is swallowed */
+document.addEventListener('pointerdown',e=>{const p=$('#fpop');if(!p||!p.classList.contains('show')||p.contains(e.target)||$('#fbtn').contains(e.target)||e.target.id==='fscrim')return;
+ setFpop(false);if($('#dev').contains(e.target))S.eatClick=Date.now();});
+document.addEventListener('click',e=>{if(S.eatClick&&Date.now()-S.eatClick<1000){S.eatClick=0;e.stopPropagation();e.preventDefault();}},true);
+
+/* ---------------- device shell ---------------- */
+function build(){
+ S.xp=false;
+ const D=DEV[S.d],dev=$('#dev');
+ dev.className=S.d+' '+(D.narrow?'narrow':'wide')+(S.d==='phone'?' phone':'')+Object.entries(S.o).map(([k,v])=>' '+k+v).join('');
+ dev.style.width=D.w+'px';dev.style.height=D.h+'px';
+ const rail=D.rail?`<nav class="rail ${D.rail}"><div class="cap" data-toast="Capture opens (not in this mockup)"><span class="plus">+</span><span class="w">Capture</span></div>${MAIN.map(([k,l])=>`<div class="it ${k==='book'?'cur':''}" data-toast="${l} (not in this mockup)">${svg(k)}<span class="w">${l}</span></div>`).join('')}<div class="rdiv"></div>${EXTRA.map(([k,l])=>`<div class="it" data-toast="${l} (not in this mockup)">${svg(k)}<span class="w">${l}</span></div>`).join('')}</nav>`:'';
+ dev.innerHTML=`<div class="wood"><span class="wm">SupperCraft</span><span class="av">T</span></div>
+ <div class="dbody">${rail}<div class="main">
+  <div class="tan"><div class="tl"><button class="tback" aria-label="Back">‹</button><span class="t">Recipes</span><span class="bar"></span><span class="d" id="tdet"></span></div>
+   <button class="addbtn inB" data-add>+ Add a Recipe</button><button class="dots" id="dots" aria-label="More actions">⋯</button></div>
+  <div class="book">
+   
+   <div class="cover"><div class="cfr"><div class="cframe"><div class="cm">SupperCraft</div><div class="cr"></div><div class="ct">Anderson Family Cookbook</div><div class="cr"></div><div class="cc">${R.length} recipes</div></div><div class="hint" id="chint">Tap to Open</div></div><div class="cbk"></div></div><div class="spine"><i class="sin"></i><i class="sout"></i></div>
+   <div class="deck closed"><div class="fscrim" id="fscrim"></div><div class="ftabs"></div><div class="head"><div class="mtabs"></div>
+    <div class="tools"><div class="srow"><div class="srch ${S.q?'has':''}"><span style="color:var(--muted)">⌕</span><input id="q" placeholder="Search recipes" value="${S.q}"><button class="x" aria-label="Clear">✕</button></div><button class="fbtn" id="fbtn" aria-haspopup="dialog">${FIC}Filters<span class="fc">0</span></button><button class="addbtn inA" data-add>+ Add a Recipe</button></div>
+    <div class="chips"></div></div><div class="fpop" id="fpop" role="dialog" aria-label="Filter recipes">${fpopHTML()}</div></div>
+    <div class="dscroll" id="dscroll"></div></div>
+   <div class="pane closed"><div class="pnav" id="pnav"><span class="pt">Jump to</span><div class="pjs">${JUMP.map(([k,l])=>`<button data-j="${k}">${l}</button>`).join('')}</div>${XBTN}</div><div class="pnav pnavL" id="pnavL"><span class="pt">Jump to</span><div class="pjs">${JUMP.map(([k,l])=>`<button data-jl="${k}">${l}</button>`).join('')}</div></div><div class="rcard" id="rmain"><div class="nfs" role="status"></div><div class="rscroll"></div><div class="marksbar"></div>${XBTN}${XSIDE('xbook','Leave Expanded and go back to the book','M10 3 5 8l5 5','Back to book')}</div>
+    <div class="binder"><div class="rcard"><div class="rscroll"></div><div class="marksbar"></div>${XBTN}${XSIDE('xclose','Close Quick Naan','M4 4l8 8M12 4l-8 8','Close')}</div></div></div>
+  </div>
+  <div class="scrim" id="scrim"></div>
+  <div class="pmenu" id="pmenu"><button data-pm="day">${L14('Pick a Day…','Pick a Day')}<small>Puts it on this week's Plan</small></button><button data-pm="flag" id="pmflag">No Day Yet<small>It waits under On Plan until you pick a day.</small></button></div>
+  <div class="menu" id="menu" role="menu"><button data-m="add">+ Add a Recipe</button><button data-m="move" aria-haspopup="menu" aria-expanded="false">Move to Collection<span class="mar">›</span></button><button data-m="edit" class="later" aria-disabled="true">Edit<span class="cl">Coming Later</span></button><button data-m="share" class="later" aria-disabled="true">Share / Print<span class="cl">Coming Later</span></button></div>
+  <div class="menu msub" id="movesub" role="menu" aria-label="Move to Collection"></div>
+  <div class="toast"></div>
+ </div></div>
+ <div class="drawer" id="drawer"><div class="grab"></div><div class="grid">${[['book','Recipes'],['kitchen','Kitchen'],['history','History'],['prep','Prep'],['reminders','Reminders'],['leftovers','Leftovers']].map(([k,l])=>`<div class="g ${k==='book'?'cur':''}" data-k="${k}">${svg(k)}${l}</div>`).join('')}</div></div>
+ <div class="pbar">${[['today','Today'],['plan','Plan']].map(([k,l])=>`<button class="tb" data-toast="${l} (not in this mockup)">${svg(k)}${l}</button>`).join('')}<button class="tb" data-toast="Capture opens (not in this mockup)"><span class="plus">+</span></button><button class="tb" data-toast="Shop (not in this mockup)">${svg('shop')}Shop</button><button class="tb cur" id="morebtn">${svg('more')}More</button></div>`;
+ wire(); fit(); renderNotes(); S.lift=null; refreshFlag(); refreshFilters();
+ renderDeck(false); renderRecipe($('#rmain'),S.sel,false); if(S.o.book==='B')$('#rmain .rscroll').innerHTML='<div class="rpage"><div class="e0r"><b>Your recipes open here</b>Add one on the left and it shows up on this page.</div></div>'; updateBar();
+ if(DEV[S.d].narrow && S.phoneOpen) {$('.pane').classList.add('show');}
+ if(!S.coverSeen&&!DEV[S.d].narrow) startCover(); else {$('.cover').classList.add('open');$('.spine').classList.add('open');$('.cover').style.display=DEV[S.d].narrow?'none':'';openBook(false);}
+}
+function fit(){if(FULL){const D=DEV[S.d];$('#scaler').style.transform='none';$('#scaler').style.width=D.w+'px';$('#scaler').style.height=D.h+'px';return;}const D=DEV[S.d],avail=$('#stage').clientWidth,sc=Math.min(1,avail/(D.w+20));$('#scaler').style.transform=`scale(${sc})`;$('#scaler').style.height=(D.h+20)*sc+'px';$('#scaler').style.width=(D.w+20)+'px';}
+addEventListener('resize',()=>{fit();pjsFade();mtFade();drawTabs();if(S.xp)layoutXP();});
+addEventListener('keydown',e=>{if(e.key!=='Escape')return;
+ if($('#movesub')?.classList.contains('show')){closeMove();$('#menu [data-m="move"]')?.focus({preventScroll:true});return;}
+ if($('#menu')?.classList.contains('show')||$('#pmenu')?.classList.contains('show')){closeMenu();return;}
+ if($('#fpop')?.classList.contains('show')){setFpop(false);return;}if(S.xp)setXP(false);});
+
+/* ---------------- cover ---------------- */
+let coverT,coverI;
+/* r11-2 the cover stays closed 3 s, then opens by itself. It only says Tap to Open (no countdown) */
+function startCover(){const c=$('.cover');c.style.display='';$('#chint').textContent='Tap to Open';
+ clearInterval(coverI);clearTimeout(coverT);
+ coverT=setTimeout(openCover,3000);c.onclick=openCover;}
+function bez(x1,y1,x2,y2){const f=(t,a,b)=>3*a*t*(1-t)*(1-t)+3*b*t*t*(1-t)+t*t*t;return x=>{let lo=0,hi=1;for(let i=0;i<30;i++){const m=(lo+hi)/2;if(f(m,x1,x2)<x)lo=m;else hi=m;}return f((lo+hi)/2,y1,y2);};}
+/* one swing: the cover turns 180 deg about the spine's free edge; the spine turns half as far (90 deg to flat), so the two stay joined */
+function coverFrames(nar){const e=bez(.42,0,.3,1),cf=[],sf=[],N=36;
+ for(let i=0;i<=N;i++){const t=i/N;let a;if(t<=.84)a=180*e(t/.84);else if(t<=.92)a=180-1.4*Math.sin((t-.84)/.08*Math.PI/2);else a=178.6+1.4*Math.sin((t-.92)/.08*Math.PI/2);
+  const ph=Math.max(0,90-a/2),r=ph*Math.PI/180;
+  cf.push({offset:t,transform:nar?`rotateY(${-a}deg)`:`translate3d(${(-24*Math.cos(r)).toFixed(2)}px,0,${(24*Math.sin(r)).toFixed(2)}px) rotateY(${-a}deg)`});
+  sf.push({offset:t,transform:`rotateY(${ph}deg)`});}
+ return [cf,sf];}
+function openCover(){clearInterval(coverI);clearTimeout(coverT);const c=$('.cover'),sp=$('.spine');if(c.classList.contains('opening')||c.classList.contains('open'))return;
+ const nar=DEV[S.d].narrow,T=1400*K(),[cf,sf]=coverFrames(nar);
+ c.classList.add('opening');S.coverSeen=true;
+ if(!nar)$('.pane').classList.remove('closed');
+ const ca=c.animate(cf,{duration:T,fill:'forwards'});sp.animate(sf,{duration:T,fill:'forwards'});sp.querySelector('.sin').animate([{opacity:1},{opacity:1,offset:.8},{opacity:0}],{duration:T,pseudoElement:'::after'});
+ ca.onfinish=()=>{c.classList.remove('opening');c.classList.add('open');sp.classList.add('open');c.getAnimations().forEach(x=>x.cancel());sp.getAnimations().forEach(x=>x.cancel());openBook(true);};}
+function openBook(anim){$('.deck').classList.remove('closed');if(!DEV[S.d].narrow)$('.pane').classList.remove('closed');else $('.pane').classList.remove('closed');
+ if(anim)dealIn();}
+function dealIn(){if(DEV[S.d].narrow){riseIn();return;}$('.head').animate([{opacity:0},{opacity:1}],{duration:300*K(),fill:'backwards'});
+ $$('#dscroll .ic,#dscroll .addcard').forEach((c,i)=>c.animate([{transform:'translate(-46px,-26px) rotate(-7deg)',opacity:0},{transform:'none',opacity:1}],{duration:340*K(),delay:Math.min(i,10)*60*K(),easing:'cubic-bezier(.2,.7,.2,1)',fill:'backwards'}));}
+
+/* ---------------- deck ---------------- */
+const J=[-.8,.55,-.3,.9,-.6,.2,-1,.7,-.4,.35,.85,-.15],DX=[-.6,.9,-.2,.45,-1,.7,.1,-.8,.5,-.3,1,-.5],PK=[.2,.7,0,1,.4,.8,.1,.6,.3,.9,.5,0];
+/* r10-5 card icons: line icons drawn like the rail's (24 grid, 1.8 stroke, round ends), in the text's color */
+const ICO=(p,fill)=>`<svg class="ico" viewBox="0 0 24 24" fill="${fill?'currentColor':'none'}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const I_CLOCK=ICO('<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2 M10 3h4"/>'),I_STAR=ICO('<path d="M12 3.8l2.5 5.1 5.6.8-4 3.9 1 5.6-5.1-2.6-5.1 2.6 1-5.6-4-3.9 5.6-.8z"/>',1),
+ I_HEART=ICO('<path d="M12 20s-7.5-4.6-7.5-10a4.1 4.1 0 0 1 7.5-2.4A4.1 4.1 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/>',1),
+ /* r11b the recipe's Favorite toggle: the same heart as the cards, outline when it is not a favorite */
+ I_HEART_O=ICO('<path d="M12 20s-7.5-4.6-7.5-10a4.1 4.1 0 0 1 7.5-2.4A4.1 4.1 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/>'),
+ /* r11-6 no photo yet: a small bowl with three wisps of steam, same line style as the card icons (24 grid, 1.8 stroke, round ends, the tile's muted color) */
+ I_BOWL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12.5h17a8.5 6.5 0 0 1-17 0z"/><path d="M8.5 9.5c-.9-1 .9-1.9 0-3M12 9.5c-1-1.3 1-2.5 0-4.2M15.5 9.5c-.9-1 .9-1.9 0-3"/></svg>';
+function cardHTML(r,i){return `<div class="ic ${r.id===S.sel&&(!DEV[S.d].narrow)?'open':''}" role="button" tabindex="0" aria-label="Open ${r.n}" data-id="${r.id}" style="--t0:${r.tilt};--j:${J[i%12]};--dx:${DX[i%12]};--pk:${PK[i%12]};--food:${r.c};--z:${i+1};z-index:${i+1}" data-i="${i%2}" data-q="${i%4}" data-t="${({chicken:'Chicken',veg:'Meatless',freeze:'Freezer',u30:'Quick'})[r.tags[0]]||'Other'}" data-k="${r.tags[0]||'other'}">
+ <div class="ich"><b title="${r.n}">${r.n}</b>${S.flags[r.id]?'<span class="flg" title="On the Plan">On Plan</span>':''}${(S.favs[r.id]??r.fav)?`<span class="fav" title="Favorite">${I_HEART}</span>`:''}<span class="iacts"><button type="button" class="ia" data-ia="plan" title="${S.flags[r.id]?`${r.n} is on the Plan (tap to take it off)`:`Add ${r.n} to the Plan`}">${S.flags[r.id]?'✓ On Plan':'Add to Plan'}</button></span><span class="badge">Open</span></div>
+ <div class="im"><span>${I_CLOCK}${r.t} min</span>${r.made?`<span class="rt">${I_STAR}${S.rate[r.id]??4}</span><span>Made ${r.made}×</span>`:'<span><i>Not tried</i></span>'}<span class="hv ${parseInt(r.have)/parseInt(r.have.split('of ')[1])<.7?'lo':''}">Have ${r.have}</span></div>
+ <div class="icb"><div class="th${r.nop?' nop':''}"${r.nop?' title="No photo yet"':''}>${r.nop?I_BOWL:''}</div><div class="ix"><div class="ab">${r.ab}</div><div class="src">${r.src==='Your own'?'Your own recipe':'From '+r.src}${r.made?', last made Oct 28':''}</div><div class="tg">${r.tags.filter(t=>FL[t]&&!/^u(15|60)$/.test(t)).slice(0,3).map(t=>`<span>${FL[t]}</span>`).join('')}</div></div></div></div>`;}
+/* CH-6 the empty-state picture: same tile and line style as a recipe with no photo yet */
+const EIC=k=>CH(6)?`<span class="eic" aria-hidden="true">${k==='book'?I_BOWL:ICO(k==='q'?'<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.4-4.4"/>':'<path d="M3.5 4.5h17l-6.5 7.6v6.2l-4 2v-8.2z"/>')}</span>`:'';
+function emptyHTML(){if(S.o.book==='B')return `<div class="empty e0">${EIC('book')}<b>No recipes yet</b>Use <i>+ Add a Recipe</i> to paste a link, snap a photo, or type one in.</div>`;
+ const q=S.q.trim();if(q)return `<div class="empty">${EIC('q')}<b>No matches for “${q.replace(/</g,'&lt;')}”</b>Check the spelling, or try one word.<span class="eb"><button class="clr" data-qclr>${L14('Clear the search','Clear the Search')}</button>${S.f.size?`<button class="clr" data-fclr>${L14('Clear the filters','Clear Filters')}</button>`:''}</span></div>`;
+ return `<div class="empty">${EIC('f')}<b>No matches</b>No recipe fits all these filters.<span class="eb"><button class="clr" data-fclr>${L14('Clear the filters','Clear Filters')}</button></span></div>`;}
+function renderDeck(anim){const list=visible(),ds=$('#dscroll');
+ ds.innerHTML=`<button class="addcard" data-add><span class="pl">+</span><span><b>Add a Recipe</b><small>Import from a link, a photo, or type it in</small></span></button>`+(list.length?list.map(cardHTML).join(''):emptyHTML());
+ refreshFilters();
+ $$('.ic',ds).forEach(el=>{
+  el.addEventListener('mouseenter',()=>{if(touch()||S.o.hover!=='A')return;clearTimeout(el._t);el._t=setTimeout(()=>lift(el),150);});
+  el.addEventListener('mouseleave',()=>{clearTimeout(el._t);el.style.removeProperty('--rx');el.style.removeProperty('--ry');});
+  el.addEventListener('mousemove',e=>{if(S.o.hover!=='B'||touch())return;const b=el.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;el.style.setProperty('--ry',(x*12).toFixed(2)+'deg');el.style.setProperty('--rx',(-y*12).toFixed(2)+'deg');});
+  el.addEventListener('click',()=>openRecipe(el.dataset.id));
+  el.addEventListener('keydown',e=>{if(e.target!==el||(e.key!=='Enter'&&e.key!==' '))return;e.preventDefault();openRecipe(el.dataset.id);});});
+ $$('[data-qclr]',ds).forEach(b=>b.onclick=()=>{$('#q').value='';$('.srch').classList.remove('has');shuffle(()=>S.q='');});
+ $$('.addcard',ds).forEach(b=>b.onclick=addRecipe);$$('[data-ia]',ds).forEach(b=>{b.addEventListener('keydown',e=>e.stopPropagation());b.onclick=e=>{e.stopPropagation();const id=b.closest('.ic').dataset.id,n=rec(id).n;if(b.dataset.ia==='plan')setFlag(id);else toast('Start Cooking opens Cook mode for '+n+' (not in this mockup)');};});$$('[data-fclr]',ds).forEach(b=>b.onclick=clearF);
+ if(S.lift){const l=$(`.ic[data-id="${S.lift}"]`,ds);if(l)l.classList.add('lift');}
+ if(anim)riseIn();updNf();}
+/* CH-16 the open recipe is hidden from the list by the search or the filters: say so at the top of the right page, with the way back (computer and iPad sideways) */
+function updNf(){const m=$('#rmain'),nf=m&&$('.nfs',m);if(!nf)return;let h='';
+ if(CH(16)&&!DEV[S.d].narrow&&S.o.book!=='B'){const r=rec(S.sel),q=S.q.trim().toLowerCase();
+  if(q&&!r.n.toLowerCase().includes(q))h=`<span class="nfm" title="${esc(r.n)} is not in the list on the left"><b>Not in this search</b></span><button type="button" data-nfq>Clear Search</button>`;
+  else if(S.f.size&&![...S.f].every(f=>hasTag(r,f)))h=`<span class="nfm" title="${esc(r.n)} is not in the list on the left"><b>Not in this filter</b></span><button type="button" data-nff>Clear Filters</button>`;}
+ m.classList.toggle('nf',!!h);nf.innerHTML=h;
+ const bq=$('[data-nfq]',nf);if(bq)bq.onclick=()=>{$('#q').value='';$('.srch').classList.remove('has');shuffle(()=>S.q='');};
+ const bf=$('[data-nff]',nf);if(bf)bf.onclick=clearF;}
+function lift(el){if(S.lift===el.dataset.id)return;/* r14 a card near the top of the pile (the first one) only rises as far as the space above it, so it never slides under the search box */const hd=document.querySelector('.deck .head');if(hd){const room=el.getBoundingClientRect().top-Math.max(hd.getBoundingClientRect().bottom,document.getElementById('dscroll').getBoundingClientRect().top)-6;const UP=CH(17)?44:38,up=Math.max(0,Math.min(UP,Math.round(room)));el.style.setProperty('--up',up+'px');let down=UP-up;
+  /* CH-17 the card in front slides down just enough that the lifted card's tag line is never cut (layout numbers, so a card still moving does not count) */
+  const nx=el.nextElementSibling,tg=el.querySelector('.tg');if(CH(17)&&nx&&nx.classList.contains('ic')&&tg&&tg.offsetHeight){const need=Math.ceil(el.offsetTop+tg.offsetTop+tg.offsetHeight+4-up-nx.offsetTop);down=Math.max(down,Math.min(18,need));}
+  document.getElementById('dscroll').style.setProperty('--down',down+'px');}$$('.ic.lift').forEach(x=>x.classList.remove('lift'));void el.offsetWidth;el.classList.add('lift');S.lift=el.dataset.id;}
+function riseIn(){const cards=$$('#dscroll .ic,#dscroll .addcard');cards.forEach((c,i)=>c.animate([{transform:'translateY(34px)',opacity:0},{transform:'none',opacity:1}],{duration:220*K(),delay:Math.min(i,8)*28*K(),easing:'cubic-bezier(.2,.7,.2,1)',fill:'backwards'}));}
+function shuffle(change){const cards=$$('#dscroll .ic').filter(c=>{const b=c.getBoundingClientRect(),p=$('#dscroll').getBoundingClientRect();return b.bottom>p.top&&b.top<p.bottom;});
+ const anims=cards.map((c,i)=>c.animate([{transform:'none',opacity:1},{transform:'translateY(46px)',opacity:0}],{duration:160*K(),delay:Math.min(i,8)*14*K(),easing:'ease-in',fill:'forwards'}));
+ const done=()=>{change();S.lift=null;$('#dscroll').scrollTop=0;renderDeck(true);};
+ if(anims.length)Promise.all(anims.map(a=>a.finished)).then(done);else done();}
+
+/* ---------------- recipe ---------------- */
+function detail(id){return id==='tikka'?TIKKA:id==='naan'?NAAN:shortDetail(R.find(r=>r.id===id));}
+function rec(id){return id==='naan'?NAAN:R.find(r=>r.id===id);}
+const FR={'chicken thighs, cut in chunks':2,'plain yogurt':1,'garam masala':4,'salt':99,'butter':8,'onion, diced':2,'garlic':6,'fresh ginger':0,'crushed tomatoes (14 oz)':1,'heavy cream':0,
+ 'flour':5,'baking powder':6,'melted butter':8,'chopped cilantro':0,'main ingredient':2,'onion':2,'olive oil':20,"something you're out of":0};
+const FRU={'chicken thighs, cut in chunks':'lb','plain yogurt':'cup','garam masala':'tsp','butter':'tbsp','onion, diced':'','garlic':'clove','crushed tomatoes (14 oz)':'can','flour':'cup','main ingredient':'lb'};
+function stat(i,mult){const [q,u,n,have,swap,short,link]=i;if(link)return {k:'ok'};const f=FR[n]??(have?99:0),need=q*mult;
+ if(f>=need-1e-6)return {k:'ok'};if(f>0)return {k:'short',amt:fmt(need-f)+(u?' '+u:''),has:fmt(f)+(u?' '+u:'')};return {k:'need'};}
+function ingHTML(i,mult,key){const st=stat(i,mult);const [q,u,n,have,swap,short,link]=i;const sw=S.swaps[key];const name=sw?swap:n;
+ const qq=q?fmt(q*mult)+(u?' '+u+(q*mult>1&&!['tsp','tbsp','lb','oz'].includes(u)&&u!=='batch'?'s':''):''):'';
+ return `<div class="ing" data-st="${st.k}${st.amt||''}"><span class="q">${qq}</span><span class="n">${link?`<button class="sub" data-sub="${link}">${n} ›</button>`:name}${swap?` <button class="sw" data-sw="${key}">${sw?'undo swap':'or '+swap}</button>`:''}</span>${link?'<span class="rcp">recipe</span>':st.k==='short'?`<span class="short" title="You have ${st.has}">short ${st.amt}</span>`:st.k==='ok'?'<span class="ok" title="You have enough">✓</span>':'<span class="short need" title="You have none">need</span>'}</div>`;}
+function renderRecipe(card,id,anim){const r=rec(id),d=detail(id),mult=S.srv/d.serves,isSub=id==='naan';
+ const all=d.groups.flatMap(g=>g[1]),haveN=all.filter(i=>stat(i,mult).k==='ok').length,miss=all.length-haveN;
+ let si=0;const amt={garam:fmt(2*mult)+' tsp',butter:fmt(2*mult)+' tbsp',tom:fmt(2*mult)+' cans',cream:fmt(.5*mult)+' cup'};
+ const steps=d.steps.map(([t,m])=>`<li>${t.replace(/\{(\w+)\}/g,(_,k)=>`<b>${amt[k]}</b>`)}${m?` <button class="tmr" data-m="${m}">⏱ ${m} min</button>`:''}</li>`).join('');
+ const fold=(id2,title,sm,body,open)=>`<div class="fold ${open?'open':''}" data-sec="${title}"><button class="fh"><h3>${title}</h3><span class="sm">${sm}</span><span class="chev">▾</span></button><div class="fb"><div class="fi"><div>${body}</div></div></div></div>`;
+ const fav=S.favs[id]??r.fav,onP=!!S.flags[id],oneTap=S.o.plan!=='A',pOn=oneTap&&onP;
+ /* r11b the recipe's buttons, in its title section: Start Cooking (main), Add to Plan (the main card's keeps id plan), ♥ Favorite */
+ const acts=`<div class="rtacts" role="group" aria-label="Recipe actions"><button type="button" class="act" data-cook title="Open Cook mode for ${esc(r.n)}">Start Cooking</button><button type="button" class="act2 ${pOn?'on':''}"${card.id==='rmain'?' id="plan"':''} data-flag title="${pOn?'On the Plan (tap to take it off)':'Add to Plan'}">${pOn?'✓ On Plan':'Add to Plan'}</button><button type="button" class="rfav ${fav?'on':''}" data-fav="${id}" aria-pressed="${fav?'true':'false'}" aria-label="Favorite" title="${fav?'Favorite (tap to take it off)':'Add to Favorites'}">${fav?I_HEART:I_HEART_O}</button></div>`;
+ card.querySelector('.rscroll').innerHTML=`<div class="rpage">
+ ${isSub?`<button class="bback">‹ Back to Chicken Tikka Masala</button>`:''}
+ <div class="rh">${r.nop?'':`<div class="ph th" style="--food:${r.c}"></div>`}${acts}<div class="rht"><h2>${r.n}</h2><div class="by">${r.src==='Your own'&&CH(1)?'Your own recipe':r.src?`from <a href="#" onclick="return false" title="Opens ${r.src} in a new tab">${r.src}<span class="ext" aria-hidden="true"><svg class="tip" viewBox="0 0 10 10" aria-hidden="true"><path d="M3 2.2h4.8V7"/></svg></span></a>`:'Your own recipe'}${isSub&&!CH(2)?', part of Chicken Tikka Masala':''}</div></div></div>
+ <div class="facts"><span><b>${r.t} min</b> total</span><span><b>${Math.round(r.t*.5)} min</b> active</span><span>Serves <b>${S.srv||4}</b></span><span><b>${r.made?'Medium':'Easy'}</b></span></div>
+ <div class="hist">${r.made?`Made ${r.made} times, last on Oct 28<span class="st" title="Tap a star to rate">${[1,2,3,4,5].map(n=>`<button data-rate="${n}" aria-label="${n} stars">${n<=(S.rate[id]??4)?'★':'☆'}</button>`).join('')}</span>`:'You haven\'t made this yet.'}</div>
+ <div class="marks">${(r.tags||[]).includes('veg')?'<span class="mk">Vegetarian</span>':''}${(r.tags||[]).filter(t=>FL[t]&&!/^(veg|u15|u30|u60|nextplan|freeze)$/.test(t)).slice(0,3).map(t=>`<span class="mk${/^(vegan|gf|df|lowcarb)$/.test(t)?'':' t'}">${FL[t]}</span>`).join('')}${(r.tags||[]).includes('freeze')?'<span class="mk t">Freezer-friendly</span>':''}</div>
+ <div class="sec nsec" data-sec="Your notes"><h3>Your notes <span class="ynb"><button class="yne" data-ne title="Type in your note">Edit</button><button class="yne yncx" data-nc title="Put the old note back (Esc)">Cancel</button><button class="yne ynok" data-nd title="Keep the note (Ctrl+Enter)">Done</button></span></h3><div class="yn" data-ph="Tap to add a note.">${esc(noteText(id))}</div></div>
+ <div class="gr"><div><b>Get ready</b> ${id==='tikka'?'Marinate 20 min (overnight is best), then start the rice':'Read the steps once, then set everything out'}</div></div>
+ <div class="two">
+  <div class="sec" data-sec="Ingredients"><h3>Ingredients <span class="srvl">Serves</span><span class="srv"><button data-s="-1">−</button><span>${S.srv}</span><button data-s="1">+</button></span></h3>
+   <div class="onhand"><span>You have <b>${haveN} of ${all.length}</b></span>${miss?`<button data-toast="Added ${miss} to the Grocery List"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 2h2l1.6 8h7.4l1.5-5.5H4.3"/><circle cx="6.5" cy="13" r="1"/><circle cx="11.5" cy="13" r="1"/></svg>Add ${miss} to Grocery List</button>`:'<span class="allset">All set</span>'}</div>
+   ${d.groups.map(([g,items],gi)=>`${d.groups.length>1||g!=='Ingredients'?`<div class="grp">${g}</div>`:''}${items.map((i,ii)=>ingHTML(i,mult,id+gi+'_'+ii)).join('')}`).join('')}</div>
+  <div class="sec stp" data-sec="Steps"><h3>Steps</h3><div class="stphd">${d.steps.length} steps, about ${r.t} min</div><ol>${steps}</ol></div>
+ </div>
+ ${fold('about','About',r.ab||'Soft, fast flatbread to scoop up the curry.',`<p>${r.ab||'Soft, fast flatbread to scoop up the curry. No yeast, no waiting.'} ${id==='tikka'?'Marinating overnight makes it even better, but 20 minutes works.':''}</p>`)}
+ ${fold('pa','Prep ahead',id==='tikka'?'3 things you can do early':id==='naan'?'Dough, 1 day ahead':'Nothing to do early',id==='tikka'?'<ul class="pa"><li><b>Marinate the chicken</b><span class="when">up to 1 day ahead</span><span class="how">fridge, covered bowl</span></li><li><b>Make the sauce</b><span class="when">up to 3 days ahead</span><span class="how">fridge, or freeze 3 months</span></li><li><b>Cook the rice</b><span class="when">same day</span><span class="how">keep warm, covered</span></li></ul>':id==='naan'?'<ul class="pa"><li><b>Make the dough</b><span class="when">up to 1 day ahead</span><span class="how">fridge, wrapped</span></li></ul>':'<p>This one is best made start to finish.</p>')}
+ ${fold('left','Leftovers and storage','Fridge 3 days, freezer 3 months','<p>Cool, then fridge up to 3 days. Freeze the sauce with the chicken for up to 3 months. Reheat gently; add a splash of cream.</p>')}
+ ${fold('ch','Cook history',r.made?`${r.made} times`:'none yet',r.made?'<ul><li>Oct 28: "Doubled the sauce. Great."</li><li>Sep 30: made for 6</li><li>Aug 12: first time</li></ul>':'<p>Nothing yet.</p>')}
+ ${srcFold(r,fold)}</div>`;
+ if(anim){card.classList.remove('swap');void card.offsetWidth;card.classList.add('swap');}
+ wireRecipe(card,id);setTimeout(()=>marks(card),30);}
+const SRC={'Serious Eats':['Website','seriouseats.com'],'Budget Bytes':['Website','budgetbytes.com'],'NYT Cooking':['Website','cooking.nytimes.com'],'Smitten Kitchen':['Website','smittenkitchen.com'],
+ 'Minimalist Baker':['Website','minimalistbaker.com'],'Bon Appétit':['Website','bonappetit.com'],'Just One Cookbook':['Website','justonecookbook.com'],'Pioneer Woman':['Website','thepioneerwoman.com'],'King Arthur':['Website','kingarthurbaking.com'],
+ 'Joy of Cooking':['Cookbook','Joy of Cooking (2019 edition), page 612'],'Ottolenghi':['Cookbook','Plenty by Yotam Ottolenghi, page 88'],'Hot Thai Kitchen':['Video','youtube.com/@HotThaiKitchen'],'Grandma Ann':['Family recipe','Grandma Ann']};
+function srcFold(r,fold){const nm=r.src&&r.src!=='Your own'?r.src:null,k=nm?(SRC[nm]||['Website',nm.toLowerCase().replace(/\W/g,'')+'.com']):['Your own recipe'],slug=r.n.toLowerCase().replace(/[^a-z]+/g,'-');
+ const A=t=>`<a href="#" onclick="return false" title="Opens in a new tab">${t}<span class="ext" aria-hidden="true"><svg class="tip" viewBox="0 0 10 10" aria-hidden="true"><path d="M3 2.2h4.8V7"/></svg></span></a>`;let body;
+ if(k[0]==='Website')body=`<div class="srcrow"><span class="skind">Website</span></div><p>Recipe page: ${A(k[1]+'/recipes/'+slug)}<br>Website: ${A(k[1])}</p>`;
+ else if(k[0]==='Video')body=`<div class="srcrow"><span class="skind">Video</span></div><p>Video: ${A(k[1]+'/'+slug)}<br>Channel: ${A(k[1])}</p>`;
+ else if(k[0]==='Cookbook')body=`<div class="srcrow"><span class="skind">Cookbook</span></div><p>${k[1]}</p>`;
+ else if(k[0]==='Family recipe')body=`<div class="srcrow"><span class="skind">Family recipe</span></div><p>From ${k[1]}. Typed in from her recipe card.</p>`;
+ else body=`<div class="srcrow"><span class="skind">Your own</span></div><p>You wrote this one.</p>`;
+ return fold('src','Source',nm?`${k[0]}, ${nm}`:'Your own recipe',body+'<p class="smut">Saved Aug 12. For your own use.</p>');}
+function marks(card){const sc=card.querySelector('.rscroll'),bar=card.querySelector('.marksbar');const H=sc.scrollHeight;if(!H)return;
+ const secs=$$('[data-sec]',sc);bar.innerHTML=secs.map(s=>`<div class="tick" style="top:${(s.offsetTop/H*100).toFixed(1)}%" data-go="${s.dataset.sec}"><span class="lb">${s.dataset.sec}</span></div>`).join('');
+ $$('.tick',bar).forEach(t=>t.onclick=()=>go(card,t.dataset.go));}
+function navOn(card){const L=card.id==='rmain'&&card.classList.contains('xsplit');if(card!==curCard()&&!L)return;const bar=L?'#pnavL':'#pnav',jb=L?'jl':'j';const sc=card.querySelector('.rscroll');let cur='';
+ if(CH(15)){/* CH-15 Top stays lit until the first section's heading has scrolled up past the bar. A tapped jump stays lit while its section is in view
+   (so a short page that cannot scroll that far still shows it); the last button never lights just because the page hit its end */
+  const secs=$$('[data-sec]',sc).filter(s=>JUMP.some(j=>j[0]===s.dataset.sec)),sr=sc.getBoundingClientRect(),k=sr.height/sc.offsetHeight||1,top=e=>(e.getBoundingClientRect().top-sr.top)/k;
+  secs.forEach(s=>{const h=s.querySelector('h3')||s;if(top(h)<=2)cur=s.dataset.sec;});
+  const pin=S.jpin;if(pin&&pin.card===card&&pin.name!=='Top'){const el=secs.find(s=>s.dataset.sec===pin.name),h=el&&(el.querySelector('h3')||el);
+   if(h&&(Date.now()-pin.t<1500||(top(h)>=-4&&top(h)<sc.clientHeight-28)))cur=pin.name;else S.jpin=null;}}
+ else{$$('[data-sec]',sc).filter(s=>JUMP.some(j=>j[0]===s.dataset.sec)).forEach(s=>{if(s.offsetTop-40<=sc.scrollTop)cur=s.dataset.sec;});
+ if(sc.scrollTop+sc.clientHeight>=sc.scrollHeight-4){const l=$$('[data-sec]',sc).filter(s=>JUMP.some(j=>j[0]===s.dataset.sec)).pop();if(l)cur=l.dataset.sec;}}
+ $$(bar+' button').forEach(b=>b.classList.toggle('on',b.dataset[jb]===(cur||'Top')));
+ const pj=$(bar+' .pjs'),on=$(bar+' button.on');if(pj&&on){const l=on.offsetLeft-pj.offsetLeft,r=l+on.offsetWidth;if(l<pj.scrollLeft+20)pj.scrollLeft=Math.max(0,l-30);else if(r>pj.scrollLeft+pj.clientWidth-20)pj.scrollLeft=r-pj.clientWidth+30;}}
+function pjsFade(){const p=$('.pjs');if(!p)return;p.classList.toggle('fl',p.scrollLeft>2);p.classList.toggle('fr',p.scrollLeft+p.clientWidth<p.scrollWidth-2);}
+function xpInsets(){const b=$('.book'),p=$('.pane'),g=10;return {top:(g-p.offsetTop)+'px',left:(g-p.offsetLeft)+'px',right:(g-(b.clientWidth-p.offsetLeft-p.offsetWidth))+'px',bottom:(g-(b.clientHeight-p.offsetTop-p.offsetHeight))+'px'};}
+function placeXnav(){const pn=$('#pnav'),c=S.xpCard||curCard();if(!pn||!c||!S.xp)return;navAt(pn,c);const m=$('#rmain');if(m.classList.contains('xsplit'))navAt($('#pnavL'),m);pjsFade();}
+function navAt(pn,c){const p=$('.pane'),cs=getComputedStyle(c),v=k=>parseFloat(c.style[k]||cs[k]),L=v('left'),R=v('right'),T=v('top'),w=p.offsetWidth-L-R,side=Math.max(24,(w-1000)/2);
+ const tb=[...c.children].find(x=>/xbtn|xside/.test(x.className)&&getComputedStyle(x).display!=='none'),bw=tb?tb.offsetWidth+30:24;
+ Object.assign(pn.style,{top:(T+6)+'px',left:(L+side)+'px',right:(R+Math.max(bw,side))+'px'});}
+function setXP(on){if(DEV[S.d].narrow)on=false;if(on===S.xp)return;S.xp=on;const book=$('.book'),k=K(),bd=$('.binder'),bc=bd.querySelector('.rcard');const cards=[$('#rmain'),...(bd.classList.contains('show')?[bc]:[])];
+ const lab=()=>$$('.xbtn').forEach(b=>{b.title=on?'Shrink back to the card':'Expand';b.querySelector('span').textContent=on?'Shrink':'Expand';b.querySelector('path').setAttribute('d',on?XIN:XOUT);});if(on)lab();
+ cards.forEach(c=>c.classList.add('xfade'));if(on)book.classList.add('xpOn');const pn=$('#pnav');if(!on){pn.classList.toggle('pxp',false);pn.style.top=pn.style.left=pn.style.right='';book.classList.remove('xsub');}
+ setTimeout(()=>{if(on){$('#rmain').classList.add('xp');layoutXP();}else{clearTimeout(S.xpT);[$('#rmain'),bc].forEach(c=>{c.classList.remove('xp','xsplit');c.style.top=c.style.left=c.style.right=c.style.bottom='';});S.xpCard=null;}
+  setTimeout(()=>{cards.forEach(c=>c.classList.remove('xfade'));if(!on){book.classList.remove('xpOn');lab();}else{placeXnav();pn.classList.add('pxp');navOn(curCard());}},400*k);},120*k);}
+function go(card,name){const sc=card.querySelector('.rscroll');S.jpin={card,name,t:Date.now()};if(name==='Top'){sc.scrollTo({top:0,behavior:'smooth'});return;}const el=sc.querySelector(`[data-sec="${name}"]`);if(!el)return;
+ if(el.classList.contains('fold')&&!el.classList.contains('open')){el.classList.add('open');setTimeout(()=>marks(card),260*K());}
+ sc.scrollTo({top:el.offsetTop-12,behavior:'smooth'});if(CH(15)){navOn(card);setTimeout(()=>navOn(card),300*K());}}
+function wireRecipe(card,id){const sc=card.querySelector('.rscroll');
+ $$('.fh',sc).forEach(b=>b.onclick=()=>{b.parentElement.classList.toggle('open');setTimeout(()=>marks(card),260*K());});
+ $$('[data-s]',sc).forEach(b=>b.onclick=()=>{const before=$$('.ing',sc).map(e=>e.dataset.st),oh0=sc.querySelector('.onhand')?.textContent;S.srv=Math.max(1,Math.min(12,S.srv+ +b.dataset.s));const top=sc.scrollTop;renderRecipe(card,id,false);const ns=card.querySelector('.rscroll');ns.scrollTop=top;
+  $$('.ing',ns).forEach((e,ix)=>{if(before[ix]!==e.dataset.st&&!e.querySelector('.rcp'))e.classList.add('flash');});const oh=ns.querySelector('.onhand');if(oh&&oh.textContent!==oh0)oh.classList.add('flash');});
+ $$('[data-sw]',sc).forEach(b=>b.onclick=()=>{S.swaps[b.dataset.sw]=!S.swaps[b.dataset.sw];const top=sc.scrollTop;renderRecipe(card,id,false);card.querySelector('.rscroll').scrollTop=top;});
+ $$('[data-fav]',sc).forEach(b=>b.onclick=()=>{const r=rec(id);S.favs[id]=!(S.favs[id]??r.fav);const top=sc.scrollTop;renderRecipe(card,id,false);card.querySelector('.rscroll').scrollTop=top;
+  if(id!=='naan'&&S.o.book!=='B'){const ds=$('#dscroll'),dt=ds.scrollTop;renderDeck(false);ds.scrollTop=dt;}toast(S.favs[id]?'Added to Favorites':'Removed from Favorites');});
+ $$('[data-cook]',sc).forEach(b=>b.onclick=()=>toast(`Start Cooking opens Cook mode for ${rec(id).n}, step by step (not in this mockup). Finishing the session counts it as made.`));
+ $$('[data-toast]',sc).forEach(b=>b.onclick=()=>toast(b.dataset.toast));
+ $$('[data-rate]',sc).forEach(b=>b.onclick=()=>{S.rate[id]=+b.dataset.rate;const top=sc.scrollTop;renderRecipe(card,id,false);card.querySelector('.rscroll').scrollTop=top;toast(`Rated ${b.dataset.rate} of 5`);});
+ $$('.tmr',sc).forEach(b=>b.onclick=()=>{if(b._i){clearInterval(b._i);b._i=null;b.classList.remove('run');b.textContent=`⏱ ${b.dataset.m} min`;return;}
+  let s=b.dataset.m*60;b.classList.add('run');const f=()=>{b.textContent=`⏱ ${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;b.title='Tap to stop';};f();b._i=setInterval(()=>{s-=1;f();if(s<=0){clearInterval(b._i);b._i=null;b.classList.remove('run');b.textContent='⏱ Done!';}},1000);});
+ /* r11b Add to Plan in the title row: one tap adds it (option C); option A opens the small day menu under the button */
+ $$('[data-flag],[data-unflag]',sc).forEach(b=>b.onclick=e=>{if(S.o.plan!=='A'){setFlag(id);return;}e.stopPropagation();openPlanMenu(b,id);});
+ sc.onscroll=()=>navOn(card);setTimeout(()=>navOn(card),40);
+ $$('[data-sub]',sc).forEach(b=>b.onclick=()=>openSub());
+ $$('.bback',sc).forEach(b=>b.onclick=()=>closeSub());
+ const ns=sc.querySelector('.nsec');if(ns){const yn=ns.querySelector('.yn');
+  ns.querySelector('[data-ne]').onclick=()=>startNoteEdit(card,id);
+  yn.onclick=()=>{if(!S.ned||S.ned.el!==yn)startNoteEdit(card,id);};
+  /* Done and Cancel never take the focus, so the typing area keeps its cursor until they act */
+  $$('[data-nc],[data-nd]',ns).forEach(b=>b.addEventListener('mousedown',e=>e.preventDefault()));
+  ns.querySelector('[data-nc]').onclick=()=>finishNoteEdit(false);
+  ns.querySelector('[data-nd]').onclick=()=>finishNoteEdit(true);}}
+
+/* ---------------- r11-7 notes: edit in place ---------------- */
+function noteText(id){return S.notes[id]??(id==='tikka'?'Half the garam masala for the kids. May likes extra cream.':'');}
+const cleanNote=t=>String(t||'').replace(/\xa0/g,' ').replace(/ /g,' ').replace(/\r/g,'').replace(/[ \t]+\n/g,'\n').replace(/^\s*\n/,'').replace(/\s+$/,'');
+function caretEnd(el){const r=document.createRange();r.selectNodeContents(el);r.collapse(false);const s=getSelection();s.removeAllRanges();s.addRange(r);}
+/* where the on-screen keyboard starts, in screen pixels. Up: the visual viewport says. Not up yet (or a framed preview): assume it covers the bottom 40% of the device */
+function kbTop(){const dr=$('#dev').getBoundingClientRect(),vv=window.visualViewport,vb=vv?vv.offsetTop+vv.height:innerHeight;
+ if(vv&&vv.height<innerHeight-80)return Math.min(dr.bottom,vb);
+ return Math.min(dr.top+dr.height*.6,vb);}
+/* touch: scroll the recipe so the note (with its Done / Cancel line) sits in the upper middle of what is left above the keyboard */
+function noteScroll(n){if(S.ned!==n||!n.el.isConnected)return;const sc=n.card.querySelector('.rscroll'),sr=sc.getBoundingClientRect(),k=sr.height/sc.offsetHeight||1;
+ const vTop=sr.top,vBot=Math.min(sr.bottom,kbTop()),vH=vBot-vTop,hr=n.sec.querySelector('h3').getBoundingClientRect(),er=n.el.getBoundingClientRect(),bh=er.bottom-hr.top;
+ const want=vTop+Math.max(8*k,(vH-bh)*.3),to=Math.max(0,Math.min(sc.scrollHeight-sc.clientHeight,sc.scrollTop+(hr.top-want)/k));
+ if(Math.abs(to-sc.scrollTop)>2)sc.scrollTo({top:to,behavior:'smooth'});}
+/* touch, while typing or when the keyboard changes size: only move if the cursor would end up under the keyboard (or the note went above the top) */
+function noteKeepVisible(n){if(S.ned!==n||!n.el.isConnected)return;const sc=n.card.querySelector('.rscroll'),sr=sc.getBoundingClientRect(),k=sr.height/sc.offsetHeight||1,bot=Math.min(sr.bottom,kbTop())-12*k;
+ let cr=null;const s=getSelection();if(s.rangeCount&&n.el.contains(s.anchorNode))cr=s.getRangeAt(0).getClientRects()[0]||null;
+ const er=n.el.getBoundingClientRect(),y=cr?cr.bottom:er.bottom;
+ if(y>bot)sc.scrollBy({top:(y-bot)/k+8,behavior:'smooth'});else if(n.sec.querySelector('h3').getBoundingClientRect().top<sr.top)noteScroll(n);}
+/* start: the same note block becomes the typing area (so it looks exactly the same), cursor at the end, Done / Cancel where Edit was */
+function startNoteEdit(card,id){card=card||curCard();id=id||curId();
+ if(S.ned){if(S.ned.card===card&&S.ned.el.isConnected){S.ned.el.focus({preventScroll:true});return true;}finishNoteEdit(true);}
+ const sec=card.querySelector('.nsec'),el=sec&&sec.querySelector('.yn');if(!el)return false;
+ const n=S.ned={card,id,sec,el,orig:noteText(id),touch:coarse()};
+ sec.classList.add('nedit');el.classList.add('ned');
+ try{el.contentEditable='plaintext-only';}catch(_){}if(el.contentEditable!=='plaintext-only')el.contentEditable='true';
+ el.setAttribute('role','textbox');el.setAttribute('aria-multiline','true');el.setAttribute('aria-label','Your notes');el.spellcheck=true;
+ el.onkeydown=e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();finishNoteEdit(false);}
+  else if(e.key==='Enter'&&(e.metaKey||e.ctrlKey)){e.preventDefault();e.stopPropagation();finishNoteEdit(true);}};
+ /* tapping somewhere else keeps what was typed: the words are kept at once (so a re-drawn page shows them), the editing look ends a moment later unless the focus comes back */
+ el.onblur=e=>{if(S.ned!==n)return;if(e.relatedTarget&&n.sec.contains(e.relatedTarget))return;S.notes[n.id]=cleanNote(el.innerText);clearTimeout(n.t);
+  n.t=setTimeout(()=>{if(S.ned===n&&document.activeElement!==el)finishNoteEdit(true);},250);};
+ el.onfocus=()=>{if(S.ned===n)clearTimeout(n.t);};
+ el.onpaste=e=>{if(el.contentEditable!=='true')return;e.preventDefault();document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text/plain'));};
+ el.ondrop=e=>{if(el.contentEditable==='true')e.preventDefault();};
+ el.oninput=()=>{if(n.touch){clearTimeout(n.it);n.it=setTimeout(()=>noteKeepVisible(n),60);}};
+ el.focus({preventScroll:true});caretEnd(el);
+ if(n.touch){requestAnimationFrame(()=>noteScroll(n));const vv=window.visualViewport;
+  if(vv){n.vv=()=>{clearTimeout(n.vt);n.vt=setTimeout(()=>noteKeepVisible(n),120);};vv.addEventListener('resize',n.vv);}}
+ return true;}
+/* end: Done keeps the words, Cancel puts the old note back. The block turns back into plain note text in the same spot */
+function finishNoteEdit(save){const n=S.ned;if(!n)return false;S.ned=null;clearTimeout(n.t);clearTimeout(n.vt);clearTimeout(n.it);
+ if(n.vv)window.visualViewport?.removeEventListener('resize',n.vv);
+ const el=n.el,txt=!save?n.orig:el.isConnected?cleanNote(el.innerText):(S.notes[n.id]??n.orig);S.notes[n.id]=txt;
+ /* Cancel after the page was re-drawn: show the old note again */
+ if(!save&&!el.isConnected)refreshRecipe(n.id);
+ if(el.isConnected){el.onkeydown=el.onblur=el.onfocus=el.onpaste=el.ondrop=el.oninput=null;
+  const s=getSelection();if(s.rangeCount&&el.contains(s.anchorNode))s.removeAllRanges();if(document.activeElement===el)el.blur();
+  el.removeAttribute('contenteditable');['role','aria-multiline','aria-label','spellcheck'].forEach(a=>el.removeAttribute(a));
+  el.classList.remove('ned');n.sec.classList.remove('nedit');el.textContent=txt;}
+ if(FULL)setTimeout(fullResize,300);
+ return true;}
+function openSub(){const bd=$('.binder');renderRecipe(bd.querySelector('.rcard'),'naan',false);bd.querySelector('.rscroll').scrollTop=0;bd.classList.add('show');if(S.xp)layoutXP();updateBar();refreshFlag();navOn(bd.querySelector('.rcard'));}
+function closeSub(){const bd=$('.binder');if(!bd.classList.contains('show'))return;bd.classList.remove('show');if(S.xp)layoutXP();updateBar();refreshFlag();navOn($('#rmain'));}
+/* expanded view: with a part-recipe open, the main recipe moves into the left half (tan) and the part slides into the right half */
+function layoutXP(){const m=$('#rmain'),bd=$('.binder'),bc=bd.querySelector('.rcard'),i=xpInsets(),sub=bd.classList.contains('show');clearTimeout(S.xpT);
+ Object.assign(m.style,i);
+ if(sub){const half=($('.book').clientWidth-20-12)/2;m.style.right=(parseFloat(i.right)+half+12)+'px';m.classList.add('xsplit');$('.book').classList.add('xsub');
+  if(!bc.classList.contains('xp')){bc.style.transition='none';Object.assign(bc.style,i,{left:(parseFloat(i.left)+half+12)+'px'});bc.classList.add('xp');void bc.offsetWidth;bc.style.transition='';}
+  else Object.assign(bc.style,i,{left:(parseFloat(i.left)+half+12)+'px'});S.xpCard=bc;}
+ else{m.classList.remove('xsplit');$('.book').classList.remove('xsub');S.xpCard=m;S.xpT=setTimeout(()=>{if(!bd.classList.contains('show')){bc.classList.remove('xp');bc.style.top=bc.style.left=bc.style.right=bc.style.bottom='';}},320*K());}
+ placeXnav();navOn(m);if(sub)navOn(bc);}
+function openRecipe(id){const narrow=DEV[S.d].narrow;closeSub();
+ if(narrow){S.sel=id;renderRecipe($('#rmain'),id,false);$('#rmain .rscroll').scrollTop=0;S.phoneOpen=true;$('.pane').classList.add('show');updateBar();return;}
+ if(id===S.sel)return;S.sel=id;$$('.ic.open').forEach(x=>x.classList.remove('open'));const el=$(`.ic[data-id="${id}"]`);if(el)el.classList.add('open');
+ renderRecipe($('#rmain'),id,true);$('#rmain .rscroll').scrollTop=0;updateBar();refreshFlag();updNf();}
+function updateBar(){const narrow=DEV[S.d].narrow,sub=$('.binder')?.classList.contains('show');const showing=!narrow||S.phoneOpen;
+ const r=sub?NAAN:rec(S.sel);
+ $('#tdet').textContent=showing?r.n:(n=>`${n} ${n===1?'recipe':'recipes'}`)(visible().length);
+ $('.tback').style.display=(narrow&&S.phoneOpen)||(sub&&!S.xp)?'block':'none';
+ $('.tan .t').style.display=narrow&&S.phoneOpen?'none':'';$('.tan .bar').style.display=narrow&&S.phoneOpen?'none':'';}
+
+/* ---------------- wiring ---------------- */
+function placeMenu(m,b){const p=m.offsetParent||m.parentElement,pr=p.getBoundingClientRect(),br=b.getBoundingClientRect(),k=pr.width/(p.offsetWidth||pr.width)||1;
+ m.style.top=((br.bottom-pr.top)/k+4)+'px';m.style.right=((pr.right-br.right)/k)+'px';}
+function closeMenu(){closeMove();$('#menu').classList.remove('show');$('#pmenu')?.classList.remove('show');$('#dots').classList.remove('on');$('#scrim').classList.remove('show');$('#drawer').classList.remove('show');}
+/* r11-5 Move to Collection: a small menu beside the ⋯ menu (to its left, its first row level with Move to Collection).
+   On the phone it sits exactly where the ⋯ menu was, which hides, with ‹ Back on top. */
+function moveHTML(){return (S.d==='phone'?'<button class="mback" data-mvback>‹ Back</button><hr>':'')+
+ TABS.filter(t=>MOVABLE(t[0])).map(([k,l])=>`<button data-mv="${k}">${esc(l)}</button>`).join('')+'<hr><div class="mvnew"></div>';}
+function mvNewHTML(){return S.mvNew?'<div class="mnew"><input id="mvname" maxlength="30" placeholder="Collection name" aria-label="New collection name" autocomplete="off" enterkeyhint="done"><button data-mvmk disabled>Create</button></div>':`<button data-mvnew>${L14('New Collection…','New Collection')}</button>`;}
+function placeSub(){const m=$('#menu'),s=$('#movesub'),row=$('#menu [data-m="move"]'),top=parseFloat(m.style.top)||m.offsetTop,right=parseFloat(m.style.right)||0;
+ if(S.d==='phone'){s.style.top=top+'px';s.style.right=right+'px';s.style.minWidth=m.offsetWidth+'px';return;}
+ s.style.minWidth='';s.style.right=(right+m.offsetWidth+4)+'px';
+ const H=(s.offsetParent||m.parentElement).clientHeight;let t=top+row.offsetTop-6;const h=s.offsetHeight;if(t+h>H-8)t=Math.max(8,H-8-h);s.style.top=t+'px';}
+function openMove(){const s=$('#movesub'),m=$('#menu'),row=$('#menu [data-m="move"]');if(!s||!m.classList.contains('show'))return;clearTimeout(S.mvT);if(s.classList.contains('show'))return;
+ S.mvNew=false;s.innerHTML=moveHTML();$$('[data-mv]',s).forEach(b=>b.onclick=e=>{e.stopPropagation();moveTo(b.dataset.mv);});
+ s.querySelector('[data-mvback]')?.addEventListener('click',e=>{e.stopPropagation();closeMove();});wireMvNew(false);
+ placeSub();s.classList.add('show');row.classList.add('on');row.setAttribute('aria-expanded','true');if(S.d==='phone')m.classList.add('under');}
+function closeMove(){clearTimeout(S.mvT);S.mvNew=false;const s=$('#movesub');if(!s)return;s.classList.remove('show');$('#menu')?.classList.remove('under');
+ const row=$('#menu [data-m="move"]');if(row){row.classList.remove('on');row.setAttribute('aria-expanded','false');}}
+/* New Collection… turns into a small name box with Create, in the same menu */
+function wireMvNew(focus){const w=$('#movesub .mvnew');if(!w)return;w.innerHTML=mvNewHTML();
+ const nb=w.querySelector('[data-mvnew]');if(nb)nb.onclick=e=>{e.stopPropagation();S.mvNew=true;wireMvNew(true);};
+ const inp=w.querySelector('#mvname'),mk=w.querySelector('[data-mvmk]');if(!inp)return;
+ inp.oninput=()=>{mk.disabled=!inp.value.trim();};
+ inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();makeCollection();}else if(e.key==='Escape'){e.preventDefault();e.stopPropagation();S.mvNew=false;wireMvNew(false);w.querySelector('[data-mvnew]')?.focus({preventScroll:true});}};
+ mk.onclick=e=>{e.stopPropagation();makeCollection();};if(focus)inp.focus({preventScroll:true});}
+function makeCollection(){const inp=$('#mvname');if(!inp)return;const name=inp.value.trim().replace(/\s+/g,' ');if(!name){inp.focus();return;}
+ let t=TABS.find(x=>x[1].toLowerCase()===name.toLowerCase());
+ if(t&&!MOVABLE(t[0])){toast(`"${name}" fills itself. Pick another name.`);inp.focus();inp.select();return;}
+ if(!t){S.colN++;t=['c_'+S.colN,name];TABS.push(t);}
+ moveTo(t[0]);}
+/* picking a collection closes both menus and moves the recipe there (out of the other collections you fill by hand; Favorites follows the heart) */
+function moveTo(k){const t=TABS.find(x=>x[0]===k);if(!t)return;const id=curId(),r=rec(id);closeMenu();
+ if(r&&r.tabs){r.tabs=r.tabs.filter(x=>!(MOVABLE(x)&&x!=='fav'&&x!==k));if(!r.tabs.includes(k))r.tabs.push(k);
+  if(k==='fav'&&!(S.favs[id]??r.fav)){S.favs[id]=true;refreshRecipe(id);}}
+ renderTabs();if(S.o.book!=='B'){const ds=$('#dscroll'),dt=ds.scrollTop;renderDeck(false);ds.scrollTop=dt;}
+ toast(`Moved to ${t[1]}`);}
+function wire(){
+ $$('#fpop [data-ff]').forEach(b=>b.onclick=()=>toggleF(b.dataset.ff));
+ $('#fscrim').onclick=e=>{e.stopPropagation();setFpop(false);};
+ $('#fpop .fclr').onclick=clearF;$('#fpop .fx').onclick=()=>setFpop(false);$('#fpop .fshow').onclick=()=>setFpop(false);
+ let qt;$('#q').oninput=e=>{$('.srch').classList.toggle('has',!!e.target.value);clearTimeout(qt);qt=setTimeout(()=>shuffle(()=>S.q=e.target.value),180);};
+ $('.srch .x').onclick=()=>{$('#q').value='';$('.srch').classList.remove('has');shuffle(()=>S.q='');};
+ /* r11b Start Cooking and Add to Plan moved into the recipe's title row (wired in wireRecipe); the tan bar keeps only ‹ and ⋯ */
+ $$('#pmenu [data-pm]').forEach(b=>b.onclick=e=>{e.stopPropagation();const id=S.pmId||curId();closeMenu();if(b.dataset.pm==='flag')setFlag(id);else toast('Pick a day (not in this mockup)');});
+ $$('[data-add]').forEach(b=>b.onclick=addRecipe);
+ $('#fbtn').onclick=()=>setFpop(!$('#fpop').classList.contains('show'));
+ $$('#pnav [data-j]').forEach(b=>b.onclick=()=>go(curCard(),b.dataset.j));$$('#pnavL [data-jl]').forEach(b=>b.onclick=()=>go($('#rmain'),b.dataset.jl));$$('[data-xbook]').forEach(b=>b.onclick=()=>setXP(false));$$('[data-xclose]').forEach(b=>b.onclick=()=>closeSub());
+ {const pj=$('.pjs');pj.onscroll=pjsFade;pj.addEventListener('wheel',e=>{if(pj.scrollWidth>pj.clientWidth&&Math.abs(e.deltaY)>Math.abs(e.deltaX)){pj.scrollLeft+=e.deltaY;e.preventDefault();}},{passive:false});setTimeout(pjsFade,60);}
+ $$('[data-xp]').forEach(b=>b.onclick=()=>setXP(!S.xp));
+ {const mt=$('.mtabs');mt.addEventListener('scroll',()=>mtFade());mt.addEventListener('wheel',e=>{if(!CH(4))return;if(mt.scrollWidth>mt.clientWidth&&Math.abs(e.deltaY)>Math.abs(e.deltaX)){mt.scrollLeft+=e.deltaY;e.preventDefault();}},{passive:false});setTimeout(()=>mtFade(),60);}
+ $('#dots').onclick=e=>{e.stopPropagation();const m=$('#menu'),on=!m.classList.contains('show');closeMenu();if(on){placeMenu(m,$('#dots'));m.classList.add('show');$('#dots').classList.add('on');$('#scrim').classList.add('show');$('#scrim').style.opacity=0;}};
+ $('#scrim').onclick=closeMenu;
+ $$('#menu [data-m]').forEach(b=>b.onclick=e=>{e.stopPropagation();const m=b.dataset.m;if(m==='move'){openMove();return;}if(m==='add'){addRecipe();return;}
+  if(b.classList.contains('later')){toast('Coming later. It is on our list.');return;}
+  closeMenu();toast(b.textContent+' (not in this mockup)');});
+ /* computer mouse: Move to Collection also opens its menu on hover, like a desktop submenu; resting on another row closes it */
+ {const mv=$('#menu [data-m="move"]');
+  mv.addEventListener('mouseenter',()=>{if(coarse())return;clearTimeout(S.mvT);S.mvT=setTimeout(openMove,140);});
+  mv.addEventListener('mouseleave',()=>{if(!$('#movesub').classList.contains('show'))clearTimeout(S.mvT);});
+  $$('#menu > button:not([data-m="move"])').forEach(b=>b.addEventListener('mouseenter',()=>{if(coarse()||S.mvNew)return;clearTimeout(S.mvT);if($('#movesub').classList.contains('show'))S.mvT=setTimeout(closeMove,220);}));
+  $('#movesub').addEventListener('mouseenter',()=>clearTimeout(S.mvT));}
+ $('.tback').onclick=()=>{if($('.binder').classList.contains('show')){closeSub();return;}S.phoneOpen=false;$('.pane').classList.remove('show');updateBar();};
+ $$('#dev [data-toast]').forEach(b=>{if(!b.closest('.rscroll'))b.onclick=()=>toast(b.dataset.toast);});
+ $('#morebtn').onclick=()=>{const d=$('#drawer'),on=!d.classList.contains('show');closeMenu();if(on){d.classList.add('show');$('#scrim').classList.add('show');$('#scrim').style.opacity='';}};
+ $$('#drawer .g').forEach(g=>g.onclick=()=>{closeMenu();if(g.dataset.k!=='book')toast(g.textContent+' (not in this mockup)');});
+}
+$$('#devs button').forEach(b=>b.onclick=()=>{$$('#devs button').forEach(x=>x.classList.toggle('on',x===b));S.d=b.dataset.d;S.phoneOpen=false;build();});
+$('#replay').onclick=()=>{S.coverSeen=false;S.phoneOpen=false;build();};
+$('#slow').onclick=()=>{S.slow=!S.slow;$('#slow').classList.toggle('on',S.slow);document.documentElement.style.setProperty('--k',K());};
+const FULL=window.SC_FULL||new URLSearchParams(location.search).get('full');
+function fullPick(){const d=FULL==='phone'?'phone':FULL==='desktop'?'computer':(innerWidth>innerHeight?'ipadside':'ipadup');DEV[d].w=innerWidth;DEV[d].h=innerHeight;return d;}
+if(FULL){document.documentElement.classList.add('full');S.d=fullPick();
+ let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(fullResize,250);});}
+/* full screen: follow the real screen size. While a note is being typed the on-screen keyboard can change the window size, so wait until the note is done */
+function fullResize(){if(!FULL||S.ned)return;const d=fullPick();if(d!==S.d){S.d=d;S.phoneOpen=false;build();}else{$('#dev').style.width=DEV[d].w+'px';$('#dev').style.height=DEV[d].h+'px';fit();}}
+/* ---------------- Changes since r15 (design-iterate 11-24) ----------------
+   Each change is on only while <html> has class ch-N. ?ch=none turns all off, ?ch=1,3 picks some, ?ch=all (or nothing) turns all on.
+   Without ?ch the boxes Tyler unticked are remembered on this device. &shots=1 hides the full-screen Changes button (for screenshots). */
+function chInit(){const q=new URLSearchParams(location.search),p=q.get('ch');let on=CHG.map(c=>c[0]);
+ if(p==='none')on=[];else if(p&&p!=='all')on=p.split(',').map(Number);
+ else if(!p){try{const off=JSON.parse(localStorage.getItem('c058chOff')||'[]');on=on.filter(n=>!off.includes(n));}catch(e){}}
+ CHG.forEach(([n])=>document.documentElement.classList.toggle('ch-'+n,on.includes(n)));
+ if(q.get('shots'))document.documentElement.classList.add('shots');}
+function chPanelHTML(){return `<b style="color:#333">Changes since r15:</b>${CHG.map(([n,l])=>`<label title="CH-${n}"><input type="checkbox" data-ch="${n}" ${CH(n)?'checked':''}>CH-${n} ${l}</label>`).join('')}<span class="seg"><button type="button" data-chall="1">All On</button><button type="button" data-chall="0">All Off</button></span>`;}
+function renderCh(){[$('#chs'),$('#chpop .chb')].forEach(el=>{if(!el)return;el.innerHTML=chPanelHTML();
+ $$('[data-ch]',el).forEach(i=>i.onchange=()=>setCh([+i.dataset.ch],i.checked));
+ $$('[data-chall]',el).forEach(b=>b.onclick=()=>setCh(CHG.map(c=>c[0]),b.dataset.chall==='1'));});}
+function setCh(ns,on){ns.forEach(n=>document.documentElement.classList.toggle('ch-'+n,on));
+ try{localStorage.setItem('c058chOff',JSON.stringify(CHG.map(c=>c[0]).filter(n=>!CH(n))));}catch(e){}
+ renderCh();chRebuild();}
+/* redraw in place: keep the open recipe, an open sub-recipe and Expanded */
+function chRebuild(){const sub=!!$('.binder')?.classList.contains('show'),xp=S.xp,ph=S.phoneOpen;build();if(ph&&DEV[S.d].narrow){S.phoneOpen=true;$('.pane').classList.add('show');updateBar();}if(sub)openSub();if(xp)setXP(true);}
+$('#chfab').onclick=e=>{e.stopPropagation();$('#chpop').classList.toggle('show');};
+document.addEventListener('pointerdown',e=>{const p=$('#chpop');if(p.classList.contains('show')&&!p.contains(e.target)&&e.target.id!=='chfab')p.classList.remove('show');});
+chInit();renderCh();
+renderOpts();build();
+</script>
+</body></html>

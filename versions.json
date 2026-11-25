@@ -89,5 +89,12 @@
   "name": "Plan",
   "msg": "Plan a week v3, round 9: week board + Claude, start card, recipe card picker, plans ahead, Import Groceries",
   "date": "2026-11-24"
+ },
+ {
+  "v": "r16",
+  "mockup": "C-058_recipe_book.html",
+  "name": "Recipes",
+  "msg": "C-058 r16: design-iterate rounds 4-6, CH-1..17 toggles vs r15",
+  "date": "2026-11-24"
  }
 ]
