@@ -131,5 +131,12 @@
   "name": "Icon style sheet",
   "msg": "Icon style sheet draft r9: 3 questions at the top",
   "date": "2026-11-25"
+ },
+ {
+  "v": "addedit-r1",
+  "mockup": "index.html",
+  "name": "Add + Edit a Recipe",
+  "msg": "Add + Edit a Recipe, first look (rounds 1-18, panel 6 all 8s)",
+  "date": "2026-11-25"
  }
 ]
