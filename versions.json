@@ -110,5 +110,12 @@
   "name": "Groceries",
   "msg": "Groceries round 29: Import Groceries (clear notice when an approved plan isn't on the list; needs = recipes minus your Kitchen), Jump to Aisle lands at the top, smooth check-off animation, change the amount on the shopping row.",
   "date": "2026-11-24"
+ },
+ {
+  "v": "groceries-r33",
+  "mockup": "groceries_v3.html",
+  "name": "Groceries",
+  "msg": "Groceries round 33 (agreed, frozen for the build queue): Jump to Aisle stays with you on the list, shop the whole list at one store, then keep the rest or move it all to the next store.",
+  "date": "2026-11-25"
  }
 ]
