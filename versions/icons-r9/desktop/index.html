@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head><script>window.SC_FULL='desktop'</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-title" content="SupperCraft icons">
+<title>Icon style sheet Desktop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap" rel="stylesheet">
+<style>
+/* Colours: app src/kit/palettes/light.js and darkProof.js on origin/main (dark is a proof palette, not a designed theme). */
+.th-light{--page:#EDE5D8;--card:#FAF6EE;--ink:#1E1E1C;--quiet:#54524A;--ph:#605E55;--accent:#4B6947;--sage:#8FAF8A;--sage-dark:#1F3A1C;--sage-light:#E4EDE2;
+ --chip:#E4D9C6;--subbar:#E4D3B3;--sbd:#5C3D0A;--sbs:#7A5030;--caution:#5C3D0A;--caution-bg:#F5ECD8;--urgent:#5C1A1A;--urgent-bg:#F5E4E4;--gold:#C8943A;--amber-text:#7E5C22;
+ --header:#6B3E14;--header-text:#FAF4EB;--border:rgba(0,0,0,.09);--grid:rgba(0,0,0,.07);--grid4:rgba(0,0,0,.16);--live:rgba(75,105,71,.13);--bad:#8E3131;--shadow:45,33,22}
+.th-dark{--page:#1A1815;--card:#24211D;--ink:#EEE8DC;--quiet:#C6BFB1;--ph:#ADA698;--accent:#A3C49D;--sage:#4A6646;--sage-dark:#2F5A2A;--sage-light:#22301F;
+ --chip:#3A3329;--subbar:#2E2619;--sbd:#E3C99A;--sbs:#CDB08C;--caution:#EBCB92;--caution-bg:#30271A;--urgent:#F2C0C0;--urgent-bg:#3A1E1E;--gold:#D9A54B;--amber-text:#E0B56A;
+ --header:#3A220C;--header-text:#F3EBDD;--border:rgba(255,255,255,.12);--grid:rgba(255,255,255,.08);--grid4:rgba(255,255,255,.18);--live:rgba(163,196,157,.13);--bad:#C46A6A;--shadow:0,0,0}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--page);color:var(--ink);font-size:15px;line-height:1.45;overflow-x:hidden}
+.hdr{background:var(--header);color:var(--header-text);height:52px;display:flex;align-items:center;padding:0 20px;
+ background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 2px,transparent 2px 7px),repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 9px)}
+.hdr .wm{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:22px;line-height:1.25}
+.tan{background:var(--subbar);min-height:46px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:6px 20px;border-bottom:1px solid var(--border)}
+.tan .t{font-weight:600;font-style:italic;font-size:16px;color:var(--sbd)}
+.tan .sub{font-size:14px;color:var(--sbs)}
+.seg{margin-left:auto;display:flex;gap:4px}
+.seg button{font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--ink);cursor:pointer}
+.seg button.on{background:var(--sage-light);color:var(--accent);border-color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(var(--shadow),.055),0 6px 16px rgba(var(--shadow),.055)}
+h2{font-size:18px;margin:0 0 6px}
+h3{font-size:15px;margin:16px 0 8px}
+p{margin:4px 0 8px}
+.q{color:var(--quiet);font-size:14px}
+.src{color:var(--ph);font-size:12.5px;margin-top:10px}
+code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:var(--chip);padding:0 4px;border-radius:4px;overflow-wrap:anywhere}
+pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:var(--chip);padding:10px 12px;border-radius:8px;overflow-x:auto;margin:8px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.g2,.g3,.g4{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cell{border:1px solid var(--border);border-radius:8px;padding:12px;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cell .cap{font-size:13.5px;color:var(--quiet);margin-top:8px;text-align:left;width:100%}
+.cell .cap b{color:var(--ink)}
+.diag{width:100%;max-width:150px;height:auto;aspect-ratio:1/1;display:block}
+.ok,.no,.nf{display:inline-block;font-size:12px;font-weight:700;padding:1px 7px;border-radius:4px;margin-bottom:6px;align-self:flex-start}
+.ok{background:var(--sage-light);color:var(--accent)}
+.no{background:var(--urgent-bg);color:var(--urgent)}
+.nf{background:var(--caution-bg);color:var(--caution);border:1px dashed var(--caution)}
+.sizes{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin-top:8px;color:var(--ink)}
+svg.i{display:inline-block;vertical-align:middle;flex:none}
+.fam{display:flex;flex-wrap:wrap;gap:6px 4px;margin:6px 0 4px}
+.fam>div{width:72px;text-align:center;font-size:12px;color:var(--quiet)}
+.fam svg{display:block;margin:0 auto 4px;color:var(--ink)}
+.rules{margin:4px 0 0;padding-left:20px}
+.rules li{margin:4px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td,th{border-top:1px solid var(--border);padding:8px 8px;text-align:left;vertical-align:top}
+th{font-size:12.5px;color:var(--quiet);font-weight:600;border-top:none}
+.ct td{font-variant-numeric:tabular-nums}
+.ct td.n{text-align:right;white-space:nowrap}
+.sw{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1px solid var(--border)}
+.low{color:var(--bad);font-weight:700}
+.ex{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.lab{font-size:12px;font-weight:700;color:var(--quiet);margin:0 0 6px}
+/* mini app parts, matched to the app (DESIGN 2.2.2, 2.5.2, 3.5.7, 3.5.8; TabBar, NavItem, CaptureButton, BackControl) */
+.mbtn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:8px;background:var(--sage);font-weight:600;font-size:14px;color:var(--ink)}
+.meta{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--quiet)}
+.link{display:inline-flex;align-items:flex-start;gap:1px;font-size:14px;color:var(--accent);font-weight:600}
+.tile{width:36px;height:36px;border-radius:8px;background:var(--chip);display:flex;align-items:center;justify-content:center;flex:none;color:var(--quiet)}
+.srow{display:flex;align-items:center;gap:12px;text-align:left}
+.srow b{display:block;font-size:14px}.srow span{font-size:12.5px;color:var(--quiet)}
+.sbox{display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;border:1px solid var(--quiet);border-radius:8px;color:var(--ph);font-size:14px;min-width:180px;background:var(--card)}
+.pbar{display:flex;align-items:flex-end;border-top:1px solid var(--border);background:var(--card);width:100%;max-width:360px;height:60px;position:relative;margin-top:18px;border-radius:0 0 10px 10px;box-shadow:0 0 0 1px var(--border)}
+.pbar .tb{flex:1;display:flex;justify-content:center;align-items:center;height:60px}
+.pbar .sh{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 8px;border-radius:8px;min-width:56px;font-size:12px;color:var(--quiet);color:var(--quiet)}
+.pbar .sh svg{color:var(--quiet)}
+.pbar .sh.cur{background:var(--sage-light);color:var(--accent);font-weight:500}
+.pbar .sh.cur svg{color:var(--accent)}
+.pbar .cap{width:76px;display:flex;justify-content:center;align-self:flex-start;margin-top:-18px}
+.capbtn{width:60px;height:60px;border-radius:50%;background:var(--sage-dark);color:var(--header-text);display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(var(--shadow),.25)}
+.ibtn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:22px;color:var(--ink)}
+.notice{display:flex;gap:10px;align-items:center;text-align:left;border-radius:12px;padding:10px 12px;background:var(--caution-bg);color:var(--caution);font-size:14px;border:1px solid var(--border)}
+.notice .x{margin-left:auto;display:flex}
+.drawer{display:grid;grid-template-columns:repeat(3,72px);gap:8px}
+.dt{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--quiet)}
+.dt svg{color:var(--quiet)}
+.dt.cur{background:var(--sage-light);border-color:transparent;color:var(--accent)}.dt.cur svg{color:var(--accent)}
+.nop{width:84px;height:68px;border-radius:4px;background:var(--page);box-shadow:inset 0 0 0 1px var(--border);display:flex;align-items:center;justify-content:center;color:var(--ph);flex:none}
+.side{display:grid;grid-template-columns:1fr 1fr;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.side>div{background:var(--page);color:var(--ink);padding:16px;min-width:0}
+.side .stack{display:flex;flex-direction:column;gap:16px;align-items:stretch}
+.side .hd{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--quiet);margin-bottom:12px}
+.side .surf{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px}
+.hr{border-top:1px dashed var(--bad);padding-top:12px}
+.badc{width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--card);display:flex;align-items:center;justify-content:center;flex:none}
+ol,ul{margin:4px 0 8px;padding-left:22px}
+li{margin:4px 0}
+.qs li{margin:10px 0}
+.pick{font-weight:600;color:var(--accent)}
+.lesson{border:1px solid var(--border);border-radius:8px;padding:12px;min-width:0;display:flex;flex-direction:column}
+.lesson>b{display:block;margin-bottom:8px}
+.lesson .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lesson .pc{display:flex;flex-direction:column;align-items:center;min-width:0}
+.lesson .pc .cap{font-size:13px;color:var(--quiet);margin-top:6px;text-align:center}
+.lesson .note{font-size:13.5px;color:var(--quiet);margin:10px 0 0;border-top:1px solid var(--border);padding-top:8px;margin-top:auto}
+.rowcmp .odd{display:inline-flex;outline:1.5px dashed var(--quiet);outline-offset:3px;border-radius:3px}
+.chipt{display:inline-flex;width:28px;height:28px;border-radius:6px;align-items:center;justify-content:center;vertical-align:middle;margin-right:8px;border:1px solid var(--border)}
+.rowcmp{display:grid;grid-template-columns:auto 1fr;gap:8px 10px;align-items:center;margin:2px 0}
+.rowcmp .ic{display:flex;gap:10px;color:var(--ink)}
+.rowcmp .t{font-size:13px;color:var(--quiet)}
+.szt{display:grid;grid-template-columns:48px minmax(0,300px) minmax(0,1fr);gap:0 16px;align-items:start}
+.szt>div{border-top:1px solid var(--border);padding:12px 0;min-width:0}
+.szt .h{font-size:12.5px;color:var(--quiet);font-weight:600;border-top:none;padding:0 0 4px}
+.szt .sz{font-weight:700;font-size:18px}
+.szt .exc .ex{gap:14px 20px}
+.exn{font-size:12px;color:var(--ph);display:block;margin-top:4px}
+.fam2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.fbox{border:1px solid var(--border);border-radius:8px;padding:12px;min-width:0}
+.fbox h3{margin:0 0 4px}
+.fbox ul{padding-left:18px;margin:6px 0 0;font-size:14px}
+.minute{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px;align-items:start}
+.minute ul{margin:0}
+.dark-only{display:none}
+@media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3.lessons{grid-template-columns:1fr}.minute{grid-template-columns:1fr}}
+@media (max-width:700px){.g3{grid-template-columns:repeat(2,minmax(0,1fr))}.g3.one{grid-template-columns:1fr}.fam2,.g2{grid-template-columns:1fr}
+ .szt{grid-template-columns:36px minmax(0,1fr)}.szt .h3{display:none}.szt .exc{grid-column:2;border-top:none;padding-top:0}
+ .side{grid-template-columns:1fr}}
+@media (max-width:520px){.szt{grid-template-columns:28px minmax(0,1fr);gap:0 10px}.szt .exc{grid-column:1/-1}.wrap{padding:12px}.card{padding:14px}.tan{padding:6px 12px}.hdr{padding:0 12px}.seg{margin-left:0}
+ .fam>div{width:62px}}
+.nf.sm{font-size:12px;padding:0 6px;margin:0;align-self:center}
+.qcard .qrow{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:center;padding:14px 0;border-top:1px solid var(--border)}
+.qcard h2+.qrow{border-top:none;padding-top:4px}
+.qpic{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:transparent}
+.opt{border:1px solid var(--border);border-radius:8px;padding:10px;background:var(--card);min-width:0;color:var(--ink)}
+.opt .lab{margin-bottom:8px}
+.onc{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--ink)}
+.es{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:14px}
+.es b{font-size:14px}.es.sm{flex-direction:row;gap:12px}
+.eic{display:flex;align-items:center;justify-content:center;width:72px;height:60px;border-radius:4px;background:var(--card);box-shadow:0 1px 2px rgba(var(--shadow),.12),0 3px 8px rgba(var(--shadow),.14),0 0 0 1px var(--border);color:var(--ph)}
+.mbtn.sm{min-height:36px;font-size:13px;padding:0 12px;gap:6px}
+.tcell{display:flex;align-items:flex-start;gap:8px}.tcell .chipt{margin:0;flex:none}
+.cell.st{align-items:stretch;text-align:left;gap:6px}.cell.st .cap{margin-top:4px}
+details.bld summary{cursor:pointer;list-style:none}details.bld summary::-webkit-details-marker{display:none}
+details.bld summary h2::before{content:"\25B8  ";color:var(--quiet)}details.bld[open] summary h2::before{content:"\25BE  "}
+@media (max-width:900px){.qcard .qrow{grid-template-columns:1fr;gap:12px}}
+@media (max-width:700px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;margin:4px 0 8px}
+.ti{display:grid;grid-template-columns:28px minmax(0,1fr) 84px 92px;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--border);font-size:13.5px}
+.ti .chipt{margin:0}.ti .tn b{display:block;font-size:13.5px}.ti .for{display:block;font-size:12px;color:var(--quiet);line-height:1.3}
+.ti .ts{color:var(--quiet);font-size:12.5px}.ti .tv{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px;align-items:start}
+.tiles .hr{grid-column:1/-1}
+.light-only{display:inline}.th-dark .light-only{display:none}.th-dark .dark-only{display:inline}
+.g3.three{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.fam{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px 4px}.fam>div{width:auto}
+@media (max-width:900px){.tl{grid-template-columns:1fr}}
+@media (max-width:700px){.tiles{grid-template-columns:1fr}}
+@media (max-width:520px){.diag{max-width:118px}.minute .icons{display:none}.ti{grid-template-columns:28px minmax(0,1fr) 70px 82px}
+ .g3.three{grid-template-columns:1fr!important;gap:8px}.g3.three .cell{flex-direction:row;align-items:center;gap:12px;padding:8px 12px}.g3.three .cell .ok,.g3.three .cell .no{margin:0}.g3.three .sizes{margin:0}.g3.three .cap{margin:0;flex:1}}
+/* end r7 css */
+@media (max-width:520px){.src{display:none}.lesson .pc .sizes{gap:6px}}
+.qt{display:block;font-size:16px;margin-bottom:4px}.qn{display:inline-block;font-size:12px;font-weight:700;color:var(--caution);background:var(--caution-bg);border-radius:4px;padding:1px 7px;margin-bottom:6px}
+.pick{display:block;margin-top:6px}.tries{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center}
+/* end r7b css */
+@media (max-width:520px){.fam{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 8px}.g3.three .cell .ok,.g3.three .cell .no{min-width:64px;text-align:center;flex:none}}
+details.bld .g3{align-items:start}.fbox table td:first-child{white-space:nowrap;padding-right:10px}
+</style>
+</head>
+<body class="th-light">
+<div class="hdr"><span class="wm">SupperCraft</span></div>
+<div class="tan"><span class="t">Icon style sheet</span><span class="sub">draft r9 · for your OK</span>
+ <div class="seg" id="seg"><button data-th="light" class="on">Light</button><button data-th="dark">Dark (proof)</button></div></div>
+<div class="wrap" id="w"></div>
+<script>
+/* Exact Lucide 1.51 paths (mise-rebuild/app node_modules) and the C-055 nav paths (origin/main src/kit/Icon/drawn.tsx), injected by the build. */
+const L={"search": "<path d=\"m21 21-4.34-4.34\"/><circle cx=\"11\" cy=\"11\" r=\"8\"/>", "calendar": "<path d=\"M8 2v3\"/><path d=\"M16 2v3\"/><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 9h18\"/>", "book-open": "<path d=\"M12 5v16\"/><path d=\"M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z\"/>", "shopping-cart": "<path d=\"m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18\"/><path d=\"M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25\"/><circle cx=\"18\" cy=\"20\" r=\"2\"/><circle cx=\"8\" cy=\"20\" r=\"2\"/>", "refrigerator": "<path d=\"M5 6a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z\"/><path d=\"M5 10h14\"/><path d=\"M15 7v6\"/>", "house": "<path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"/><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/>", "chef-hat": "<path d=\"M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z\"/><path d=\"M6 17h12\"/>", "settings": "<path d=\"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>", "heart": "<path d=\"M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5\"/>", "star": "<path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\"/>", "circle": "<circle cx=\"12\" cy=\"12\" r=\"10\"/>", "square": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/>", "x": "<path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/>", "check": "<path d=\"M20 6 9 17l-5-5\"/>", "plus": "<path d=\"M5 12h14\"/><path d=\"M12 5v14\"/>", "chevron-left": "<path d=\"m15 18-6-6 6-6\"/>", "ellipsis": "<circle cx=\"12\" cy=\"12\" r=\"1\"/><circle cx=\"19\" cy=\"12\" r=\"1\"/><circle cx=\"5\" cy=\"12\" r=\"1\"/>", "timer": "<line x1=\"10\" x2=\"14\" y1=\"2\" y2=\"2\"/><line x1=\"12\" x2=\"15\" y1=\"14\" y2=\"11\"/><circle cx=\"12\" cy=\"14\" r=\"8\"/>", "mic": "<path d=\"M12 19v3\"/><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"/><rect x=\"9\" y=\"2\" width=\"6\" height=\"13\" rx=\"3\"/>", "clock": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 6v6l4 2\"/>", "bell": "<path d=\"M10.268 21a2 2 0 0 0 3.464 0\"/><path d=\"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326\"/>", "lock": "<rect width=\"18\" height=\"11\" x=\"3\" y=\"11\" rx=\"2\" ry=\"2\"/><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"/>", "triangle-alert": "<path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\"/><path d=\"M12 9v4\"/><path d=\"M12 17h.01\"/>", "store": "<path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"/><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"/><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"/>", "sun": "<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m6.34 17.66-1.41 1.41\"/><path d=\"m19.07 4.93-1.41 1.41\"/>", "users": "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><path d=\"M16 3.128a4 4 0 0 1 0 7.744\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/>", "rotate-ccw-clock": "<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"/><path d=\"M3 3v5h5\"/><path d=\"M12 7v5l4 2\"/>", "trash": "<path d=\"M10 11v6\"/><path d=\"M14 11v6\"/><path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6\"/><path d=\"M3 6h18\"/><path d=\"M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"/>", "soup": "<path d=\"M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z\"/><path d=\"M7 21h10\"/><path d=\"M19.5 12 22 6\"/><path d=\"M16.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.73 1.62\"/><path d=\"M11.25 3c.27.1.8.53.74 1.36-.05.83-.93 1.2-.98 2.02-.06.78.33 1.24.72 1.62\"/><path d=\"M6.25 3c.27.1.8.53.75 1.36-.06.83-.93 1.2-1 2.02-.05.78.34 1.24.74 1.62\"/>", "funnel": "<path d=\"M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z\"/>", "arrow-up-right": "<path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/>", "external-link": "<path d=\"M15 3h6v6\"/><path d=\"M10 14 21 3\"/><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"/>", "pencil": "<path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\"/><path d=\"m15 5 4 4\"/>", "mail": "<path d=\"m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7\"/><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/>", "info": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/>"};
+const D={"today": "M4 6h16v14H4z M4 10h16 M8 3v4 M16 3v4", "plan": "M4 5h16v15H4z M4 9h16 M8 13h3 M13 13h3 M8 16h3", "book": "M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z M5 17a3 3 0 0 1 3-3h11", "shop": "M3 5h3l2 10h10l2-7H7 M9 19a1 1 0 1 0 0 .1 M17 19a1 1 0 1 0 0 .1", "kitchen": "M6 3h12v18H6z M6 10h12 M9 6v2 M9 13v3", "history": "M12 7v5l3 2 M4 12a8 8 0 1 0 2.5-5.8 M4 4v4h4", "prep": "M4 18l9-9 3 3-9 9H4z M14 6l2-2 4 4-2 2", "reminders": "M6 16V11a6 6 0 0 1 12 0v5l2 2H4z M10 20a2 2 0 0 0 4 0", "leftovers": "M4 11h16l-2 8H6z M7 11V8h10v3 M10 5h4", "more": "M5 12h.1 M12 12h.1 M19 12h.1"};
+const CT={"text": {"card": [15.5, 13.1], "page": [13.4, 14.5]}, "quiet": {"card": [7.3, 8.8], "page": [6.3, 9.7], "chip": [5.6, 6.8]}, "placeholder": {"card": [6.0, 6.6], "page": [5.2, 7.3]}, "accent": {"card": [5.7, 8.3], "sage-light": [5.1, 7.2]}, "on-action": {"sage-dark": [11.4, 6.8]}, "on-dark": {"header": [8.3, 12.5]}, "on-header": {"header": [8.3, 12.5]}, "ok": {"card": [5.7, 8.3], "sage-light": [5.1, 7.2]}, "caution": {"card": [9.2, 10.3], "amber-light": [8.4, 9.4]}, "urgent": {"card": [12.0, 10.0], "urgent-bg": [10.6, 9.4]}, "on-toolbar": {"subbar": [6.7, 9.3]}, "on-toolbar-quiet": {"subbar": [4.7, 7.2]}, "accent-strong": {"sage": [5.2, 1.3]}, "gold": {"card": [2.5, 7.2]}}, HEX={"light": {"text": "#1E1E1C", "quiet": "#54524A", "placeholder": "#605E55", "accent": "#4B6947", "on-action": "#FAF4EB", "on-dark": "#FAF4EB", "on-header": "#FAF4EB", "ok": "#4B6947", "caution": "#5C3D0A", "urgent": "#5C1A1A", "on-toolbar": "#5C3D0A", "on-toolbar-quiet": "#7A5030", "accent-strong": "#1F3A1C", "gold": "#C8943A"}, "dark": {"text": "#EEE8DC", "quiet": "#C6BFB1", "placeholder": "#ADA698", "accent": "#A3C49D", "on-action": "#F3EBDD", "on-dark": "#F3EBDD", "on-header": "#F3EBDD", "ok": "#A3C49D", "caution": "#EBCB92", "urgent": "#F2C0C0", "on-toolbar": "#E3C99A", "on-toolbar-quiet": "#CDB08C", "accent-strong": "#2F5A2A", "gold": "#D9A54B"}}, EXTRA={"amber-text on card": [5.7, 8.4], "#9A5B12 on card (light)": 5.0, "on-header on card (wrong place)": [1.0, 13.5], "on-header on subbar (wrong place)": [1.3, 12.6], "accent on sage (wrong place)": [2.5, 3.3], "gold on sage-light": [2.3, 6.2], "quiet on sage-light": [6.5, 7.6]};
+/* Today's 3 C-058 register placeholders, exactly as that mockup draws them (stroke 1.8, half units). */
+const P={"bowl":"<path d=\"M3.5 12.5h17a8.5 6.5 0 0 1-17 0z\"/><path d=\"M8.5 9.5c-.9-1 .9-1.9 0-3M12 9.5c-1-1.3 1-2.5 0-4.2M15.5 9.5c-.9-1 .9-1.9 0-3\"/>",
+ "magnifier":"<circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"M20 20l-4.4-4.4\"/>","funnel":"<path d=\"M3.5 4.5h17l-6.5 7.6v6.2l-4 2v-8.2z\"/>"};
+/* The worked example's starting path (NOT final): on whole units, Lucide-family proportions. */
+const START='<path d="M3 13h18a9 7 0 0 1-18 0z M8 9c-1.5-1.5 1.5-3 0-6 M12 9c-1.5-1.5 1.5-3 0-6 M16 9c-1.5-1.5 1.5-3 0-6"/>';
+/* The "leaves the app" bare arrow point (STANDARDS, Tyler 11-24), best of the tried drawings; question 3. */
+const TIPS=['M7 7h10v10','M9 5h10v10','M7 5h12v12','M10 6l8-1-1 8'];const TIP='<path d="M7 5h12v12"/>';
+function inner(n){if(n.startsWith('t:'))return `<path d="${TIPS[+n.slice(2)]}"/>`;if(n.startsWith('d:'))return `<path d="${D[n.slice(2)]}"/>`;if(n.startsWith('p:'))return P[n.slice(2)];if(n==='start')return START;if(n==='tip')return TIP;return L[n];}
+/* ic(): one icon at the app's defaults: stroke 2, round caps and joins, no fill. */
+function ic(n,o={}){const s=o.size||24,sw=o.sw||(n.startsWith('p:')?1.8:2);
+ const t=o.shrink?`<g transform="translate(12 12) scale(${o.shrink}) translate(-12 -12)" stroke-width="${sw/o.shrink}">${inner(n)}</g>`:inner(n);
+ return `<svg class="i" width="${s}" height="${s}" viewBox="0 0 24 24" fill="${o.fill?'currentColor':'none'}" stroke="currentColor" stroke-width="${sw}" stroke-linecap="${o.cap||'round'}" stroke-linejoin="${o.join||'round'}"${o.color?` style="color:${o.color}"`:''} aria-hidden="true">${t}</svg>`;}
+/* gridded(): one icon blown up on its 24 grid; the live area 2 to 22 is shaded, its dashed edge drawn ON TOP so the line never hides it. */
+function gridded(n,o={}){const sw=o.sw||(n.startsWith('p:')?1.8:2);let g='';
+ for(let k=0;k<=24;k++){const c=k%4===0?'var(--grid4)':'var(--grid)';g+=`<path d="M${k} 0V24M0 ${k}H24" stroke="${c}" stroke-width="${k%4===0?.07:.045}"/>`;}
+ const body=o.shrink?`<g transform="translate(12 12) scale(${o.shrink}) translate(-12 -12)" stroke-width="${sw/o.shrink}">${inner(n)}</g>`:inner(n);
+ return `<svg class="diag" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" fill="var(--card)"/><rect x="2" y="2" width="20" height="20" fill="var(--live)"/>${g}`+
+ `<g fill="none" stroke="var(--ink)" stroke-width="${sw}" stroke-linecap="${o.cap||'round'}" stroke-linejoin="${o.join||'round'}" opacity=".92">${body}</g>`+
+ `<rect x="2" y="2" width="20" height="20" fill="none" stroke="var(--accent)" stroke-width=".2" stroke-dasharray=".8 .5"/>${o.box?`<rect x="${o.box[0]}" y="${o.box[1]}" width="${o.box[2]-o.box[0]}" height="${o.box[3]-o.box[1]}" fill="none" stroke="var(--bad)" stroke-width=".12" stroke-dasharray=".4 .3"/>`:''}</svg>`;}
+const sizes=(n,o={})=>`<div class="sizes">${[16,20,24,32].map(s=>ic(n,{...o,size:s})).join('')}</div>`;
+const badge=g=>g===1?'<span class="ok">Do</span>':g===0?'<span class="no">Not this</span>':'<span class="nf">Not final</span>';
+const NAVN=[['today','Today'],['plan','Plan'],['book','Recipe Book'],['shop','Shop'],['kitchen','Kitchen'],['history','History'],['prep','Prep'],['reminders','Reminders'],['leftovers','Leftovers'],['more','More']];
+const LUCN=[['search','search'],['clock','time'],['users','people'],['plus','add'],['check','check'],['heart','fav'],['star','star'],['bell','bell'],['pencil','edit'],['trash','remove']];
+const S=[];
+
+/* Two more exact Lucide 1.51 paths (names.ts up/down), and the button tone measured on mid sage. */
+L['arrow-up']='<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>';L['arrow-down']='<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>';
+CT.text.sage=[6.9,5.2];
+/* The app's empty-state drawing "recipe-library" (EmptyState.tsx on origin/main): 66 grid, line 1.6, two tones. */
+const ES_LINE=['M33 22 C29 18 20 17 14 19 V46 C20 44 29 45 33 49','M33 22 C37 18 46 17 52 19 V46 C46 44 37 45 33 49'];
+const ES_DET=['M33 22V49','M42 18 V34 L46 31 L50 34 V18','M19 28 27 27','M19 35 27 34'];
+const esPic=()=>`<svg width="66" height="66" viewBox="0 0 66 66" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ES_LINE.map(d=>`<path d="${d}" stroke="var(--sage-dark)"/>`).join('')}${ES_DET.map(d=>`<path d="${d}" stroke="var(--ph)"/>`).join('')}</svg>`;
+const nf=t=>`<span class="nf sm">${t||'Not final'}</span>`;
+const lnk=(n)=>`<span class="link">Serious Eats${ic(n,{size:16})}</span>`;
+
+/* 0: one minute */
+S.push(`<div class="card"><h2>In one minute</h2><div class="minute"><ul>
+<li><b>Use what we have:</b> Lucide everywhere; the 10 drawn nav icons in the nav only. Draw a new one only when Lucide lacks the meaning, and only after its own run and your OK.</li>
+<li><b>Line weight 2 and round ends, always.</b> Copy the size and corners of the icons beside it.</li>
+<li><b>Four sizes only:</b> 16 by small words · 20 in buttons and rows · 24 in the nav and on icon-only buttons · 32 for one big action. An empty screen gets a big picture, not an icon (waiting on question 2).</li>
+<li><b>Colour:</b> an icon wears the colour of its words. A coloured icon always has a second clue, a word or its shape. Only the heart and the star fill in.</li>
+<li><b>Dark mode is not designed yet.</b> Icons use colour names, so they will repaint, but two parts fail in the dark test palette today (known misses, section 6). Every new icon gets checked in it.</li></ul>
+<div><div class="icons"><div class="lab">The nav set (drawn), as the app ships it</div><div class="ex" style="gap:10px;color:var(--ink)">${NAVN.slice(0,5).map(([k])=>ic('d:'+k)).join('')}</div>
+<div class="lab" style="margin-top:12px">Lucide, everywhere else</div><div class="ex" style="gap:10px;color:var(--ink)">${['search','clock','users','heart','bell'].map(n=>ic(n)).join('')}</div></div>
+<p class="q" style="margin-top:12px"><b>3 questions for you, just below.</b> The rest is the sheet itself.</p></div></div></div>`);
+
+/* Questions, right after the minute box */
+const starOn=(c,lab)=>`<div class="opt"><div class="lab">${lab}</div><div class="onc">${ic('star',{size:32,fill:1,color:c})}<span class="meta" style="color:var(--quiet)">${ic('star',{size:16,fill:1,color:c})}${ic('star',{size:16,fill:1,color:c})}${ic('star',{size:16,fill:1,color:c})} Made 3 times</span></div></div>`;
+S.push(`<div class="card qcard"><h2>Questions for you</h2>
+<div class="qrow"><div><span class="qn">Question 1 of 3</span><b class="qt">Should the gold star be darker?</b>A "set" rating star is hard to see on the cream cards. Make it the darker gold-brown the app already uses? <span class="pick">My pick: yes.</span> It shows up clearly, and it already has a dark-mode twin. <span class="dark-only q">(In the dark test palette both pass; the problem is on the light cards.)</span></div>
+<div class="qpic">${starOn('var(--gold)','Today')}${starOn('var(--amber-text)','My pick')}</div></div>
+<div class="qrow"><div><span class="qn">Question 2 of 3</span><b class="qt">Empty screens: big drawing or small card?</b>The app shows a big line drawing when a page is empty. The Recipe Book mockup you OK'd shows a small card with one icon. Which should every empty screen use, including "no search matches" and "no filter matches"? <span class="pick">My pick: the big drawing.</span> You asked for real pictures in September, and the design rules say an empty screen has a big picture. Search and filter would each get their own drawing; until then they show the recipe book drawing. <span class="q">If you pick the card, it becomes a fifth tile (section 4 says four).</span></div>
+<div class="qpic"><div class="opt"><div class="lab">Big drawing (my pick)</div><div class="es">${esPic()}<b>No recipes match</b><span class="mbtn sm">Clear Search</span></div></div>
+<div class="opt"><div class="lab">Small card (Recipe Book mockup)</div><div class="es"><span class="eic">${ic('search',{size:32})}</span><b>No recipes match</b><span class="mbtn sm">Clear Search</span></div></div></div></div>
+<div class="qrow"><div><span class="qn">Question 3 of 3</span><b class="qt">Change your 11-24 rule for the "leaves the app" mark?</b>On 11-24 you asked for just the arrow's point. I drew it four ways; at its real size each one reads as a corner or a "7", not "goes out". This asks you to change your own rule: use the small whole arrow instead? <span class="pick">My pick: yes.</span> It reads as "goes out" at a glance, and Lucide already has it, so nothing new gets drawn.</div>
+<div class="qpic"><div class="opt"><div class="lab">Just the point: the four tries</div><div class="tries">${[0,1,2,3].map(i=>`<span class="link">Serious Eats${ic('t:'+i,{size:16})}</span>`).join('')}</div><div class="onc" style="margin-top:8px">${ic('tip',{size:32})}</div></div><div class="opt"><div class="lab">Whole arrow (my pick)</div><div class="onc">${lnk('arrow-up-right')}${ic('arrow-up-right',{size:32})}</div></div></div></div>
+</div>`);
+
+/* 1: the family */
+S.push(`<div class="card"><h2>1. The icon family</h2>
+<p>Two sets, one look: the same 24-square grid, line weight 2, round ends, sized and coloured the same way. Screens ask for a meaning (<code>nav-plan</code>, <code>time</code>), never a picture.</p>
+<div class="fam2"><div class="fbox"><h3>The nav set: 10 drawn icons</h3><p class="q">Only in the nav: rail, slim rail, phone bar, More drawer. From the C-055 mockup you chose (11-23).</p>
+<div class="fam">${NAVN.map(([k,m])=>`<div>${ic('d:'+k)}${m}</div>`).join('')}</div></div>
+<div class="fbox"><h3>Lucide: 81 icons, everything else</h3><p class="q">Buttons, rows, notices, meta lines. Ten of them:</p>
+<div class="fam">${LUCN.map(([k,m])=>`<div>${ic(k)}${m}</div>`).join('')}</div></div></div>
+<p class="q" style="margin-top:12px">The same meaning can have two pictures: Plan's calendar is drawn in the nav and Lucide in rows. Never mix the two sets in one row. <b>Not icons:</b> emoji and the AI sparkle (both banned), photos, avatars, logos, and the empty-screen picture (its own row in section 3).</p>
+<p class="src">names.ts and drawn.tsx on origin/main (81 Lucide + 10 drawn); DESIGN 2.11.1, 2.11.1a, 2.11.2</p></div>`);
+
+/* 2: drawing */
+const cell=(svg,cap)=>`<div class="cell">${svg}<div class="cap">${cap}</div></div>`;
+S.push(`<div class="card"><h2>2. Drawing rules</h2>
+<p>The green dashed box is the <b>live area, 2 to 22</b>: every line's centre stays inside it, on all 91 icons.</p>
+<div class="fam2" style="margin:10px 0 14px"><div class="fbox"><h3>Both sets</h3><ul>
+<li>24 grid · line weight <b>2</b> · round ends and bends · no fill. Weight 2 grows with the size.</li>
+<li><b>1 to 5 parts.</b> Up to 9 only for repeated small marks (sun rays).</li>
+<li>Lines that do not touch: centres at least <b>4 apart</b> (2 clear between).</li>
+<li>Straight up-and-down or side-to-side lines sit on <b>whole units</b>. Curves and slants may not.</li>
+<li><b>Dots:</b> a dot is a tiny line, as wide as the line. A bigger bead or wheel is a radius-1 circle.</li></ul></div>
+<div class="fbox"><h3>Which set to match: the icons beside it</h3><table><tr><th></th><th>Nav set</th><th>Lucide</th></tr>
+<tr><td>Long side</td><td>16 to 18 units</td><td>18 to 20; marks (x, plus, arrows) 12 to 16</td></tr>
+<tr><td>Boxes</td><td>16 wide (4 to 20)</td><td>18 wide (3 to 21)</td></tr>
+<tr><td>Box corners</td><td>square; the round bend softens them</td><td>radius 2</td></tr>
+<tr><td>"More"</td><td>${ic('d:more',{size:20})} three dots</td><td>${ic('ellipsis',{size:20})} three beads</td></tr></table></div></div>
+<div class="g4">
+${cell(gridded('circle'),'<b>Circle:</b> radius 10, edge to edge 2 to 22.')}
+${cell(gridded('calendar'),'<b>Lucide box:</b> 18 wide, corners radius 2.')}
+${cell(gridded('d:today'),'<b>Nav box:</b> 16 wide, 4 to 20, square corners.')}
+${cell(gridded('trash'),'<b>Air:</b> the two inside lines are 4 apart, centre to centre.')}
+</div><p class="src">Measured in a browser from the exact paths; names.ts ICON_STROKE = 2</p></div>`);
+
+/* 3: lessons */
+const rowc=(t,mid)=>`<div class="rowcmp"><span class="ic">${['calendar','search',null,'heart','timer'].map(n=>n?ic(n,{size:20}):`<span class="odd">${ic('clock',{size:20,sw:mid})}</span>`).join('')}</span><span class="t">${t}</span></div>`;
+S.push(`<div class="card"><h2>2. Drawing rules: three easy mistakes</h2><div class="g3 lessons">
+<div class="lesson"><b>Line weight exactly 2</b>
+<div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">${badge(1)}${rowc('clock at 2',2)}${badge(0)}${rowc('clock at 1.6',1.6)}${rowc('clock at 1.8 (C-058 cards, placeholders)',1.8)}</div>
+<div class="sizes" style="gap:18px;margin-top:14px">${[2,1.6,1.8].map(w=>`<div style="text-align:center;font-size:12px;color:var(--quiet)">${ic('clock',{size:32,sw:w})}<div>${w}</div></div>`).join('')}</div>
+<p class="note">The dashed box marks the clock being checked. At 1.6 it looks paler than its neighbours; 1.8 barely shows, so check the number, not your eye.</p></div>
+<div class="lesson"><b>Round ends and round bends</b><div class="pair">
+<div class="pc">${badge(1)}${gridded('check')}${sizes('check')}<div class="cap">Round</div></div>
+<div class="pc">${badge(0)}${gridded('check',{cap:'butt',join:'miter'})}${sizes('check',{cap:'butt',join:'miter'})}<div class="cap">Square ends, sharp bend</div></div></div>
+<p class="note">The same check mark; only the ends change. Square ends look cut off at 16 and 20.</p></div>
+<div class="lesson"><b>Fill the space</b><div class="pair">
+<div class="pc">${badge(1)}${gridded('calendar')}${sizes('calendar')}<div class="cap">18 wide</div></div>
+<div class="pc">${badge(0)}${gridded('calendar',{shrink:.75})}${sizes('calendar',{shrink:.75})}<div class="cap">Same, shrunk to 14</div></div></div>
+<p class="note">In a row at 20: <span style="display:inline-flex;gap:8px;vertical-align:middle;color:var(--ink)">${ic('search',{size:20})}${ic('calendar',{size:20,shrink:.75})}${ic('clock',{size:20})}</span> the small one reads as less important.</p></div>
+</div></div>`);
+
+/* 4: sizes by place */
+const pbar=`<div class="pbar">
+<div class="tb"><div class="sh cur">${ic('d:today')}Today</div></div><div class="tb"><div class="sh">${ic('d:plan')}Plan</div></div>
+<div class="cap"><span class="capbtn">${ic('plus',{size:32})}</span></div>
+<div class="tb"><div class="sh">${ic('d:shop')}Shop</div></div><div class="tb"><div class="sh">${ic('d:more')}More</div></div></div>`;
+const nopT=(w,h)=>`<div class="nop" style="width:${w}px;height:${h}px">${ic('start',{size:24})}</div>`;
+const ROWS=[
+ [16,'Inline, beside small words: meta lines, rating stars, the "leaves the app" mark.',`<span class="meta">${ic('clock',{size:16})}35 min</span><span class="meta">${ic('users',{size:16})}Serves 4</span><span class="meta">${ic('star',{size:16})}Rate it</span>${lnk('arrow-up-right')}`,'Tone: its words. Recipe meta, History stars, a source link (mark: question 3)'],
+ [20,'In a button with a word, a field, the search box. The default.',`<span class="mbtn">${ic('plus',{size:20})}Add to Plan</span><span class="sbox">${ic('search',{size:20})}Search recipes</span>`,'Tone: its words. Mid-sage button with ink words, so the icon is ink too; SearchField'],
+ [20,'A list row. One size, in its Settings tile or bare.',`<div class="srow"><div class="tile">${ic('bell',{size:20})}</div><div><b>Reminders</b><span>What pings you, and when</span></div></div>`,'Tone: quiet. SettingsRows IconTile (tan, 36 square)'],
+ [24,'The nav: phone tab bar, rail, slim rail, More drawer.',pbar,'Tone: quiet; the lit one accent. C-055 drawn icons; tab labels 12'],
+ [24,'Icon-only buttons, only these: back, close, more (the "..." too, even in the 32 tan-bar button), fav, up, down, and nav items.',`<div class="ex" style="gap:0">${['chevron-left','x','ellipsis','heart','arrow-up','arrow-down'].map(n=>`<span class="ibtn">${ic(n)}</span>`).join('')}</div>`,'names.ts ICON_ONLY_NAMES; back is the chevron only; a notice\'s close is 24 too'],
+ [32,'One big action: Capture, the Cook mic.',`<span class="capbtn">${ic('plus',{size:32})}</span><span class="ibtn" style="width:60px;height:60px;border-radius:50%;border:1px solid var(--border)">${ic('mic',{size:32})}</span>`,'Tone: the one made for its fill. Capture: 60 circle rising 18 (DESIGN 3.2.2)'],
+ [24,'A card with no photo: a tile the photo\'s own size, filled with the page colour, one icon in the middle.',`${nopT(84,68)}${nopT(56,48)}${nopT(48,42)}${nf('bowl not final')}`,'Tone: placeholder (5.2 light, 7.3 dark). Tile: palette page, the nearest named colour to C-058\'s paper. Wide, narrow, phone'],
+ [66,'An empty screen: a picture, not an icon. 66 square, line 1.6, round ends, no fill, lines inside 10 to 56, 5 to 9 parts: 1 to 3 main lines and quieter detail lines. Only if question 2 picks the drawing.',`<div class="es sm">${esPic()}<b>No recipes yet</b></div>`,'Waiting on question 2. Colours copy the 7 in EmptyState.tsx: main sage-dark, detail ink-muted (the placeholder colour). The main line is dim in dark: known miss, section 6']];
+S.push(`<div class="card"><h2>3. Sizes by place</h2><p>Icons come in four sizes only: 16, 20, 24, 32. Mockups too (no 19, 22, 26 or 28). The empty-screen picture is the one bigger thing.</p>
+<div class="szt"><div class="h">Size</div><div class="h">Place</div><div class="h h3">In the app</div>
+${ROWS.map(([s,w,e,n])=>`<div class="sz">${s}</div><div>${w}</div><div class="exc"><div class="ex">${e}</div><span class="exn">${n}</span></div>`).join('')}</div>
+<p class="src">DESIGN 2.11.1, 2.2.2, 2.5.2, 3.2.2, 3.5.7, 3.5.8, 4.8.3; foundations control.icon 16/20/24/32; TabBar, NavItem, CaptureButton, BackControl, EmptyState on origin/main; agreed C-058</p></div>`);
+
+/* 5: colour, tiles and dark mode */
+const TONES=[['text','names, values','card'],['text','in a mid-sage button (ink words)','sage'],['quiet','meta lines, idle nav, Settings tile','card'],['placeholder','unavailable nav, an unset heart','card'],
+ ['accent','current page, a set favourite','sage-light'],['ok','done','sage-light'],['caution','check this','amber-light'],['urgent','delete, danger','urgent-bg'],
+ ['gold','a set rating star (question 1)','card'],['on-action','on the dark green main button','sage-dark'],['on-dark','on any dark fill','header'],['on-header','on the brown top bar','header'],
+ ['on-toolbar','on the tan bar','subbar'],['on-toolbar-quiet','quieter, on the tan bar','subbar'],['accent-strong','a lone accent mark on mid sage, never in a button with words','sage']];
+const SURF={card:'card','sage-light':'pale green','amber-light':'tan notice','urgent-bg':'red notice',header:'brown bar',subbar:'tan bar','sage-dark':'dark green',sage:'mid sage'};
+const SV={card:'--card','sage-light':'--sage-light','amber-light':'--caution-bg','urgent-bg':'--urgent-bg',header:'--header',subbar:'--subbar','sage-dark':'--sage-dark',sage:'--sage'};
+const r=(v)=>`<td class="n${v<3?' low':''}">${v.toFixed(1)}${v<3?' ✗':''}</td>`;
+const TV={text:'--ink',quiet:'--quiet',placeholder:'--ph',accent:'--accent',ok:'--accent',caution:'--caution',urgent:'--urgent',gold:'--gold','on-action':'--header-text','on-dark':'--header-text','on-header':'--header-text','on-toolbar':'--sbd','on-toolbar-quiet':'--sbs','accent-strong':'--sage-dark'};
+const v1=v=>`<span class="${v<3?'low':''}">${v.toFixed(1)}${v<3?' ✗':''}</span>`;
+const toneRows=TONES.map(([t,f,s])=>{const v=CT[t][s];return `<div class="ti"><span class="chipt" style="background:var(${SV[s]});color:var(${TV[t]})">${ic(t==='gold'?'star':'clock',{size:16,fill:t==='gold'})}</span><div class="tn"><b>${t}</b><span class="for${s==='sage'?' keep':''}">${f}</span></div><span class="ts">${SURF[s]}</span><span class="tv">${v1(v[0])} · ${v1(v[1])}</span></div>`}).join('');
+const tileSet=`<div class="tiles">
+<div><div class="lab">1. Settings tile (tan, 36 square)</div><div class="srow"><div class="tile">${ic('lock',{size:20})}</div><div><b>Password</b><span>Changed in May</span></div></div></div>
+<div><div class="lab">2. Nav shape (soft green: this page)</div><div class="drawer">${[['book','Recipes',1],['kitchen','Kitchen',0],['history','History',0]].map(([k,m,c])=>`<div class="dt${c?' cur':''}">${ic('d:'+k)}${m}</div>`).join('')}</div></div>
+<div><div class="lab">3. Notice (tinted card)</div><div class="notice">${ic('triangle-alert',{size:20})}<span>Chicken runs out Tuesday.</span><span class="x">${ic('x',{size:24})}</span></div></div>
+<div><div class="lab">4. No-photo tile (C-058, agreed; not built)</div><div class="ex">${nopT(84,68)}<span class="q" style="font-size:12.5px;flex:1;min-width:120px">Filled with the page colour, a placeholder-tone icon at 24 (bowl not final). It has a dark value already.</span></div></div>
+<div class="hr"><span class="no">Not this</span><div class="lab">A coloured circle behind a row icon, as decoration</div><div class="srow"><div class="badc">${ic('bell',{size:20})}</div><div><b>Reminders</b><span>What pings you, and when</span></div></div></div>
+</div>`;
+S.push(`<div class="card"><h2>4. Colour, tiles and dark mode</h2>
+<p>An icon takes the colour (tone) of the words beside it. A coloured icon always has a second clue that is not colour: a word beside it, or its own shape, like a filled heart (DESIGN 2.2.9).</p>
+<p class="q">On a coloured fill, use the tone made for that fill; off its fill a tone can fail. There are <b>14 tones</b>; the full list is in section 6.</p>
+<h3>Four tiles. Do not make new ones.</h3>
+${tileSet}
+<p class="q" style="margin-top:10px">Capture's round button is a button, not a tile. <b>Dark mode is not designed yet</b> (your call, Oct 2). Tones and tiles are palette names, so they will repaint; never write a colour code into an icon or a tile. Two parts fail in the dark test palette today (section 6). The Dark button at the top shows this page in it.</p>
+<p class="src">tones.ts, roles.js, light.js, darkProof.js on origin/main; DESIGN 2.2.2, 2.2.9, 3.5.8, 4.6.1</p></div>`);
+
+/* 6: filled */
+S.push(`<div class="card"><h2>5. Filled icons</h2><p>Only the heart and the star fill in. Filled means "set"; outline means "not set". The fill is the line's own colour.</p>
+<div class="g3 three">
+${cell(`${badge(1)}<div class="sizes">${ic('heart',{size:32,color:'var(--ph)'})}${ic('heart',{size:32,fill:1,color:'var(--accent)'})}</div>`,'<b>Favourite:</b> not set, set.')}
+${cell(`${badge(1)}<div class="sizes">${ic('star',{size:32,color:'var(--ph)'})}${ic('star',{size:32,fill:1,color:'var(--amber-text)'})}</div>`,'<b>Rating star:</b> not set, set (colour: question 1).')}
+${cell(`${badge(0)}<div class="sizes">${ic('bell',{size:32,fill:1})}${ic('calendar',{size:32,fill:1})}</div>`,'<b>Any other icon filled.</b>')}
+</div><p class="src">names.ts FILLABLE_ICONS</p></div>`);
+
+/* 6: for builders (folded); same text as ICON_STYLE.md sections 6 to 9 */
+S.push(`<details class="card bld" id="bld"><summary><h2>6. For builders: adding and checking an icon, a worked example, known misses, every tone</h2><span class="q">Tap to open. Same text as ICON_STYLE.md sections 6 to 9.</span></summary>
+<h3 style="margin-top:8px">How a new icon gets in</h3><div class="g2"><ol>
+<li><b>Lucide first.</b> If Lucide has the meaning, add one row to names.ts. Done.</li>
+<li><b>Placeholder.</b> If not, the mockup draws one by this sheet and adds a row to the icon register the same turn.</li>
+<li><b>Iterate.</b> Its own design-iterate run draws it properly, beside the icons it will sit with.</li>
+<li><b>Your OK.</b> Its register row says agreed.</li>
+<li><b>Into the app:</b> one path in drawn.tsx, one names.ts row labelled <code>drawn: &lt;mockup&gt; &lt;name&gt;</code> (and the nav list, if it is a nav icon).</li></ol>
+<div><pre>// src/kit/Icon/drawn.tsx (on main)
+drawnIcon(name, d)   // d = ONE path string
+'nav-plan': [drawnIcon('NavPlan', C055_PATHS.plan), 'drawn: C-055 plan']</pre>
+<p class="q">One <code>path</code>: parts joined with <code>M</code>, circles as arcs, dots as tiny lines. <b>Check it:</b> 16, 20, 24, 32 and big on the grid, light and dark test palette, beside 3 neighbours. Tick every section 2 rule, 3 to 1 on its surface, one path if drawn.</p></div></div>
+<h3>Worked example: how a builder would start ${nf()}</h3>
+<p class="q">The no-photo bowl (register row 1). The steps, not the answer: the real one gets its own run and your OK.</p>
+<div class="g3 one">
+<div class="cell st"><div class="lab">Step 1. Look in Lucide</div><div class="ex" style="gap:16px;color:var(--ink);justify-content:center">${ic('soup',{size:32})}</div>
+<div class="cap">Lucide has a bowl (<code>soup</code>, already lunch in the app). Try it in the tile first.</div></div>
+<div class="cell st"><div class="lab">Step 2. If it must be drawn</div>${gridded('start')}<div class="cap">Match Lucide: bowl 18 wide (3 to 21); steam 4 apart and 4 above the rim; 4 parts; weight 2.</div><pre style="width:100%">M3 13h18a9 7 0 0 1-18 0z
+M8 9c-1.5-1.5 1.5-3 0-6
+M12 9c-1.5-1.5 1.5-3 0-6
+M16 9c-1.5-1.5 1.5-3 0-6</pre></div>
+<div class="cell st"><div class="lab">Step 3. Look at it in place</div>
+<div class="cap" style="margin-top:0">16, 20, 24, 32:</div>${sizes('start')}
+<div class="cap">At 20, between Lucide icons:</div><div class="ex" style="gap:10px;color:var(--ink);justify-content:center">${ic('clock',{size:20})}${ic('start',{size:20})}${ic('users',{size:20})}${ic('soup',{size:20})}</div>
+<div class="cap">At 24, in the tile (switch Dark to check it there too):</div><div class="ex" style="justify-content:center">${nopT(84,68)}</div></div>
+</div>
+<h3>Known icon misses, each with its fix</h3><ul>
+<li><b>Empty-screen main line</b> is sage-dark, a fill colour (DESIGN 2.2.6) that drops to 2.0 to 1 in the dark test palette. <b>Fix when dark is designed:</b> move all 7 drawings (and the 3 older sage spots) to accent (5.7 light, 8.3 dark) in one change. Until then new drawings copy sage-dark.</li>
+<li><b>accent-strong</b> (a lone accent mark on mid sage) drops to 1.3 to 1 in the dark test palette. <b>Fix:</b> when dark mode is designed.</li>
+<li><b>Icon register rows 1 to 3</b> (C-058 bowl, magnifier, funnel) are 1.8 on half units. <b>Do not copy these three paths.</b> Row 13 (the arrow-point tries) waits on question 3.</li>
+<li><b>C-058</b> draws the clock, star, heart and bowl at 1.8, and cart, funnel and expand at 1.6, at sizes 22 and 28. <b>Fix:</b> mockups copy Lucide's paths and use the four sizes.</li>
+<li><b>"Leaves the app"</b>: names.ts still uses the box-and-arrow. <b>Fix:</b> swap when built, to the shape question 3 picks.</li>
+<li><b>The "..." menu</b> is set at 19 (DESIGN 4.1.8). <b>Fix:</b> 24, like every icon-only button.</li>
+<li>Other non-icon issues found: see ITERATIONS.md.</li></ul>
+<h3>Question details</h3><ul class="q">
+<li><b>Q1:</b> amber-text #7E5C22 is 5.7 to 1 on card (gold #C8943A is 2.5) and has a dark value. C-058's #9A5B12 would be a new colour.</li>
+<li><b>Q2 card:</b> Lucide search / funnel at 32, placeholder, in a 72x60 card tile with the card shadow (C-058 drew 28). DESIGN 4.8.3 then needs rewording.</li>
+<li><b>Q3:</b> arrow-up-right is in Lucide 1.51 but not yet in names.ts. Tries: <code>M7 7h10v10</code> <code>M9 5h10v10</code> <code>M7 5h12v12</code> <code>M10 6l8-1-1 8</code>. If no, <code>M7 5h12v12</code> becomes a drawn icon outside the nav, which needs a 2.11.1a line. Either way: 16, top right of the word, the link's colour.</li></ul>
+<h3>Every tone, on the surface it is for <span class="q" style="font-weight:400">· contrast light · dark test palette (floor 3, ✗ under it)</span></h3>
+<p class="q">14 tones; text is shown on two surfaces.</p>
+<div class="tl">${toneRows}</div>
+<p class="src">STANDARDS "Icons made while mocking up are placeholders"; ICON_REGISTER.md; DESIGN 2.1, 2.2.6, 2.11.1a, 3.2.2, 4.1.8; agreed C-058 CH-9</p></details>`);
+
+document.getElementById('w').innerHTML=S.join('');
+const Q=new URLSearchParams(location.search);
+function setTh(t){document.body.className='th-'+t;document.querySelectorAll('#seg button').forEach(b=>b.classList.toggle('on',b.dataset.th===t));}
+document.querySelectorAll('#seg button').forEach(b=>b.onclick=()=>setTh(b.dataset.th));
+if(Q.get('theme')==='dark')setTh('dark');
+if(Q.get('shots'))document.documentElement.classList.add('shots');
+if(Q.get('open'))document.getElementById('bld').open=true;
+</script>
+<script>/* device links: window.SC_FULL = desktop | ipad | phone; the page is responsive, so it only tags the root */ if(window.SC_FULL)document.documentElement.dataset.full=window.SC_FULL;</script>
+</body>
+</html>

@@ -124,5 +124,12 @@
   "name": "Plan",
   "msg": "Plan a week v3, round 20: outside panel 8+ on every lens",
   "date": "2026-11-25"
+ },
+ {
+  "v": "icons-r9",
+  "mockup": "ICON_STYLE.html",
+  "name": "Icon style sheet",
+  "msg": "Icon style sheet draft r9: 3 questions at the top",
+  "date": "2026-11-25"
  }
 ]
