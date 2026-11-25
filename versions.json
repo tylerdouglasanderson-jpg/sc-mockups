@@ -75,5 +75,12 @@
   "name": "Groceries",
   "msg": "Groceries round 22: Add a Plan's Groceries (pull in this week, next week or both), app's own iPad menu, calmer shopping rows, one progress bar.",
   "date": "2026-11-24"
+ },
+ {
+  "v": "groceries-r25",
+  "mockup": "groceries_v3.html",
+  "name": "Groceries",
+  "msg": "Groceries round 25: Either/Any Store items show on every store's list and leave all lists once bought or dropped; new menu icons (recipe box, jars, storage tub); try a 3-store household under More.",
+  "date": "2026-11-24"
  }
 ]
