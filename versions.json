@@ -215,5 +215,12 @@
   "name": "More tab icon",
   "msg": "More icon: two finalists, chest vs tiles, your pick",
   "date": "2026-11-26"
+ },
+ {
+  "v": "subrecipe-r5",
+  "mockup": "subrecipe.html",
+  "name": "Sub-recipe icon",
+  "msg": "Sub-recipe icon: pick J, for your OK",
+  "date": "2026-11-26"
  }
 ]

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head><script>window.SC_FULL='phone'</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-title" content="SupperCraft sub-recipe icon">
+<title>Sub-recipe icon iPhone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap" rel="stylesheet">
+<style>
+/* Page colours: the icon sheet's copy of app palettes light.js / darkProof.js (ICON_STYLE.html, I-001 bowl.html). */
+.th-light{--page:#EDE5D8;--card:#FAF6EE;--ink:#1E1E1C;--quiet:#54524A;--ph:#605E55;--accent:#4B6947;--sage-light:#E4EDE2;--chip:#E4D9C6;--subbar:#E4D3B3;--sbd:#5C3D0A;--sbs:#7A5030;
+ --header:#6B3E14;--header-text:#FAF4EB;--border:rgba(0,0,0,.09);--grid:rgba(0,0,0,.07);--grid4:rgba(0,0,0,.16);--shadow:45,33,22;
+ /* C-058 recipe-card tokens (agreed C-058 :root) */
+ --icard:#FFFDF7;--ink2:#3F3D37;--muted:#605E55;--iblue:rgba(80,120,170,.16);--ired:rgba(196,72,60,.55);--sage:#1F3A1C;--sage-mid:#3F6B38;--sage-line:#B9CDB4;--amber:#9A5B12;--amber-light:#F6E7CC;--rt:#9A6A12;--fav:#B5482F}
+.th-dark{--page:#1A1815;--card:#24211D;--ink:#EEE8DC;--quiet:#C6BFB1;--ph:#ADA698;--accent:#A3C49D;--sage-light:#22301F;--chip:#3A3329;--subbar:#2E2619;--sbd:#E3C99A;--sbs:#CDB08C;
+ --header:#3A220C;--header-text:#F3EBDD;--border:rgba(255,255,255,.12);--grid:rgba(255,255,255,.08);--grid4:rgba(255,255,255,.18);--shadow:0,0,0;
+ /* dark proof: C-058 is not designed for dark; the chip takes the sheet's sage-light + accent pair */
+ --icard:var(--card);--ink2:var(--quiet);--muted:var(--ph);--iblue:rgba(255,255,255,.06);--ired:rgba(196,106,106,.5);--sage:var(--accent);--sage-mid:var(--accent);--sage-line:#3E5539;--amber:#E0B56A;--amber-light:#3A2E1A;--rt:#E0B56A;--fav:#C46A6A}
+*{box-sizing:border-box}
+.card.th-light,.card.th-dark{color:var(--ink)}
+html,body{margin:0}
+body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--page);color:var(--ink);font-size:15px;line-height:1.45;overflow-x:hidden}
+.hdr{background:var(--header);color:var(--header-text);height:52px;display:flex;align-items:center;padding:0 20px}
+.hdr .wm{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:22px}
+.tan{background:var(--subbar);min-height:46px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:6px 20px;border-bottom:1px solid var(--border)}
+.tan .t{font-weight:600;font-size:16px;color:var(--sbd)}
+.tan .sub{font-size:14px;color:var(--sbs)}
+.seg{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+.seg button{font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--ink);cursor:pointer}
+.seg button.on{background:var(--sage-light);color:var(--accent);border-color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(var(--shadow),.055),0 6px 16px rgba(var(--shadow),.055)}
+h2{font-size:18px;margin:0 0 6px}h3{font-size:15px;margin:14px 0 8px}p{margin:4px 0 8px}
+.q{color:var(--quiet);font-size:14px}
+code,pre{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:var(--chip);border-radius:6px}
+code{padding:0 4px;overflow-wrap:anywhere}
+pre{padding:8px 10px;margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:14px}
+.opt{border:1px solid var(--border);border-radius:10px;padding:12px;min-width:0}
+.opt.pick{border:2px solid var(--accent)}
+.opt .nm{font-weight:700;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.opt .pk{font-size:12.5px;font-weight:700;color:var(--accent);background:var(--sage-light);border-radius:6px;padding:0 8px}
+.opt .why{font-size:13.5px;color:var(--quiet);margin:2px 0 8px}
+.strip{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 14px;padding:10px 12px;border-radius:8px;background:var(--card);color:var(--ink);border:1px solid var(--border)}
+.strip .sz{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--quiet)}
+.strip svg{display:block}
+.g128{position:relative;width:128px;height:128px}
+.g128 .gr{position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(var(--grid) 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/16px 16px}
+.g128 .safe{position:absolute;left:10.67px;top:10.67px;width:106.67px;height:106.67px;outline:1px dashed var(--grid4);pointer-events:none}
+.g128 svg{position:relative}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+@media (max-width:560px){.two{grid-template-columns:minmax(0,1fr)}}
+.side{min-width:0}
+.lab{font-size:12px;font-weight:600;color:var(--quiet);margin-bottom:4px}
+.nb{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:8px 10px;border-radius:8px;background:var(--card);color:var(--ink);border:1px solid var(--border);margin-top:6px}
+.nb .me{outline:1px dashed var(--grid4);outline-offset:2px;border-radius:2px}
+.nb .sep{width:1px;align-self:stretch;background:var(--border)}
+.nb .tw{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--quiet)}
+.cands{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.cand{border:1px solid var(--border);border-radius:8px;padding:8px;display:flex;gap:10px;align-items:center;min-width:0;background:var(--card)}
+.cand .nmc{font-size:12.5px;line-height:1.25;color:var(--quiet);overflow-wrap:anywhere}
+.cand .nmc b{color:var(--ink);font-weight:600}
+/* ---------- C-058 recipe card context (copied from agreed C-058 CSS, trimmed; linesA = whole card ruled every 28) ---------- */
+.rc{position:relative;width:100%;max-width:460px;border-radius:6px;padding:10px 18px 14px;color:var(--ink);
+ background:repeating-linear-gradient(to bottom,transparent 0 27px,var(--iblue) 27px 28px) 0 0/100% 28px,var(--icard);
+ box-shadow:0 2px 6px rgba(40,26,8,.14),0 0 0 1px rgba(60,40,10,.12)}
+.rc .src{font-size:13.5px;line-height:28px;color:var(--muted)}
+.rc .src a{color:var(--sage-mid);text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.ext{display:inline-block;margin-left:1px;text-decoration:none;vertical-align:.32em;line-height:0}.ext .tip{width:.62em;height:.62em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.rc h3{font-size:15px;font-weight:600;color:var(--ink2);line-height:28px;margin:0;display:flex;gap:10px;align-items:center}
+.rc h3 .ico{color:var(--muted)}
+.grp{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);line-height:28px;margin:0}
+.ing{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;line-height:28px;min-height:28px}
+.ing .q{min-width:72px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.ing .n{flex:1;color:var(--ink2);min-width:0}
+.ing .ok{color:var(--sage-mid);font-size:13px}
+.ing .short{color:var(--amber);font-size:12.5px;font-weight:600;background:var(--amber-light);border-radius:4px;padding:0 6px;line-height:19px;margin-top:4px}
+.ing .rcp{font-size:12.5px;color:var(--muted)}
+.sub{display:inline-flex;align-items:center;gap:6px;vertical-align:top;margin-top:3px;font:inherit;font-size:14.5px;line-height:22px;text-decoration:none;
+ background:var(--sage-light);border:1px solid var(--sage-line);border-radius:6px;padding:0 8px;color:var(--sage);font-weight:600;cursor:pointer}
+.sub svg{flex:none;display:block}
+.sub .chev{margin-left:-4px;margin-right:-3px}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 2px}
+.bb{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14.5px;font-weight:600;line-height:20px;padding:6px 12px;border-radius:8px;border:1px solid var(--sage-line);background:var(--icard);color:var(--sage);cursor:pointer}
+.bb svg{flex:none;display:block}
+.stp{margin:0;padding:0;list-style:none;counter-reset:s}
+.stp li{counter-increment:s;position:relative;padding:0 0 0 36px;font-size:14.5px;line-height:28px;color:var(--ink2)}
+.stp li::before{content:counter(s);position:absolute;left:0;top:4px;width:19px;height:19px;border-radius:50%;background:var(--sage-light);color:var(--sage);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(60,40,10,.15)}
+.stp li .sub{margin-top:0;vertical-align:-1px;line-height:20px}
+.meta{display:flex;gap:6px 14px;align-items:center;font-size:12.5px;color:var(--ink2);line-height:28px;flex-wrap:wrap}
+.meta .rt{color:var(--rt);font-weight:600}
+.meta .ico{width:16px;height:16px;vertical-align:-3px;margin-right:3px}
+.ctx{background:var(--page);padding:10px;border-radius:10px;min-width:0}
+.ctxs{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-top:8px}
+.sub span{white-space:nowrap}
+.only-round .rnd:not(.show){display:none}
+</style>
+</head>
+<body class="th-light">
+<div class="hdr"><span class="wm">SupperCraft</span></div>
+<div class="tan"><span class="t">Sub-recipe icon (I-003)</span><span class="sub">register row 43, everyday line icon</span>
+ <div class="seg" id="seg"></div></div>
+<div class="wrap" id="app"></div>
+<script>
+/* Lucide 1.51 SVG data, copied from lucide-react-native dist/esm/icons/*.mjs */
+const LU={
+ 'book-open-text':'<path d="M12 5v16"/><path d="M16 13h2"/><path d="M16 9h2"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/><path d="M6 13h2"/><path d="M6 9h2"/>',
+ 'scroll-text':'<path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>',
+ 'notebook-text':'<path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9.5 8h5"/><path d="M9.5 12H16"/><path d="M9.5 16H14"/>',
+ 'file-text':'<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+ 'link':'<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+ 'square-arrow-out-up-right':'<path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/>',
+ 'layers':'<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/>',
+ 'rectangle-horizontal':'<rect width="20" height="12" x="2" y="6" rx="2"/>',
+ 'credit-card':'<rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/><path d="M6 14h2"/>',
+ 'cooking-pot':'<path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/>',
+ 'file':'<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/>',
+ 'book-open':'<path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/>',
+ 'captions':'<rect width="18" height="14" x="3" y="5" rx="2" ry="2"/><path d="M7 15h4M15 15h2M7 11h2M13 11h4"/>',
+ 'chevron-right':'<path d="m9 18 6-6-6-6"/>',
+ 'sticky-note':'<path d="M21 9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/><path d="M15 3v5a1 1 0 0 0 1 1h5"/>',
+ 'plus':'<path d="M5 12h14"/><path d="M12 5v14"/>',
+ 'clock':'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+ 'star':'<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>',
+ 'heart':'<path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>'
+};
+/* The T-2147 Recipe Book menu picture, small plain cut (rethink/icons/svg/recipe-card-rail-plain.svg, inner), for the twin check. */
+const BOOKPIC='<defs><mask id="i18m0" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><rect x="2.2" y="4.2" width="14" height="9.4" rx=".9" transform="rotate(-5 10 9)" fill="black" stroke="black" stroke-width="2.60"/><path d="M1.4 11.6 H7.40 A2.6 2.6 0 0 0 12.60 11.6 H18.6 V17.20 Q18.6 18.6 17.20 18.6 H2.80 Q1.4 18.6 1.4 17.20 Z" fill="black" stroke="black" stroke-width="2.60"/></mask><mask id="i18m1" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><path d="M1.4 11.6 H7.40 A2.6 2.6 0 0 0 12.60 11.6 H18.6 V17.20 Q18.6 18.6 17.20 18.6 H2.80 Q1.4 18.6 1.4 17.20 Z" fill="black" stroke="black" stroke-width="2.60"/></mask><mask id="i18m2" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><path d="M1.4 11.6 H7.40 A2.6 2.6 0 0 0 12.60 11.6 H18.6 V17.20 Q18.6 18.6 17.20 18.6 H2.80 Q1.4 18.6 1.4 17.20 Z" fill="black" stroke="black" stroke-width="2.60"/></mask></defs><g mask="url(#i18m0)"><rect x="5" y="2" width="12.6" height="9" rx=".8" transform="rotate(6 10 8)" fill="none" stroke="currentColor" stroke-width="1.6"/></g><g mask="url(#i18m1)"><rect x="2.2" y="4.2" width="14" height="9.4" rx=".9" transform="rotate(-5 10 9)" fill="none" stroke="currentColor" stroke-width="1.6"/></g><g mask="url(#i18m2)"><path d="M2.9 6.8 H15.5" transform="rotate(-5 10 9)" fill="none" stroke="currentColor" stroke-width="1.3"/></g><path d="M1.4 11.6 H7.40 A2.6 2.6 0 0 0 12.60 11.6 H18.6 V17.20 Q18.6 18.6 17.20 18.6 H2.80 Q1.4 18.6 1.4 17.20 Z" fill="none" stroke="currentColor" stroke-width="1.6"/>';
+const bookPic=s=>`<svg width="${s}" height="${s}" viewBox="0 0 20 20" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">${BOOKPIC}</svg>`;
+const CANDS=[['book-open-text','half: says "recipes" (the book)'],['scroll-text','no: a scroll or receipt'],['notebook-text','no: a notebook ("notes")'],['file-text','no: twins note (Lucide file)'],['link','half: "linked", reads as a web link'],['square-arrow-out-up-right','no: leaves the app (banned)'],['layers','no: layers or maps'],['rectangle-horizontal','no: a bare box'],['credit-card','no: payment, must not twin'],['cooking-pot','no: "cook", a pot']];
+
+/* Rounds: newest last. d = ONE path string (drawnIcon(name, d)); lu = a Lucide icon used as is. */
+const ROUNDS=[
+ {n:1,opts:[
+  {id:'A',name:'A. Shipped today (C058_PATHS.subRecipe)',d:'M3.5 6.5h17v11h-17z M3.5 10.5h17',why:'What app main draws now: a square-cornered box with a stripe edge to edge. Half units, no rounded corners, and it is Lucide credit-card with the little number mark taken off.'},
+  {id:'B',name:'B. Lucide book-open-text, as is',lu:'book-open-text',why:'The best Lucide "recipe" word. But the app already uses book-open for "recipes" (the whole book), and 6 parts crowd a 16 px chip.'},
+  {id:'C',name:'C. Lucide file-text, as is',lu:'file-text',why:'"A page with words": honest that it opens a page. Shown to test the twin with note (Lucide file), which sits on the same card under "Your notes".'},
+  {id:'D',name:'D. Index card, two lines',d:'M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2ZM6 10h12M6 14h7',why:'One flat recipe card like the book\'s own cards: 20 x 12, radius 2 (Lucide rectangle-horizontal), a title line and a shorter text line, both inset 4 from the sides, so it can never be a card stripe.'},
+  {id:'E',name:'E. Index card, ingredient list',d:'M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2ZM6 10h.01M10 10h8M6 14h.01M10 14h8',why:'The same card, its lines drawn as a list (dot, line): "a recipe" by its ingredients. 5 parts, the most the sheet allows.'}
+ ]},
+ {n:2,opts:[
+  {id:'D',name:'D. Round 1 pick, unchanged',d:'M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2ZM6 10h12M6 14h7',why:'For comparison. Reads as a little card with writing at 16. Its nearest Lucide cousin is captions (a box with two rows of dashes); the 20-wide body is wider than the clock and star beside it.'},
+  {id:'F',name:'F. D with the lines swapped',d:'M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2ZM6 10h7M6 14h12',why:'A short title on top, a long line under it, like a recipe card: name first, then the words. Further from captions\' even rows.'},
+  {id:'G',name:'G. D, taller card (20 x 14)',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 10h12M6 14h7',why:'More paper around the two lines (5 above, 5 below). The outline is credit-card\'s size, so this tests whether the inset lines alone keep them apart.'},
+  {id:'H',name:'H. Narrower card (18 x 12), short title',d:'M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2ZM7 10h5M7 14h10',why:'The sheet\'s box width (18). Sits closer to the clock and star in size, and the short title over a long line keeps F\'s "name, then words".'}
+ ]},
+ {n:3,opts:[
+  {id:'G',name:'G. Round 2 pick, unchanged',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 10h12M6 14h7',why:'For comparison. The clearest card at 16: 5 units of paper above and below the lines. Same outline size as credit-card; only the inset lines keep them apart.'},
+  {id:'J',name:'J. G with a short title over a long line',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 10h7M6 14h12',why:'Recipe card order: the name, then the words under it. Neither line can be a stripe, and credit-card\'s short mark sits low and alone, not under a line.'},
+  {id:'K',name:'K. G on the sheet\'s box width (18 x 14)',d:'M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM7 10h10M7 14h6',why:'18 wide like a Lucide box, so it matches the clock and star beside it. Same outline as captions, so its whole solid lines must carry it.'},
+  {id:'M',name:'M. G with the writing near the top',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 9h12M6 13h7',why:'Lines at 9 and 13, the card\'s lower part left blank, like an index card with the name written on top.'}
+ ]},
+ {n:4,opts:[
+  {id:'N',name:'N. J with a folded corner',d:'M4 5h12l6 6v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM16 5v4a2 2 0 0 0 2 2h4M6 10h6M6 14h12',why:'The panel\'s first idea: a dog-eared corner makes it paper, not plastic, so it can never be a credit card. Tests the twin with note (Lucide file) and sticky-note.'},
+  {id:'P',name:'P. Title over one list line',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 10h8M6 14h.01M10 14h8',why:'A name, then an ingredient line with its dot: "a list of things to use". Only one dot row, so it cannot melt like round 1\'s E.'},
+  {id:'Q',name:'Q. Two lines and a little bowl',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 10h4M6 14h4M13 11h6a3 3 0 0 1-6 0',why:'A card with writing on the left and a small bowl on the right, like a recipe card with its dish. The food cue says "recipe" without the word.'},
+  {id:'S',name:'S. Title over a bowl, centred',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM8 9h8M9 13h6a3 3 0 0 1-6 0',why:'The dish\'s name on top and the bowl under it, both centred: a card that is plainly about one dish. Only 3 parts, so it stays clear at 16.'}
+ ]},
+ {n:5,opts:[
+  {id:'J',name:'J. Round 3\'s J, for comparison',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 10h7M6 14h12',why:'The reviewer Gemini\'s pick: short title over a long line. Honest and calm, but alone it is "a card with writing".'},
+  {id:'U',name:'U. Title over a bowl with a rim',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM9 9h6M7 12h10M8 12a4 4 0 0 0 8 0',why:'Round 4\'s S read as a smiling face. Here the bowl\'s rim runs past its sides (like Lucide soup), so it reads as a dish, not a mouth. The dish\'s name sits above.'},
+  {id:'Y',name:'Y. A bowl on a card, no words',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 11h12M7 11a5 5 0 0 0 10 0',why:'Just the dish on its card, the biggest the bowl can be. 3 parts. The words beside it ("Quick Naan", "recipe") give the name.'},
+  {id:'Z',name:'Z. Title top left, small bowl bottom right',d:'M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2ZM6 9h7M11 13h8M12 13a3 3 0 0 0 6 0',why:'J\'s order (name first) with a small rimmed bowl where the long line was: "a card with a name and a dish".'}
+ ]}
+];
+const PICK={1:'D',2:'G',3:'G',4:'',5:'J'}; /* round 4: no pick, every cue made it worse (ITERATIONS.md) */
+const Q=new URLSearchParams(location.search);
+if(Q.get('theme')==='dark')document.body.className='th-dark';
+const ONLY=Q.get('round');
+function svg(o,size,cls=''){const inner=o.lu?LU[o.lu]:`<path d="${o.d}"/>`;
+ return `<svg class="${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;}
+const L=(k,s,c='')=>svg({lu:k},s,c);
+const TIP='<span class="ext"><svg class="tip" viewBox="0 0 10 10" aria-hidden="true"><path d="M3 2.2h4.8V7"/></svg></span>';
+/* neighbours: the line's chevron, the card's clock / star / heart, the arrow tip, then the two twins to avoid */
+const nbr=(o,s)=>`${L('chevron-right',s)}${L('clock',s)}${L('star',s)}${L('heart',s)}<span style="font-size:${s*0.9}px;line-height:1;color:var(--sage-mid)">link${TIP}</span><span class="sep"></span>${svg(o,s,'me')}<span class="sep"></span><span class="tw">${L('credit-card',s)}card</span><span class="tw">${L('file',s)}note</span><span class="tw">${L('file-text',s)}file-text</span><span class="tw">${L('sticky-note',s)}sticky</span><span class="tw">${L('captions',s)}captions</span><span class="tw">${L('book-open',s)}recipes</span><span class="tw">${bookPic(s)}book pic</span>`;
+const pid=(th,rid,id,s)=>`${th==='th-dark'?'d':'l'}${rid}${id}s${s}`;
+function sizes(o,rid,th){return `<div class="side ${th}"><div class="lab">${th==='th-dark'?'Dark (proof palette), text tone':'Light, text tone'}</div><div class="strip">${[16,20,24,32,64].map(s=>`<div class="sz" id="${pid(th,rid,o.id,s)}">${svg(o,s)}${s}</div>`).join('')}<div class="sz"><div class="g128" id="${pid(th,rid,o.id,128)}"><div class="gr"></div><div class="safe"></div>${svg(o,128)}</div>128</div></div>
+ <div class="nb">${nbr(o,16)}</div><div class="nb">${nbr(o,20)}</div></div>`;}
+/* chip: icon 16, name, then Lucide chevron-right 16 (app main: BookButton trailingIcon="fwd") */
+const chip=(o,s,name)=>`<button class="sub">${svg(o,s)}<span>${name}</span>${L('chevron-right',16,'chev')}</button>`;
+/* edit card: "Add Ingredient" beside "Link a Recipe" (RecipeEditCard.tsx 374-376), icons 20 */
+const btns=(o,rid,th)=>`<div class="btnrow" id="btn${th==='th-dark'?'d':'l'}${rid}${o.id}"><button class="bb">${L('plus',20)}<span>Add Ingredient</span></button><button class="bb">${svg(o,20)}<span>Link a Recipe</span></button></div>`;
+function ctx(o,rid,th){const I_CLOCK=L('clock',16,'ico'),I_STAR=L('star',16,'ico');
+ return `<div class="side ${th} ctx" id="c${th==='th-dark'?'d':'l'}${rid}${o.id}"><div class="lab">${th==='th-dark'?'Dark (proof)':'Light'}: C-058 recipe card, ruled every 28; chip 22 tall, icon 16</div>
+ <div class="rc"><div class="src">from <a>Serious Eats</a>${TIP} · <span style="color:var(--ink2)">a recipe inside: no tip</span></div>
+  <div class="meta"><span>${I_CLOCK}45 min</span><span class="rt">${I_STAR}4.5</span><span>Serves 4</span></div>
+  <h3>Ingredients</h3>
+  <div class="grp">For the sauce</div>
+  <div class="ing"><span class="q">2 tbsp</span><span class="n">butter</span><span class="ok">✓</span></div>
+  <div class="ing"><span class="q">½ cup</span><span class="n">heavy cream</span><span class="short">need</span></div>
+  <div class="grp">For serving</div>
+  <div class="ing" id="ing${th==='th-dark'?'d':'l'}${rid}${o.id}"><span class="q">1 batch</span><span class="n">${chip(o,16,'Quick Naan')}</span><span class="rcp">recipe</span></div>
+  <div class="ing"><span class="q">1 batch</span><span class="n">${chip(o,16,'Basmati Rice')}</span><span class="rcp">recipe</span></div>
+  <h3>Steps</h3>
+  <ol class="stp"><li>Add the chicken. Simmer 5 more minutes.</li><li id="stp${th==='th-dark'?'d':'l'}${rid}${o.id}">Serve with rice and ${chip(o,16,'Quick Naan')} warm from the pan.</li></ol>
+  <div class="grp" style="margin-top:6px">Edit card: buttons, icon 20</div>${btns(o,rid,th)}
+ </div></div>`;}
+function render(){let h=`<div class="card"><h2>A recipe line that is its own recipe</h2><p class="q">In the Recipe Book, a line like <b>1 batch Quick Naan</b> links to Quick Naan's own card. Its soft green chip shows a small icon before the name and a chevron (Lucide <code>chevron-right</code>, 16) after it. The same icon goes at 20 on the edit card's "Link a Recipe" button. The icon must say "this line is its own recipe, tap to open it". Everyday line icon (Lucide family: 24 grid, line 2, round ends, no fill), 16 px in the chip, the chip's own green. It stays in the app, so <b>no arrow tip</b> (Tyler 11-24). Must not twin Lucide <code>credit-card</code>, the T-2147 Recipe Book picture, or the arrow tip. ★ marks my pick each round (round 4 has none). <b>Pick after round 5: J.</b> Brief: <code>BRIEF.md</code>; grades: <code>ITERATIONS.md</code>.</p></div>
+ <div class="card th-light" id="cands"><h2>Lucide candidates, judged first</h2><p class="q">All ten at 20 in the chip's green. None says "one recipe" by itself; see BRIEF.md for each reason.</p><div class="cands">${CANDS.map(([k,w])=>`<div class="cand" style="color:var(--sage)">${L(k,20)}${L(k,16)}<div class="nmc"><b>${k}</b><br>${w}</div></div>`).join('')}</div></div>`;
+ for(const r of [...ROUNDS].reverse()){h+=`<div class="card rnd${ONLY==r.n?' show':''}" id="round${r.n}"><h2>Round ${r.n}</h2><div class="opts">`;
+  for(const o of r.opts){const pk=PICK[r.n]===o.id;
+   h+=`<div class="opt${pk?' pick':''}" id="o${r.n}${o.id}"><div class="nm">${o.name}${pk?'<span class="pk">★ my pick</span>':''}</div><div class="why">${o.why}</div>
+   <div class="two">${sizes(o,r.n,'th-light')}${sizes(o,r.n,'th-dark')}</div>
+   <h3>In the recipe card</h3><div class="ctxs">${ctx(o,r.n,'th-light')}${ctx(o,r.n,'th-dark')}</div>
+   <pre>${o.lu?'Lucide '+o.lu+' (as is)':o.d}</pre></div>`;}
+  h+=`</div></div>`;}
+ document.getElementById('app').innerHTML=h;
+ if(ONLY)document.body.classList.add('only-round');
+ document.getElementById('seg').innerHTML=[`<button class="${!ONLY?'on':''}" onclick="location.search=''">All rounds</button>`,...ROUNDS.map(r=>`<button class="${ONLY==r.n?'on':''}" onclick="location.search='?round=${r.n}'">Round ${r.n}</button>`),`<button onclick="const u=new URLSearchParams(location.search);u.set('theme',document.body.className==='th-dark'?'light':'dark');location.search=u">Light / Dark page</button>`].join('');}
+render();
+</script>
+<script>if(window.SC_FULL)document.documentElement.dataset.full=window.SC_FULL;</script>
+</body>
+</html>
