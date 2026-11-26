@@ -250,5 +250,12 @@
   "name": "Recipe Book control icons",
   "msg": "Expand/Shrink/Clear All: compare, your pick",
   "date": "2026-11-26"
+ },
+ {
+  "v": "home-r24",
+  "mockup": "index.html",
+  "name": "Today + Kitchen iPad",
+  "msg": "Today + Kitchen iPad v4 round 24 (T-2153)",
+  "date": "2026-11-26"
  }
 ]
