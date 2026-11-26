@@ -194,5 +194,12 @@
   "name": "No-photo bowl icon",
   "msg": "No-photo bowl r8: pick AB, for your OK",
   "date": "2026-11-25"
+ },
+ {
+  "v": "capture-r8",
+  "mockup": "index.html",
+  "name": "Capture",
+  "msg": "Capture pop-up + full Capture page, round 8 (8 build rounds, 3 outside panels)",
+  "date": "2026-11-26"
  }
 ]
