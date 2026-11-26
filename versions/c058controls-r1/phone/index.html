@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head><script>window.SC_FULL='phone'</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-title" content="SupperCraft icons">
+<title>Recipe Book control icons iPhone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap" rel="stylesheet">
+<style>
+/* Page colours: ICON_STYLE.html (app src/kit/palettes light.js and darkProof.js). */
+.th-light{--page:#EDE5D8;--card:#FAF6EE;--ink:#1E1E1C;--quiet:#54524A;--ph:#605E55;--accent:#4B6947;--sage-light:#E4EDE2;--chip:#E4D9C6;--subbar:#E4D3B3;
+ --sbd:#5C3D0A;--sbs:#7A5030;--header:#6B3E14;--header-text:#FAF4EB;--border:rgba(0,0,0,.09);--shadow:45,33,22;
+ /* recipe book parts: copied from agreed C-058 (:root tokens and the measured Jump bar, Expand button, search card, chips, Clear All) */
+ --p-panel:#FFFDF7;--p-line:#D2BE98;--p-act:#3F6B38;--p-on:#E4EDE2;--p-on-ink:#1F3A1C;--p-chip:#4B6947;--p-dash:#B9CDB4;--p-muted:#605E55;--p-field:#fff;
+ --p-xp:#FFF7E3;--p-back:#F3E9D6;--p-dot:rgba(63,94,59,.22);--p-sh:rgba(40,26,8,.18);--p-sh2:rgba(40,26,8,.12);--p-ink:#1E1E1C}
+.th-dark{--page:#1A1815;--card:#24211D;--ink:#EEE8DC;--quiet:#C6BFB1;--ph:#ADA698;--accent:#A3C49D;--sage-light:#22301F;--chip:#3A3329;--subbar:#2E2619;
+ --sbd:#E3C99A;--sbs:#CDB08C;--header:#3A220C;--header-text:#F3EBDD;--border:rgba(255,255,255,.12);--shadow:0,0,0;
+ /* C-058 has no dark colours; these are the ICON_STYLE dark (proof) tokens put in the same places */
+ --p-panel:#24211D;--p-line:rgba(255,255,255,.18);--p-act:#A3C49D;--p-on:#22301F;--p-on-ink:#A3C49D;--p-chip:#A3C49D;--p-dash:#4A6646;--p-muted:#ADA698;--p-field:#1A1815;
+ --p-xp:#24211D;--p-back:#2E2619;--p-dot:rgba(163,196,157,.16);--p-sh:rgba(0,0,0,.45);--p-sh2:rgba(0,0,0,.3);--p-ink:#EEE8DC}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--page);color:var(--ink);font-size:15px;line-height:1.45;overflow-x:hidden}
+.hdr{background:var(--header);color:var(--header-text);height:52px;display:flex;align-items:center;padding:0 20px;
+ background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 2px,transparent 2px 7px),repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 9px)}
+.hdr .wm{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:22px;line-height:1.25}
+.tan{background:var(--subbar);min-height:46px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:6px 20px;border-bottom:1px solid var(--border)}
+.tan .t{font-weight:600;font-style:italic;font-size:16px;color:var(--sbd)}
+.tan .sub{font-size:14px;color:var(--sbs)}
+.seg{margin-left:auto;display:flex;gap:4px}
+.seg button{font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--ink);cursor:pointer}
+.seg button.on{background:var(--sage-light);color:var(--accent);border-color:var(--accent)}
+.wrap{max-width:1280px;margin:0 auto;padding:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(var(--shadow),.055),0 6px 16px rgba(var(--shadow),.055)}
+h2{font-size:19px;margin:0 0 4px}
+h3{font-size:15px;margin:22px 0 4px}
+p{margin:4px 0 8px}
+.q{color:var(--quiet);font-size:14px}
+.lead{font-size:17px;font-weight:600;margin:0 0 6px}
+code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:var(--chip);padding:0 4px;border-radius:4px;overflow-wrap:anywhere}
+ul.picks{margin:6px 0 4px;padding-left:20px}ul.picks li{margin:2px 0}
+svg.i{display:inline-block;vertical-align:middle;flex:none}
+/* the option tiles: name + the icon alone at 16, 20, 24, 48 */
+.opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:10px}
+.opt{border:1px solid var(--border);border-radius:8px;padding:12px;min-width:0}
+.opt .nm{font-weight:600;font-size:14.5px;line-height:1.3}
+.opt .src{font-size:12.5px;color:var(--quiet);margin-top:2px}
+.opt .mine{font-size:12.5px;color:var(--quiet);font-style:normal}
+.sizes{display:flex;align-items:flex-end;gap:14px;margin-top:12px;color:var(--ink)}
+.sizes div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--quiet)}
+/* rows of in-place strips */
+.row{padding:10px 0 12px;border-top:1px solid var(--border)}
+.row:first-of-type{border-top:0}
+.row .who{font-weight:600;font-size:14px;line-height:1.3;margin-bottom:6px}
+.row .who small{font-weight:400;font-size:12.5px;color:var(--quiet)}
+.fit>.back:not(.xpb){width:fit-content}
+.fit{min-width:0;overflow:hidden}
+.fit>*{transform-origin:0 0}
+.shrunk{font-size:12px;color:var(--quiet);margin-top:2px;display:none}
+.fit.z+.shrunk,.fit.z .shrunk{display:block}
+.phones{display:grid;grid-template-columns:repeat(2,minmax(0,393px));gap:14px 22px;margin-top:8px}
+.phones .who{font-weight:600;font-size:14px;margin-bottom:6px}
+.phones .who small{font-weight:400;font-size:12.5px;color:var(--quiet)}
+/* backdrop the parts sit on in C-058: the dotted endpaper inside the book (desktop) / the screen (phone) */
+.back{background:var(--p-back);background-image:radial-gradient(var(--p-dot) 1px,transparent 1.2px);background-size:9px 9px;padding:14px;border-radius:6px;color:var(--p-ink)}
+.back.xpb{background:var(--p-xp);background-image:none;padding:0;box-shadow:0 0 0 1px var(--border)}
+.back.ph{padding:0;background:var(--p-panel);background-image:none;box-shadow:0 0 0 1px var(--border);overflow:hidden}
+/* Jump bar (C-058 .pnav, navA, #dev rules) */
+.pnav{display:flex;gap:2px;align-items:center;flex-wrap:nowrap;overflow:hidden;height:40px;padding:0 8px;background:var(--p-panel);border:1px solid var(--p-line);border-radius:6px;
+ box-shadow:0 4px 14px var(--p-sh),0 1px 3px var(--p-sh2);width:528px}
+.pnav .pt{font-size:12px;color:var(--p-muted);font-weight:500;margin-right:6px;white-space:nowrap;flex:none}
+.pnav .pjs{display:flex;gap:2px;min-width:0;overflow:hidden;flex:1}
+.pnav button{font:inherit;border:0;background:none;padding:5px 11px;border-radius:8px;font-size:13.5px;line-height:18px;color:var(--p-act);font-weight:600;white-space:nowrap;flex:none}
+.pnav button.on{background:var(--p-on);color:var(--p-on-ink)}
+.xbtn{display:inline-flex!important;align-items:center;gap:6px;margin-left:6px}
+.pnav.xpbar{width:100%;background:transparent;border:0;box-shadow:none;padding:0 24px 0 72px}
+.pnav.phn{width:100%;height:44px;border-radius:0;border:0;border-bottom:1px solid var(--p-line);box-shadow:0 2px 5px var(--p-sh2);padding:0 10px}
+.pnav.phn .pjs{gap:8px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+.xpcard{height:64px;display:flex;align-items:center}
+.ruled{height:60px;margin:0 72px;background:repeating-linear-gradient(180deg,transparent 0 27px,var(--p-line) 27px 28px);opacity:.5}
+/* search card (C-058 .head .srow .srch .fbtn .addbtn .chips .chip .clr .cnt) */
+.head{width:528px;background:var(--p-panel);border-radius:4px;padding:12px 12px 10px;box-shadow:0 4px 14px var(--p-sh),0 1px 3px var(--p-sh2)}
+.srow{display:flex;gap:8px;align-items:center}
+.srch{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:34px;border:1px solid var(--p-line);border-radius:8px;background:var(--p-field);padding:0 10px;font-size:14px;color:var(--p-muted)}
+.fbtn,.addbtn{font:inherit;height:34px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 12px;white-space:nowrap;flex:none}
+.fbtn{background:var(--p-field);border:1px solid var(--p-chip);color:var(--p-chip);font-size:13.5px;font-weight:600}
+.fbtn svg{width:15px;height:15px}
+.fc{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:9px;background:var(--p-on);color:var(--p-chip);font-size:12px;box-shadow:inset 0 0 0 1px var(--p-chip)}
+.addbtn{background:var(--p-on);border:1px solid var(--p-dash);color:var(--p-on-ink);font-size:13px;font-weight:600;padding:0 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px;position:relative;padding-right:92px;min-height:28px}
+.chip{font:inherit;border:1px solid var(--p-chip);background:var(--p-on);border-radius:6px;padding:0 9px;height:26px;font-size:13px;color:var(--p-chip);font-weight:600;display:inline-flex;align-items:center}
+.chip i{font-style:normal;margin-left:6px;opacity:.7}
+.clr{font:inherit;display:inline-flex;align-items:center;gap:5px;height:28px;border:1px dashed var(--p-dash);background:none;border-radius:6px;padding:0 10px;font-size:13px;font-weight:600;color:var(--p-act)}
+.cnt{position:absolute;right:0;top:0;height:28px;line-height:28px;font-size:12.5px;color:var(--p-muted);white-space:nowrap}
+.head.phn{width:100%;border-radius:0;box-shadow:none;padding:10px 10px 12px}
+.head.phn .srch{flex:1 1 100%;height:44px}
+.head.phn .srow{flex-wrap:wrap}
+.head.phn .fbtn,.head.phn .addbtn{flex:1;height:44px}
+.head.phn .chips{padding-right:0;gap:8px}
+.head.phn .chip{height:44px;padding:0 12px}
+.head.phn .clr{height:44px;padding:0 12px}
+.head.phn .cnt{display:none}
+.note{font-size:13px;color:var(--quiet);margin:2px 0 8px}
+@media (max-width:860px){.opts{grid-template-columns:repeat(2,minmax(0,1fr))}.phones{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){
+ .wrap{padding:12px}.card{padding:14px}.tan{padding:6px 12px}.hdr{padding:0 12px}
+ .sizes{gap:10px}
+}
+</style>
+</head>
+<body class="th-light">
+<div class="hdr"><span class="wm">SupperCraft</span></div>
+<div class="tan"><span class="t">Recipe Book icons</span><span class="sub">Expand, Shrink, Clear All</span>
+ <div class="seg" id="seg"><button data-th="light" class="on">Light</button><button data-th="dark">Dark (proof)</button></div></div>
+<div class="wrap" id="app"></div>
+<script>
+/* Real path data. Today = app origin/main src/kit/Icon/drawn.tsx C058_PATHS. A, B, C = lucide-react-native 1.51 dist/esm/icons/<name>.mjs.
+   All drawn the Icon kit way: 24 grid, line 2, round ends and bends, no fill. */
+const IC={
+ todayExpand:['M14.5 4H20v5.5 M20 4l-6.5 6.5 M9.5 20H4v-5.5 M4 20l6.5-6.5'],
+ 'maximize-2':['M15 3h6v6','m21 3-7 7','m3 21 7-7','M9 21H3v-6'],
+ expand:['m15 15 6 6','m15 9 6-6','M21 16v5h-5','M21 8V3h-5','M3 16v5h5','m3 21 6-6','M3 8V3h5','M9 9 3 3'],
+ maximize:['M8 3H5a2 2 0 0 0-2 2v3','M21 8V5a2 2 0 0 0-2-2h-3','M3 16v3a2 2 0 0 0 2 2h3','M16 21h3a2 2 0 0 0 2-2v-3'],
+ todayShrink:['M19.5 4.5l-6 6 M13.5 5.2v5.3h5.3 M4.5 19.5l6-6 M10.5 18.8v-5.3H5.2'],
+ 'minimize-2':['m14 10 7-7','M20 10h-6V4','m3 21 7-7','M4 14h6v6'],
+ shrink:['m15 15 6 6m-6-6v4.8m0-4.8h4.8','M9 19.8V15m0 0H4.2M9 15l-6 6','M15 4.2V9m0 0h4.8M15 9l6-6','M9 4.2V9m0 0H4.2M9 9 3 3'],
+ minimize:['M8 3v3a2 2 0 0 1-2 2H3','M21 8h-3a2 2 0 0 1-2-2V3','M3 16h3a2 2 0 0 1 2 2v3','M16 21v-3a2 2 0 0 1 2-2h3'],
+ todayReset:['M4.5 5.2v5.3h5.3 M5.1 10.5A7.5 7.5 0 1 1 6.9 16.5'],
+ 'rotate-ccw':['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8','M3 3v5h5'],
+ 'undo-2':['M9 14 4 9l5-5','M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11'],
+ 'list-restart':['M21 5H3','M7 12H3','M7 19H3','M12 18a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L11 14','M11 10v4h4']
+};
+const svg=(k,s)=>`<svg class="i" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[k].map(d=>`<path d="${d}"/>`).join('')}</svg>`;
+/* C-058's own small marks, copied as they are (not part of this choice) */
+const FUNNEL='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.2h12l-4.6 5.3v4.4l-2.8 1.4V8.5z"/></svg>';
+const INPLACE=16; /* small words (13 to 13.5) take the 16 size, ICON_STYLE section 3 */
+
+const SECTIONS=[
+ {key:'x',title:'1. Expand',what:'On a computer or iPad sideways, it opens the recipe to the whole page. It sits at the right end of the "Jump to" bar.',
+  opts:[
+   {L:'Today',nm:'Today: hand-drawn corners',src:'stays as it is (app drawn.tsx)',k:'todayExpand'},
+   {L:'A',nm:'A: two arrows out',src:'Lucide maximize-2',k:'maximize-2',mine:1},
+   {L:'B',nm:'B: four arrows out',src:'Lucide expand',k:'expand'},
+   {L:'C',nm:'C: four corners',src:'Lucide maximize',k:'maximize'}],
+  skip:'Not shown: Lucide scaling (a box with an arrow; reads as "resize a picture").',
+  desk:o=>`<div class="back"><div class="pnav st"><span class="pt">Jump to</span><div class="pjs"><button class="on">Top</button><button>Notes</button><button>Ingredients</button><button>Steps</button><button>Storage</button></div><button class="xbtn">${svg(o.k,INPLACE)}<span>Expand</span></button></div></div>`,
+  deskW:528+28,
+  phone:o=>`<div class="back ph"><div class="pnav phn"><span class="pt">Jump to</span><div class="pjs"><button class="on">Top</button><button>Notes</button><button>Ingredients</button><button>Steps</button></div><button class="xbtn">${svg(o.k,INPLACE)}<span>Expand</span></button></div><div style="height:10px"></div></div>`,
+  phoneNote:'The phone has no Expand: a recipe there already fills the screen. The phone row is only here so you can see the icon at phone size.'},
+ {key:'s',title:'2. Shrink',what:'Once the recipe is open to the whole page, Shrink puts it back on the card. It sits at the top right of the open page.',
+  opts:[
+   {L:'Today',nm:'Today: hand-drawn corners in',src:'stays as it is (app drawn.tsx)',k:'todayShrink'},
+   {L:'A',nm:'A: two arrows in',src:'Lucide minimize-2',k:'minimize-2',mine:1},
+   {L:'B',nm:'B: four arrows in',src:'Lucide shrink',k:'shrink'},
+   {L:'C',nm:'C: four corners in',src:'Lucide minimize',k:'minimize'}],
+  skip:'Expand and Shrink are a pair: the same letter on both looks like one set (A with A, B with B, C with C).',
+  desk:o=>`<div class="back xpb st" style="width:1184px"><div class="xpcard"><div class="pnav xpbar"><span class="pt">Jump to</span><div class="pjs"><button class="on">Top</button><button>Notes</button><button>Ingredients</button><button>Steps</button><button>Storage</button></div><button class="xbtn">${svg(o.k,INPLACE)}<span>Shrink</span></button></div></div><div class="ruled"></div></div>`,
+  deskW:1184,crop:1,
+  phone:o=>`<div class="back ph" style="background:var(--p-xp)"><div class="pnav phn"><span class="pt">Jump to</span><div class="pjs"><button class="on">Top</button><button>Notes</button><button>Ingredients</button><button>Steps</button></div><button class="xbtn">${svg(o.k,INPLACE)}<span>Shrink</span></button></div><div style="height:10px"></div></div>`,
+  phoneNote:'Same as Expand: no Shrink on the phone. Shown only to see the icon at phone size.'},
+ {key:'r',title:'3. Clear All',what:'Under the search box, once two or more filters are on. It takes every filter off at once.',
+  opts:[
+   {L:'Today',nm:'Today: hand-drawn turn-back arrow',src:'stays as it is (app drawn.tsx)',k:'todayReset'},
+   {L:'A',nm:'A: arrow turning back',src:'Lucide rotate-ccw',k:'rotate-ccw',mine:1},
+   {L:'B',nm:'B: arrow going back',src:'Lucide undo-2',k:'undo-2'},
+   {L:'C',nm:'C: list with a turning arrow',src:'Lucide list-restart',k:'list-restart'}],
+  skip:'Not shown: Lucide refresh-ccw (two arrows in a circle; reads as "reload") and x (each filter already has its own x to take just that one off).',
+  desk:o=>`<div class="back"><div class="head st"><div class="srow"><div class="srch"><span>&#8981;</span><span>Search recipes</span></div><button class="fbtn">${FUNNEL}Filters<span class="fc">2</span></button><button class="addbtn">+ Add a Recipe</button></div>
+   <div class="chips"><button class="chip">Chicken<i>&#10005;</i></button><button class="chip">Under 30 min<i>&#10005;</i></button><button class="clr">${svg(o.k,INPLACE)}Clear All</button><span class="cnt">1 recipe</span></div></div></div>`,
+  deskW:528+28,
+  phone:o=>`<div class="back ph"><div class="head phn"><div class="srow"><div class="srch"><span>&#8981;</span><span>Search recipes</span></div><button class="fbtn">${FUNNEL}Filters<span class="fc">2</span></button><button class="addbtn">+ Add a Recipe</button></div>
+   <div class="chips"><button class="chip">Chicken<i>&#10005;</i></button><button class="chip">Under 30 min<i>&#10005;</i></button><button class="clr">${svg(o.k,INPLACE)}Clear All</button></div></div></div>`,
+  phoneNote:''}
+];
+
+function render(){
+ let h=`<div class="card"><p class="lead">Pick one letter for each of the three; "Today" keeps it as is.</p>
+ <p class="q">Each section shows the icon you have today first, then three standard Lucide icons. Every option is shown by itself, then in its real place in the Recipe Book (agreed C-058), on a computer and on a phone. Use the Light and Dark buttons at the top to see both.</p>
+ <p class="q" style="margin-bottom:2px">My picks, if it helps (marked "my pick" below):</p>
+ <ul class="picks q"><li>Expand: A, two arrows out (Lucide maximize-2)</li><li>Shrink: A, two arrows in (Lucide minimize-2)</li><li>Clear All: A, arrow turning back (Lucide rotate-ccw)</li></ul>
+ <p class="q">You could answer like: "Expand A, Shrink A, Clear All Today."</p>
+ <p class="q" style="font-size:13px;margin-top:8px">How they are drawn: all on the app's icon grid (24), line 2, round ends. In the Recipe Book they sit at 16, the size for small words, in the colour of the word beside them. The mockup drew them a little smaller (13 to 15); the app uses 16.</p></div>`;
+ for(const S of SECTIONS){
+  h+=`<div class="card" id="sec-${S.key}"><h2>${S.title}</h2><p class="q">${S.what}</p>
+  <div class="opts">${S.opts.map(o=>`<div class="opt"><div class="nm">${o.nm}</div><div class="src">${o.src}${o.mine?' <span class="mine">· my pick</span>':''}</div>
+   <div class="sizes">${[16,20,24,48].map(s=>`<div>${svg(o.k,s)}<span>${s}</span></div>`).join('')}</div></div>`).join('')}</div>
+  <p class="note" style="margin-top:10px">${S.skip}</p>
+  <h3>In place, computer</h3>
+  ${S.opts.map(o=>`<div class="row"><div class="who">${o.L} <small>${o.src}${o.mine?' · my pick':''}</small></div><div><div class="fit" data-w="${S.deskW}"${S.crop?' data-crop="1"':''}>${S.desk(o)}</div><div class="shrunk">${S.crop?'Only the right end of the bar fits this screen; on a computer the bar runs the whole page.':'Shrunk to fit this screen; on a computer it is wider.'}</div></div></div>`).join('')}
+  <h3>In place, phone</h3>${S.phoneNote?`<p class="note">${S.phoneNote}</p>`:''}
+  <div class="phones">${S.opts.map(o=>`<div><div class="who">${o.L==='Today'?'Today':o.L} <small>${o.src}</small></div>${S.phone(o)}</div>`).join('')}</div>
+  </div>`;
+ }
+ h+=`<p class="q" style="font-size:12.5px">Sources: app origin/main <code>src/kit/Icon/drawn.tsx</code> (Today), lucide-react-native 1.51 (A, B, C), agreed mockup <code>C-058_recipe_book.html</code> (the bars, buttons, chips and colours). Dark colours are the proof palette from <code>ICON_STYLE.html</code>; C-058 has no dark look yet.</p>`;
+ document.getElementById('app').innerHTML=h;
+ fitAll();
+}
+/* shrink a too-wide computer strip to its box (CSS scale + matching height), so a phone never scrolls sideways */
+function fitAll(){
+ document.querySelectorAll('.fit').forEach(f=>{
+  const st=f.firstElementChild;st.style.transform='';st.style.marginLeft='';f.style.height='';
+  const w=+f.dataset.w,avail=f.clientWidth;
+  if(avail<w&&f.dataset.crop){st.style.width=w+'px';st.style.marginLeft=(avail-w)+'px';f.classList.add('z')}
+  else if(avail<w){const z=avail/w;st.style.transform=`scale(${z})`;st.style.width=w+'px';f.style.height=Math.ceil(st.offsetHeight*z)+'px';f.parentElement.classList.add('zz');f.classList.add('z')}
+  else{st.style.width='';f.classList.remove('z')}
+ });
+}
+function setTheme(t){document.body.className='th-'+t;document.querySelectorAll('#seg button').forEach(b=>b.classList.toggle('on',b.dataset.th===t))}
+document.getElementById('seg').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setTheme(b.dataset.th)});
+if(new URLSearchParams(location.search).get('theme')==='dark')setTheme('dark');
+render();
+addEventListener('resize',fitAll);
+document.fonts&&document.fonts.ready.then(fitAll);
+</script>
+<script>if(window.SC_FULL)document.documentElement.dataset.full=window.SC_FULL;</script>
+</body>
+</html>

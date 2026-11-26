@@ -243,5 +243,12 @@
   "name": "Plan",
   "msg": "Plan a week v3 round 46: drag bugs fixed (iPad preview, clamp at Breakfast, row give)",
   "date": "2026-11-26"
+ },
+ {
+  "v": "c058controls-r1",
+  "mockup": "compare.html",
+  "name": "Recipe Book control icons",
+  "msg": "Expand/Shrink/Clear All: compare, your pick",
+  "date": "2026-11-26"
  }
 ]
