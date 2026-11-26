@@ -257,5 +257,12 @@
   "name": "Today + Kitchen iPad",
   "msg": "Today + Kitchen iPad v4 round 24 (T-2153)",
   "date": "2026-11-26"
+ },
+ {
+  "v": "capture-r21",
+  "mockup": "index.html",
+  "name": "Capture",
+  "msg": "Capture round 21: clean rebuild (one reply engine, 83-saying logic test), fit matched to Groceries v3",
+  "date": "2026-11-26"
  }
 ]
