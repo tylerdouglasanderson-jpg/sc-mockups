@@ -208,5 +208,12 @@
   "name": "Kitchen",
   "msg": "Kitchen v3 round 18, panel 7 all 8",
   "date": "2026-11-26"
+ },
+ {
+  "v": "more-r8",
+  "mockup": "more.html",
+  "name": "More tab icon",
+  "msg": "More icon: two finalists, chest vs tiles, your pick",
+  "date": "2026-11-26"
  }
 ]
