@@ -222,5 +222,12 @@
   "name": "Sub-recipe icon",
   "msg": "Sub-recipe icon: pick J, for your OK",
   "date": "2026-11-26"
+ },
+ {
+  "v": "plan-r44",
+  "mockup": "index.html",
+  "name": "Plan",
+  "msg": "Plan a week v3 round 44: drag lanes rebuilt (left = earlier meal), arrows by the hand, Tyler items 24-28",
+  "date": "2026-11-26"
  }
 ]
