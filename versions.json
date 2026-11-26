@@ -201,5 +201,12 @@
   "name": "Capture",
   "msg": "Capture pop-up + full Capture page, round 8 (8 build rounds, 3 outside panels)",
   "date": "2026-11-26"
+ },
+ {
+  "v": "kitchen-r18",
+  "mockup": "index.html",
+  "name": "Kitchen",
+  "msg": "Kitchen v3 round 18, panel 7 all 8",
+  "date": "2026-11-26"
  }
 ]
