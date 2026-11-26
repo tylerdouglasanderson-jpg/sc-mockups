@@ -236,5 +236,12 @@
   "name": "Kitchen",
   "msg": "Kitchen v3 round 21, panel 9 all 8",
   "date": "2026-11-26"
+ },
+ {
+  "v": "plan-r46",
+  "mockup": "index.html",
+  "name": "Plan",
+  "msg": "Plan a week v3 round 46: drag bugs fixed (iPad preview, clamp at Breakfast, row give)",
+  "date": "2026-11-26"
  }
 ]
