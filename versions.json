@@ -278,5 +278,12 @@
   "name": "Cook Mode",
   "msg": "Cook mode rethink round 9: index-card cook, Get ready, steps with titles and timers, several dishes with Eat at / Start by, two cooks, oven clash, one finish. Outside panel 3: 8 on every lens.",
   "date": "2026-11-26"
+ },
+ {
+  "v": "plan-r52",
+  "mockup": "index.html",
+  "name": "Plan a week r52",
+  "msg": "",
+  "date": "2026-11-27"
  }
 ]
