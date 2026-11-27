@@ -376,5 +376,12 @@
   "name": "How This Page Works",
   "msg": "Help pane r8 (panel 8/8/8/8/8, five ways compared)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "staples-r17",
+  "mockup": "index.html",
+  "name": "Staples",
+  "msg": "Staples r17: Tyler's r11 changes (panel 7: 8 all)",
+  "date": "2026-11-27"
  }
 ]
