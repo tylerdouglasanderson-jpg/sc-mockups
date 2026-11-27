@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" id="vp" content="width=1300">
+<title>Desktop View</title>
+<script>
+// Shows a mockup at a real desktop size on any screen. ?u=<path in this site>&w=1280&h=820
+var q=new URLSearchParams(location.search);
+var W=Math.max(600,Math.min(2000,parseInt(q.get('w')||'1280',10)||1280));
+var H=Math.max(400,Math.min(3000,parseInt(q.get('h')||'820',10)||820));
+document.getElementById('vp').setAttribute('content','width='+(W+20));
+</script>
+<style>
+html,body{margin:0;background:#2b2a27;color:#f3efe6;font:15px/1.4 system-ui,-apple-system,sans-serif}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 10px}
+.bar a,.bar button{color:#f3efe6;background:#45433d;border:0;border-radius:6px;padding:6px 12px;font:inherit;text-decoration:none;cursor:pointer}
+.bar span{opacity:.75}
+#f{display:block;margin:0 10px 10px;border:0;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.5)}
+</style></head><body>
+<div class="bar"><a href="javascript:history.back()">‹ Back</a><button id="t">Taller frame</button><span id="s"></span></div>
+<iframe id="f" title="Mockup"></iframe>
+<script>
+var u=q.get('u')||'';
+// only pages on this same site
+if(!/^[A-Za-z0-9._\-\/]+$/.test(u)||u.indexOf('..')>=0){u='';}
+var f=document.getElementById('f'),s=document.getElementById('s'),t=document.getElementById('t'),tall=false;
+function size(){f.style.width=W+'px';f.style.height=(tall?H*2:H)+'px';s.textContent=W+' × '+(tall?H*2:H)+' desktop · pinch to zoom';t.textContent=tall?'Normal frame':'Taller frame';}
+t.onclick=function(){tall=!tall;size();};
+size();
+if(u){f.src=u;}else{s.textContent='No page given';}
+</script>
+</body></html>
