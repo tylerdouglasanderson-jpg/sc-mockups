@@ -334,5 +334,12 @@
   "name": "Staples icon",
   "msg": "New Staples icon: pick R or N",
   "date": "2026-11-27"
+ },
+ {
+  "v": "filter-icons-1",
+  "mockup": "filter_icons.html",
+  "name": "Filter icon options",
+  "msg": "Filter icon options (T-2160)",
+  "date": "2026-11-27"
  }
 ]

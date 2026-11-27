@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head><script>window.SC_FULL='desktop'</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filter icon options Desktop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Tokens copied from the History v3 mockup (itself from Today v4 / Groceries v3 / Plan v3). Mockup only. */
+:root{
+  --page:#EDE5D8; --card:#FAF6EE; --panel:#F6F2E9; --panel-alt:#F1E8DA;
+  --header:#6B3E14; --subbar:#E4D3B3; --hdr-text:#FAF4EB; --subbar-date:#5C3D0A;
+  --ink:#1E1E1C; --ink2:#54524A; --muted:#605E55;
+  --sage:#8FAF8A; --sage-dark:#1F3A1C; --sage-light:#E4EDE2; --sage-text:#4B6947;
+  --amber-text:#7E5C22; --chip:#E4D9C6; --chip-on:#B7D0B0;
+  --m-sam:#5E7C55; --m-alex:#8A5A3C; --m-jordan:#4F6A86;
+  --bcard:rgba(0,0,0,.09); --brow:rgba(0,0,0,.06); --c-muted:96 94 85; --vr:rgb(var(--c-muted) / .55);
+  --shadow-card:0 1px 2px rgba(45,33,22,.055),0 6px 16px rgba(45,33,22,.055);
+  --hover:inset 0 0 0 100px rgba(30,30,28,.04);
+  --font:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --ease:cubic-bezier(.25,.46,.45,.94);
+}
+*{box-sizing:border-box;margin:0}
+html{scrollbar-width:thin;scrollbar-color:rgb(var(--c-muted) / .35) transparent}
+body{font-family:var(--font);background:var(--page);color:var(--ink);font-size:15px;line-height:1.45;padding:0 0 64px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.top{background:var(--header);color:var(--hdr-text);padding:14px 32px}
+.top b{font-size:20px;font-style:italic;font-weight:700}
+.bar{background:var(--subbar);display:flex;align-items:center;min-height:46px;padding:0 32px;gap:0}
+.bar h1{font-size:17px;font-weight:600;color:var(--subbar-date)}
+.bar .sl{margin-left:2px;color:var(--subbar-date);font-size:14px}
+main{max-width:1440px;margin:0 auto;padding:24px 32px}
+.lede{background:var(--card);border-radius:12px;box-shadow:var(--shadow-card);padding:18px 22px;margin-bottom:24px}
+.lede h2{font-size:18px;margin-bottom:6px}
+.lede p{color:var(--ink2);max-width:880px}
+.lede p+p{margin-top:8px}
+.lede ul{margin:8px 0 0 20px;color:var(--ink2)}
+h3.sec{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin:28px 0 12px}
+/* thin upright line separator (never a typed dot or bar) */
+.sl{display:inline-flex;align-items:baseline;--g:.5em}
+.sl>span{position:relative;white-space:nowrap;padding-left:calc(2*var(--g) + 1px)}
+.sl>span:first-child{padding-left:0}
+.sl>span+span::before{content:"";position:absolute;left:var(--g);top:50%;width:1px;height:1em;margin-top:-.5em;background:var(--vr)}
+/* icons: everyday icon rules (ICON_STYLE r12, kit drawn.tsx): 24 grid, stroke 2, round ends, no fill */
+svg.ic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;display:block}
+/* the standard Filter button = the kit chip: 44 tall, radius 8, chip tan, icon 20 then the word */
+.chip{height:44px;border-radius:8px;padding:0 14px;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;background:var(--chip);border:1px solid transparent;color:var(--ink);white-space:nowrap;flex:none;transition:background-color .2s var(--ease),border-color .2s var(--ease)}
+.chip:hover{box-shadow:var(--hover)}
+.chip.on{background:var(--chip-on);border-color:var(--sage-text);font-weight:700}
+.chip .ic{width:20px;height:20px;color:var(--ink2)}
+.chip.on .ic{color:var(--ink)}
+.chip .n{font-weight:400;color:var(--ink2)}
+.chip.on .sl b{font-weight:700}
+/* option grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(372px,1fr));gap:16px}
+.opt{background:var(--card);border-radius:12px;box-shadow:var(--shadow-card);padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;border:2px solid transparent;position:relative}
+.opt.pick{border-color:var(--sage-text)}
+.opt .hd{display:flex;align-items:baseline;gap:10px}
+.opt .num{font-size:22px;font-weight:700;color:var(--sage-text);min-width:28px}
+.opt .nm{font-size:17px;font-weight:600}
+.opt .lu{font-size:13px;color:var(--ink2)}
+.opt .lu code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:var(--panel-alt);padding:1px 5px;border-radius:4px}
+.pickt{position:absolute;top:14px;right:14px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-dark);background:var(--sage-light);border:1px solid var(--sage-text);border-radius:6px;padding:2px 8px}
+.sizes{display:flex;align-items:flex-end;gap:22px;padding:12px 14px;background:var(--panel);border-radius:8px}
+.sizes figure{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink)}
+.sizes figcaption{font-size:12px;color:var(--ink2)}
+.sizes .big{margin-left:auto}
+.sizes .big svg{width:48px;height:48px;color:var(--ink2)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.note{font-size:14px;color:var(--ink2)}
+.note b{color:var(--ink)}
+.why{font-size:14px;color:var(--sage-dark);font-weight:600}
+/* in place */
+.pickbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.pickbar span{font-size:14px;color:var(--ink2);margin-right:6px}
+.pickbar button{min-width:44px;height:40px;border-radius:8px;background:var(--chip);font-weight:600}
+.pickbar button[aria-pressed="true"]{background:var(--chip-on);outline:1px solid var(--sage-text)}
+.place{display:grid;grid-template-columns:420px 1fr 393px;gap:20px;align-items:start}
+.cap{font-size:13px;color:var(--ink2);margin:0 0 6px}
+/* History list column (computer), real size */
+.hcol{background:var(--page);padding:16px;border-radius:12px;border:1px dashed var(--bcard)}
+.sfield{display:flex;align-items:center;gap:8px;height:44px;border:1px solid var(--ink2);border-radius:8px;background:var(--card);padding:0 12px;color:var(--muted);font-size:15px}
+.sfield .ic{width:20px;height:20px;color:var(--ink2)}
+.chips{display:flex;gap:8px;margin:12px 0}
+.chips .sp{flex:1}
+.lcard{background:var(--card);border-radius:12px;box-shadow:var(--shadow-card);overflow:hidden}
+.gh{height:32px;display:flex;align-items:center;padding:0 16px;background:var(--panel-alt);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.hr{display:flex;align-items:center;gap:12px;min-height:68px;padding:10px 16px;border-top:1px solid var(--brow)}
+.gh+.hr{border-top:0}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--hdr-text);font-weight:600;font-size:14px;flex:none}
+.hr .tx{flex:1;min-width:0}
+.hr b{display:block;font-weight:600;font-size:16px}
+.hr small{font-size:13px;color:var(--ink2)}
+.hr .st{font-size:13px;color:var(--ink2)}
+/* Recipes search card (C-058 shape) */
+.rcard{background:#F3EAD7;border-radius:10px;box-shadow:var(--shadow-card);padding:18px;display:flex;gap:10px;align-items:center}
+.rcard .sfield{flex:1;min-width:150px;white-space:nowrap;overflow:hidden}
+.btn{height:44px;border-radius:8px;padding:0 16px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;white-space:nowrap}
+.btn.sage{background:var(--sage);color:var(--sage-dark)}
+.btn .ic{width:20px;height:20px}
+/* phone, real 393 wide */
+.phone{width:393px;border-radius:28px;overflow:hidden;box-shadow:0 10px 30px rgba(45,33,22,.18);background:var(--page)}
+.phone .ph{background:var(--header);height:44px;display:flex;align-items:center;padding:0 12px;color:var(--hdr-text);font-weight:700;font-style:italic;font-size:19px}
+.phone .pb{background:var(--subbar);height:46px;display:flex;align-items:center;padding:0 12px;gap:0}
+.phone .pb b{font-weight:600;color:var(--subbar-date)}
+.phone .pb .sl{font-size:13px;color:var(--subbar-date);margin-left:6px}
+.phone .body{padding:12px}
+.phone .chips .chip{padding:0 11px}
+.phone .chips{gap:6px;margin:10px 0}
+.ctx{display:flex;flex-direction:column;gap:20px}
+footer{margin-top:28px;font-size:13px;color:var(--ink2)}
+@media (max-width:1420px){.place{grid-template-columns:420px 393px}.place>.ctx:nth-child(2){grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,520px))}}
+@media (prefers-reduced-motion:reduce){.chip{transition:none}}
+</style>
+<script>/* one page for every device; window.SC_FULL is accepted but changes nothing here */window.SC_FULL=window.SC_FULL||null;</script>
+</head>
+<body>
+<div class="top"><b>SupperCraft</b></div>
+<div class="bar"><h1>Pick the One Filter Button</h1><span class="sl"><span></span><span>12 icon options</span></span></div>
+<main>
+<section class="lede">
+  <h2>One Filter button for every page with filters</h2>
+  <p>Today three pages draw filters three ways: History draws two sliders, Plan and the Recipes book draw a thin funnel with a round count badge, and the live app has both a sliders sign (<code>filter</code>) and a funnel (<code>empty-filter</code>). Groceries has no Filter button. This page shows 12 icons for one standard button, all drawn the same way as the app's everyday icons: 24 grid, 2 px lines, round ends, no fill.</p>
+  <p><b>The button itself is the same in every option:</b> the kit's soft square (44 px tall, 52 on the Kitchen iPad, corner 8), the icon at 20 px, then the word <b>Filter</b>. When filters are on it turns sage with a thin outline and reads <b>Filter</b>, a thin upright line, then how many (<b class="sl"><span>Filter</span><span>2</span></b>, never a round badge). It sits at the right end of the chip row, never in the tan bar.</p>
+  <p><b>My pick: 3, Rounded Funnel</b> (Lucide <code>funnel</code>). You already accepted it on the Recipes book (11-25), Plan and Recipes already show a funnel, and it is the sign most people know for "filter". Sliders read as "settings". The History mockup uses 3 until you choose.</p>
+  <p>Tell me a number. That icon becomes the standard (STANDARDS.md and the icon register), and every page with filters switches to it.</p>
+</section>
+
+<h3 class="sec">All 12 side by side at 20 px, in the button</h3>
+<div class="btns" id="strip"></div>
+
+<h3 class="sec">Each option at real sizes</h3>
+<div class="grid" id="grid"></div>
+
+<h3 class="sec" id="inplace">In place, real size</h3>
+<div class="pickbar" id="pickbar"><span>Show option</span></div>
+<div class="place">
+  <div class="ctx">
+    <div><p class="cap">History list, computer and iPad (the left column, 420 px)</p>
+    <div class="hcol">
+      <div class="sfield"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search meals, dishes, cooks, notes</div>
+      <div class="chips"><button class="chip on">All</button><button class="chip">Needs Rating <span class="n">1</span></button><button class="chip">Mine</button><span class="sp"></span><span class="slot" data-on="0"></span></div>
+      <div class="lcard">
+        <div class="gh">Yesterday</div>
+        <div class="hr"><span class="av" style="background:var(--m-jordan)">JK</span><div class="tx"><b>Black Bean Chili</b><small class="sl"><span>Dinner</span><span>Jordan</span></small></div><span class="st">Unrated</span></div>
+      </div>
+    </div></div>
+    <div><p class="cap">History list with 2 filters on</p>
+    <div class="hcol">
+      <div class="chips" style="margin-top:0"><button class="chip">All</button><button class="chip">Needs Rating <span class="n">1</span></button><button class="chip on">Mine</button><span class="sp"></span><span class="slot" data-on="2"></span></div>
+    </div></div>
+  </div>
+  <div class="ctx">
+    <div><p class="cap">Recipes book search card</p>
+    <div class="rcard"><div class="sfield"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search recipes</div><span class="slot" data-on="0"></span><button class="btn sage"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add a Recipe</button></div></div>
+    <div><p class="cap">Recipes book with 1 filter on</p>
+    <div class="rcard"><div class="sfield"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search recipes</div><span class="slot" data-on="1"></span><button class="btn sage"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add a Recipe</button></div></div>
+  </div>
+  <div class="phonewrap"><p class="cap">Phone, 393 px wide, 2 filters on</p>
+    <div class="phone"><div class="ph">SupperCraft</div><div class="pb"><b>History</b><span class="sl"><span></span><span>42 meals</span></span></div>
+      <div class="body">
+        <div class="sfield"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Search</div>
+        <div class="chips"><button class="chip">All</button><button class="chip">Needs Rating <span class="n">1</span></button><button class="chip on">Mine</button><span class="sp"></span><span class="slot" data-on="2"></span></div>
+        <div class="lcard"><div class="gh">Last Week</div>
+          <div class="hr"><span class="av" style="background:var(--m-sam)">SK</span><div class="tx"><b>Chicken Tikka Masala</b><small class="sl"><span>Wed, Nov 18</span><span>Dinner</span></small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>Mockup only, made-up data. Separators are drawn thin upright lines. The live app draws icons through <code>src/kit/Icon</code> (Lucide); options 5, 7 and 12 would be drawn by hand to the same rules, as the kit's <code>drawn.tsx</code> already does for a few.</footer>
+</main>
+<script>
+/* Each option: one drawing on the 24 grid, stroke 2, round ends, no fill. */
+const O=[
+ {nm:'Two Sliders',lu:'sliders-horizontal (simplified)',d:'<path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/>',
+  note:'What the History mockup showed up to round 18. Clean, but a second drawing of the same idea as 2.'},
+ {nm:'Three Sliders',lu:'sliders-horizontal',d:'<path d="M10 5H3M12 19H3M14 3v4M16 17v4M21 12h-9M21 19h-5M21 5h-7M8 10v4M8 12H3"/>',
+  note:'The live app\'s <b>filter</b> icon today. Common on shopping apps; many people read it as "settings". Busy at 16 px.'},
+ {nm:'Rounded Funnel',lu:'funnel',pick:1,d:'<path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"/>',
+  note:'The live app\'s <b>empty-filter</b> icon (Recipes book Filters button). You accepted it on 11-25.',
+  why:'Pick: the sign most people know for filter, already on Recipes and Plan, and still clear at 16 px.'},
+ {nm:'Sharp Funnel',lu:'filter (older Lucide)',d:'<path d="M22 3H2l8 9.46V19l4 2v-8.54z"/>',
+  note:'Close to the thin funnel the Plan and Recipes mockups draw today. Sharp corners clash with the app\'s round-ended icons.'},
+ {nm:'Funnel With Lines',lu:'list-filter + funnel (no exact match)',d:'<path d="M3 6h6M3 12h4M3 18h2"/><path d="M12 5h9l-3.5 4.5V17l-2 1.5V9.5z"/>',
+  note:'Says "a list, filtered". Reads well at 24 px; the small funnel goes muddy at 16 px.'},
+ {nm:'Narrowing Lines',lu:'list-filter',d:'<path d="M3 6h18M7 12h10M10 18h4"/>',
+  note:'Simple and calm. But the kit already uses this exact drawing for <b>sort</b>, so it would mean two things.'},
+ {nm:'Narrowing Lines in a Circle',lu:'no Lucide match (the iPhone\'s own filter sign)',d:'<circle cx="12" cy="12" r="10"/><path d="M7 8.5h10M9 12h6M11 15.5h2"/>',
+  note:'What iPhone apps (Mail, Files) use. Feels at home on iPhone, plainer on a computer; needs a hand drawing.'},
+ {nm:'Two Knobs',lu:'settings-2',d:'<path d="M14 17H5M19 7h-9"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>',
+  note:'Lucide\'s "adjust" sign. Friendly and bold, but it says "change settings", not "show fewer".'},
+ {nm:'Sliders Up and Down',lu:'sliders-vertical',d:'<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M2 14h4M10 8h4M18 16h4"/>',
+  note:'A sound mixer. Same meaning as 2, harder to read at small sizes.'},
+ {nm:'List With Checks',lu:'list-checks',d:'<path d="M13 5h8M13 12h8M13 19h8M3 17l2 2 4-4M3 7l2 2 4-4"/>',
+  note:'Says "pick from a list". Looks like a to-do list; clashes with Groceries and Prep checklists.'},
+ {nm:'Tag',lu:'tag',d:'<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+  note:'Good for "filter by tag" on Recipes, but History filters by who, stars, when and meal, not tags.'},
+ {nm:'Sieve',lu:'no Lucide match (hand drawn)',d:'<path d="M2 9h16a8 8 0 0 1-16 0z"/><path d="M18 9h4M6 13h8M8 16h4"/>',
+  note:'A kitchen sieve: on brand for a cooking app. Charming, but new to everyone, so the word Filter has to do all the work.'},
+];
+const svg=(o,s,cls='ic')=>`<svg class="${cls}" viewBox="0 0 24 24" width="${s}" height="${s}" aria-hidden="true">${o.d}</svg>`;
+const btn=(o,n)=>`<button class="chip${n?' on':''}" aria-label="Filter${n?`, ${n} on`:''}">${svg(o,20)}${n?`<span class="sl"><span>Filter</span><span><b>${n}</b></span></span>`:'Filter'}</button>`;
+document.getElementById('strip').innerHTML=O.map((o,i)=>`<div style="display:flex;flex-direction:column;align-items:center;gap:4px">${btn(o,0)}<small style="font-size:12px;color:var(--ink2)">${i+1}${o.pick?' (pick)':''}</small></div>`).join('');
+document.getElementById('grid').innerHTML=O.map((o,i)=>`<article class="opt${o.pick?' pick':''}" id="o${i+1}">
+  ${o.pick?'<span class="pickt">My pick</span>':''}
+  <div class="hd"><span class="num">${i+1}</span><span class="nm">${o.nm}</span></div>
+  <div class="lu">Closest Lucide: <code>${o.lu}</code></div>
+  <div class="sizes"><figure>${svg(o,16)}<figcaption>16</figcaption></figure><figure>${svg(o,20)}<figcaption>20</figcaption></figure><figure>${svg(o,24)}<figcaption>24</figcaption></figure><figure class="big">${svg(o,48)}<figcaption>48, to see the drawing</figcaption></figure></div>
+  <div class="btns">${btn(o,0)}${btn(o,2)}</div>
+  <p class="note">${o.note}</p>${o.why?`<p class="why">${o.why}</p>`:''}
+</article>`).join('');
+const pb=document.getElementById('pickbar');
+O.forEach((o,i)=>{const b=document.createElement('button');b.textContent=i+1;b.title=o.nm;b.dataset.i=i;b.setAttribute('aria-label',`Show option ${i+1}, ${o.nm}`);pb.appendChild(b)});
+function show(i){document.querySelectorAll('.slot').forEach(s=>s.innerHTML=btn(O[i],+s.dataset.on));pb.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===i))}
+pb.addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(+b.dataset.i)});
+const q=new URLSearchParams(location.search).get('opt');show(q?Math.max(0,Math.min(11,+q-1)):2);
+</script>
+</body>
+</html>
