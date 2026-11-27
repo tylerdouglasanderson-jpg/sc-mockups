@@ -299,5 +299,12 @@
   "name": "Date Picker",
   "msg": "Date picker standard round 17, Gemini panel all 8",
   "date": "2026-11-27"
+ },
+ {
+  "v": "plan-r53",
+  "mockup": "index.html",
+  "name": "Plan a week r53",
+  "msg": "",
+  "date": "2026-11-27"
  }
 ]
