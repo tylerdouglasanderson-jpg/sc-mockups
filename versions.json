@@ -285,5 +285,12 @@
   "name": "Plan a week r52",
   "msg": "",
   "date": "2026-11-27"
+ },
+ {
+  "v": "kitchen-r32",
+  "mockup": "index.html",
+  "name": "Kitchen",
+  "msg": "Kitchen v3 round 32 with date picker, Gemini panel all 8",
+  "date": "2026-11-27"
  }
 ]
