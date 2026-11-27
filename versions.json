@@ -292,5 +292,12 @@
   "name": "Kitchen",
   "msg": "Kitchen v3 round 32 with date picker, Gemini panel all 8",
   "date": "2026-11-27"
+ },
+ {
+  "v": "datepicker-r17",
+  "mockup": "index.html",
+  "name": "Date Picker",
+  "msg": "Date picker standard round 17, Gemini panel all 8",
+  "date": "2026-11-27"
  }
 ]
