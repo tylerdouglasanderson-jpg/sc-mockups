@@ -383,5 +383,12 @@
   "name": "Staples",
   "msg": "Staples r17: Tyler's r11 changes (panel 7: 8 all)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "history-r30",
+  "mockup": "index.html",
+  "name": "History round 30",
+  "msg": "History r30 latest finished round",
+  "date": "2026-11-27"
  }
 ]
