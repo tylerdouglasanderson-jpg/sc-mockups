@@ -1,0 +1,338 @@
+{
+ "L-r1-01": [
+  6,
+  8,
+  5,
+  7,
+  6,
+  "Control. Clean, but the name is small and light for busy wood; no link to the app icon."
+ ],
+ "L-r1-02": [
+  7,
+  7,
+  7,
+  8,
+  7,
+  "The cream tile ties the bar to the app icon at once. Tile is the brightest thing on the bar."
+ ],
+ "L-r1-03": [
+  7,
+  7,
+  7,
+  8,
+  7,
+  "Bold 700 reads better on wood than 600; 28 tile matches the cap height. Kept for round 2."
+ ],
+ "L-r1-04": [
+  7,
+  7,
+  8,
+  7,
+  7,
+  "Burned mark is on theme (branded into the board). Dark square can read as a hole. Kept."
+ ],
+ "L-r1-05": [
+  5,
+  6,
+  4,
+  6,
+  6,
+  "Cut: bare 'sc' + 'SupperCraft' reads as the name twice."
+ ],
+ "L-r1-06": [
+  6,
+  5,
+  6,
+  7,
+  6,
+  "Cut: the gold coin reads as a badge or prize; gold is not in the palette."
+ ],
+ "L-r1-07": [
+  6,
+  7,
+  6,
+  7,
+  6,
+  "Patch was drawn in the wrong place (status bar). Fixed and retried in round 2."
+ ],
+ "L-r1-08": [
+  6,
+  7,
+  6,
+  7,
+  7,
+  "Cut: the two weights are too close to see, and 500 looks thin on wood."
+ ],
+ "L-r1-09": [
+  7,
+  7,
+  7,
+  8,
+  7,
+  "Condensed Plex is taller and stamped, still the app font. Kept."
+ ],
+ "L-r1-10": [
+  8,
+  5,
+  8,
+  7,
+  7,
+  "Warmest, most crafted. But serif breaks DESIGN 2.5.5 (Garamond was removed on purpose). Kept as the exception lane."
+ ],
+ "L-r1-11": [
+  7,
+  5,
+  7,
+  7,
+  7,
+  "Cut: upright Garamond looks like a book cover, not a kitchen tool."
+ ],
+ "L-r1-12": [
+  8,
+  5,
+  8,
+  7,
+  7,
+  "Georgia Bold Italic (free twin: Gelasio) is warm and sturdy. Serif exception lane."
+ ],
+ "L-r1-13": [
+  6,
+  5,
+  6,
+  7,
+  7,
+  "Cut: Palatino at this size is thin and bookish; the outline mark looks like a button."
+ ],
+ "L-r1-14": [
+  6,
+  6,
+  6,
+  8,
+  6,
+  "Cut: the 'Tyler' chip is heavy and duplicates the avatar menu; the shadow is decorative (2.8.4)."
+ ],
+ "L-r1-15": [
+  5,
+  4,
+  5,
+  6,
+  6,
+  "Cut: search, + and bell crowd the bar; + doubles Capture; search is ruled out (4.1.2)."
+ ],
+ "L-r1-16": [
+  6,
+  5,
+  4,
+  7,
+  5,
+  "Cut: the page name repeats the page title below and was taken out on purpose (D7 A)."
+ ],
+ "L-r1-17": [
+  7,
+  6,
+  7,
+  8,
+  6,
+  "64 is good on a computer but eats 14 more points of every phone screen. Height lesson only."
+ ],
+ "L-r1-18": [
+  6,
+  7,
+  5,
+  7,
+  7,
+  "44 is cramped: the tile shrinks to 22 and the avatar touches the edges."
+ ],
+ "L-r1-19": [
+  7,
+  7,
+  7,
+  8,
+  7,
+  "The bottom edge makes the bar feel like a real board with a lip. Kept."
+ ],
+ "L-r1-20": [
+  6,
+  6,
+  6,
+  7,
+  6,
+  "Cut: the household line fails contrast (4.4:1) and crowds the name."
+ ],
+ "L-r2-01": [
+  7,
+  8,
+  7,
+  8,
+  8,
+  "Clean and clear. Bold reads on any block. The edge gives the bar a real lip."
+ ],
+ "L-r2-02": [
+  7,
+  7,
+  8,
+  7,
+  8,
+  "Burned mark fits the wood story, but at 28 it is dim and looks like a hole."
+ ],
+ "L-r2-03": [
+  7,
+  8,
+  8,
+  7,
+  8,
+  "Maple inlay mark: a lighter wood set into the board. Calmer than the cream tile, still on theme."
+ ],
+ "L-r2-04": [
+  7,
+  8,
+  7,
+  8,
+  8,
+  "Condensed Plex: taller letters, stamped feel, still the app font."
+ ],
+ "L-r2-05": [
+  6,
+  6,
+  6,
+  8,
+  7,
+  "Cut: the dark patch shows hard edges and looks like a smudge on the board."
+ ],
+ "L-r2-06": [
+  6,
+  6,
+  7,
+  7,
+  7,
+  "Cut: the plank looks like a big button, and adds a box to the bar."
+ ],
+ "L-r2-07": [
+  5,
+  6,
+  6,
+  6,
+  7,
+  "Bug: the avatar did not draw (only the chevron). Fixed and retried as L-r3-04."
+ ],
+ "L-r2-08": [
+  8,
+  5,
+  8,
+  8,
+  8,
+  "Georgia Bold Italic: warmest name yet. Needs a serif exception (2.5.5) and the free twin Gelasio."
+ ],
+ "L-r2-09": [
+  7,
+  5,
+  8,
+  7,
+  8,
+  "Cut: Garamond's curly 'ft' looks fancy, less kitchen, and Garamond was removed on purpose."
+ ],
+ "L-r2-10": [
+  7,
+  8,
+  7,
+  8,
+  8,
+  "Near r2-01; 650 at 94% width is a hair softer. Merged into r3-01 (kept the 32 avatar)."
+ ],
+ "L-r2-11": [
+  7,
+  8,
+  7,
+  8,
+  8,
+  "52 works but the 44 targets get only 4 points above and below. Kept as the low-height option."
+ ],
+ "L-r2-12": [
+  7,
+  8,
+  7,
+  8,
+  8,
+  "Lit status slot fits fine. The answer to 'what else': only live status, never buttons."
+ ],
+ "L-r3-01": [
+  8,
+  8,
+  7,
+  8,
+  8,
+  "Best Plex version. Only question left: the edge shadow (nice lip, but 2.8.4 bans decorative shadows)."
+ ],
+ "L-r3-02": [
+  7,
+  8,
+  8,
+  7,
+  8,
+  "Maple inlay with regular Plex: good, but the tan mark and cream name fight a little."
+ ],
+ "L-r3-03": [
+  7,
+  8,
+  8,
+  8,
+  8,
+  "Condensed Plex + maple inlay: the most crafted look in the app font."
+ ],
+ "L-r3-04": [
+  7,
+  7,
+  7,
+  8,
+  8,
+  "Chevron says 'menu', but most apps manage without it; one more small thing to read."
+ ],
+ "L-r3-05": [
+  8,
+  5,
+  9,
+  8,
+  8,
+  "Serif lane best: warm and sturdy. Fit stays 5 until Tyler rules the wordmark is a logo."
+ ],
+ "L-r3-06": [
+  7,
+  7,
+  8,
+  8,
+  7,
+  "Cut: the sheen darkens the board's bottom and the tile shadow is decorative."
+ ],
+ "L-r3-07": [
+  7,
+  8,
+  7,
+  8,
+  8,
+  "52 is fine; 56 reads calmer and gives 6 points around the 44 targets. Fallback height."
+ ],
+ "L-r3-08": [
+  7,
+  7,
+  8,
+  7,
+  8,
+  "Shallower burn reads as a brand, not a hole. Dimmer than the tile; an option if the cream tile feels too bright."
+ ],
+ "L-r3-09": [
+  7,
+  8,
+  7,
+  8,
+  8,
+  "The busiest state (saving + timer) still fits at 390 wide. The right side needs nothing more."
+ ],
+ "L-r3-10": [
+  8,
+  9,
+  7,
+  8,
+  8,
+  "Pick: cleanest, all in the app's own kit, rule-safe edge."
+ ]
+}

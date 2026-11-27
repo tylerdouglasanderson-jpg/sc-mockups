@@ -1,0 +1,32 @@
+{
+ "B-r3-01": {
+  "bytes": 39012,
+  "q": 80,
+  "worst_ratio": 4.62
+ },
+ "B-r3-12": {
+  "bytes": 38384,
+  "q": 80,
+  "worst_ratio": 5.4
+ },
+ "B-r3-03": {
+  "bytes": 38756,
+  "q": 80,
+  "worst_ratio": 4.39
+ },
+ "B-r3-07": {
+  "bytes": 39110,
+  "q": 80,
+  "worst_ratio": 4.48
+ },
+ "B-r3-13": {
+  "bytes": 38274,
+  "q": 80,
+  "worst_ratio": 4.76
+ },
+ "B-r3-14": {
+  "bytes": 39284,
+  "q": 80,
+  "worst_ratio": 4.48
+ }
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lane B header mock</title>
+<style>
+@font-face { font-family: Plex; src: url(IBMPlexSans_600SemiBold_Italic.ttf); font-weight: 600; font-style: italic; }
+html, body { margin: 0; background: #EDE5D8; font-family: system-ui, sans-serif; }
+.board { position: relative; background-color: #6B3E14; background-repeat: repeat; background-size: 720px 108px; }
+.board.cover { background-size: cover; background-position: center; background-repeat: no-repeat; }
+.status { height: 47px; color: #FAF4EB; font: 600 16px system-ui; display: flex; align-items: center; justify-content: space-between; padding: 0 30px 0 34px; box-sizing: border-box; }
+.status.ipad { height: 24px; font-size: 12px; padding: 0 14px; }
+.row { height: 50px; display: flex; align-items: center; padding: 0 12px 0 16px; box-sizing: border-box; }
+.wm { font-family: Plex; font-style: italic; font-weight: 600; font-size: 22px; line-height: 26px; color: #FAF4EB; }
+.hide .wm, .hide .status span { color: transparent; }
+.hide .av { visibility: hidden; }
+.av { margin-left: auto; width: 32px; height: 32px; border-radius: 50%; background: #8FAF8A; box-shadow: 0 0 0 2px #FAF4EB; display: grid; place-items: center; font: 600 13px system-ui; color: #1F3A1C; margin-right: 6px; }
+.edge-bevel::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: linear-gradient(#0000, #1A0C0466); }
+.body { display: flex; }
+.rail { background: #FAF6EE; border-right: 1px solid #DDD5C5; min-height: 700px; }
+.rail i { display: block; height: 12px; margin: 18px 16px; background: #DDD5C5; border-radius: 6px; }
+.main { flex: 1; padding: 20px; }
+.card { background: #FAF6EE; border-radius: 12px; padding: 16px; margin-bottom: 14px; max-width: 640px; }
+.card b { display: block; font: 600 17px system-ui; color: #1E1E1C; margin-bottom: 8px; }
+.card i { display: block; height: 10px; background: #DDD5C5; border-radius: 5px; margin: 8px 0; }
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const tile = q.get('t');                 // tile path, relative to this page
+const mode = q.get('m') || 'web';        // web | phone | ipad
+const edge = q.get('e') || 'none';
+if (q.get('hide')) document.body.classList.add('hide');
+const w = innerWidth;
+const native = mode !== 'web';
+const rail = mode === 'phone' ? 0 : (w >= 1100 ? 220 : 64);
+let status = '';
+if (mode === 'phone') status = '<div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679; &#9646;</span></div>';
+if (mode === 'ipad') status = '<div class="status ipad"><span>9:41 Fri 27 Nov</span><span>&#9679;&#9679; 100%</span></div>';
+const lead = 16;
+document.getElementById('root').innerHTML =
+  `<div class="board ${native ? 'cover' : ''} ${edge === 'bevel' ? 'edge-bevel' : ''}" id="board" style="background-image:url('${tile}')">` +
+  status +
+  `<div class="row" style="padding-left:${lead}px"><span class="wm" id="wm">SupperCraft</span><span class="av">TA</span></div></div>` +
+  `<div class="body">${rail ? `<div class="rail" style="width:${rail}px"><i></i><i></i><i></i><i></i><i></i></div>` : ''}` +
+  `<div class="main"><div class="card"><b>Tonight</b><i style="width:70%"></i><i style="width:45%"></i></div>` +
+  `<div class="card"><b>This week</b><i style="width:80%"></i><i style="width:60%"></i><i style="width:30%"></i></div></div></div>`;
+</script>
+</body></html>
