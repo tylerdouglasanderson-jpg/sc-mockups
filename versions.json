@@ -348,5 +348,12 @@
   "name": "Staples",
   "msg": "Staples sub-page r9 (panel 3: 8 all)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "history-r24",
+  "mockup": "index.html",
+  "name": "History round 24",
+  "msg": "History r24 for Q28-34",
+  "date": "2026-11-27"
  }
 ]
