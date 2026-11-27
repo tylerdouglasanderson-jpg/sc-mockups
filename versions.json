@@ -327,5 +327,12 @@
   "name": "Prep + Leftovers",
   "msg": "Prep + Leftovers round 18 (not final; Tyler review)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "staples-r5",
+  "mockup": "staples.html",
+  "name": "Staples icon",
+  "msg": "New Staples icon: pick R or N",
+  "date": "2026-11-27"
  }
 ]
