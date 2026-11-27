@@ -271,5 +271,12 @@
   "name": "Capture",
   "msg": "Capture AGREED (Tyler 11-26 18:01): round 21 + new milk question, two-line failure lines, folded done lines",
   "date": "2026-11-26"
+ },
+ {
+  "v": "cook-r1",
+  "mockup": "index.html",
+  "name": "Cook Mode",
+  "msg": "Cook mode rethink round 9: index-card cook, Get ready, steps with titles and timers, several dishes with Eat at / Start by, two cooks, oven clash, one finish. Outside panel 3: 8 on every lens.",
+  "date": "2026-11-26"
  }
 ]
