@@ -369,5 +369,12 @@
   "name": "Tan-Bar Back",
   "msg": "Tan-bar back standard r4 (panel 8/8/8/8/8)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "helppane-r8",
+  "mockup": "index.html",
+  "name": "How This Page Works",
+  "msg": "Help pane r8 (panel 8/8/8/8/8, five ways compared)",
+  "date": "2026-11-27"
  }
 ]
