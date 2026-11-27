@@ -1,0 +1,158 @@
+{
+ "narrow": [
+  [
+   "nw-320-412",
+   "Rule applied: timer to icon, then cloud to avatar dot. Room left between name and right side: 43 px (need 12)."
+  ],
+  [
+   "nw-320-10412",
+   "Rule applied: timer to icon, then cloud to avatar dot. Room left between name and right side: 43 px (need 12)."
+  ],
+  [
+   "nw-360-412",
+   "Rule applied: timer to icon. Room left between name and right side: 39 px (need 12)."
+  ],
+  [
+   "nw-360-10412",
+   "Rule applied: timer to icon. Room left between name and right side: 39 px (need 12)."
+  ],
+  [
+   "nw-375-412",
+   "Fits as is. Room left between name and right side: 25.2 px (need 12)."
+  ],
+  [
+   "nw-375-10412",
+   "Rule applied: timer to icon. Room left between name and right side: 54 px (need 12)."
+  ],
+  [
+   "nw-390-412",
+   "Fits as is. Room left between name and right side: 40.2 px (need 12)."
+  ],
+  [
+   "nw-390-10412",
+   "Fits as is. Room left between name and right side: 17.4 px (need 12)."
+  ],
+  [
+   "nw-393-412",
+   "Fits as is. Room left between name and right side: 43.2 px (need 12)."
+  ],
+  [
+   "nw-393-10412",
+   "Fits as is. Room left between name and right side: 20.4 px (need 12)."
+  ]
+ ],
+ "pg-signedin": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38
+ },
+ "pg-signin": {
+  "name": 6.3,
+  "mark": 6.5
+ },
+ "pg-signup": {
+  "name": 6.3,
+  "mark": 6.5,
+  "label": 6.38
+ },
+ "pg-welcome": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38
+ },
+ "pg-shopper": {
+  "name": 6.3,
+  "mark": 6.5,
+  "label": 6.25
+ },
+ "pg-cook": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38,
+  "status": 6.25
+ },
+ "nw-320-412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.25,
+  "status": 7.09
+ },
+ "nw-320-10412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.25,
+  "status": 7.09
+ },
+ "nw-360-412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.04,
+  "status": 6.25
+ },
+ "nw-360-10412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.04,
+  "status": 6.25
+ },
+ "nw-375-412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.82,
+  "status": 6.25
+ },
+ "nw-375-10412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.82,
+  "status": 6.25
+ },
+ "nw-390-412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38,
+  "status": 6.33
+ },
+ "nw-390-10412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38,
+  "status": 6.25
+ },
+ "nw-393-412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38,
+  "status": 6.25
+ },
+ "nw-393-10412": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38,
+  "status": 6.25
+ },
+ "mk-cream28": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38
+ },
+ "mk-cream26": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38
+ },
+ "mk-warm26": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38
+ },
+ "mk-maple26": {
+  "name": 6.3,
+  "mark": 6.5,
+  "acct": 6.38
+ },
+ "mk-none": {
+  "name": 6.5,
+  "acct": 6.38
+ }
+}
