@@ -320,5 +320,12 @@
   "name": "History + Rating",
   "msg": "History + rating v3 round 18 (T-2160)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "prepleft-r18",
+  "mockup": "index.html",
+  "name": "Prep + Leftovers",
+  "msg": "Prep + Leftovers round 18 (not final; Tyler review)",
+  "date": "2026-11-27"
  }
 ]
