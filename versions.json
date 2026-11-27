@@ -341,5 +341,12 @@
   "name": "Filter icon options",
   "msg": "Filter icon options (T-2160)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "staples-r9",
+  "mockup": "index.html",
+  "name": "Staples",
+  "msg": "Staples sub-page r9 (panel 3: 8 all)",
+  "date": "2026-11-27"
  }
 ]
