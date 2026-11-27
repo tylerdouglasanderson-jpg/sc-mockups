@@ -362,5 +362,12 @@
   "name": "Staples",
   "msg": "Staples sub-page r11 (panel 4: 8 all)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "backstd-r4",
+  "mockup": "index.html",
+  "name": "Tan-Bar Back",
+  "msg": "Tan-bar back standard r4 (panel 8/8/8/8/8)",
+  "date": "2026-11-27"
  }
 ]
