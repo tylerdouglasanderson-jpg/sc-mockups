@@ -264,5 +264,12 @@
   "name": "Capture",
   "msg": "Capture round 21: clean rebuild (one reply engine, 83-saying logic test), fit matched to Groceries v3",
   "date": "2026-11-26"
+ },
+ {
+  "v": "capture-r21a",
+  "mockup": "capture_r21a_agreed.html",
+  "name": "Capture",
+  "msg": "Capture AGREED (Tyler 11-26 18:01): round 21 + new milk question, two-line failure lines, folded done lines",
+  "date": "2026-11-26"
  }
 ]
