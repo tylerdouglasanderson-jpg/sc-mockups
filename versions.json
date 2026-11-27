@@ -313,5 +313,12 @@
   "name": "Before Sign-In Pages",
   "msg": "entry r20 (panel 7: 9/9/8/8/8)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "history-r18",
+  "mockup": "index.html",
+  "name": "History + Rating",
+  "msg": "History + rating v3 round 18 (T-2160)",
+  "date": "2026-11-27"
  }
 ]
