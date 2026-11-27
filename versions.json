@@ -306,5 +306,12 @@
   "name": "Plan a week r53",
   "msg": "",
   "date": "2026-11-27"
+ },
+ {
+  "v": "entry-r20",
+  "mockup": "entry_r20_queued.html",
+  "name": "Before Sign-In Pages",
+  "msg": "entry r20 (panel 7: 9/9/8/8/8)",
+  "date": "2026-11-27"
  }
 ]
