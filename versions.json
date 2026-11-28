@@ -481,5 +481,12 @@
   "name": "Cook Mode",
   "msg": "Cook-ahead variant r6 (T-2156)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "cook-ahead-r7",
+  "mockup": "index.html",
+  "name": "Cook Mode",
+  "msg": "Cook-ahead simplified r7 (T-2156)",
+  "date": "2026-11-27"
  }
 ]
