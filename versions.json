@@ -411,5 +411,12 @@
   "name": "Staples",
   "msg": "Staples r23: Tyler 17:18 fixes + new How Staples Work icons",
   "date": "2026-11-27"
+ },
+ {
+  "v": "plan-r57",
+  "mockup": "index.html",
+  "name": "Plan a Week r57",
+  "msg": "",
+  "date": "2026-11-27"
  }
 ]
