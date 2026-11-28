@@ -418,5 +418,12 @@
   "name": "Plan a Week r57",
   "msg": "",
   "date": "2026-11-27"
+ },
+ {
+  "v": "kitchen-r38",
+  "mockup": "index.html",
+  "name": "Kitchen r38",
+  "msg": "Kitchen r38 for Tyler",
+  "date": "2026-11-27"
  }
 ]
