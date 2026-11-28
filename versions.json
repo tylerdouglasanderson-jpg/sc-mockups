@@ -390,5 +390,12 @@
   "name": "History round 30",
   "msg": "History r30 latest finished round",
   "date": "2026-11-27"
+ },
+ {
+  "v": "helppane-r20",
+  "mockup": "index.html",
+  "name": "How This Page Works r20",
+  "msg": "help pane round 20 (example page beside the sheet)",
+  "date": "2026-11-27"
  }
 ]
