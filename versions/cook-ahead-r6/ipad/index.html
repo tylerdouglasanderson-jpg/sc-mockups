@@ -1,0 +1,1563 @@
+<!doctype html>
+<html lang="en"><head><script>window.SC_FULL='ipad'</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="SC Cook">
+<title>Cook Mode iPad</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+/* Tokens: C-058 / C-080 agreed cards + app DESIGN.md 2.1 */
+:root{--page:#EDE5D8;--card:#FAF6EE;--ink:#1E1E1C;--ink2:#3F3D37;--ink3:#54524A;--muted:#605E55;--sage-dark:#1F3A1C;--sage:#8FAF8A;--sage-hover:#82A37C;--sage-mid:#3F6B38;--sage-text:#4B6947;--sage-light:#E4EDE2;--sage-line:#B9CDB4;
+--tan:#E4D3B3;--tan-line:#D2BE98;--tan-ink:#5C3D0A;--border:rgba(0,0,0,.09);--amber:#C8943A;--amber-light:#F5ECD8;--amber-text:#7E5C22;--amber-edge:#E3C98F;--alert:#F8F0E0;--urgent:#8E3131;--urgent-bg:#F5E4E4;
+--ired:rgba(196,72,60,.55);--iblue:rgba(80,120,170,.16);--icard:#FFFDF7;--cream:#FAF4EB;--wood2:#5E3D22;--wood3:#8C6240;--ease:cubic-bezier(.25,.46,.45,.94);--k:1;--ts:1}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"IBM Plex Sans",system-ui,sans-serif;background:#efece7;color:#222}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+/* one themed scroll bar (DESIGN 4.10) */
+*{scrollbar-width:thin;scrollbar-color:rgba(96,94,85,.35) transparent}
+::-webkit-scrollbar{width:12px;height:12px}::-webkit-scrollbar-track,::-webkit-scrollbar-corner{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(96,94,85,.35);border:3px solid transparent;background-clip:padding-box;border-radius:999px}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(84,82,74,.7)}
+
+/* ---------- viewer controls (mockup only, outside the device) ---------- */
+#ctl{position:sticky;top:0;z-index:100;background:#f8f6f2;border-bottom:1px solid #ddd;padding:10px 16px;display:flex;flex-direction:column;gap:8px}
+#ctl .r{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+#ctl h1{font-size:16px;margin:0 8px 0 0;font-weight:700}
+#ctl .nag{font-size:12.5px;color:#8F2F1C;font-weight:600}
+.seg{display:inline-flex;border:1px solid #cfc6b5;border-radius:9px;overflow:hidden;background:#fff}
+.seg button{border:0;background:none;padding:6px 11px;font-size:13px;border-right:1px solid #e4ddd0}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--sage-light);color:var(--sage-text);font-weight:600}
+.sts{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.sts b{font-size:12px;color:#555;margin-right:4px;text-transform:uppercase;letter-spacing:.06em}
+.sts button{border:1px solid #d8cfbf;background:#fff;border-radius:6px;padding:3px 8px;font-size:12.5px}
+.sts button.on{background:var(--sage-light);border-color:var(--sage-text);color:var(--sage-text);font-weight:600}
+#stage{padding:16px}
+#scaler{transform-origin:0 0}
+html.full,html.full body{height:100%;overflow:hidden;background:var(--page)}
+html.full #ctl{display:none}
+html.full #stage{padding:0}
+#stfab,#stpop{display:none}
+html.full:not(.shots) #stfab{display:inline-flex;position:fixed;top:8px;left:50%;translate:-50% 0;z-index:300;align-items:center;gap:4px;height:28px;padding:0 10px;border-radius:7px;border:1px solid rgba(92,61,10,.25);background:rgba(255,253,247,.85);color:var(--tan-ink);font:600 12.5px "IBM Plex Sans",sans-serif}
+html.full #stpop.show{display:block;position:fixed;top:42px;left:50%;translate:-50% 0;z-index:301;width:min(420px,calc(100vw - 20px));max-height:calc(100vh - 60px);overflow:auto;background:#FFFDF7;border:1px solid var(--tan-line);border-radius:10px;box-shadow:0 8px 24px rgba(40,26,8,.22);padding:10px 12px}
+#stpop .sts{margin-bottom:8px}
+
+/* ---------- the device ---------- */
+#dev{position:relative;background:var(--page);overflow:hidden;display:flex;flex-direction:column;color:var(--ink);border:8px solid #22211f;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18);
+ --st:32px;--row:50px;--tt:38px;--side:18px;--srow:34px;--pad:28px}
+html.full #dev{border:0;border-radius:0;box-shadow:none}
+#dev.ipadside{--st:32px;--row:50px;--tt:38px;--side:18px;--srow:34px;--pad:24px}
+#dev.ipadup{--st:34px;--row:52px;--tt:40px;--side:19px;--srow:36px;--pad:24px}
+#dev.phone{--st:22px;--row:34px;--tt:27px;--side:16px;--srow:30px;--pad:12px}
+#dev.ts-s{--ts:.88}#dev.ts-l{--ts:1.22}#dev.phone.ts-l{--ts:1.38}
+
+/* tan bar (C-025, C-057; DESIGN 4.1.2 thin, 8.1.2 Cook uses tan, never the brown header) */
+.tan{height:46px;flex:none;background:var(--tan);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;padding:0 10px 0 8px;z-index:20;position:relative}
+.tan .tl{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
+.tan .ttw{display:flex;align-items:center;gap:12px;min-width:0}
+.phone .tan .ttw{flex-direction:column;align-items:flex-start;gap:0;line-height:1.2}
+.phone .tan .ttw .sep{display:none}
+.phone .tan .meta{font-size:13px}
+.tan .tt{font-weight:600;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.tan .sep{width:1px;height:18px;background:rgba(0,0,0,.25);flex:none}
+.tan .meta{font-size:14px;color:var(--tan-ink);white-space:nowrap}
+.tan .meta.late{color:var(--amber-text);font-weight:600}
+.tb{height:34px;min-width:34px;border:1px solid rgba(92,61,10,.20);background:rgba(255,255,255,.35);border-radius:8px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 10px;color:var(--tan-ink);font-size:14px;font-weight:600;flex:none;position:relative;transition:background .16s}
+.tb:hover{background:rgba(0,0,0,.06)}
+.tb.on{background:rgba(0,0,0,.07)}
+.tb svg{width:18px;height:18px}
+.touch .tan{height:52px}
+.touch .tb{height:44px;min-width:44px}
+.touch .mir{height:40px}
+.touch .tb+.tb{margin-left:0}
+.tb.ic{padding:0}
+.tb.leave{border-color:transparent;background:none;padding:0 8px 0 2px}
+.tb .n{font-variant-numeric:tabular-nums;font-size:15px}
+.tb.run{background:var(--sage-light);border-color:var(--sage-text);color:var(--sage-text)}
+.tb.ringing{background:var(--amber-light);border-color:var(--amber);color:var(--amber-text);animation:shake .9s var(--ease) infinite}
+@keyframes shake{0%,60%,100%{rotate:0deg}10%{rotate:-9deg}20%{rotate:8deg}30%{rotate:-6deg}40%{rotate:4deg}50%{rotate:-2deg}}
+.mir{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 10px 0 4px;border-radius:8px;background:var(--sage-light);border:1px solid var(--sage-text);color:var(--sage-text);font-weight:600;font-size:14px;white-space:nowrap;flex:none}
+.offi{display:inline-flex;align-items:center;gap:6px;color:var(--tan-ink);font-size:13.5px;font-weight:600;flex:none}
+.offi svg{width:18px;height:18px}
+/* member avatars (DESIGN 4.1.5): person's colour, cream ring */
+.av{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12.5px;flex:none;box-shadow:0 0 0 2px var(--cream)}
+.av.T{background:#4D6B91}.av.M{background:#9E4F38}
+.av.sm{width:20px;height:20px;font-size:12px}
+
+/* the cook surface */
+.cb{flex:1;min-height:0;position:relative;display:flex;flex-direction:column;
+ background:radial-gradient(ellipse 75% 65% at 20% 8%,rgba(255,252,245,.5),transparent 72%),
+ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .24 0 0 0 0 .17 0 0 0 .7 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0/220px 220px,var(--page);transition:box-shadow .3s}
+.cb.ringing{animation:glow 2.4s var(--ease) infinite}
+@keyframes glow{0%,100%{box-shadow:inset 0 0 0 3px rgba(200,148,58,.45)}50%{box-shadow:inset 0 0 0 6px rgba(200,148,58,.7)}}
+.wrap{flex:1;min-height:0;display:flex;flex-direction:column;width:100%;max-width:1320px;margin:0 auto;padding:18px var(--pad) 0}
+.narrow .wrap{padding-top:12px}
+
+/* index card (C-058 .rcard + ruled lines) */
+.card{background:var(--icard);border-radius:6px;box-shadow:0 1px 2px rgba(40,26,8,.10),0 8px 26px rgba(40,26,8,.14),0 0 0 1px rgba(60,40,10,.12);position:relative;display:flex;flex-direction:column;min-height:0}
+.ch{flex:none;padding:14px 26px 12px;border-bottom:1.5px solid var(--ired);background:linear-gradient(to bottom,rgba(255,255,255,.8),rgba(255,255,255,0) 44px),var(--icard);border-radius:6px 6px 0 0;position:relative}
+.phone .ch{padding:12px 14px 10px}
+.ch h2{margin:0;font-size:calc(var(--tt) * var(--ts));line-height:1.15;font-weight:600;letter-spacing:-.01em}
+.ch h3{margin:0;font-size:20px;font-weight:600}
+.ch .sub{font-size:15px;color:var(--muted);margin-top:4px}
+.cs{--r:var(--srow);flex:1;min-height:0;overflow:auto;padding:0 26px var(--r);background:repeating-linear-gradient(to bottom,transparent 0 calc(var(--r) - 1px),var(--iblue) calc(var(--r) - 1px) var(--r)),var(--icard);background-attachment:local;border-radius:0 0 6px 6px}
+.phone .cs{padding:0 14px var(--r)}
+.narrow .stage .cs{overflow:visible}
+.eye{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.amb{color:var(--amber-text);font-weight:600}
+
+/* buttons (DESIGN 2.2.2, 4.2; rounded rectangles, never pills) */
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border-radius:8px;border:1px solid transparent;font-size:15px;font-weight:600;white-space:nowrap;transition:background .16s,transform .05s,box-shadow .16s;position:relative}
+.b:active{transform:scale(.97)}
+.b svg{width:20px;height:20px;flex:none}
+.touch .b{height:44px}
+.b.main{background:var(--sage-dark);color:var(--cream)}
+.b.main:hover{box-shadow:inset 0 0 0 999px rgba(250,244,235,.08)}
+/* second-rank action: white, firm green edge (round 4: sage fill read as a second main button, and as switched off) */
+.b.mid{background:#fff;border:1.5px solid var(--sage-text);color:var(--ink)}
+.b.mid svg{color:var(--sage-text)}
+.b.mid:hover{background:var(--sage-light)}
+.b.mid.off{opacity:.5;border-color:var(--tan-line)}
+.b.out{background:#fff;border-color:var(--tan-line);color:var(--ink2)}
+.b.out:hover{background:var(--sage-light);border-color:var(--sage-line);color:var(--sage-text)}
+.b.amberb{background:var(--amber-light);border-color:var(--amber);color:var(--amber-text)}
+.b.amberb:hover{background:#EFE0C0}
+.b.red{background:#fff;border-color:var(--urgent);color:var(--urgent)}
+.b.sel{background:var(--sage-light);border-color:var(--sage-text);color:var(--sage-text)}
+.b.sm{height:34px;padding:0 12px;font-size:14px}
+.touch .b.sm{height:44px}
+.b.big{height:56px;padding:0 24px;font-size:18px;min-width:140px}
+.b.big svg{width:24px;height:24px}
+.phone .b.big{height:56px;padding:0 14px;font-size:17px;min-width:0}
+.sq{width:44px;padding:0}
+.x{width:40px;height:40px;border:0;background:none;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);flex:none}
+.x:hover{background:rgba(0,0,0,.05)}
+.x svg{width:20px;height:20px}
+.touch .x{width:44px;height:44px}
+.cl{margin-left:auto;font-size:12px;font-weight:600;color:#6B5B40;border:1px dashed #B89F72;border-radius:6px;padding:1px 8px;line-height:17px;white-space:nowrap;background:#FBF6EC}
+
+/* ---------- step screen ---------- */
+.stage{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.62fr) minmax(300px,1fr);gap:24px}
+.ipadside .stage{gap:18px;grid-template-columns:minmax(0,1.5fr) minmax(290px,1fr)}
+.narrow .stage{display:flex;flex-direction:column;overflow:auto;margin:0 calc(-1 * var(--pad));padding:0 var(--pad) 20px}
+.narrow .stage>.scol{flex:1 0 auto}
+.narrow .stage{gap:0}
+.narrow .stage>.card{flex:none}
+.scol{display:flex;flex-direction:column;min-height:0;min-width:0}
+.scol>.card{flex:1}
+.narrow .scol>.card{flex:1 0 auto}
+.hrow{display:flex;align-items:center;gap:12px;min-height:34px;margin-bottom:8px}
+.touch .hrow{min-height:44px}
+.prog{display:flex;gap:4px;flex:none}
+.prog i{width:18px;height:6px;border-radius:3px;background:#E4DCCB}
+.prog i.d{background:var(--sage-text)}
+.prog i.c{background:var(--sage-dark)}
+.prog i.s{background:repeating-linear-gradient(45deg,#E4DCCB 0 3px,#F4EEE2 3px 6px)}
+.phone .prog i{width:10px}
+.prog.many i{width:10px}
+.phone .prog.many{display:none}
+.pos{font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.hrow .grow{flex:1}
+.dchip{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 10px;border-radius:6px;font-size:14.5px;font-weight:600;color:#4A3A22;border:1px solid rgba(60,40,10,.18);white-space:nowrap}
+.dchip .av{box-shadow:0 0 0 1.5px #fff}
+.stime{font-size:15px;white-space:nowrap}
+.cs.step{--r:calc(var(--row) * var(--ts));padding-top:calc(var(--r) * .25)}
+.sw{font-size:calc(var(--st) * var(--ts));line-height:calc(var(--row) * var(--ts));margin:0;color:var(--ink);position:relative;top:calc(var(--r) * -.05)}
+.sw .cue{background:linear-gradient(transparent 62%,rgba(200,148,58,.22) 62%)}
+.sw b.sc{color:var(--sage-mid)}
+/* timer start card under the step (Q7) */
+.tcard{margin-top:var(--r);display:flex;align-items:center;gap:14px;padding:12px 14px 12px 16px;border-radius:8px;background:#F7F3E8;box-shadow:inset 0 0 0 1px var(--sage-line);position:relative}
+.tcard .ti{width:28px;height:28px;color:var(--sage-text);flex:none}
+.tcard .tw{flex:1;min-width:0;line-height:1.3}
+.tcard .tw b{display:block;font-size:19px;font-weight:600}
+.tcard .tw small{display:block;font-size:15px;color:var(--muted);margin-top:2px}
+.tcard .cd{font-size:44px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;color:var(--sage-text);letter-spacing:-.01em}
+.phone .tcard{flex-wrap:wrap;gap:10px 12px;padding:10px 10px 10px 12px}
+.phone .tcard .tw b{font-size:17px}
+.phone .tcard .cd{font-size:36px}
+.phone .tcard>.b.big{width:100%}
+.phone .tcard .tw{flex:1 1 200px}
+.tcard.run{background:var(--sage-light);box-shadow:inset 0 0 0 1px var(--sage-text)}
+.tcard.done{background:var(--amber-light);box-shadow:inset 0 0 0 1px var(--amber)}
+.tcard.done .cd{color:var(--amber-text)}
+.tcard .tbtns{display:flex;gap:8px;align-items:center}
+.phone .tcard.run .tbtns,.phone .tcard.done .tbtns{margin-left:auto}
+.phone .tcard.run .cd,.phone .tcard.done .cd{padding-left:40px}
+.tcard+.tcard{margin-top:12px}
+/* side card */
+.side .cs{--r:calc(var(--srow) * var(--ts))}
+.side .cs .ing{font-size:calc(var(--side) * var(--ts));line-height:var(--r);display:flex;gap:10px}
+.ing .q{font-weight:600;min-width:4.4em;font-variant-numeric:tabular-nums}
+.ing .q.sc{color:var(--sage-mid)}
+.ing .nm{color:var(--ink2);flex:1;min-width:0}
+.grp{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);line-height:var(--r);height:var(--r);text-decoration:underline;text-decoration-color:var(--ired);text-decoration-thickness:1.5px;text-underline-offset:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.none{font-size:calc(var(--side) * var(--ts));line-height:var(--r);color:var(--muted)}
+.cu{flex:none;border-top:1px dashed rgba(0,0,0,.14);padding:12px 26px 16px;background:#FBF7EE;border-radius:0 0 6px 6px}
+.phone .cu{padding:10px 14px 12px}
+.cu .eye{margin-bottom:4px;display:flex;gap:8px;align-items:center}
+.cu b{display:block;font-size:calc(19px * var(--ts));font-weight:600;line-height:1.3}
+.cu p{margin:2px 0 0;font-size:calc(16px * var(--ts));color:var(--ink3);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cu .also{margin-top:8px;font-size:14.5px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.wide .sidecol>.card.fs{flex:0 1 auto}
+.wide .sidecol>.card.cuc{flex:none}
+.wide .cuc .cu{border-top:0;border-radius:6px;padding:16px 26px 18px}
+.wide .cuc .cu b{font-size:calc(22px * var(--ts))}
+.wide .cuc .cu p{font-size:calc(17px * var(--ts))}
+.sidegap{flex:1 1 16px;min-height:16px}
+.wide .sidecol>.card.fs.full{flex:1}
+.cur2 .eye{line-height:var(--r);height:var(--r);display:flex;align-items:center;gap:8px;margin-top:var(--r)}
+.cur2 .nx{font-size:calc(21px * var(--ts));font-weight:600;line-height:var(--r);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cur2 .nw1{font-size:calc(16px * var(--ts));color:var(--ink3);line-height:var(--r);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cur2 .lt{font-size:calc(16px * var(--ts));color:var(--ink2);line-height:var(--r);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cur2 .lt .tm{color:var(--amber-text);font-weight:600;font-variant-numeric:tabular-nums;margin-right:8px}
+.cur2 .also{font-size:15px;color:var(--muted);display:flex;align-items:center;gap:8px;line-height:var(--r)}
+.narrow .side{margin-top:16px}
+.narrow .side .cs{flex:none}
+.side.fs .ch,.side.cuc .ch{padding-top:12px}
+/* the actions row under the cards */
+.acts{flex:none;display:flex;align-items:center;justify-content:center;gap:16px;padding:14px 0 6px;position:relative}
+.acts .sp{flex:1;max-width:120px}
+.keys{flex:none;text-align:center;font-size:12.5px;color:var(--muted);padding:0 0 10px;display:none}
+.computer .keys{display:block}
+.keys kbd{font:600 12px "IBM Plex Sans";border:1px solid var(--tan-line);border-bottom-width:2px;border-radius:5px;padding:0 6px;background:#fff;color:var(--ink2);margin:0 2px}
+.narrow .acts{padding:10px 0 12px;gap:8px;margin:0 calc(-1 * var(--pad));padding-left:var(--pad);padding-right:var(--pad);background:var(--page);box-shadow:0 -1px 0 var(--border),0 -6px 14px rgba(40,26,8,.06)}
+.phone .acts .b.big{flex:1}
+.phone .acts .b.back{flex:none;width:56px;padding:0}
+.ask{min-width:220px}
+.phone .ask{min-width:0}
+.ask.held{background:var(--sage-light);box-shadow:0 0 0 4px rgba(75,105,71,.25)}
+.acts .b.big.wide{min-width:320px}
+.phone .acts .b.big.wide{min-width:0}
+/* hold to finish: the screen's one dark main button (round 4, panel 1: sage at rest read as switched off; DESIGN 4.2.7
+   says sage at rest, flagged for Tyler). A lighter green fills it left to right while held, 1.2 s linear. */
+.hold{overflow:hidden;isolation:isolate}
+.hold::before{content:"";position:absolute;inset:0;background:var(--sage-mid);transform:scaleX(0);transform-origin:0 50%;z-index:-1}
+.hold.holding::before{transform:scaleX(1);transition:transform 1.2s linear}
+.hold .hic{display:inline-flex;width:24px;height:24px;border-radius:50%;border:2px solid rgba(250,244,235,.7);align-items:center;justify-content:center}
+.hold .hic::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--cream)}
+.hsub.top{margin:0;padding:10px 0 2px;min-height:38px;display:flex;align-items:center;justify-content:center}
+.hsub .hh{display:inline-block;background:var(--ink);color:var(--cream);border-radius:8px;padding:6px 14px;font-size:15px;font-weight:500;animation:pop .2s var(--ease)}
+.phone .hsub.top{padding:8px 4px 4px;font-size:13px}
+@media (prefers-reduced-motion:reduce){.hold.holding::before{transition:opacity 1.2s linear;transform:scaleX(1);opacity:1}.hold::before{opacity:0}}
+.hhint{position:absolute;bottom:calc(100% + 10px);z-index:5;left:50%;translate:-50% 0;background:var(--ink);color:var(--cream);border-radius:8px;padding:9px 14px;font-size:15px;font-weight:500;white-space:nowrap;box-shadow:0 4px 14px rgba(40,26,8,.2);animation:pop .2s var(--ease)}
+.hhint::after{content:"";position:absolute;top:100%;left:50%;translate:-50% 0;border:7px solid transparent;border-top-color:var(--ink)}
+.hsub{font-size:13px;color:var(--muted);text-align:center;margin-top:-2px;padding-bottom:10px}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* step change: Cook is a big moment (STANDARDS: unique motion allowed); Reduce Motion fades */
+.anim .scol>.card .ch,.anim .scol>.card .cs{animation:stepIn .3s var(--ease) both}
+@keyframes stepIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.anim.back .scol>.card .ch,.anim.back .scol>.card .cs{animation-name:stepBack}
+@keyframes stepBack{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.anim .scol>.card .ch,.anim .scol>.card .cs{animation:fade .2s linear both}.tb.ringing{animation:none}.cb.ringing{animation:none;box-shadow:inset 0 0 0 5px rgba(200,148,58,.6)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* folder tabs (C-058 manila tabs, FolderDrawer outline) */
+.ftabs{display:flex;align-items:flex-end;height:42px;padding:0 6px;position:relative;z-index:3;margin-bottom:-2px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;flex:none}
+.ftabs::-webkit-scrollbar{display:none}
+.ftabs.more{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent)}
+.touch .ftabs{height:46px}
+.ftab{position:relative;height:40px;border:0;background:none;padding:3px 18px 0;margin-right:-6px;font-size:15px;font-weight:500;color:var(--ink2);white-space:nowrap;display:flex;align-items:center;gap:7px;flex:none;transition:transform .12s}
+.ftab svg.sh{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.ftab>span{position:relative;display:inline-flex;align-items:center;gap:7px}
+.ftab small{font-size:13px;color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
+.ftab.on{font-weight:700;color:var(--ink)}
+.ftab:not(.on):hover{transform:translateY(-2px)}
+.ftab .done{color:var(--sage-text)}
+.phone .ftab{font-size:14px;padding:3px 12px 0}
+.touch .ftab{height:44px}
+.ftab .dn{color:var(--sage-text);display:inline-flex}.ftab .dn svg{width:15px;height:15px}
+.ftab .tmr{display:inline-flex;align-items:center;gap:3px;font-size:13px;font-weight:600;color:var(--sage-text);font-variant-numeric:tabular-nums}
+.ftab .tmr svg{width:14px;height:14px}
+.ftab .tmr.rg{color:var(--amber-text)}
+
+/* step list (jump) */
+.pop{position:absolute;z-index:40;background:#FFFDF7;border:1px solid var(--tan-line);border-radius:10px;box-shadow:0 14px 34px rgba(40,26,8,.24),0 2px 6px rgba(40,26,8,.12);display:flex;flex-direction:column;animation:popd .18s var(--ease)}
+@keyframes popd{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.slist{top:calc(100% - 6px);right:16px;width:min(520px,calc(100% - 32px));max-height:min(560px,calc(100vh - 170px))}
+.narrow .slist{left:8px;right:8px;width:auto}
+.ph{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 16px;border-bottom:1.5px solid var(--ired)}
+.ph b{flex:1;font-size:16px}
+.ph small{font-size:13px;color:var(--muted);font-weight:500}
+.pb{overflow:auto;padding:6px}
+.srow{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;border:0;background:none;border-radius:8px;padding:6px 10px;text-align:left;font-size:16px;color:var(--ink2)}
+.srow:hover{background:#F0EEE3}
+.srow .no{width:28px;height:28px;border-radius:50%;background:var(--tan);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink)}
+.srow .tm{width:64px;flex:none;font-variant-numeric:tabular-nums;font-size:14.5px}
+.srow .w{flex:1;min-width:0}
+.srow .w b{font-weight:600;color:var(--ink)}
+.srow .w small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:13.5px;color:var(--muted);overflow:hidden;line-height:1.35}
+.srow.cur{background:var(--sage-light);box-shadow:inset 0 0 0 1px var(--sage-text)}
+.srow.cur .no{background:var(--sage-text);color:#fff}
+.srow.dn .w b,.srow.dn .w{color:var(--muted)}
+.srow.dn .no{background:#E4EDE2;color:var(--sage-text)}
+.srow.sk .w b{text-decoration:line-through;color:var(--muted)}
+.srow.other{opacity:.62}
+.sbtn{display:flex;align-items:center;gap:12px;flex:1;min-width:0;border:0;background:none;padding:0;text-align:left;font-size:16px;color:inherit;min-height:44px}
+.srow .skip{height:32px;padding:0 10px;border:1px solid var(--tan-line);background:#fff;border-radius:8px;font-size:13px;font-weight:600;color:var(--ink2);flex:none}
+.touch .sbtn{display:flex;align-items:center;gap:12px;flex:1;min-width:0;border:0;background:none;padding:0;text-align:left;font-size:16px;color:inherit;min-height:44px}
+.srow .skip{height:44px}
+.srow.drag{opacity:.4}
+.srow.over{box-shadow:inset 0 3px 0 var(--sage-text)}
+.pf{display:flex;align-items:center;gap:10px;padding:10px 12px;border-top:1px solid var(--tan-line);background:#FBF6EA;border-radius:0 0 10px 10px}
+.pf span{flex:1;font-size:13px;color:var(--muted)}
+
+/* menu, tray (C-058 .menu) */
+.menu{top:calc(100% + 4px);right:8px;min-width:280px;padding:6px}
+.menu .mi{display:flex;align-items:center;width:100%;border:0;background:none;min-height:42px;padding:6px 12px;border-radius:7px;font-size:15.5px;text-align:left;gap:10px}
+.touch .menu .mi{min-height:44px}
+.menu .mi:hover{background:var(--sage-light)}
+.menu .mi svg{width:18px;height:18px;color:var(--muted)}
+.menu .mi.red{color:var(--urgent)}
+.menu .mi.red svg{color:var(--urgent)}
+.menu .mi small{display:block;color:var(--muted);font-size:13px}
+.menu hr{border:0;border-top:1px solid var(--border);margin:4px 6px}
+.tsz{display:flex;align-items:center;gap:10px;padding:6px 12px;font-size:15.5px}
+.tsz span{flex:1}
+.tsz .seg2{display:inline-flex;border:1px solid var(--tan-line);border-radius:8px;overflow:hidden}
+.tsz .seg2 button{border:0;border-right:1px solid var(--tan-line);background:#fff;width:46px;height:40px;font-weight:600;color:var(--ink2)}
+.tsz .seg2 button:last-child{border-right:0}
+.touch .tsz .seg2 button{height:44px}
+.tsz .seg2 button.on{background:var(--sage-light);color:var(--sage-text);box-shadow:inset 0 0 0 1px var(--sage-text)}
+.tray{top:calc(100% + 4px);right:56px;width:min(460px,calc(100% - 16px))}
+.phone .tray{right:8px}
+.trow{display:flex;align-items:center;gap:12px;padding:10px 10px 10px 14px;border-radius:8px}
+.trow+.trow{border-top:1px solid var(--border)}
+.trow .tw{flex:1;min-width:0}
+.trow .tw b{display:block;font-size:16px}
+.trow .tw small{font-size:13.5px;color:var(--muted)}
+.trow .cd{font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--sage-text)}
+.trow.rg .cd{color:var(--amber-text)}
+.trow .tbtns{display:flex;gap:8px}
+.trow .tgo{border:0;background:none;padding:4px 6px;margin:-4px -6px;border-radius:8px;text-align:left;cursor:pointer;min-height:44px}
+.trow .tgo:hover{background:var(--sage-light)}
+.trow .tgo small b{display:inline;font-size:inherit;color:var(--sage-text)}
+.phone .trow{flex-wrap:wrap}
+.phone .trow .tbtns{width:100%;justify-content:flex-end}
+.trow .tbtns .x{margin-left:10px}
+.phone .trow .tbtns{gap:8px}
+.addt{padding:8px 10px 10px;display:flex;gap:8px;align-items:center;border-top:1px solid var(--tan-line);background:#FBF6EA;border-radius:0 0 10px 10px}
+.addt span{flex:1;font-size:13px;color:var(--muted)}
+
+/* banners and notices (DESIGN 4.6.1) */
+.ring{flex:none;display:flex;align-items:center;gap:14px;margin-bottom:14px;padding:12px 12px 12px 16px;border-radius:8px;background:var(--amber-light);box-shadow:inset 0 0 0 1px var(--amber),0 4px 14px rgba(40,26,8,.10);animation:pop .3s var(--ease)}
+.ring svg.ti{width:30px;height:30px;color:var(--amber-text);flex:none;animation:shake .9s var(--ease) infinite}
+.ring .rw{flex:1;min-width:0}
+.ring .rw b{display:block;font-size:21px;font-weight:600}
+.ring .rw small{font-size:15px;color:var(--amber-text)}
+.ring .rb{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.phone .ring{flex-wrap:wrap;gap:10px;padding:10px}
+.phone .ring .rb{width:100%;justify-content:stretch}.phone .ring .rb .b{flex:1;padding:0 6px}
+.note{flex:none;display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;padding:12px 8px 12px 14px;border-radius:8px;background:var(--alert);box-shadow:inset 0 0 0 1px var(--tan-line);font-size:16px;color:var(--ink2);line-height:1.45;animation:pop .25s var(--ease)}
+.note>svg{width:22px;height:22px;flex:none;margin-top:1px;color:var(--muted)}
+.note .nw{flex:1;min-width:0}
+.note .nw b{color:var(--ink)}
+.note .nb{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.note.amber{background:var(--amber-light);box-shadow:inset 0 0 0 1px var(--amber-edge)}
+.note.amber>svg{color:var(--amber-text)}
+.note.sage{background:var(--sage-light);box-shadow:inset 0 0 0 1px var(--sage-line)}
+.note.sage>svg{color:var(--sage-text)}
+.note .x{margin:-6px 0 -6px 0}
+.phone .note{font-size:15px}
+.phone .note .nb .b{flex:1 1 auto}
+.phone .note.stack{flex-wrap:wrap}
+.phone .note.stack>.b{width:100%}
+.note .nw b.h{display:block;font-size:17px;line-height:1.35}
+.note .nw .l2{display:block;font-size:15px;color:var(--ink3);margin-top:2px;line-height:1.4}
+.note.bar{align-items:center;padding:6px 8px 6px 14px}
+.note.bar .nw b{font-size:16px}
+
+/* Hold to Ask pop-up (like Capture: words, sound bar, button at the bottom; DESIGN 4.9.2) */
+.askpop{white-space:normal;font-weight:400;font-size:16px;color:var(--ink);display:block;position:absolute;bottom:calc(100% - 4px);left:50%;translate:-50% 0;width:min(440px,calc(100% - 24px));background:#FFFDF7;border:1px solid var(--tan-line);border-radius:12px;box-shadow:0 14px 34px rgba(40,26,8,.24);padding:16px 18px 14px;text-align:center;z-index:45;animation:pop .2s var(--ease)}
+.askpop::after{content:"";position:absolute;top:100%;left:var(--ax,50%);translate:-50% 0;border:9px solid transparent;border-top-color:#FFFDF7}
+.askpop .words{display:block;font-size:21px;line-height:1.35;color:var(--ink);min-height:56px}
+.askpop .words i{font-style:normal;color:var(--muted)}
+.askpop small{display:block}
+.bars{display:flex;gap:4px;justify-content:center;align-items:center;height:40px;margin:10px 0 6px}
+.bars i{width:5px;border-radius:3px;background:var(--sage-text);animation:bar 1s var(--ease) infinite}
+@keyframes bar{0%,100%{height:8px}50%{height:34px}}
+.askpop small{font-size:14px;color:var(--muted)}
+/* helper chat (one chat per person; never "shared") */
+.chat .cs{--r:var(--srow);padding-top:12px;background:var(--icard)}
+.msg{max-width:88%;margin:0 0 12px;padding:10px 14px;border-radius:10px;font-size:calc(17px * var(--ts));line-height:1.45}
+.msg.me{margin-left:auto;background:var(--sage-light);color:var(--ink)}
+.msg.ai{background:#F6F0E2;color:var(--ink2);box-shadow:inset 0 0 0 1px var(--tan-line)}
+.msg .who{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:2px}
+.compose{flex:none;display:flex;gap:8px;padding:10px 12px 12px;border-top:1px solid var(--tan-line);background:#FBF6EA;border-radius:0 0 6px 6px}
+.compose input{flex:1;min-width:0;height:44px;border:1px solid var(--tan-line);border-radius:8px;background:#fff;padding:0 12px;font-size:16px}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:50;background:var(--icard);border-radius:16px 16px 0 0;box-shadow:0 -10px 30px rgba(40,26,8,.22);max-height:78%;display:flex;flex-direction:column;animation:up .26s var(--ease)}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.sheet .grab{width:40px;height:4px;border-radius:2px;background:#cfc6b5;margin:8px auto 2px}
+.scrim{position:absolute;inset:0;z-index:35;background:rgba(0,0,0,.4);animation:fade .2s}
+.scrim.clear{background:transparent;animation:none}
+/* dialog */
+.dlg{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:60;width:min(440px,calc(100% - 32px));background:var(--icard);border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,.2);overflow:hidden;animation:pop .22s var(--ease)}
+.dlg .dh{padding:20px 22px 12px;border-bottom:1.5px solid var(--ired)}
+.dlg .dh h3{margin:0;font-size:22px;font-weight:600}
+.dlg .dh p{margin:6px 0 0;font-size:16px;color:var(--ink3);line-height:1.45}
+.dlg .db{display:flex;flex-direction:column;gap:8px;padding:16px 22px 20px}
+.dlg .db .b{width:100%}
+.dlg .db .mrow .b{width:auto;flex:none}
+.dlg .db .mrow .w{min-width:0}
+/* toast (DESIGN 4.6.2) */
+.toast{position:absolute;right:24px;bottom:96px;z-index:70;background:var(--ink);color:var(--cream);border-radius:10px;padding:12px 16px;font-size:15px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 24px rgba(0,0,0,.18);animation:pop .22s var(--ease);max-width:calc(100% - 24px)}
+.toast button{border:0;background:none;color:#B9E3AF;font-weight:700;font-size:15px;height:44px;padding:0 6px;text-decoration:underline}
+.narrow .toast{left:50%;right:auto;translate:-50% 0;bottom:96px;white-space:nowrap}
+
+/* ---------- get ready ---------- */
+.gcard{flex:1;min-height:0}
+.gcols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0 36px}
+.narrow .gcols{display:block}
+.gcard .cs{--r:calc(var(--srow) * var(--ts));background:var(--icard)}
+.center .cs{background:var(--icard)!important}
+.gcard .ings .tick,.gcard .ings .grp,.gcard .ingl .tick,.gcard .ingl .grp{border-bottom:1px solid var(--iblue)}
+.touch .gcard:not(.fin) .cs{--r:44px}
+.touch .gcard .grp{line-height:44px;height:44px}
+.sech{display:flex;align-items:center;gap:10px;height:var(--r);margin-top:var(--r)}
+.gcols>div>.sech:first-child,.cs>.sech:first-child{margin-top:calc(var(--r) * .5)}
+.sech h4{margin:0;font-size:calc(19px * var(--ts));font-weight:600}
+.sech .cnt{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sech .b{margin-left:auto}
+.touch .sech{height:auto;min-height:44px}
+.tickhint{font-size:14px;color:var(--muted);margin:-2px 0 6px}
+.tick{display:flex;align-items:center;gap:12px;min-height:var(--r);font-size:calc(var(--side) * var(--ts));cursor:pointer;user-select:none;border:0;background:none;width:100%;padding:0;text-align:left}
+.tick .bx{width:22px;height:22px;border-radius:5px;border:1.5px solid #A79F8E;background:#fff;flex:none;display:flex;align-items:center;justify-content:center;transition:background .16s,border-color .16s}
+.tick .bx svg{width:16px;height:16px;color:#fff;opacity:0;transition:opacity .12s}
+.tick.on .bx{background:var(--sage-text);border-color:var(--sage-text)}
+.tick.on .bx svg{opacity:1}
+.tick.on .nm{color:var(--muted)}
+.tick .q{font-weight:600;min-width:4.4em;font-variant-numeric:tabular-nums}
+.tick .out{margin-left:auto;font-size:13px;font-weight:600;color:var(--amber-text);background:var(--amber-light);border-radius:4px;padding:0 7px;line-height:22px;flex:none}
+.tick .from{margin-left:auto;font-size:13px;color:var(--muted);flex:none}
+.touch .tick{min-height:max(44px,var(--r))}
+.dishh{display:flex;align-items:center;gap:10px;height:var(--r);margin-top:var(--r);font-size:calc(18px * var(--ts));font-weight:600}
+.dishh .sw2{width:14px;height:14px;border-radius:3px;flex:none;box-shadow:inset 0 0 0 1px rgba(60,40,10,.25)}
+.dishh small{font-size:14px;color:var(--muted);font-weight:500}
+.dishh .amb{font-size:14.5px;margin-left:auto}
+.srvrow{display:flex;align-items:center;gap:12px;min-height:calc(var(--r) * 2);flex-wrap:wrap}
+.srvrow .lb{font-size:calc(var(--side) * var(--ts));font-weight:600}
+.stp2{display:inline-flex;align-items:center;border:1px solid var(--tan-line);border-radius:8px;overflow:hidden;background:#fff;flex:none}
+.stp2 button{border:0;background:#fff;width:44px;height:40px;font-size:20px;color:var(--ink2)}
+.touch .stp2 button{height:44px}
+.stp2 button:hover{background:var(--sage-light)}
+.stp2 span{padding:0 14px;border-left:1px solid var(--tan-line);border-right:1px solid var(--tan-line);line-height:40px;font-weight:600;font-variant-numeric:tabular-nums;font-size:16px;min-width:120px;text-align:center}
+.touch .stp2 span{line-height:44px}
+.quiet{font-size:14px;color:var(--muted);line-height:1.4}
+.grbox{background:#F6EEDC;box-shadow:inset 0 0 0 1px var(--tan-line);border-radius:6px;padding:10px 14px;margin-top:calc(var(--r) * .5);font-size:calc(16px * var(--ts));line-height:1.5;color:var(--ink2)}
+.grbox p{margin:0 0 6px}.grbox p:last-child{margin:0}
+.grbox b{color:var(--ink)}
+.grbox .dl{color:var(--muted);font-size:14px;font-weight:600}
+.outbox{margin-top:calc(var(--r) * .5);background:var(--amber-light);box-shadow:inset 0 0 0 1px var(--amber-edge);border-radius:6px;padding:10px 12px 12px 14px;font-size:calc(16px * var(--ts));line-height:1.45;color:var(--ink2)}
+.outbox b{color:var(--ink)}
+.outbox .nb{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.partbox{margin-top:calc(var(--r) * .5);border-radius:6px;box-shadow:inset 0 0 0 1px var(--tan-line);padding:4px 12px 8px;background:#fff}
+.partbox.hl{box-shadow:inset 0 0 0 2px var(--sage-text)}
+.partbox .tick{min-height:44px}
+.partbox .quiet{padding-left:34px;margin-top:-6px}
+.dishrow{display:flex;align-items:center;gap:12px;min-height:52px;border-bottom:1px solid rgba(80,120,170,.14)}
+.dishrow .tick{width:auto;flex:1;min-width:0}
+.dishrow .dn{font-weight:600;color:var(--ink);font-size:calc(var(--side) * var(--ts))}
+.dishrow .dh{flex:1;min-width:0;display:flex;align-items:center;gap:10px}
+.dishrow .sw2{width:14px;height:14px;border-radius:3px;flex:none;box-shadow:inset 0 0 0 1px rgba(60,40,10,.25)}
+.dishrow .when{font-size:15px;text-align:right;line-height:1.3;flex:none}
+.dishrow .when small{display:block;font-size:13px;color:var(--muted);font-weight:500}
+.eatrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:calc(var(--r) * 2)}
+.eatrow .lb{font-size:calc(20px * var(--ts));font-weight:600}
+.narrow .eatrow+.quiet{margin-top:4px!important}
+.phone .stp2 span{min-width:96px;padding:0 8px}
+.narrow .srvrow,.narrow .eatrow{padding:6px 0}
+.addd{margin-top:12px}
+/* round 4: controls sit on solid paper (no blue rules behind them); one line per control on every size */
+.ctlcol{background:var(--icard);position:relative}
+.narrow .ctlcol{margin:0 -26px;padding:0 26px 8px;border-bottom:1px solid var(--tan-line)}
+.phone .ctlcol{margin:0 -14px;padding:0 14px 8px}
+.dishh{background:var(--icard)}
+.crow{display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:10px;min-height:56px}
+.crow .lb{font-size:calc(18px * var(--ts));font-weight:600;min-width:78px}
+.crow .b{justify-self:start}
+.phone .crow{grid-template-columns:72px auto 1fr;gap:8px}
+.phone .crow .stp2 span{min-width:64px;padding:0 6px}
+.phone .crow .lb{font-size:16px;min-width:0}
+.phone .crow .b{padding:0 10px;justify-self:stretch}
+/* Start by (brief item 30) */
+.startby{margin-top:12px;padding:12px 16px;border-radius:8px;background:var(--sage-light);box-shadow:inset 0 0 0 1px var(--sage-line)}
+.startby .big{font-size:calc(24px * var(--ts));font-weight:600;color:var(--ink);line-height:1.25}
+.startby .big b{color:var(--sage-text);font-weight:700;font-variant-numeric:tabular-nums}
+.startby .why{font-size:15px;color:var(--ink3);line-height:1.4;margin-top:4px}
+.startby .why.moved{color:var(--amber-text);font-weight:600}
+.startby .ord{font-size:15px;color:var(--ink2);margin-top:6px;font-variant-numeric:tabular-nums;line-height:1.45}
+.startby .ord b{font-weight:600}
+.phone .startby{padding:10px 12px}
+.phone .startby .big{font-size:calc(21px * var(--ts))}
+/* phone: each dish's row heads its own ingredients */
+.dishblock .dishrow{border-bottom:0;margin-top:6px}
+.dishblock+.dishblock{border-top:1px solid var(--tan-line)}
+.dishblock .ings{padding-left:24px}
+/* how did it go */
+.center{flex:1;min-height:0;display:flex;justify-content:center;align-items:flex-start;overflow:auto;padding-bottom:16px}
+.center>.card{width:100%;max-width:720px}
+.choice{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;min-height:76px;padding:12px 18px;border-radius:10px;border:1px solid var(--tan-line);background:#fff;text-align:left;margin-top:12px;transition:background .16s,border-color .16s}
+.choice:hover{background:var(--sage-light);border-color:var(--sage-text)}
+.choice b{font-size:20px;font-weight:600}
+.choice span{font-size:15.5px;color:var(--muted)}
+.choice.on{background:var(--sage-light);border-color:var(--sage-text)}
+/* finish card */
+.fin .cs{--r:calc(36px * var(--ts))}
+.phone .fin .cs{--r:calc(32px * var(--ts))}
+.urow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 206px;gap:4px 14px;align-items:center;min-height:calc(var(--r) * 1.5);border-bottom:1px solid rgba(80,120,170,.14);font-size:calc(16.5px * var(--ts))}
+.urow .nm{font-weight:600}
+.urow .used{color:var(--ink3);font-variant-numeric:tabular-nums}
+.urow .ba{font-variant-numeric:tabular-nums;color:var(--ink2);white-space:nowrap}
+.urow .used{display:none}
+.urow .nm{line-height:1.3}
+.urow .ub .b{min-width:62px}
+.urow .ub .b.nl{width:124px;padding:0 8px}
+.urow .ba .ar{color:var(--muted);margin:0 6px}
+.urow .ba b{font-weight:600}
+.urow .ba .zero{color:var(--amber-text);font-weight:600}
+.urow .ub{display:flex;gap:8px;justify-content:flex-end}
+.urow.none .nm{text-decoration:line-through;color:var(--muted)}
+.narrow .urow{grid-template-columns:minmax(0,1fr) auto;padding:6px 0}
+.narrow .urow .ba{grid-column:1}
+.narrow .urow .ub{grid-row:1 / span 2;grid-column:2}
+.narrow .urow .used{display:none}
+.phone .urow .ub .b{padding:0 10px}
+.phone .sech .cnt{display:none}
+.subrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.lrow{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;min-height:calc(var(--r) * 1.6);border-bottom:1px solid rgba(80,120,170,.14)}
+.lrow .nm{font-weight:600;font-size:calc(16.5px * var(--ts));min-width:140px}
+.place{display:inline-flex;gap:8px}
+.photo{display:flex;align-items:center;gap:12px;min-height:56px;border-radius:8px;border:1px dashed #C9B790;padding:8px 14px;margin-top:calc(var(--r) * .5);color:#9A9184;background:#FBF8F1}
+.photo svg{width:22px;height:22px}
+.photo b{font-weight:600;font-size:16px}
+.photo small{display:block;font-size:13.5px}
+.notebox{width:100%;min-height:72px;border:1px solid var(--tan-line);border-radius:8px;background:#fff;padding:10px 12px;font-size:16px;resize:none;margin-top:6px}
+.dishgo{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;min-height:calc(var(--r) * 1.6);border-bottom:1px solid rgba(80,120,170,.14)}
+.dishgo .nm{font-weight:600;width:210px;flex:none;font-size:calc(16.5px * var(--ts))}
+.dishgo .opts{display:flex;gap:8px;flex-wrap:wrap}
+/* meal finish: one line, Change opens per-dish choices (equal thirds, never wrapping) */
+.allgo{display:flex;align-items:center;gap:12px;min-height:calc(var(--r) * 1.6);border-bottom:1px solid rgba(80,120,170,.14);font-size:calc(17px * var(--ts))}
+.allgo span{flex:1}
+.seg3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--tan-line);border-radius:8px;overflow:hidden;background:#fff;flex:1 1 300px}
+.seg3 button{border:0;border-right:1px solid var(--tan-line);background:#fff;min-height:40px;font-size:14px;font-weight:600;color:var(--ink2);padding:0 6px}
+.touch .seg3 button{min-height:44px}
+.seg3 button:last-child{border-right:0}
+.seg3 button.on{background:var(--sage-light);color:var(--sage-text);box-shadow:inset 0 0 0 1px var(--sage-text)}
+.narrow .dishgo{flex-direction:column;align-items:stretch;gap:6px;padding:8px 0}
+.narrow .dishgo .nm{width:auto}
+.narrow .dishgo .seg3{flex:none}
+.lrow.meal .nm{min-width:150px}
+.phone .lrow.meal .nm{flex-basis:100%;margin-top:8px;min-width:0}
+/* round 7: a meal's leftover rows stay on one line on wide screens, so the History note shows */
+#dev:not(.phone) .lrow.meal{flex-wrap:nowrap;min-height:52px;gap:10px}
+#dev:not(.phone) .lrow.meal .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#dev:not(.phone) .lrow.meal .stp2 span{min-width:104px;padding:0 8px}
+#dev:not(.phone) .lrow.meal .stp2 button{width:40px}
+.place.ghost{visibility:hidden}
+.phone .place.ghost{display:none}
+/* phone: the still-baking banner keeps its button on the same line */
+.phone .note.bake{align-items:center;padding:10px 8px 10px 12px}
+.phone .note.bake .h{font-size:15.5px}
+.phone .note.bake .l2{font-size:14px}
+.notebox.sm{min-height:56px}
+/* phone Get ready: the servings field never wraps; a dish row puts its time under its name */
+.phone .crow .stp2 span{min-width:98px;white-space:nowrap}
+.phone .crow{grid-template-columns:66px auto 1fr}
+.phone .dishrow{display:grid;grid-template-columns:1fr auto;grid-template-areas:"dh b" "w b";align-items:center;gap:0 10px;padding:8px 0}
+.phone .dishrow .dh{grid-area:dh}
+.phone .dishrow .when{grid-area:w;text-align:left;padding-left:24px;font-size:14px}
+.phone .dishrow .when small{display:inline;margin-left:6px}
+.phone .dishrow>.b{grid-area:b}
+.touch .gcard .sech{margin-top:20px}
+.touch .srvrow{min-height:60px}
+.lrow.meal{padding-bottom:8px}
+.ratenote{display:flex;gap:10px;align-items:flex-start;margin-top:calc(var(--r) * .5);font-size:15px;color:var(--ink3);line-height:1.45}
+.ratenote svg{width:20px;height:20px;color:var(--muted);flex:none;margin-top:1px}
+
+/* loading (C-066 shaped empty page) */
+.sk{background:linear-gradient(90deg,#EEE7D8 0,#F7F2E7 40%,#EEE7D8 80%) 0 0/600px 100%;border-radius:6px;animation:shim 1.4s linear infinite}
+@keyframes shim{from{background-position:-600px 0}to{background-position:600px 0}}
+.lab{text-align:center;color:var(--muted);font-size:15px;padding:8px 0 12px;animation:fade .4s .9s both}
+
+/* Today (after finish) */
+.wood{height:50px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:#F6E9D2;background:repeating-linear-gradient(92deg,rgba(255,255,255,.035) 0 3px,transparent 3px 9px),linear-gradient(180deg,var(--wood3),var(--wood2));box-shadow:inset 0 -1px 0 rgba(0,0,0,.3);z-index:20}
+.wood .wm{font-weight:600;font-style:italic;font-size:22px}
+.tcard2{background:var(--card);border-radius:12px;box-shadow:0 1px 2px rgba(45,33,22,.055),0 6px 16px rgba(45,33,22,.055),0 0 0 1px var(--border);padding:20px;margin-bottom:16px}
+.tcard2 .eye{margin-bottom:10px}
+.mrow{display:flex;align-items:center;gap:12px;min-height:56px;border-top:1px solid rgba(0,0,0,.06);font-size:17px}
+.mrow:first-of-type{border-top:0}
+.mrow .w{flex:1}
+.mrow small{display:block;font-size:14px;color:var(--muted)}
+.mrow .ok{display:inline-flex;align-items:center;gap:6px;color:var(--sage-text);font-weight:600;font-size:15px}
+.mrow .ok svg{width:18px;height:18px}
+.mrow.just{animation:just 1.6s var(--ease) both;margin:0 -10px;padding:0 10px;border-radius:8px}
+@keyframes just{0%{background:transparent}20%{background:var(--sage-light)}100%{background:rgba(228,237,226,.45)}}
+@media (prefers-reduced-motion:reduce){.mrow.just{animation:none;background:rgba(228,237,226,.45)}}
+/* busy */
+.busy{max-width:560px}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mins{display:flex;align-items:center;gap:12px;justify-content:center}
+.mins .stp2 span{min-width:120px}
+.chatempty{font-size:calc(17px * var(--ts));color:var(--muted);line-height:1.5;padding:4px 2px}
+.busy .ch{display:flex;gap:14px;align-items:center}
+.busy .av{width:44px;height:44px;font-size:18px}
+
+/* ---------- BUILD_LIST rows 1, 3, 4, 5 (cook-ahead round 4; rows 1-4 agreed, row 5 NOT agreed) ---------- */
+/* row 4: "‹ Page name" back in the tan bar (STANDARDS, agreed C-091 r4: chevron + where it goes, quieter words, a › before the title) */
+.tan .bk{position:relative;display:inline-flex;align-items:center;gap:2px;height:34px;padding:0 8px 0 4px;border:0;background:none;border-radius:8px;color:var(--tan-ink);font-weight:500;font-size:15px;white-space:nowrap;flex:0 1 auto;min-width:0;opacity:.85;transition:background .16s}
+.tan .bk:hover{background:rgba(0,0,0,.06);opacity:1}
+.tan .bk svg{width:20px;height:20px;flex:none}
+.tan .bk::after{content:"";position:absolute;inset:-5px 0}
+.tan .bk .w{overflow:hidden;min-width:0}
+.touch .tan .bk{height:44px}
+.tan .sepc{width:14px;height:14px;color:var(--tan-ink);opacity:.5;flex:none;margin:0 -4px 0 -6px}
+.tan .tl{gap:10px}
+/* row 4: separators are thin vertical lines, never "·" (render() swaps every on-screen "·" for this) */
+.vs{display:inline-block;width:1px;height:.95em;background:currentColor;opacity:.32;vertical-align:-.12em;margin:0 .55em}
+/* row 5: the calm cook-ahead line under the tan bar title */
+.aheadln{flex:none;display:flex;align-items:center;gap:8px;min-height:36px;padding:4px 16px 4px 14px;background:#F1E6D0;border-bottom:1px solid var(--tan-line);color:var(--tan-ink);font-size:15px;position:relative;z-index:19}
+.aheadln svg{width:18px;height:18px;flex:none;opacity:.8}
+.aheadln b{font-weight:600;color:var(--ink)}
+.aheadln .q{color:var(--tan-ink);opacity:.85}
+.phone .aheadln{font-size:14px;padding:4px 12px}
+/* painter's tape tag (borrowed from the Prep + Leftovers mockup, --tape tokens) */
+#dev{--tape:#D5E4F2;--tape-edge:#A9C4DF}
+.tape{display:inline-block;background:var(--tape);border:1px solid var(--tape-edge);border-radius:5px;padding:0 8px;font-weight:600;color:var(--ink);letter-spacing:.04em;white-space:nowrap;font-variant-numeric:tabular-nums;line-height:1.5}
+.idsay{margin:4px 0 0;font-size:calc(26px * var(--ts));font-weight:600;line-height:1.55;color:var(--ink)}
+.idsay .tape{font-size:inherit;padding:0 10px;border-radius:7px;line-height:1.35}
+.phone .idsay{font-size:calc(21px * var(--ts))}
+.tapeln{display:flex;align-items:flex-start;gap:12px;margin-top:14px;padding:12px 14px;border-radius:8px;background:#fff;box-shadow:inset 0 0 0 1px var(--tan-line);font-size:calc(16px * var(--ts));color:var(--ink2);line-height:1.45}
+.tapeln .sw{width:34px;height:16px;border-radius:3px;background:var(--tape);box-shadow:inset 0 0 0 1px var(--tape-edge);flex:none;margin-top:3px;rotate:-4deg}
+/* finish card: the leftover rows (label | control) */
+.lfrow{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;gap:6px 12px;min-height:58px;border-bottom:1px solid rgba(80,120,170,.14);padding:6px 0}
+.lfrow .lb{font-size:calc(17px * var(--ts));font-weight:600}
+.lfrow .ctl{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;min-width:0}
+.lfrow .ub{font-size:calc(17px * var(--ts));font-weight:600;white-space:nowrap}
+.lfrow .ub+.quiet{flex:1 1 160px}
+/* round 5: phone puts each label over its control, so "How Much" never wraps and the three places fit on one line */
+.phone .lfrow{grid-template-columns:minmax(0,1fr);gap:4px;padding:8px 0}
+.phone .lfrow .lb{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.phone .lfrow .lb:empty{display:none}
+.phone .place.three .b{padding:0 10px}
+.place.three{flex-wrap:wrap}
+.guess{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;color:var(--muted);line-height:1.35}
+.guess svg{width:16px;height:16px;flex:none}
+/* row 1: Split It panel (the look of the Prep + Leftovers mockup's Move > Part of It: a sage-edged white panel) */
+.splitp{margin-top:10px;border-radius:8px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--sage-text);padding:4px 14px 12px}
+.splitp .sph{display:flex;align-items:center;gap:10px;min-height:48px;border-bottom:1px solid var(--border)}
+.splitp .sph b{font-size:calc(17px * var(--ts));flex:1}
+.prow{display:grid;grid-template-columns:64px auto minmax(0,1fr);align-items:center;gap:8px 12px;min-height:60px;border-bottom:1px solid var(--border);padding:6px 0}
+.prow .pn{font-weight:600;font-size:15.5px}
+.prow .stp2 span{min-width:104px}
+.prow .pw{display:flex;flex-direction:column;gap:4px;min-width:0}
+.prow .pw .guess{white-space:nowrap}
+.splitp .bal{font-size:15px;color:var(--sage-text);font-weight:600;padding:10px 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.splitp .bal span{flex:1;min-width:180px}
+.splitp .bal>svg{width:18px;height:18px;flex:none}
+.phone .prow{grid-template-columns:1fr auto;grid-template-areas:"pn st" "pw pw"}
+.phone .prow .pn{grid-area:pn}.phone .prow .stp2{grid-area:st}.phone .prow .pw{grid-area:pw}
+.phone .prow .stp2 span{min-width:88px}
+.lrow .b.splt{margin-left:auto}
+#dev:not(.phone) .lrow.meal .b.splt{margin-left:0;flex:none}
+/* saved card */
+.savedc{max-width:720px}
+.idpart{padding:14px 0 4px}
+.idpart+.idpart{border-top:1px solid var(--border);margin-top:10px}
+.idpart .eye{display:flex;align-items:center}
+.idpart .guess{margin-top:4px}
+/* one-line Plan card preview (Plan's own card is a white rounded card; this is a stand-in line) */
+.planpv{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 14px;border-radius:12px;background:var(--card);box-shadow:0 1px 2px rgba(45,33,22,.055),0 6px 16px rgba(45,33,22,.055),0 0 0 1px var(--border);font-size:16px}
+.planpv .pd{display:flex;flex-direction:column;align-items:center;line-height:1.15;min-width:40px}
+.planpv .pd b{font-size:16px}.planpv .pd small{font-size:12.5px;color:var(--muted)}
+.planpv .pl{width:1px;align-self:stretch;background:var(--border)}
+.planpv .pm{flex:1;min-width:150px}
+.planpv .pm small{display:block;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.planpv .pm b{font-weight:600}
+.planpv .ma{display:inline-flex;align-items:center;gap:8px;padding:3px 10px 3px 8px;border-radius:7px;background:var(--sage-light);box-shadow:inset 0 0 0 1px var(--sage-line);color:var(--sage-text);font-weight:600;font-size:15px;white-space:nowrap}
+.planpv .ma svg{width:16px;height:16px}
+.planpv .ma .tape{font-size:14px;line-height:22px;padding:0 6px}
+.pvnote{font-size:14.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+/* the Prep stand-in page (entry) */
+.prepw{max-width:780px;overflow:auto;padding-bottom:20px}
+.prephd{display:flex;align-items:center;gap:10px;margin:2px 0 12px}
+.prephd .eye{flex:1}
+.phone .prephd{flex-wrap:wrap;gap:6px}.phone .prephd .eye{flex-basis:100%}
+.pcard{margin-bottom:18px}
+.pcard .ch .eye{margin-bottom:4px}
+.pcard .ch h3{font-size:calc(22px * var(--ts))}
+.pcard .cs{--r:36px;padding-top:6px;padding-bottom:16px;background:var(--icard)}
+.pcard .pline{font-size:calc(16px * var(--ts));color:var(--ink2);line-height:1.5;margin:6px 0}
+.pcard .pbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.phone .pcard .pbtns .b{flex:1 1 auto}
+.pcard.dim{opacity:.72}
+.pcard .tick{min-height:44px}
+.pdone{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:16px;color:var(--ink2);margin:6px 0}
+.pdone .ok{display:inline-flex;align-items:center;gap:6px;color:var(--sage-text);font-weight:600}
+.pdone .ok svg{width:18px;height:18px}
+/* ---------- cook-ahead round 6 (panel 4 fixes; NOT agreed) ---------- */
+/* fix 1: the tape tag and its period never part; the saved card grows and the page scrolls, so nothing hides behind the bar */
+.tw{white-space:nowrap}
+.center>.card.savedc{flex:none}
+.savedc .cs{overflow:visible}
+.savedcol{width:100%;max-width:720px;display:flex;flex-direction:column}
+.savedcol .acts,.narrow .savedcol .acts{padding:18px 0 4px;margin:0;gap:12px;justify-content:flex-end;background:none;box-shadow:none}
+.phone .center.savedw{padding-bottom:24px}
+.pvnote .chg{margin-left:6px;vertical-align:middle}
+/* fix 2: row 2's ask on Get ready */
+.grbox .preask{margin-top:8px;padding-top:8px;border-top:1px solid var(--tan-line)}
+.grbox .tick{min-height:44px;padding-left:0;background:none}
+/* fix 3: the meal's servings in the split header, and a short fridge part said in the sum line */
+.splitp .need{font-size:15px;color:var(--ink2);font-weight:600;white-space:nowrap}
+.splitp .bal.short{color:var(--amber-text,#8A5A12)}
+.splitp .bal .meal{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-text);background:var(--sage-light);border-radius:5px;padding:0 6px;margin-left:4px;vertical-align:1px}
+/* Q1: the hold hint for Save as a Leftover reads clearly (ink, not small grey) */
+.hsub.strong,.phone .hsub.top.strong{font-size:15px;color:var(--ink2);font-weight:500}
+/* Q2: the cool timer never blocks Finish */
+.coolnote{display:flex;gap:10px;align-items:center;margin-top:calc(var(--r) * .5);padding:8px 12px;border-radius:8px;background:var(--sage-light);box-shadow:inset 0 0 0 1px var(--sage-line);font-size:15px;color:var(--ink2);line-height:1.4}
+.coolnote svg{width:18px;height:18px;flex:none;color:var(--sage-text)}
+.coolnote b{font-variant-numeric:tabular-nums}
+/* Q4: Thursday's warm-up title carries the number on the lid */
+.step h2 .tape{font-size:.8em;vertical-align:.08em;padding:0 8px;line-height:1.35;border-radius:6px}
+/* fix 5: Plan stand-in (Thu Dinner card and its ⋯ menu), and the stopped task on Prep */
+.planw{max-width:780px;overflow:auto;padding-bottom:20px}
+.pday{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;align-items:start;margin-bottom:14px}
+.pday .dn{display:flex;flex-direction:column;align-items:center;line-height:1.15;padding-top:14px}
+.pday .dn b{font-size:17px}.pday .dn small{font-size:13px;color:var(--muted)}
+.pmeal{position:relative;display:flex;align-items:center;gap:12px;padding:12px 8px 12px 16px;border-radius:12px;background:var(--card);box-shadow:0 1px 2px rgba(45,33,22,.055),0 6px 16px rgba(45,33,22,.055),0 0 0 1px var(--border);min-height:64px}
+.pmeal .pm{flex:1;min-width:0}
+.pmeal .pm small{display:block;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pmeal .pm b{font-weight:600;font-size:17px}
+.pmeal .pm .mk{display:block;font-size:14px;color:var(--ink3);margin-top:2px}
+.pmeal .more{width:44px;height:44px;border:0;background:none;border-radius:8px;color:var(--ink2);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.pmeal .more.on{background:rgba(0,0,0,.06)}
+.pmeal .more svg{width:22px;height:22px}
+.pmeal.dim{opacity:.72}
+.pmeal .menu{top:calc(100% - 6px);right:6px;z-index:40}
+.menu .mi svg.railp{width:20px;height:20px;color:var(--muted)}
+.mi .new{margin-left:auto;font-size:11.5px;font-weight:600;color:#6B5B40;border:1px dashed #B89F72;border-radius:6px;padding:0 6px;line-height:17px;background:#FBF6EC;white-space:nowrap}
+.pstop{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:16px;color:var(--ink2);margin:6px 0}
+.pstop .ok{display:inline-flex;align-items:center;gap:6px;color:var(--amber-text,#8A5A12);font-weight:600}
+.pstop .ok svg{width:18px;height:18px}
+</style></head><body>
+<div id="ctl">
+ <div class="r"><h1>Cook Mode</h1><span class="nag">Mockup, not agreed (T-2156 round 9; cook-ahead round 6)</span>
+  <div class="seg" id="devs"><button data-d="c1280">Computer 1280</button><button data-d="c1440">Computer 1440</button><button data-d="ipadside">iPad sideways</button><button data-d="ipadup">iPad upright</button><button data-d="phone">iPhone</button></div></div>
+ <div class="sts" id="sts1"></div>
+ <div class="sts" id="sts2"></div>
+ <div class="sts" id="sts3"></div>
+</div>
+<button id="stfab">States ▾</button><div id="stpop"><div class="sts" id="sts1b"></div><div class="sts" id="sts2b"></div><div class="sts" id="sts3b"></div></div>
+<div id="stage"><div id="scaler"><div id="dev"></div></div></div>
+<script>
+/* =============== icons: Lucide paths (24 grid, stroke 2), names.ts keys noted =============== */
+const P={timer:'<line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/>',
+mic:'<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>',
+back:'<path d="m15 18-6-6 6-6"/>',fwd:'<path d="m9 18 6-6-6-6"/>',expand:'<path d="m6 9 6 6 6-6"/>',close:'<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+more:'<circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>',list:'<path d="M3 12h.01M3 18h.01M3 6h.01M8 12h13M8 18h13M8 6h13"/>',
+check:'<path d="M20 6 9 17l-5-5"/>',unsaved:'<path d="m2 2 20 20"/><path d="M5.782 5.782A7 7 0 0 0 9 19h8.5a4.5 4.5 0 0 0 1.307-.193"/><path d="M21.532 16.5A4.5 4.5 0 0 0 17.5 10h-1.79A7.008 7.008 0 0 0 10 5.07"/>',
+tablet:'<rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><line x1="12" x2="12.01" y1="18" y2="18"/>',
+flame:'<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+time:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',info:'<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+add:'<path d="M5 12h14"/><path d="M12 5v14"/>',camera:'<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+people:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+warn:'<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+edit:'<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>',
+note:'<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+remove:'<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>',
+person:'<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+keyboard:'<path d="M10 8h.01"/><path d="M12 12h.01"/><path d="M14 8h.01"/><path d="M16 12h.01"/><path d="M18 8h.01"/><path d="M6 8h.01"/><path d="M7 16h10"/><path d="M8 12h.01"/><rect width="20" height="16" x="2" y="4" rx="2"/>',
+dot:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1"/>'};
+/* grayscale page rail icons for menu rows (STANDARDS "Icons inside menus are the grayscale page icons"; rethink/icons/svg/*-rail-plain.svg) */
+const RAIL={book:'<svg class="railp" aria-hidden="true" viewBox="0 0 20 20" stroke-linejoin="round" stroke-linecap="round"><defs><mask id="carb14m0" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><path d="M16.8 15.4 H4.8 Q3.2 15.4 3.2 17 Q3.2 18.6 4.8 18.6 H16.8 Z" fill="black" stroke="black" stroke-width="2.60"/><rect x="7.9" y="4.4" width="7" height="4.8" rx=".7" fill="black" stroke="black" stroke-width="2.25"/></mask><mask id="carb14m1" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><rect x="7.9" y="4.4" width="7" height="4.8" rx=".7" fill="black" stroke="black" stroke-width="2.25"/></mask><mask id="carb14m2" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><rect x="7.9" y="4.4" width="7" height="4.8" rx=".7" fill="black" stroke="black" stroke-width="2.25"/></mask></defs><g mask="url(#carb14m0)"><path d="M3.2 3.6 Q3.2 2.2 4.6 2.2 H15.6 Q16.8 2.2 16.8 3.4 V18.6 H4.6 Q3.2 18.6 3.2 17.2 Z" fill="none" stroke="currentColor" stroke-width="1.6"/></g><g mask="url(#carb14m1)"><path d="M16.8 15.4 H4.8 Q3.2 15.4 3.2 17 Q3.2 18.6 4.8 18.6 H16.8 Z" fill="none" stroke="currentColor" stroke-width="1.6"/></g><g mask="url(#carb14m2)"><path d="M6 2.2 V15.4" fill="none" stroke="currentColor" stroke-width="1.25"/></g><rect x="7.9" y="4.4" width="7" height="4.8" rx=".7" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>',
+plan:'<svg class="railp" aria-hidden="true" viewBox="0 0 20 20" stroke-linejoin="round" stroke-linecap="round"><defs><mask id="carp10m0" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><path d="M3.4 3.4 Q3.4 2 4.8 2 H11.6 L14.8 5.2 V17 Q14.8 18.4 13.4 18.4 H4.8 Q3.4 18.4 3.4 17 Z" fill="black" stroke="black" stroke-width="2.60"/><path d="M11.6 2 V4.4 Q11.6 5.2 12.4 5.2 H14.8 Z" fill="black" stroke="black" stroke-width="2.25"/></mask><mask id="carp10m1" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><path d="M11.6 2 V4.4 Q11.6 5.2 12.4 5.2 H14.8 Z" fill="black" stroke="black" stroke-width="2.25"/></mask></defs><g mask="url(#carp10m0)"><rect x="6" y="3.6" width="11" height="15.6" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/></g><g mask="url(#carp10m1)"><path d="M3.4 3.4 Q3.4 2 4.8 2 H11.6 L14.8 5.2 V17 Q14.8 18.4 13.4 18.4 H4.8 Q3.4 18.4 3.4 17 Z" fill="none" stroke="currentColor" stroke-width="1.6"/></g><path d="M11.6 2 V4.4 Q11.6 5.2 12.4 5.2 H14.8 Z" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M11.6 2 L14.8 5.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6.6" cy="8.2" r="1.45" fill="currentColor"/><circle cx="6.6" cy="11.8" r="1.45" fill="currentColor"/><circle cx="6.6" cy="15.3" r="1.45" fill="currentColor"/><path d="M9.4 8.2 H11.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.4 11.8 H12.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.4 15.3 H12.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',
+cook:'<svg class="railp" aria-hidden="true" viewBox="0 0 20 20" stroke-linejoin="round" stroke-linecap="round"><defs><mask id="carc34m0" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><rect x="13" y="10.4" width="6.4" height="2.4" rx="1.2" fill="black" stroke="black" stroke-width="2.60"/><path d="M2.2 9.6 H13.4 V15.6 Q13.4 18.6 10.4 18.6 H5.2 Q2.2 18.6 2.2 15.6 Z" fill="black" stroke="black" stroke-width="2.60"/><path d="M1.6 9.6 Q2 7.2 7.8 7.2 Q13.6 7.2 14 9.6 Z" fill="black" stroke="black" stroke-width="2.60"/><rect x="6.6" y="5.4" width="2.4" height="1.8" rx=".7" fill="black" stroke="black" stroke-width="2.60"/></mask><mask id="carc34m1" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><rect x="13" y="10.4" width="6.4" height="2.4" rx="1.2" fill="black" stroke="black" stroke-width="2.60"/><path d="M2.2 9.6 H13.4 V15.6 Q13.4 18.6 10.4 18.6 H5.2 Q2.2 18.6 2.2 15.6 Z" fill="black" stroke="black" stroke-width="2.60"/><path d="M1.6 9.6 Q2 7.2 7.8 7.2 Q13.6 7.2 14 9.6 Z" fill="black" stroke="black" stroke-width="2.60"/><rect x="6.6" y="5.4" width="2.4" height="1.8" rx=".7" fill="black" stroke="black" stroke-width="2.60"/></mask><mask id="carc34m2" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><path d="M2.2 9.6 H13.4 V15.6 Q13.4 18.6 10.4 18.6 H5.2 Q2.2 18.6 2.2 15.6 Z" fill="black" stroke="black" stroke-width="2.60"/><path d="M1.6 9.6 Q2 7.2 7.8 7.2 Q13.6 7.2 14 9.6 Z" fill="black" stroke="black" stroke-width="2.60"/><rect x="6.6" y="5.4" width="2.4" height="1.8" rx=".7" fill="black" stroke="black" stroke-width="2.60"/></mask><mask id="carc34m3" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><path d="M1.6 9.6 Q2 7.2 7.8 7.2 Q13.6 7.2 14 9.6 Z" fill="black" stroke="black" stroke-width="2.60"/><rect x="6.6" y="5.4" width="2.4" height="1.8" rx=".7" fill="black" stroke="black" stroke-width="2.60"/></mask><mask id="carc34m4" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><rect x="6.6" y="5.4" width="2.4" height="1.8" rx=".7" fill="black" stroke="black" stroke-width="2.60"/></mask></defs><g mask="url(#carc34m0)"><path d="M4.4 5.2 q-1.1-1.2 0-2.4 q1.1-1.2 0-2.4" fill="none" stroke="currentColor" stroke-width="1.5"/></g><g mask="url(#carc34m1)"><path d="M11.2 5.2 q-1.1-1.2 0-2.4 q1.1-1.2 0-2.4" fill="none" stroke="currentColor" stroke-width="1.5"/></g><g mask="url(#carc34m2)"><rect x="13" y="10.4" width="6.4" height="2.4" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.6"/></g><g mask="url(#carc34m3)"><path d="M2.2 9.6 H13.4 V15.6 Q13.4 18.6 10.4 18.6 H5.2 Q2.2 18.6 2.2 15.6 Z" fill="none" stroke="currentColor" stroke-width="1.6"/></g><g mask="url(#carc34m4)"><path d="M1.6 9.6 Q2 7.2 7.8 7.2 Q13.6 7.2 14 9.6 Z" fill="none" stroke="currentColor" stroke-width="1.6"/></g><rect x="6.6" y="5.4" width="2.4" height="1.8" rx=".7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',
+prep:'<svg class="railp" aria-hidden="true" viewBox="0 0 20 20" stroke-linejoin="round" stroke-linecap="round"><defs><mask id="carr30m0" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><circle cx="10" cy="4.2" r="1" fill="black" stroke="black" stroke-width="2.25"/><path d="M0 0 H11.4 V5 Q4.2 5.2 0 0 Z" transform="translate(.4 15.8) rotate(-20)" fill="black" stroke="black" stroke-width="2.60"/><rect x="11.4" y=".1" width="7.4" height="2.8" rx="1.3" transform="translate(.4 15.8) rotate(-20)" fill="black" stroke="black" stroke-width="2.60"/></mask><mask id="carr30m1" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><path d="M0 0 H11.4 V5 Q4.2 5.2 0 0 Z" transform="translate(.4 15.8) rotate(-20)" fill="black" stroke="black" stroke-width="2.60"/><rect x="11.4" y=".1" width="7.4" height="2.8" rx="1.3" transform="translate(.4 15.8) rotate(-20)" fill="black" stroke="black" stroke-width="2.60"/></mask><mask id="carr30m2" maskUnits="userSpaceOnUse" x="-4" y="-4" width="28" height="28"><rect x="-4" y="-4" width="28" height="28" fill="white"/><rect x="11.4" y=".1" width="7.4" height="2.8" rx="1.3" transform="translate(.4 15.8) rotate(-20)" fill="black" stroke="black" stroke-width="2.60"/></mask></defs><g mask="url(#carr30m0)"><rect x="5.4" y="1.4" width="9.2" height="15.6" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></g><g mask="url(#carr30m1)"><circle cx="10" cy="4.2" r="1" fill="none" stroke="currentColor" stroke-width="1.25"/></g><g mask="url(#carr30m2)"><path d="M0 0 H11.4 V5 Q4.2 5.2 0 0 Z" transform="translate(.4 15.8) rotate(-20)" fill="none" stroke="currentColor" stroke-width="1.6"/></g><rect x="11.4" y=".1" width="7.4" height="2.8" rx="1.3" transform="translate(.4 15.8) rotate(-20)" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'};
+const ic=(n,c='')=>`<svg class="${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n]}</svg>`;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+/* =============== sample data =============== */
+/* ingredient: [id, base amount (number or null), unit/plural text, name] ; amounts scale with servings */
+const ING=(id,a,u,n,o={})=>({id,a,u,n,...o});
+const R={
+ tikka:{name:'Chicken Tikka Masala',short:'Tikka Masala',serves:4,time:'about 1 hr',col:'#E8D6B2',
+  groups:[['For the marinade',[ING('chk',1.5,'lb','chicken thighs, in bite-size pieces'),ING('yog',1,'cup','plain yogurt'),ING('lem',1,'tbsp','lemon juice'),ING('gm1',2,'tsp','garam masala'),ING('slt',1,'tsp','salt')]],
+   ['For the sauce',[ING('but',2,'tbsp','butter'),ING('oni',1,'','onion, chopped'),ING('gar',3,'cloves','garlic, minced'),ING('gin',1,'tbsp','grated ginger'),ING('gm2',2,'tsp','garam masala'),ING('tom',1,'can (14 oz)','crushed tomatoes'),ING('crm',.5,'cup','heavy cream')]],
+   ['To serve',[ING('ric',1.5,'cups','basmati rice'),ING('cil',null,'','fresh cilantro, a handful')]]],
+  steps:[
+   {t:'Marinate the Chicken',w:'Stir the yogurt, lemon juice, garam masala and salt in a bowl. Add the chicken and coat it well. Let it sit <span class="cue">about 20 minutes</span> (overnight is best).',tm:{min:20,l:'Marinate',cue:'about 20 min, longer is fine'},u:['chk','yog','lem','gm1','slt']},
+   {t:'Start the Rice',w:'Rinse the rice until the water runs clear. Cook it in 2¼ cups of water, covered, <span class="cue">about 18 minutes, until the water is gone</span>.',tm:{min:18,l:'Rice',cue:'about 18 min, until the water is gone'},u:['ric']},
+   {t:'Brown the Chicken',w:'Heat a big pan over medium-high. Cook the chicken in two batches <span class="cue">until browned on the outside</span>, about 6 minutes. Set it on a plate.',u:['chk']},
+   {t:'Start the Sauce',w:'Melt the butter in the same pan. Cook the onion <span class="cue">until soft and golden, about 8 minutes</span>. Stir in the garlic, ginger and garam masala for 1 minute.',u:['but','oni','gar','gin','gm2']},
+   {t:'Simmer the Sauce',w:'Pour in the tomatoes. Simmer, stirring now and then, <span class="cue">about 15 minutes, until thick</span>.',tm:{min:15,l:'Simmer',cue:'about 15 min, until thick'},u:['tom']},
+   {t:'Bring It Together',w:'Stir in the cream. Add the chicken back with its juices. Simmer <span class="cue">about 10 minutes, until the chicken is cooked through</span>.',tm:{min:10,l:'Finish Simmer',cue:'about 10 min, until cooked through'},u:['crm','chk']},
+   {t:null,w:'Taste the sauce and add a pinch of salt if it needs it. Fluff the rice with a fork.',u:['slt','ric']},
+   {t:'Serve',w:'Spoon the curry over the rice and scatter the cilantro on top.',u:['ric','cil']}],
+  ready:'Marinate 20 min (overnight is best), then start the rice.',ahead:'Marinate the chicken up to 1 day ahead. Make the sauce up to 3 days ahead.',keeps:'Keeps 3 days in the fridge'},
+ lasagna:{name:'Classic Lasagna',short:'Lasagna',serves:8,time:'about 2 hr',col:'#DCC598',
+  groups:[['For the meat sauce',[ING('bf',1,'lb','ground beef'),ING('sau',.5,'lb','Italian sausage'),ING('lon',1,'','onion, diced'),ING('lga',4,'cloves','garlic, minced'),ING('ltm',1,'can (28 oz)','crushed tomatoes'),ING('tp',2,'tbsp','tomato paste'),ING('bas',1,'tsp','dried basil'),ING('ore',1,'tsp','dried oregano'),ING('sug',1,'tsp','sugar'),ING('ls',1,'tsp','salt')]],
+   ['For the cheese filling',[ING('ric2',15,'oz','ricotta'),ING('egg',1,'','egg'),ING('par',.5,'cup','grated parmesan'),ING('prs',2,'tbsp','chopped parsley'),ING('pep',.5,'tsp','black pepper')]],
+   ['To build',[ING('noo',12,'','lasagna noodles'),ING('moz',1,'lb','mozzarella, shredded'),ING('par2',.25,'cup','grated parmesan'),ING('oil',1,'tbsp','olive oil'),ING('foil',null,'','foil, one sheet')]]],
+  steps:[{t:'Brown the Meat',w:'Cook the beef and sausage in a big pot over medium-high, breaking it up, until no pink is left.',u:['bf','sau']},
+   {t:'Soften the Onion',w:'Add the onion and garlic. Cook until soft, about 5 minutes.',u:['lon','lga']},
+   {t:'Simmer the Sauce',w:'Stir in the tomatoes, paste, basil, oregano, sugar and salt. Simmer about 30 minutes.',tm:{min:30,l:'Sauce',cue:'about 30 min'},u:['ltm','tp','bas','ore','sug','ls']},
+   {t:'Boil the Noodles',w:'Boil the noodles about 9 minutes, until bendy but firm. Drain and lay flat with a little oil.',tm:{min:9,l:'Noodles',cue:'about 9 min'},u:['noo','oil']},
+   {t:'Mix the Cheese Filling',w:'Stir the ricotta, egg, parmesan, parsley and pepper in a bowl.',u:['ric2','egg','par','prs','pep']},
+   {t:'Heat the Oven',w:'Heat the oven to 375°F.',u:[]},
+   {t:'First Layer',w:'Spread 1 cup of sauce in a 9 by 13 dish. Lay 4 noodles, then half the cheese filling and a third of the mozzarella.',u:['noo','ric2','moz']},
+   {t:'Second Layer',w:'Repeat: sauce, 4 noodles, the rest of the filling, a third of the mozzarella.',u:['noo','moz']},
+   {t:'Top Layer',w:'Finish with noodles, the last of the sauce, the rest of the mozzarella and the parmesan.',u:['noo','moz','par2']},
+   {t:'Bake Covered',w:'Cover with foil. Bake about 25 minutes.',tm:{min:25,l:'Bake Covered',cue:'about 25 min'},u:['foil']},
+   {t:'Bake Uncovered',w:'Take off the foil. Bake about 20 minutes more, until bubbling and browned.',tm:{min:20,l:'Bake',cue:'about 20 min, until bubbling'},u:[]},
+   {t:'Rest',w:'Let it rest 15 minutes before cutting, so it holds its shape.',tm:{min:15,l:'Rest',cue:'15 min'},u:[]}],
+  ready:'Take the ricotta out of the fridge. Make room on a middle oven rack.',ahead:'Make the meat sauce up to 2 days ahead. Build it the night before; bake 10 min longer.',keeps:'Keeps 4 days in the fridge'},
+ chicken:{name:'Roast Chicken',short:'Chicken',serves:6,col:'#E8D6B2',who:'T',
+  groups:[['',[ING('wc',5,'lb','whole chicken'),ING('oo',2,'tbsp','olive oil'),ING('lm',1,'','lemon, cut in half'),ING('thy',4,'sprigs','thyme'),ING('cs',2,'tsp','salt'),ING('cp',1,'tsp','pepper')]]],
+  steps:[{t:'Heat the Oven',w:'Heat the oven to 425°F. Set a rack in the middle.',u:[]},
+   {t:'Dry and Season',w:'Pat the chicken dry. Rub it all over with the oil, salt and pepper. Tuck the lemon and thyme inside.',u:['wc','oo','cs','cp','lm','thy']},
+   {t:'Roast',w:'Roast <span class="cue">about 75 minutes, until the thigh reads 165°F</span> and the juices run clear.',tm:{min:75,l:'Roast',cue:'about 75 min, until 165°F in the thigh'},u:['wc']},
+   {t:'Rest',w:'Move it to a board. Rest 15 minutes so the juices settle.',tm:{min:15,l:'Rest',cue:'15 min'},u:[]},
+   {t:'Carve',w:'Carve the legs, then the breast. Squeeze the roasted lemon over everything.',u:['lm']}],
+  ready:'Take the chicken out of the fridge 30 minutes before.',ahead:'Salt it the night before for crisper skin.'},
+ potatoes:{name:'Garlic Mashed Potatoes',short:'Potatoes',serves:6,col:'#E2CDA4',
+  groups:[['',[ING('pot',3,'lb','Yukon Gold potatoes'),ING('pg',6,'cloves','garlic'),ING('pb',3,'tbsp','butter'),ING('mlk',.75,'cup','milk'),ING('ps',1.5,'tsp','salt')]]],
+  steps:[{t:'Peel and Cut',w:'Peel the potatoes and cut them in 2-inch chunks. Cover with cold salted water in a big pot.',u:['pot','ps']},
+   {t:'Boil',w:'Bring to a boil, then cook <span class="cue">about 18 minutes, until a fork slides in easily</span>.',tm:{min:18,l:'Boil',cue:'about 18 min, until a fork slides in'},u:['pot']},
+   {t:'Warm the Garlic Butter',w:'Warm the butter, milk and garlic in a small pot until the butter melts.',u:['pb','mlk','pg']},
+   {t:'Mash',w:'Drain the potatoes. Mash with the warm garlic butter until smooth. Taste for salt.',u:['pot','pb','mlk']}],
+  ahead:'Peel and cut up to 1 day ahead; keep them in cold water.'},
+ beans:{name:'Green Beans',short:'Green Beans',serves:6,col:'#DCC598',
+  groups:[['',[ING('gb',1,'lb','green beans'),ING('bb',2,'tbsp','butter'),ING('alm',.33,'cup','sliced almonds'),ING('zst',1,'tsp','lemon zest')]]],
+  steps:[{t:'Trim and Blanch',w:'Trim the ends. Boil the beans <span class="cue">about 4 minutes, until bright green</span>, then drain.',tm:{min:4,l:'Blanch',cue:'about 4 min, until bright green'},u:['gb']},
+   {t:'Toss With Almonds',w:'Melt the butter in a pan and toast the almonds. Toss in the beans and lemon zest.',u:['bb','alm','zst']}]},
+ crisp:{name:'Apple Crisp',short:'Apple Crisp',serves:6,col:'#E5D2AC',
+  groups:[['For the filling',[ING('ap',6,'','apples'),ING('as',2,'tbsp','sugar'),ING('cin',1,'tsp','cinnamon')]],['For the topping',[ING('oat',1,'cup','oats'),ING('brs',.5,'cup','brown sugar'),ING('flr',.5,'cup','flour'),ING('cb',4,'tbsp','cold butter')]]],
+  steps:[{t:'Make the Topping',w:'Rub the oats, brown sugar, flour and cold butter together until it looks like crumbs. Chill it.',u:['oat','brs','flr','cb']},
+   {t:'Fill the Dish',w:'Slice the apples. Toss with the sugar and cinnamon in a baking dish. Scatter the topping over.',u:['ap','as','cin']},
+   {t:'Bake While You Eat',w:'Bake at 375°F <span class="cue">about 40 minutes, until bubbling and golden</span>.',tm:{min:40,l:'Bake',cue:'about 40 min, until bubbling'},u:[]}],
+  ahead:'Make the topping up to 3 days ahead.'},
+ rolls:{name:'Dinner Rolls',short:'Rolls',serves:6,col:'#EADBB9',groups:[['',[ING('rl',12,'','dinner rolls, ready to bake')]]],
+  steps:[{t:'Bake the Rolls',w:'Bake at 375°F <span class="cue">about 20 minutes, until golden</span>. Serve them hot.',tm:{min:20,l:'Rolls',cue:'about 20 min, until golden'},u:['rl']}]},
+ /* cook-ahead (BUILD_LIST row 5, NOT agreed): the Make Ahead dish from Prep. Its Serve step waits for Thu; Cool It Down is
+    added because the dish goes into the fridge or freezer (food safety: shallow containers, cool fast) */
+ chili:{name:'Beef Chili',short:'Chili',serves:6,time:'about 1 hr 30 min',col:'#E3C9A0',
+  groups:[['',[ING('cbf',2,'lb','ground beef'),ING('con',1,'','onion, diced'),ING('cga',4,'cloves','garlic, minced'),ING('cpw',3,'tbsp','chili powder'),ING('ccu',2,'tsp','ground cumin'),ING('ctm',1,'can (28 oz)','crushed tomatoes'),ING('ckb',2,'cans (15 oz)','kidney beans, drained'),ING('cbr',1,'cup','beef broth'),ING('csl',2,'tsp','salt')]]],
+  steps:[{t:'Brown the Beef',w:'Cook the beef in a big pot over medium-high, breaking it up, <span class="cue">until no pink is left</span>, about 8 minutes. Spoon off most of the fat.',u:['cbf']},
+   {t:'Soften the Onion',w:'Add the onion and garlic. Cook <span class="cue">until soft, about 5 minutes</span>.',u:['con','cga']},
+   {t:'Toast the Spices',w:'Stir in the chili powder and cumin. Cook 1 minute, <span class="cue">until it smells toasty</span>.',u:['cpw','ccu']},
+   {t:'Simmer',w:'Add the tomatoes, beans, broth and salt. Bring it to a boil, then simmer uncovered <span class="cue">about 45 minutes, until thick</span>. Stir now and then.',tm:{min:45,l:'Simmer',cue:'about 45 min, until thick'},u:['ctm','ckb','cbr','csl']},
+   {t:'Taste',w:'Taste it and add a pinch of salt if it needs it.',u:['csl']},
+   {t:'Cool It Down',ca:1,w:'Spoon it into shallow containers and leave the lids off <span class="cue">until barely warm, about 30 minutes</span>. Then lids on. You can save it while it cools.',tm:{min:30,l:'Cool',cue:'about 30 min, until barely warm'},u:[]}],
+  ready:'Get out your biggest pot and two shallow containers with lids.',ahead:'Dice the onion up to 2 days ahead.',keeps:'Keeps 4 days in the fridge, 3 months in the freezer'},
+ /* round 6 (Q4, panel 4): Thursday's dinner, the chili is already made. Cook shows "Already Made: Warm Up #0047" */
+ chiliw:{name:'Beef Chili',short:'Chili',serves:4,time:'about 15 min',col:'#E3C9A0',
+  groups:[['',[ING('w47',4,'Servings','Beef Chili, leftover #0047 (in the fridge)')]]],
+  steps:[{t:'Warm It Up',w:'Spoon it into a pot. Warm it over medium, stirring now and then, <span class="cue">until it bubbles all the way through, about 10 minutes</span>. Add a splash of water if it is thick.',tm:{min:10,l:'Warm',cue:'about 10 min, until it bubbles'},u:['w47']},
+   {t:'Serve',w:'Spoon it into bowls. Top it however you like.',u:[]}],
+  ready:'Take #0047 out of the fridge.',keeps:''}};
+/* use-by guesses (BUILD_LIST row 3: from the recipe's keeping table, shown as "Our guess"). Chili is made Mon, Nov 30 for
+   Thu, Dec 3; Tikka is made today, Thu, Nov 26 */
+const PLACES=[['fridge','Fridge'],['freezer','Freezer'],['garage','Garage Freezer']];
+const UB={chili:{fridge:'Fri, Dec 4',freezer:'about Feb 28',garage:'about Feb 28'},tikka:{fridge:'Sun, Nov 29',freezer:'about Feb 26',garage:'about Feb 26'}};
+const KEEPW={fridge:'4 days in the fridge',freezer:'about 3 months in the freezer',garage:'about 3 months in the freezer'};
+/* round 6: need = the servings Thu Dinner is planned for (the split pre-fills the fridge part to it); prep = the meal's prep
+   tasks not ticked on Prep, Plan or Today (BUILD_LIST row 2) */
+const AHEAD={meal:'Thu Dinner',day:'Thu',date:'Dec 3',no:47,need:4,prep:[['pon','Dice the onion','Prep task for Thu Dinner']]};
+const CUSED=[['cbf','Ground beef','2 lb','3 lb','1 lb'],['con','Onions','1','4','3'],['cpw','Chili powder','3 tbsp','5 tbsp','2 tbsp'],['ctm','Crushed tomatoes','1 can','2 cans','1 can'],['ckb','Kidney beans','2 cans','2 cans','0'],['cbr','Beef broth','1 cup','4 cups','3 cups']];
+const CRISP_WARM=[{t:'Warm It Up',w:'It is already made. Bake it covered at 350°F <span class="cue">about 15 minutes, until warm in the middle</span>.',tm:{min:15,l:'Warm',cue:'about 15 min, until warm in the middle'},u:[]}];
+/* Start by rule (brief item 30, Tyler 21:19): Start by = Eat at (6:30) - the longest dish's full time
+   (Roast Chicken: season 10 + roast 75 + rest 15 = 100 min, nothing left to prep ahead) - 10 min spare = 4:40, rounded down to 5 min.
+   Order: long waits first (the roast), hands-on work in the waits (peel, topping), quick sides last (beans); the oven holds one heat. */
+const MEAL={name:'Sunday Dinner',dishes:['chicken','potatoes','beans','crisp'],startBy:280,longest:'Roast Chicken',longMin:100,
+ order:[['chicken',0,280,'Oven heats while you season'],['chicken',1,285],['chicken',2,295,'Long wait: 75 min in the oven. Do the potatoes and crisp meanwhile'],['potatoes',0,305,'Hands-on, while the chicken roasts'],['crisp',0,320,'Hands-on, while the chicken roasts'],['crisp',1,330],['potatoes',1,345,'Wait: about 18 min on the stove'],['potatoes',2,355,'While the potatoes boil'],['potatoes',3,365],['chicken',3,370,'Wait: 15 min. Do the beans now'],['beans',0,375,'Quick side, last so it is hot'],['beans',1,380],['chicken',4,385],['crisp',2,390,'The oven is free now. Bakes while you eat']]};
+function dishesNow(){return S&&S.rolls?[...MEAL.dishes,'rolls']:MEAL.dishes;}
+const KITCHEN={crm:0,gm2:2};  /* in stock today (only the ones that matter) */
+const clock=m=>`${(Math.floor(m/60)+11)%12+1}:${String(m%60).padStart(2,'0')}`;
+const FR=[[.25,'¼'],[.33,'⅓'],[.5,'½'],[.67,'⅔'],[.75,'¾']];
+function amt(i,mult){if(i.a==null)return '';let v=i.a*mult,w=Math.floor(v+1e-9),f=v-w,fs='';
+ if(f>.05){let best=FR[0];for(const x of FR)if(Math.abs(x[0]-f)<Math.abs(best[0]-f))best=x;if(Math.abs(best[0]-f)<.09)fs=best[1];else{w=Math.round(v);}}
+ if(f>.92){w++;fs='';}
+ let n=(w?w:'')+fs;if(!n)n='0';
+ let u=i.u;if(u==='cup'&&v>1)u='cups';if(u==='can (14 oz)'&&v>1.01)u='cans (14 oz)';if(u==='clove'&&v>1)u='cloves';
+ return u?`${n} ${u}`:n;}
+
+/* =============== state =============== */
+const DEV={c1280:{w:1280,h:800,k:'computer'},c1440:{w:1440,h:900,k:'computer'},ipadside:{w:1180,h:820,k:'ipadside'},ipadup:{w:820,h:1180,k:'ipadup'},phone:{w:390,h:844,k:'phone'}};
+let S;
+function base(){return{d:S?S.d:'c1280',screen:'step',mode:'one',rid:'tikka',idx:{tikka:0,lasagna:0,all:0,chicken:0,potatoes:0,beans:0,crisp:0},tab:'all',timers:[],ring:null,ov:null,ask:null,ts:'m',
+ mirror:false,catchup:false,offline:false,srv:4,mealSrv:6,potSrv:8,ticks:new Set(),missing:false,howgo:'written',hint:false,toast:null,naanOn:true,naanHL:false,helper:false,twocooks:false,
+ late:false,clash:false,clashOpen:false,clashFixed:false,crispMade:false,crispLater:true,skipped:new Set(),order:null,notes:[],follow:false,dir:0,undoT:null,dishGo:{},goOpen:false,none:new Set(),lplace:'fridge',left:2,eat:390,eatOn:true,mm:false,busy:false,stale:false,two:false,partChange:false,added:[],grocAdded:false,backTo:null,rolls:false,dishDone:new Set(),freeMin:12,
+ from:'Today',ahead:false,aSrv:6,aPlace:'fridge',split:false,parts:null,aDone:false,stopped:false,thu:false,planMenu:false,prepTicks:new Set()}}
+/* cook-ahead (row 5): opened from a Prep Make Ahead task (or Plan's Thu Dinner ⋯ menu, round 6); one dish, back goes there */
+function ahead(s,screen,from){s.ahead=true;s.rid='chili';s.srv=6;s.from=from||'Prep';s.screen=screen||'step';s.idx.chili=0;}
+/* round 6 (fix 3): the fridge part is pre-filled to what Thu Dinner needs; the rest goes to the freezer */
+function splitOn(s){s.split=true;s.parts=s.rid==='chili'?[{n:Math.min(AHEAD.need,s.aSrv-1),p:'fridge'},{n:s.aSrv-Math.min(AHEAD.need,s.aSrv-1),p:'freezer'}]:[{n:1,p:'fridge'},{n:1,p:'freezer'}];}
+function mkTimer(d,i,left,run=true){const st=stepsOf(d)[i],tm=st.tm;return{id:Math.random().toString(36).slice(2,8),key:d+':'+i,d,i,label:tm.l,total:tm.min*60,end:Date.now()+left*1000,left,run,rung:left<=0}}
+const STATES=[
+ ['One recipe',[
+  ['gr_all','Get ready: all in',s=>{s.screen='ready';R.tikka.groups.flat(2).forEach(()=>0);allTicks(s,'tikka');}],
+  ['gr_missing','Get ready: something missing',s=>{s.screen='ready';s.missing=true;['chk','yog','lem','gm1','slt'].forEach(x=>s.ticks.add(x));}],
+  ['gr_servings','Get ready: servings changed',s=>{s.screen='ready';s.srv=6;}],
+  ['loading','Loading',s=>{s.screen='loading';}],
+  ['step_timer','Step with a title + timer card',s=>{s.idx.tikka=4;}],
+  ['step_notitle','Step with no title',s=>{s.idx.tikka=6;}],
+  ['step_groups','For This Step, grouped',s=>{s.idx.tikka=5;}],
+  ['steplist','Step list open (jump)',s=>{s.idx.tikka=4;s.ov='steps';}],
+  ['timer1','One timer running',s=>{s.idx.tikka=4;s.timers=[mkTimer('tikka',4,761)];}],
+  ['timer3','Three timers running',s=>{s.idx.tikka=5;s.timers=[mkTimer('tikka',1,312),mkTimer('tikka',4,95),mkTimer('tikka',5,588)];s.ov='tray';}],
+  ['timer_ring','A timer ringing',s=>{s.idx.tikka=5;s.timers=[mkTimer('tikka',1,0),mkTimer('tikka',5,422)];s.ring=s.timers[0].id;}],
+  ['gostep_back','After Go to Step: Back to Step 6',s=>{s.idx.tikka=1;s.timers=[mkTimer('tikka',1,0),mkTimer('tikka',5,422)];s.backTo={d:'tikka',i:5};}],
+  ['freetimer','+ Timer (a free timer)',s=>{s.idx.tikka=5;s.timers=[mkTimer('tikka',5,422)];s.ov='free';}],
+  ['timer_undo','Timer deleted, Undo',s=>{s.idx.tikka=5;s.timers=[mkTimer('tikka',5,422)];s.ov='tray';s.toast={t:'Rice timer removed.',u:'undoTimer'};s.undoT=mkTimer('tikka',1,312);}],
+  ['ask_listen','Hold to Ask: listening',s=>{s.idx.tikka=3;s.ask='listen';}],
+  ['ask_answer','Helper answer',s=>{s.idx.tikka=3;s.ask='answer';}],
+  ['ask_type','Tap Hold to Ask: type',s=>{s.idx.tikka=3;s.ask='type';}],
+  ['menu','⋯ menu',s=>{s.idx.tikka=4;s.ov='menu';}],
+  ['menu_follow','⋯ menu while following',s=>{s.idx.tikka=4;s.ov='menu';s.mirror=true;}],
+  ['text_big','Text size: big',s=>{s.idx.tikka=4;s.ts='l';}],
+  ['mirror','Kitchen iPad: Mirroring Tyler',s=>{s.idx.tikka=4;s.mirror=true;s.timers=[mkTimer('tikka',4,604)];}],
+  ['catchup','Kitchen iPad: Catch Up to Tyler',s=>{s.idx.tikka=6;s.mirror=true;s.catchup=true;}],
+  ['busy','Someone else is cooking',s=>{s.screen='busy';}],
+  ['stale','Still cooking? (long gap)',s=>{s.idx.tikka=5;s.stale=true;}],
+  ['offline','Offline',s=>{s.idx.tikka=4;s.offline=true;s.timers=[mkTimer('tikka',4,540)];}],
+  ['howgo','How did it go',s=>{s.screen='howgo';s.idx.tikka=7;}],
+  ['finish','Finish card',s=>{s.screen='finish';}],
+  ['finish_split','Finish: Split It',s=>{s.screen='finish';splitOn(s);}],
+  ['finish_hint','Finish: hold hint',s=>{s.screen='finish';s.hint=true;}],
+  ['recorded','Dinner recorded on Today',s=>{s.screen='today';s.toast={t:'Dinner recorded.',u:'undoDone'};}],
+  ['markmade','Mark it made',s=>{s.screen='finish';s.mm=true;}],
+  ['long','Long recipe: Get ready',s=>{s.screen='ready';s.rid='lasagna';s.srv=8;}],
+  ['long_steps','Long recipe: step list',s=>{s.rid='lasagna';s.idx.lasagna=6;s.ov='steps';s.srv=8;}]]],
+ ['Several dishes',[
+  ['m_ready','Get ready for a meal',s=>{meal(s);s.screen='ready';}],
+  ['m_adddish','+ Add Another Dish',s=>{s.screen='ready';s.ov='adddish';}],
+  ['m_all','All Together step list',s=>{meal(s);s.idx.all=3;s.ov='steps';}],
+  ['m_dish','One dish tab',s=>{meal(s);s.tab='beans';s.idx.all=3;}],
+  ['m_clash','Oven clash warning',s=>{meal(s);s.screen='ready';s.clash=true;s.rolls=true;}],
+  ['m_clash_open','Oven clash: fix opened (phone)',s=>{meal(s);s.screen='ready';s.clash=true;s.clashOpen=true;s.rolls=true;}],
+  ['m_clash_fixed','Clash fixed: Start by moves earlier',s=>{meal(s);s.screen='ready';s.clashFixed=true;s.rolls=true;}],
+  ['m_onedish','Change one dish (servings)',s=>{meal(s);s.screen='ready';s.ov='onedish';}],
+  ['m_late','Running late',s=>{meal(s);s.idx.all=6;s.late=true;s.timers=[mkTimer('chicken',2,1840)];}],
+  ['m_two','Two cooks: Mom has Potatoes',s=>{meal(s);s.two=true;s.idx.all=4;s.timers=[mkTimer('chicken',2,3010)];}],
+  ['m_helper','Helper phone: only their dish',s=>{meal(s);s.helper=true;s.tab='potatoes';s.idx.potatoes=1;s.timers=[mkTimer('potatoes',1,804)];}],
+  ['m_made','Already Made: Warm It Up',s=>{meal(s);s.crispMade=true;s.tab='crisp';}],
+  ['naan','Quick Naan as a part',s=>{s.screen='ready';s.naanHL=true;}],
+  ['m_finish','Meal finish, dessert still baking',s=>{meal(s);s.screen='finish';s.timers=[mkTimer('crisp',2,1490)];}],
+  ['m_finish_change','Meal finish: change one dish',s=>{meal(s);s.screen='finish';s.goOpen=true;s.dishGo={potatoes:'changes'};s.timers=[mkTimer('crisp',2,1490)];}]]],
+ ['Cook-ahead (not agreed)',[
+  ['ca_prep','From Prep: Make Ahead card',s=>{s.screen='prep';s.from='Prep';}],
+  ['ca_plan','From Plan: Thu Dinner ⋯ > Cook It Ahead',s=>{s.screen='plan';s.from='Plan';s.planMenu=true;}],
+  ['ca_ready','Cook-ahead: Get ready',s=>{ahead(s,'ready');allTicks(s,'chili');}],
+  ['ca_ready_plan','Cook-ahead: Get ready (from Plan)',s=>{ahead(s,'ready','Plan');allTicks(s,'chili');s.prepTicks.add('pon');}],
+  ['ca_step','Cook-ahead: a step',s=>{ahead(s);s.idx.chili=1;}],
+  ['ca_timer','Cook-ahead: simmer timer',s=>{ahead(s);s.idx.chili=3;s.timers=[mkTimer('chili',3,2210)];}],
+  ['ca_menu','Cook-ahead: ⋯ menu (End Cook)',s=>{ahead(s);s.idx.chili=3;s.timers=[mkTimer('chili',3,2210)];s.ov='menu';}],
+  ['ca_end','Cook-ahead: End Cook? (midway)',s=>{ahead(s);s.idx.chili=3;s.timers=[mkTimer('chili',3,2210)];s.ov='endcook';}],
+  ['ca_prep_stopped','Back on Prep: pick up where you left off',s=>{s.screen='prep';s.from='Prep';s.stopped=true;}],
+  ['ca_cool','Cook-ahead: Cool It Down (timer running)',s=>{ahead(s);s.idx.chili=5;s.timers=[mkTimer('chili',5,1330)];}],
+  ['ca_finish','Cook-ahead: Save as a Leftover',s=>{ahead(s,'finish');s.timers=[mkTimer('chili',5,1330)];}],
+  ['ca_freezer','Cook-ahead: Freezer picked',s=>{ahead(s,'finish');s.aPlace='freezer';}],
+  ['ca_split','Cook-ahead: Split It (Thu needs 4)',s=>{ahead(s,'finish');splitOn(s);}],
+  ['ca_split_short','Cook-ahead: Split It, fridge part short',s=>{ahead(s,'finish');splitOn(s);s.parts=[{n:3,p:'fridge'},{n:3,p:'freezer'}];}],
+  ['ca_hint','Cook-ahead: hold hint',s=>{ahead(s,'finish');s.hint=true;}],
+  ['ca_saved','Cook-ahead: saved, #0047',s=>{ahead(s,'saved');}],
+  ['ca_saved_split','Cook-ahead: saved in two parts',s=>{ahead(s,'saved');splitOn(s);}],
+  ['ca_prep_done','Back on Prep: made ahead',s=>{s.screen='prep';s.from='Prep';s.aDone=true;}],
+  ['ca_thu','Thursday: Already Made, Warm Up #0047',s=>{s.thu=true;s.rid='chiliw';s.srv=4;s.idx.chiliw=0;s.from='Today';allTicks(s,'chiliw');}]]]];
+function meal(s){s.mode='meal';s.tab='all';}
+function allTicks(s,rid){R[rid].groups.forEach(g=>g[1].forEach(i=>s.ticks.add(i.id)));}
+const SMAP={};STATES.forEach(g=>g[1].forEach(x=>SMAP[x[0]]=x));
+let SID='step_timer';
+function applyState(id){if(!SMAP[id])id='step_timer';SID=id;S=base();SMAP[id][2](S);if(S.mode==='one'&&S.screen==='step'&&!S.ticks.size)allTicks(S,S.rid);render();renderStates();}
+
+/* =============== helpers for the flow =============== */
+function stepsOf(d){return d==='crisp'&&S.crispMade?CRISP_WARM:R[d].steps;}
+function ORDER(){let o=S.order||MEAL.order;if(S.crispMade){o=o.filter(x=>!(x[0]==='crisp'&&x[1]<2)).map(x=>x[0]==='crisp'?['crisp',0,x[2]]:x);}
+ if(S.rolls&&!S.order){const sh=S.clashFixed?{0:265,1:270,2:280,3:355,4:385}:null;
+  o=o.map(x=>x[0]==='chicken'&&sh?['chicken',x[1],sh[x[1]],x[1]===2?'Long wait: 75 min in the oven, out at 5:55':x[1]===3?'Rests under foil and stays hot; the rolls get the oven':x[3]]:x);
+  o=[...o,['rolls',0,365,S.clashFixed?'The oven is free and at 375°F':'Wants the oven at 6:05']].sort((a,b)=>a[2]-b[2]);}
+ return o;}
+function isPhone(){return DEV[S.d].k==='phone';}
+function kind(){return DEV[S.d].k;}
+function wide(){const k=kind();return k==='computer'||k==='ipadside';}
+function cur(){
+ if(S.mode==='one'){const r=R[S.rid],i=S.idx[S.rid];return{d:S.rid,i,st:r.steps[i],n:i+1,of:r.steps.length};}
+ if(S.tab==='all'){const o=ORDER(),k=Math.min(S.idx.all,o.length-1),x=o[k];return{d:x[0],i:x[1],st:stepsOf(x[0])[x[1]],n:k+1,of:o.length,time:x[2],k};}
+ const st=stepsOf(S.tab),i=Math.min(S.idx[S.tab],st.length-1),x=ORDER().find(y=>y[0]===S.tab&&y[1]===i);return{d:S.tab,i,st:st[i],n:i+1,of:st.length,time:x?x[2]:null};}
+function nextOf(c){
+ if(S.mode==='one'){const st=R[S.rid].steps;return c.i+1<st.length?{d:S.rid,i:c.i+1,st:st[c.i+1],n:c.i+2}:null;}
+ if(S.tab==='all'){const o=ORDER();for(let k=c.k+1;k<o.length;k++){if(S.two&&o[k][0]==='potatoes')continue;if(S.skipped.has(o[k][0]+':'+o[k][1]))continue;return{d:o[k][0],i:o[k][1],st:stepsOf(o[k][0])[o[k][1]],time:o[k][2],n:k+1};}return null;}
+ const st=stepsOf(S.tab);if(c.i+1>=st.length)return null;const x=ORDER().find(y=>y[0]===S.tab&&y[1]===c.i+1);return{d:S.tab,i:c.i+1,st:st[c.i+1],n:c.i+2,time:x?x[2]:null};}
+function mult(d){if(S.mode==='one')return S.srv/R[S.rid].serves;if(d==='potatoes')return S.potSrv/R.potatoes.serves;return S.mealSrv/R[d].serves;}
+function ingById(d,id){for(const g of R[d].groups)for(const i of g[1])if(i.id===id)return[g[0],i];return null;}
+function titleOf(st,n){return st.t||`Step ${n}`;}
+function strip(h){return h.replace(/<[^>]+>/g,'');}
+function firstLine(h){const t=strip(h);const m=t.match(/^.*?[.!?](\s|$)/);return m?m[0].trim():t;}
+function tLeft(t){return t.run?Math.max(0,Math.round((t.end-Date.now())/1000)):t.left;}
+function mmss(s){const m=Math.floor(s/60),x=s%60;return m>=60?`${Math.floor(m/60)}:${String(m%60).padStart(2,'0')}:${String(x).padStart(2,'0')}`:`${m}:${String(x).padStart(2,'0')}`;}
+function tName(t){return (S.mode==='meal'&&!t.free?R[t.d].short+' · ':'')+t.label;}
+function andList(a){return a.length<2?a.join(''):a.slice(0,-1).join(', ')+' and '+a[a.length-1];}
+function avatar(w,sm){return `<span class="av ${w}${sm?' sm':''}" aria-label="${w==='T'?'Tyler':'Mom'}">${w}</span>`;}
+
+/* =============== views =============== */
+function tanBar(){
+ const ph=isPhone();let title,meta='';
+ if(S.mode==='one')title=R[S.rid].name;else title=S.helper?(ph?'Potatoes':'Potatoes, for Sunday Dinner'):MEAL.name;
+ if(S.screen==='finish'&&S.mm)title='Mark It Made';
+ if(S.screen==='busy')title='Mom Is Cooking';
+ /* the meal's time shows on every size (round 4: phone used to hide it) */
+ if(S.mode==='meal'&&!S.helper&&S.screen!=='finish'){meta=S.late?`<span class="meta late">${ph?'Ready 6:40':'Ready about 6:40'}</span>`:S.screen==='ready'?`<span class="meta">Start by ${clock(startBy())}</span>`:`<span class="meta">${ph?'Ready 6:30':'Ready about 6:30'}</span>`;}
+ if(S.mode==='one'&&S.screen==='ready')meta=`<span class="meta">${R[S.rid].time}</span>`;
+ if(S.helper)meta=`<span class="meta">Helping Tyler</span>`;
+ const running=S.timers.filter(t=>t.run||t.rung),ringing=S.ring&&S.timers.some(t=>t.id===S.ring);
+ const showT=['step','ready','finish'].includes(S.screen)&&!S.mm;
+ /* phone: the meal's time shows while cooking; on Get ready the big Start by box already says it, so the title keeps its room */
+ const showMeta=meta&&(!ph||(S.mode==='meal'&&!S.helper&&S.screen==='step'));
+ /* BUILD_LIST row 4 (agreed, STANDARDS "‹ Page name"): back names the page you came from; the cook keeps going */
+ return `<div class="tan"><div class="tl"><button class="bk" data-a="leave" aria-label="Back to ${esc(S.from)}. The cook keeps going" title="Back to ${esc(S.from)} (the cook keeps going)">${ic('back')}<span class="w">${esc(S.from)}</span></button>${ic('fwd','sepc')}
+  <span class="ttw"><span class="tt">${esc(title)}</span>${showMeta?'<span class="sep"></span>'+meta:''}</span></div>
+  ${S.mirror&&!ph?`<span class="mir">${avatar('T',1)}Mirroring Tyler</span>`:''}
+  ${S.offline?`<span class="offi" title="You're offline">${ic('unsaved')}${ph?'':'Offline'}</span>`:''}
+  ${showT?`<button class="tb ${ringing?'ringing':running.length?'run':''} ${S.ov==='tray'?'on':''}" data-a="tray" aria-label="Timers, ${running.length} running">${ic('timer')}${running.length?`<span class="n">${running.length}</span>`:''}</button>`:''}
+  <button class="tb ic ${S.ov==='menu'?'on':''}" data-a="menu" aria-label="More">${ic('more')}</button>
+  ${S.ov==='menu'?menuHTML():''}${S.ov==='tray'?trayHTML():''}</div>`;}
+function menuHTML(){
+ const z=['s','m','l'];
+ return `<div class="pop menu" role="menu"><div class="tsz"><span>Text Size</span><span class="seg2">${z.map((k,i)=>`<button data-a="ts" data-v="${k}" class="${S.ts===k?'on':''}" style="font-size:${[14,17,21][i]}px" aria-label="${['Small','Medium','Big'][i]} text">A</button>`).join('')}</span></div><hr>
+  <button class="mi" data-a="typeq">${ic('keyboard')}Type a Question</button>
+  <button class="mi" data-a="addnote">${ic('edit')}Add Note</button>
+  <button class="mi" data-a="notes">${ic('note')}<span>Session Notes<small>${S.notes.length?S.notes.length+' saved':'None yet'}</small></span></button>
+  ${S.mirror||S.follow?`<button class="mi" data-a="takeover">${ic('person')}<span>Take Over<small>Cook from this screen</small></span></button>`:''}
+  ${S.ahead?`<hr><button class="mi" data-a="endcook">${ic('time')}<span>End Cook for Now<small>Prep keeps your place</small></span></button>`:''}
+  <hr><button class="mi red" data-a="cancel">${ic('close')}Cancel Cooking</button>
+  <div class="quiet" style="padding:6px 12px 4px;font-size:13px">The screen stays awake while you cook.</div></div>`;}
+function trayHTML(){
+ const ts=S.timers.filter(t=>t.run||t.rung).sort((a,b)=>tLeft(a)-tLeft(b));
+ return `<div class="pop tray" role="dialog" aria-label="Timers"><div class="ph"><b>Timers <small>${ts.length} running</small></b><button class="x" data-a="closeov" aria-label="Close">${ic('close')}</button></div>
+ <div class="pb">${ts.length?ts.map(t=>{const l=tLeft(t),st=t.free?null:stepsOf(t.d)[t.i];return `<div class="trow ${l<=0?'rg':''}">${t.free?`<div class="tw"><b>${esc(t.label)} · ${t.total/60} Min</b><small>Your own timer</small></div>`:`<button class="tw tgo" data-a="tgo" data-id="${t.id}"><b>${esc(tName(t))} · ${t.total/60} Min</b><small>Step ${t.i+1}${st.t?': '+esc(st.t):''} · <b>Go to Step</b></small></button>`}<span class="cd" data-tl="${t.id}">${l<=0?'Done':mmss(l)}</span>
+  <span class="tbtns"><button class="b out sm" data-a="plus" data-id="${t.id}" data-v="1">+1 Min</button><button class="b out sm" data-a="plus" data-id="${t.id}" data-v="5">+5 Min</button><button class="x" data-a="deltimer" data-id="${t.id}" aria-label="Remove ${esc(tName(t))} timer">${ic('close')}</button></span></div>`;}).join(''):'<div class="quiet" style="padding:14px">No timers running. Start one from a step.</div>'}</div>
+ <div class="addt"><span>Tap a timer to go to its step.</span><button class="b out sm" data-a="freetimer">${ic('add')}Timer</button></div></div>`;}
+
+function ftabsHTML(){
+ if(S.mode!=='meal')return '';
+ const o=ORDER(),k=S.idx.all;
+ const tabs=S.helper?[['potatoes']]:[['all'],...dishesNow().map(d=>[d])];
+ /* round 4: short names on a phone, the count only on the open tab on touch sizes, a timer badge on a dish with a running timer,
+    and the open tab always scrolled into view (drawTabs) so nothing hides off the edge */
+ const ph=isPhone(),touch=kind()!=='computer',TINY={chicken:'Chicken',potatoes:'Potatoes',beans:'Beans',crisp:'Crisp',rolls:'Rolls'};
+ return `<div class="ftabs" role="tablist">${tabs.map(([t],i)=>{const on=S.tab===t;let lab,cnt='';
+  if(t==='all'){lab=ph?'All':'All Together';cnt=`${Math.min(k+1,o.length)}/${o.length}`;}
+  else{const st=stepsOf(t);lab=ph?TINY[t]:R[t].short;const di=S.idx[t];cnt=t==='crisp'&&S.crispMade?(ph?'Made':'Already Made'):`${di+1}/${st.length}`;}
+  if(!on)cnt='';
+  const dn=t!=='all'&&S.dishDone.has(t)?`<span class="dn" aria-label="done">${ic('check')}</span>`:'';
+  const who=t==='potatoes'&&(S.two||S.helper)?avatar('M',1):'';
+  const tm=t==='all'?null:S.timers.filter(x=>x.d===t&&(x.run||x.rung)).sort((a,b)=>tLeft(a)-tLeft(b))[0];
+  const badge=tm&&!on?`<span class="tmr ${tLeft(tm)<=0?'rg':''}" aria-label="${esc(R[t].short)} timer running">${ic('timer')}${ph?'':(tLeft(tm)<=0?'Done':`<span data-tl="${tm.id}">${mmss(tLeft(tm))}</span>`)}</span>`:'';
+  return `<button class="ftab ${on?'on':''}" role="tab" aria-selected="${on}" aria-label="${esc(t==='all'?'All Together':R[t].name)}" data-a="tab" data-v="${t}" data-col="${t==='all'?'#EFE3CB':R[t].col}" style="z-index:${on?50:20-i}"><svg class="sh"></svg><span>${who}${esc(lab)}${dn}${cnt?`<small>${cnt}</small>`:''}${badge}</span></button>`;}).join('')}</div>`;}
+function drawTabs(){$$('#dev .ftab').forEach(b=>{const W=b.offsetWidth,H=b.offsetHeight;if(!W)return;const on=b.classList.contains('on'),p=ftPath(W,H,on),sv=b.querySelector('svg.sh');
+ sv.setAttribute('width',W);sv.setAttribute('height',H+2);sv.setAttribute('viewBox',`0 0 ${W} ${H+2}`);
+ sv.innerHTML=`<path d="${p.fill}" fill="${on?'#FFFDF7':b.dataset.col}"/><path d="${p.stroke}" fill="none" stroke="${on?'rgba(60,40,10,.22)':'#B9A988'}" stroke-width="1"/>`;});
+ const row=$('#dev .ftabs'),on=$('#dev .ftab.on');if(row&&on&&row.scrollWidth>row.clientWidth){const l=on.offsetLeft,r=l+on.offsetWidth;if(r>row.scrollLeft+row.clientWidth-30||l<row.scrollLeft)row.scrollLeft=Math.max(0,l-(row.clientWidth-on.offsetWidth)/2);}
+ /* the edge fade only shows while more tabs hide past the edge (C-058 CH-4) */
+ if(row){const upd=()=>row.classList.toggle('more',row.scrollWidth>row.clientWidth+1&&row.scrollLeft+row.clientWidth<row.scrollWidth-2);upd();row.onscroll=upd;}}
+/* folder tab outline, ported from C-058 ftPath (FolderDrawer drawerTabPaths) */
+function ftPath(W,H,open){const s=6,r=7,f=4,L=.5,R2=W-.5,top=1.5,len=Math.hypot(s,H-top),ux=s/len,uy=(H-top)/len,n=v=>+v.toFixed(2);
+ const tl=`L${n(L+s-r*ux)} ${n(top+r*uy)} Q${n(L+s)} ${n(top)} ${n(L+s+r)} ${n(top)} L${n(R2-s-r)} ${n(top)} Q${n(R2-s)} ${n(top)} ${n(R2-s+r*ux)} ${n(top+r*uy)}`;
+ if(!open)return{fill:`M${L-.5} ${H} ${tl} L${R2+.5} ${H} Z`,stroke:`M${L} ${H+.5} ${tl} L${R2} ${H+.5}`};
+ const a=`${n(L+f*ux)} ${n(H+.5-f*uy)}`,b=`${n(R2-f*ux)} ${n(H+.5-f*uy)}`;
+ return{fill:`M${L-f} ${H+2} L${L-f} ${H} Q${L} ${H} ${a} ${tl} L${b} Q${R2} ${H} ${R2+f} ${H} L${R2+f} ${H+2} Z`,stroke:`M${L-f} ${H+.5} Q${L} ${H+.5} ${a} ${tl} L${b} Q${R2} ${H+.5} ${R2+f} ${H+.5}`};}
+
+function progHTML(c){
+ if(S.mode==='meal'&&S.tab==='all'){const o=ORDER();return `<span class="prog many" aria-hidden="true">${o.map((x,k)=>`<i class="${S.skipped.has(x[0]+':'+x[1])?'s':k<c.k?'d':k===c.k?'c':''}"></i>`).join('')}</span>`;}
+ const n=c.of;return `<span class="prog ${n>9?'many':''}" aria-hidden="true">${Array.from({length:n},(_,k)=>`<i class="${k<c.n-1?'d':k===c.n-1?'c':''}"></i>`).join('')}</span>`;}
+function timerCard(c){const tm=c.st.tm;if(!tm)return '';const key=c.d+':'+c.i,t=S.timers.find(x=>x.key===key);
+ const nm=(S.mode==='meal'?R[c.d].short+' · ':'')+tm.l+' · '+tm.min+' Min';
+ if(!t)return `<div class="tcard">${ic('timer','ti')}<div class="tw"><b>${esc(nm)}</b><small>${esc(tm.cue)}. Check it, don't just trust the clock.</small></div><button class="b mid big" data-a="start" data-d="${c.d}" data-i="${c.i}">${ic('timer')}Start Timer</button></div>`;
+ const l=tLeft(t);
+ if(l<=0)return `<div class="tcard done">${ic('timer','ti')}<div class="tw"><b>${esc(nm)}</b><small>Done. ${esc(tm.cue)}</small></div><span class="cd">Done</span><span class="tbtns"><button class="b out sm" data-a="plus" data-id="${t.id}" data-v="5">+5 Min</button><button class="x" data-a="deltimer" data-id="${t.id}" aria-label="Remove timer">${ic('close')}</button></span></div>`;
+ return `<div class="tcard run">${ic('timer','ti')}<div class="tw"><b>${esc(nm)}</b><small>${esc(tm.cue)}</small></div><span class="cd" data-tl="${t.id}">${mmss(l)}</span><span class="tbtns"><button class="b out sm" data-a="plus" data-id="${t.id}" data-v="1">+1 Min</button><button class="x" data-a="deltimer" data-id="${t.id}" aria-label="Remove ${esc(tm.l)} timer">${ic('close')}</button></span></div>`;}
+function stepCard(c){
+ const st=c.st,ttl=titleOf(st,c.n);
+ let left;
+ if(S.mode==='meal'){const r=R[c.d];
+  left=`${S.tab==='all'?`<span class="dchip" style="background:${r.col}">${(c.d==='potatoes'&&S.two)?avatar('M',1):''}${esc(r.short)}</span>`:''}${c.time!=null&&!(c.d==='crisp'&&S.crispMade)?`<span class="stime amb">${c.d==='crisp'&&c.i===2?'In at ':'Start at '}${clock(c.time+(S.late?10:0))}</span>`:''}`;
+ }else left=progHTML(c);
+ const ph=isPhone(),inDish=S.mode==='meal'&&S.tab!=='all';
+ /* phone: in a dish tab the step count names the dish, so you always know where you are (ease 2) */
+ /* phone dish tab: the open tab (always scrolled into view) already shows the dish and its count, so the row keeps
+    room for Start at, I'll Do It and Steps */
+ const pos=ph&&inDish?'':`<span class="pos">${inDish&&!wide()?`<b style="color:var(--ink);font-weight:600">${esc(R[c.d].short)}</b> · `:''}${c.n} of ${c.of}</span>`;
+ const mine=inDish&&!S.helper?`<button class="b out sm" data-a="mine">${ic('person')}${ph?'Take Dish':"I'm Doing This Dish"}</button>`:'';
+ /* round 6 (Q4): Thursday's made-ahead chili uses the agreed Already Made title, with the number from the lid's tape */
+ const head=S.mode==='meal'&&S.tab==='crisp'&&S.crispMade?`<h2>Already Made: Warm It Up</h2>`:S.thu&&c.i===0?`<h2>Already Made: Warm Up <span class="tape">#${String(AHEAD.no).padStart(4,'0')}</span></h2>`:`<h2>${esc(ttl)}</h2>`;
+ /* cook-ahead: a step Cook adds because the dish goes into the fridge or freezer says so, once, quietly (round 6, Q2: the
+    food-safety rule, not the clock) */
+ const added=st.ca?`<div class="sub">Added because you're cooking ahead. In the fridge or freezer within 2 hours of cooking. Shallow containers cool fastest.</div>`:S.thu&&c.i===0?`<div class="sub">You made it ahead on Mon, Nov 30. It's in the fridge.</div>`:'';
+ return `<div class="card step"><div class="ch"><div class="hrow">${left}${S.mode==='meal'&&!wide()&&S.tab==='all'?'':pos}<span class="grow"></span>${mine}<button class="b out sm ${S.ov==='steps'?'sel':''}" data-a="steps" aria-expanded="${S.ov==='steps'}">${ic('list')}${ph?'Steps':'All Steps'}</button></div>${head}${added}${S.ov==='steps'?stepList(c):''}</div>
+  <div class="cs step" ${!ph&&strip(st.w).length<120?'style="--row:60px;--st:40px"':''}><p class="sw">${st.w}</p>${timerCard(c)}</div></div>`;}
+function stepList(c){
+ let rows='',title='All Steps',sub='';
+ if(S.mode==='one'){const st=R[S.rid].steps;sub=`${st.length} steps`;rows=st.map((x,k)=>`<button class="srow ${k===c.i?'cur':k<c.i?'dn':''}" data-a="jump" data-v="${k}"><span class="no">${k<c.i?'✓':k+1}</span><span class="w"><b>${esc(titleOf(x,k+1))}</b><small>${esc(firstLine(x.w))}</small></span></button>`).join('');}
+ else if(S.tab==='all'){const o=ORDER();title='All Together';sub=isPhone()?`Start by ${clock(startBy())}`:`${o.length} steps · Start by ${clock(startBy())} · Eat at ${clock(S.eat)}`;
+  rows=`<div class="quiet" style="padding:6px 10px 8px">Long waits start first, hands-on work fills the waits, quick sides land last.</div>`+o.map((x,k)=>{const st=stepsOf(x[0])[x[1]],key=x[0]+':'+x[1],sk=S.skipped.has(key),other=S.two&&x[0]==='potatoes';
+   return `<div class="srow ${k===c.k?'cur':k<c.k?'dn':''} ${sk?'sk':''} ${other?'other':''}" draggable="${kind()==='computer'}" data-k="${k}"><button class="sbtn" data-a="jump" data-v="${k}"><span class="tm amb">${k<c.k&&!sk?'<span style="color:var(--sage-text)">✓</span> ':''}${clock(x[2]+(S.late?10:0))}</span><span class="w"><b>${esc(R[x[0]].short)}: ${esc(titleOf(st,x[1]+1))}</b><small>${other?'Mom is doing this':sk?'Skipped':esc(x[3]||firstLine(st.w))}</small></span></button>${other?avatar('M',1):k>c.k?`<button class="skip" data-a="skip" data-v="${key}">${sk?'Put Back':'Skip'}</button>`:''}</div>`;}).join('');}
+ else{const st=stepsOf(S.tab);title=R[S.tab].name;sub=`${st.length} steps`;rows=st.map((x,k)=>`<button class="srow ${k===c.i?'cur':k<c.i?'dn':''}" data-a="jump" data-v="${k}"><span class="no">${k<c.i?'✓':k+1}</span><span class="w"><b>${esc(titleOf(x,k+1))}</b><small>${esc(firstLine(x.w))}</small></span></button>`).join('');}
+ return `<div class="pop slist" role="dialog" aria-label="All steps"><div class="ph"><b>${esc(title)} <small>${sub}</small></b><button class="x" data-a="closeov" aria-label="Close">${ic('close')}</button></div><div class="pb">${rows}</div>
+  <div class="pf"><span>${S.mode==='meal'&&S.tab==='all'?(kind()==='computer'?'Drag a step to move it. Tap to go there.':'Press and hold a step to move it. Tap to go there.'):'Tap a step to go there.'}</span><button class="b out sm" data-a="tofinish">Finish Cooking</button></div></div>`;}
+function forStepHTML(c){
+ const r=R[c.d],m=mult(c.d),by={};
+ (c.st.u||[]).forEach(id=>{const x=ingById(c.d,id);if(!x)return;(by[x[0]]=by[x[0]]||[]).push(x[1]);});
+ const gs=Object.keys(by);
+ if(!gs.length)return `<div class="none">Nothing to add in this step.</div>`;
+ const scaled=Math.abs(m-1)>.01;
+ return gs.map(g=>`${g&&(gs.length>1||r.groups.length>1)?`<div class="grp">${esc(g)}</div>`:''}${by[g].map(i=>`<div class="ing"><span class="q ${scaled&&i.a!=null?'sc':''}">${amt(i,m)}</span><span class="nm">${esc(i.n)}</span></div>`).join('')}`).join('');}
+function comingHTML(c){
+ const nx=nextOf(c);
+ let also='';
+ if(S.two&&S.tab==='all'){also=`<div class="also">${avatar('M',1)}Mom: Potatoes, Boil at 5:45</div>`;}
+ if(!nx){const ind=S.mode==='meal'&&S.tab!=='all';return `<div class="cu"><div class="eye">Coming Up</div><b>${ind?'Last step for '+esc(R[S.tab].short):'Last step'}</b><p>${lastWords(ind)}</p>${also}</div>`;}
+ const tt=titleOf(nx.st,nx.n);
+ return `<div class="cu"><div class="eye">Coming Up${S.mode==='meal'&&nx.time!=null&&S.tab==='all'?` <span class="amb" style="letter-spacing:0;text-transform:none;font-size:14px">at ${clock(nx.time+(S.late?10:0))}</span>`:''}</div><b>${S.mode==='meal'&&S.tab==='all'?esc(R[nx.d].short)+': ':''}${esc(tt)}</b><p>${esc(firstLine(nx.st.w))}</p>${also}</div>`;}
+function lastWords(ind){return ind?(S.helper?'Done tells Tyler the potatoes are ready.':'Done takes you back to All Together.'):S.ahead?'Next is Finish: save it as a leftover for '+AHEAD.meal+'.':'Next is Finish: tell us how it went.';}
+/* round 7: on wide screens one right card, the same height as the step card: For This Step, then Coming Up and After That
+   written on the same blue rules (visual 2: two small cards left a hole) */
+function comingRuled(c){
+ const ind=S.mode==='meal'&&S.tab!=='all',ml=S.mode==='meal'&&S.tab==='all',list=[];let x=c;
+ for(let k=0;k<3;k++){const n=nextOf(x);if(!n)break;list.push(n);x={...n,k:n.n-1};}
+ const at=m=>m.time!=null?clock(m.time+(S.late?10:0)):'';
+ let h=`<div class="cur2"><div class="eye">Coming Up${ml&&list[0]&&list[0].time!=null?` <span class="amb" style="letter-spacing:0;text-transform:none;font-size:14px">at ${at(list[0])}</span>`:''}</div>`;
+ if(!list.length)h+=`<div class="nx">${ind?'Last step for '+esc(R[S.tab].short):'Last step'}</div><div class="nw1">${lastWords(ind)}</div>`;
+ else{const n=list[0];h+=`<div class="nx">${ml?esc(R[n.d].short)+': ':''}${esc(titleOf(n.st,n.n))}</div><div class="nw1">${esc(firstLine(n.st.w))}</div>`;
+  if(list.length>1)h+=`<div class="eye">After That</div>`+list.slice(1).map(m=>`<div class="lt">${ml&&m.time!=null?`<span class="tm">${at(m)}</span>`:''}${ml?esc(R[m.d].short)+': ':''}${esc(titleOf(m.st,m.n))}</div>`).join('');}
+ if(S.two&&S.tab==='all')h+=`<div class="also">${avatar('M',1)}Mom: Potatoes, Boil at 5:45</div>`;
+ return h+'</div>';}
+function sideCards(c){
+ if((S.ask==='answer'||S.ask==='type')&&wide())return chatCard(false,S.ask==='type');
+ /* round 4: on wide screens For This Step is only as tall as its list; Coming Up is its own card at the bottom */
+ const fs=`<div class="card side fs"><div class="ch"><h3>For This Step</h3></div><div class="cs">${forStepHTML(c)}</div></div>`;
+ const cu=`<div class="card side cuc">${comingHTML(c).replace('class="cu"','class="cu" style="border-top:0;border-radius:6px"')}</div>`;
+ if(wide())return `<div class="card side fs full"><div class="ch"><h3>For This Step</h3></div><div class="cs">${forStepHTML(c)}${comingRuled(c)}</div></div>`;
+ return fs+cu.replace('class="card side cuc"','class="card side cuc" style="margin-top:16px"');}
+function chatCard(sheet,empty){
+ const body=`<div class="cs" style="--r:var(--srow)">${empty?`<div class="chatempty">Type your question below. To talk instead, press and hold the ask button.</div></div>`:`<div class="msg me"><span class="who">You</span>How long should the onions take? Mine are getting dark fast.</div>
+  <div class="msg ai"><span class="who">Claude</span>About 8 minutes, until soft and golden at the edges. If they darken fast, turn the heat to medium-low and add a spoon of water. Dark brown is fine; black bits taste bitter, so scoop those out.</div></div>`}
+  <div class="compose"><input placeholder="Type a question" aria-label="Type a question"><button class="b mid" data-a="send">Send</button></div>`;
+ if(sheet)return `<div class="scrim" data-a="closeask"></div><div class="sheet chat" role="dialog" aria-label="Ask Claude"><div class="grab"></div><div class="ch" style="border-radius:0"><div class="hrow" style="margin:0"><h3 style="flex:1">Ask Claude</h3><button class="x" data-a="closeask" aria-label="Close">${ic('close')}</button></div><div class="sub">Your questions for this cook</div></div>${body}</div>`;
+ return `<div class="card side chat"><div class="ch"><div class="hrow" style="margin:0"><h3 style="flex:1">Ask Claude</h3><button class="x" data-a="closeask" aria-label="Close">${ic('close')}</button></div><div class="sub">Your questions for this cook</div></div>${body}</div>`;}
+function ringHTML(){const t=S.timers.find(x=>x.id===S.ring);if(!t)return '';const st=t.free?null:stepsOf(t.d)[t.i];
+ return `<div class="ring" role="alert">${ic('timer','ti')}<div class="rw"><b>${esc(tName(t))} is done</b><small>${st?`Step ${t.i+1}${st.t&&!isPhone()?': '+esc(st.t):''} · ${esc(st.tm.cue)}`:'Your own timer'}</small></div><div class="rb"><button class="b mid" data-a="gotit">Got It</button><button class="b out" data-a="plus" data-id="${t.id}" data-v="5">+5 Min</button>${st?'<button class="b out" data-a="gostep">Go to Step</button>':''}</div></div>`;}
+function notesHTML(){let h='';
+ if(S.offline)h+=`<div class="note">${ic('unsaved')}<div class="nw"><b>You're offline.</b> Steps and timers keep working on this screen. Ask Claude needs the internet; it comes back when you do.</div></div>`;
+ /* phone following a cook: a thin line under the tan bar, so the recipe name keeps its room (round 4) */
+ if(S.mirror&&isPhone()&&!S.catchup)h+=`<div class="note sage bar" style="padding:8px 12px">${avatar('T',1)}<div class="nw"><b>Following Tyler.</b> <span style="color:var(--ink3)">Move on your own any time.</span></div></div>`;
+ if(S.catchup)h+=`<div class="note sage stack">${ic('tablet')}<div class="nw">You're looking at <b>Step 7</b>. Tyler is on <b>Step 5: Simmer the Sauce</b>.</div><button class="b mid" data-a="catchup">Catch Up to Tyler</button></div>`;
+ if(S.late&&S.screen==='step')h+=`<div class="note amber">${ic('time')}<div class="nw"><b>Running about 10 minutes behind.</b> Dinner looks ready about 6:40. Start the green beans before you warm the garlic butter, so everything lands together?<div class="nb"><button class="b mid sm" data-a="reorder">Change the Order</button><button class="b out sm" data-a="dismiss">Keep It</button></div></div></div>`;
+ if(S.two&&S.screen==='step'&&!S._twoSeen)h+=`<div class="note sage">${avatar('M')}<div class="nw"><b>Mom is doing Potatoes</b> on her phone. Her steps stay in All Together, marked with her picture; Next skips them for you.</div><button class="x" data-a="twoseen" aria-label="Close">${ic('close')}</button></div>`;
+ if(S.helper)h+=`<div class="note sage">${avatar('M')}<div class="nw"><b>You're doing Potatoes.</b> Tyler has the rest of Sunday Dinner. Your timers ring on his screens too.<div class="nb"><button class="b out sm" data-a="handback">Hand It Back</button></div></div></div>`;
+ if(S.backTo&&S.screen==='step'){const st=stepsOf(S.backTo.d)[S.backTo.i];h+=`<div class="note sage bar">${ic('back')}<div class="nw"><b>You came here from a timer.</b></div><button class="b mid sm" data-a="backto">Back to Step ${S.backTo.i+1}${st.t&&!isPhone()?': '+esc(st.t):''}</button></div>`;}
+ return h;}
+function viewStep(){
+ const c=cur();
+ const anim=S.dir?` anim ${S.dir<0?'back':''}`:'';
+ const nx=nextOf(c);
+ const ph=isPhone();
+ const askBtn=`<button class="b mid big ask ${S.ask==='listen'?'held':''} ${S.offline?'off':''}" data-hold="ask" aria-label="${S.offline?'Hold to Ask, needs the internet':'Hold to Ask. Tap to type instead'}">${ic('mic')}Hold to Ask</button>${S.ask==='listen'?askPop():''}`;
+ const back=`<button class="b out big back" data-a="prev" ${c.n<=1&&!(S.mode==='meal'&&S.tab!=='all'&&c.i>0)?'disabled style="opacity:.45"':''} aria-label="Back">${ic('back')}${ph?'':'Back'}</button>`;
+ const inDish=S.mode==='meal'&&S.tab!=='all';
+ const next=nx?`<button class="b main big" data-a="next">Next${ic('fwd')}</button>`:inDish?`<button class="b main big" data-a="dishdone">${ph?'Dish Done':'Done With '+esc(R[c.d].short)}${ic('check')}</button>`:`<button class="b main big" data-a="tofinish">Finish${ic('fwd')}</button>`;
+ const acts=S.mirror&&!S.catchup?`<div class="acts">${back}${askBtn}${next}</div>`:`<div class="acts">${back}${askBtn}${next}</div>`;
+ return `<div class="wrap${anim}">${S.ring?ringHTML():''}${notesHTML()}
+  <div class="stage"><div class="scol">${ftabsHTML()}${stepCard(c)}</div>${wide()?`<div class="scol sidecol">${sideCards(c)}</div>`:sideCards(c)}</div>
+  ${acts}<div class="keys"><kbd>←</kbd><kbd>→</kbd> move steps &nbsp;·&nbsp; hold <kbd>Space</kbd> to talk &nbsp;·&nbsp; tap Hold to Ask to type</div></div>
+  ${(S.ask==='answer'||S.ask==='type')&&!wide()?chatCard(true,S.ask==='type'):''}`;}
+function askPop(){return `<span class="askpop" role="status"><span class="words">How long should the onions take? Mine are getting <i>dark fast</i></span><span class="bars">${[0,.15,.3,.1,.25,.05,.2].map(d=>`<i style="animation-delay:-${d}s"></i>`).join('')}</span><small>Listening. Let go to send.</small></span>`;}
+
+/* ---------- Get ready ---------- */
+function tickRow(i,m,d,extra=''){
+ const on=S.ticks.has(i.id),out=(S.missing&&i.id==='crm');
+ const scaled=Math.abs(m-1)>.01&&i.a!=null;
+ return `<button class="tick ${on?'on':''}" data-a="tick" data-v="${i.id}" role="checkbox" aria-checked="${on}"><span class="bx">${ic('check')}</span><span class="q" style="${scaled?'color:var(--sage-mid)':''}">${amt(i,m)}</span><span class="nm">${esc(i.n)}</span>${out?'<span class="out">Out</span>':''}${extra}</button>`;}
+function ingList(d,m){const r=R[d];return r.groups.map(([g,items])=>`${g?`<div class="grp">${esc(g)}</div>`:''}${items.map(i=>tickRow(i,m,d)).join('')}`).join('');}
+function viewReady(){
+ const ph=isPhone();
+ if(S.mode==='meal')return viewReadyMeal();
+ const r=R[S.rid],m=S.srv/r.serves,all=r.groups.flatMap(g=>g[1]),n=all.filter(i=>S.ticks.has(i.id)).length;
+ const left=`<div class="sech"><h4>Ingredients</h4><span class="cnt">${n} of ${all.length} out and ready</span>${n<all.length?`<button class="b out sm" data-a="tickall">Tick All</button>`:''}</div>${ph?`<div class="tickhint">${n} of ${all.length} out and ready. Tick each one as you set it out.</div>`:''}<div class="ingl">${ingList(S.rid,m)}</div>`;
+ const srv=`<div class="srvrow" style="margin-top:calc(var(--r) * .5)"><span class="lb">Servings</span><span class="stp2"><button data-a="srv" data-v="-1" aria-label="Fewer">−</button><span>${S.srv} Servings</span><button data-a="srv" data-v="1" aria-label="More">+</button></span>${Math.abs(m-1)>.01?`<span class="quiet">Green amounts changed from ${r.serves} Servings.</span>`:''}</div>`;
+ const out=S.missing?`<div class="outbox"><b>You're out of heavy cream</b> (this needs ½ cup). Add it to Groceries?<div class="nb"><button class="b amberb sm" data-a="groc">${S.grocAdded?ic('check')+'Added to Groceries':'Add to Groceries'}</button><button class="b out sm" data-a="dismissout">I Have Some</button></div></div>`:'';
+ /* round 6 (fix 2): a cook-ahead has no "Prep ahead" (it IS the day ahead); BUILD_LIST row 2's ask lists the meal's prep
+    tasks not ticked yet. A tick here is the same tick on Prep, Plan and Today; not ticking keeps the step in the cook */
+ const preask=S.ahead?`<div class="preask"><p><b>Already prepped any of these? Tick them.</b></p>${AHEAD.prep.map(([id,w,sm])=>{const on=S.prepTicks.has(id);return `<button class="tick ${on?'on':''}" data-a="prepTick" data-v="${id}" role="checkbox" aria-checked="${on}"><span class="bx">${ic('check')}</span><span class="nm">${esc(w)}${on?' <span class="quiet">ticked everywhere</span>':''}</span></button>`;}).join('')}</div>`:'';
+ const box=S.ahead?`<div class="grbox"><p><b>Get ready</b> ${esc(r.ready)}</p>${preask}</div>`:`<div class="grbox"><p><b>Get ready</b> ${esc(r.ready)}</p><p><b>Prep ahead</b> ${esc(r.ahead)}</p></div>`;
+ /* Quick Naan: title on its own line, tag under it, and words that do not promise steps that are not linked yet (ease 7) */
+ const naan=S.rid==='tikka'?`<div class="partbox ${S.naanHL?'hl':''}"><button class="tick ${S.naanOn?'on':''}" data-a="naan" role="checkbox" aria-checked="${S.naanOn}"><span class="bx">${ic('check')}</span><span class="nm" style="color:var(--ink)"><b>Quick Naan</b>, part of this recipe</span></button><div class="quiet" style="display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center"><span class="cl" style="margin-left:0">Linking Coming Later</span><span>${S.naanOn?'Once linking is built, its 4 steps join the cook in their own tab. Untick to skip it.':'Skipped. Tick it to make it too.'}</span></div></div>`:'';
+ /* round 6 (fix 2): a cook-ahead is for that one dish only, so no Add Another Dish */
+ const add=S.ahead?'':`<div class="addd"><button class="b out" data-a="adddish">${ic('add')}Add Another Dish</button></div>`;
+ /* round 4: brief item 3 order on one column: servings, anything you're out of, the ingredients, then the box and extras */
+ const body=wide()?`<div class="gcols"><div>${left}</div><div class="ctlcol">${srv}${out}${box}${naan}${add}</div></div>`:S.ahead?`<div class="ctlcol">${srv}${out}</div>${box}${left}`:`<div class="ctlcol">${srv}${out}</div>${left}${box}${naan}${add}`;
+ /* round 6 (fix 4): the variant shows from the first screen: its own title and a Start Cook-Ahead button (the Prep button's words) */
+ const gtitle=S.ahead?'Get Ready to Cook Ahead':'Get ready',gsub=S.ahead?`${esc(r.name)} · ${r.steps.length} steps${ph?'':' · serving waits for Thursday'}`:`${esc(r.name)} · ${all.length} ingredients · ${r.steps.length} steps`;
+ return `<div class="wrap"><div class="card gcard"><div class="ch"><h2>${gtitle}</h2><div class="sub">${gsub}</div></div>
+  <div class="cs">${body}</div></div>
+  <div class="acts"><button class="b main big wide" data-a="startcook">${S.ahead?'Start Cook-Ahead':'Start Cooking'}</button></div><div class="keys" style="visibility:hidden">.</div></div>${S.ov==='adddish'?addDishHTML():''}`;}
+/* Start by (brief item 30): Eat at - longest dish's full time - prep not done ahead - 10 min spare, rounded down to 5 min.
+   An oven clash fix that bakes the crisp first moves it earlier and says why. */
+function startBy(){const v=S.eat-MEAL.longMin-10-(S.clashFixed?15:0);return v-v%5;}
+const STARTS={chicken:280,potatoes:305,crisp:320,rolls:365,beans:375};
+function startOf(d){return d==='chicken'&&S.clashFixed?265:STARTS[d];}
+function startByHTML(){
+ if(!S.eatOn)return `<div class="startby"><div class="big">No set time</div><div class="why">You get the order: long waits first, quick sides last.</div></div>`;
+ const why=S.clashFixed?`<div class="why moved">Moved earlier from ${clock(S.eat-MEAL.longMin-10)}: the chicken roasts 15 minutes sooner, so the rolls get the oven at ${clock(S.eat-25)}. It rests under foil and stays hot.</div>`
+  :`<div class="why">${MEAL.longest} takes longest, about 1 hr 40 min with resting, plus 10 min to spare.</div>`;
+ const sh=S.eat-390,ord=dishesNow().slice().sort((a,b)=>startOf(a)-startOf(b)).map(d=>`${esc(R[d].short)} <b>${clock(startOf(d)+sh)}</b>`).join(' · ');
+ return `<div class="startby"><div class="big">Start by <b>${clock(startBy())}</b> to eat at ${clock(S.eat)}</div>${why}<div class="ord">${ord}</div></div>`;}
+function dishWhen(d){const sh=S.eat-390,c=m=>clock(m+sh);
+ if(d==='chicken')return S.clashFixed?`<span class="amb">Start at ${c(265)}</span><small>Out of the oven at ${c(355)}</small>`:`<span class="amb">Start at ${c(280)}</span><small>In the oven at ${c(295)}</small>`;
+ if(d==='rolls')return `<span class="amb">Start at ${c(365)}</span><small>${S.clashFixed?'The oven is free at '+c(355):'Wants the oven at '+c(365)}</small>`;
+ if(d==='potatoes')return `<span class="amb">Start at ${c(305)}</span><small>${S.potSrv} Servings</small>`;
+ if(d==='beans')return `<span class="amb">Start at ${c(375)}</span><small>Quick side, last</small>`;
+ return `<span class="amb">Start at ${c(320)}</span><small>In the oven at ${c(390)}, while you eat</small>`;}
+function viewReadyMeal(){
+ const D=MEAL.dishes,ph=isPhone();
+ const drow=d=>{const allOn=R[d].groups.every(g=>g[1].every(i=>S.ticks.has(i.id)));return `<div class="dishrow"><span class="dh"><span class="sw2" style="background:${R[d].col}"></span><span class="dn">${esc(R[d].name)}</span></span><span class="when">${S.eatOn?dishWhen(d):''}</span>${allOn?'':`<button class="b out sm" data-a="tickdish" data-v="${d}" aria-label="Tick all for ${esc(R[d].name)}">Tick All</button>`}</div>`;};
+ const butter=`<div class="outbox"><b>You're out of butter for this meal.</b> ${ph?'It needs <b>10 tbsp</b> in all; you have 3. ':'Potatoes need 4 tbsp, green beans 2 tbsp and the crisp 4 tbsp: <b>10 tbsp</b>. You have 3 tbsp. '}Add butter to Groceries?<div class="nb"><button class="b amberb sm" data-a="groc">${S.grocAdded?ic('check')+'Added to Groceries':'Add to Groceries'}</button><button class="b out sm" data-a="dismissout">I Have Enough</button></div></div>`;
+ /* round 4: each stepper and its second button share one line (all five panellists) */
+ const ctl=`${startByHTML()}
+  <div class="crow"><span class="lb">Eat at</span><span class="stp2"><button data-a="eat" data-v="-15" aria-label="Earlier">−</button><span>${S.eatOn?clock(S.eat):'None'}</span><button data-a="eat" data-v="15" aria-label="Later">+</button></span><button class="b out sm" data-a="noeat">${S.eatOn?'No Set Time':'Set a Time'}</button></div>
+  <div class="crow"><span class="lb">Servings</span><span class="stp2"><button data-a="msrv" data-v="-1" aria-label="Fewer">−</button><span>${S.mealSrv} Servings</span><button data-a="msrv" data-v="1" aria-label="More">+</button></span><button class="b out sm" data-a="onedish" aria-label="Change servings for one dish">${ph?'By Dish':'Change One Dish'}</button></div>
+  ${butter}`;
+ const grbox=`<div class="grbox"><p><b>Get ready</b> <span class="dl">Chicken</span> Take it out of the fridge 30 minutes before.</p><p><b>Prep ahead</b> <span class="dl">Chicken</span> Salt it the night before. <span class="dl">Potatoes</span> Peel and cut up to 1 day ahead. <span class="dl">Apple Crisp</span> Make the topping up to 3 days ahead.</p></div>`;
+ const add=`<div class="addd"><button class="b out" data-a="adddish">${ic('add')}Add Another Dish</button></div>`;
+ /* every size: each dish row (tick, name, start time) heads its own ingredients, in the order the dishes start;
+    no separate Dishes list (round 4) */
+ const dishes=`<div class="sech"><h4>${ph?'Dishes':'Dishes and Ingredients'}</h4><span class="cnt">in the order they start</span><button class="b out sm" data-a="adddish">${ic('add')}Add Another Dish</button></div>${(S.rolls?['chicken','potatoes','crisp','rolls','beans']:['chicken','potatoes','crisp','beans']).map(d=>`<div class="dishblock">${drow(d)}<div class="ings">${ingList(d,mult(d))}</div></div>`).join('')}`;
+ const body=wide()?`<div class="gcols"><div>${dishes}</div><div class="ctlcol">${ctl}${grbox}</div></div>`:`<div class="ctlcol">${ctl}</div>${dishes}${grbox}`;
+ return `<div class="wrap">${S.clash?clashHTML():''}<div class="card gcard"><div class="ch"><h2>Get ready</h2><div class="sub">Sunday Dinner · ${dishesNow().length} dishes · ${ORDER().length} steps</div></div>
+  <div class="cs">${body}</div></div>
+  <div class="acts"><button class="b main big wide" data-a="startcook">Start Cooking</button></div><div class="keys" style="visibility:hidden">.</div></div>${S.ov==='adddish'?addDishHTML():''}${S.ov==='onedish'?oneDishHTML():''}`;}
+function clashHTML(){
+ /* round 4: bold line + short second line; on a phone a one-line bar that opens to the fix */
+ if(isPhone()&&!S.clashOpen)return `<div class="note amber bar">${ic('flame')}<div class="nw"><b>The oven is double-booked</b></div><button class="b mid sm" data-a="clashopen">See Fix</button></div>`;
+ return `<div class="note amber">${ic('flame')}<div class="nw"><b class="h">The oven is double-booked at 6:05.</b><span class="l2">Dinner Rolls need 375°F to be hot at 6:30, but the chicken roasts at 425°F until 6:10. Roast the chicken 15 minutes sooner? It rests under foil and stays hot. Start by moves to 4:25.</span>
+ <div class="nb"><button class="b mid sm" data-a="fixclash">Roast the Chicken Sooner</button><button class="b out sm" data-a="oven2">We Have a Second Oven</button><button class="b out sm" data-a="dismiss">Ignore</button></div></div></div>`;}
+function oneDishHTML(){return `<div class="scrim" data-a="closeov"></div><div class="dlg" role="dialog" aria-label="Servings for one dish"><div class="dh"><h3>Servings for One Dish</h3><p>The meal makes ${S.mealSrv}. Change one dish on its own.</p></div><div class="db" style="gap:0">
+ ${dishesNow().map(d=>{const v=d==='potatoes'?S.potSrv:S.mealSrv;return `<div class="crow" style="grid-template-columns:1fr auto;border-bottom:1px solid var(--border)"><span class="lb" style="font-weight:500">${esc(R[d].name)}${v!==S.mealSrv?'<small class="quiet" style="display:block">Changed</small>':''}</span><span class="stp2"><button data-a="${d==='potatoes'?'psrv':'noop'}" data-v="-1" aria-label="Fewer">−</button><span style="min-width:64px">${v}</span><button data-a="${d==='potatoes'?'psrv':'noop'}" data-v="1" aria-label="More">+</button></span></div>`;}).join('')}
+ <button class="b main big" style="margin-top:14px" data-a="closeov">Done</button><button class="b out big" style="margin-top:8px" data-a="closeov">Cancel</button></div></div>`;}
+function addDishHTML(){const L=[['Cucumber Raita','Goes with Tikka Masala · 10 min'],['Jeera Rice','Goes with Tikka Masala · 25 min'],['Mango Lassi','5 min'],['Chana Masala','40 min'],['Garden Salad','10 min']];
+ return `<div class="scrim" data-a="closeov"></div><div class="dlg" role="dialog" aria-label="Add another dish" style="width:min(520px,calc(100% - 24px))"><div class="dh"><h3>Add Another Dish</h3><p>Pick a saved recipe. It cooks with this one, on one timeline.</p></div>
+ <div class="db" style="gap:0;padding-top:10px"><div class="compose" style="background:none;border:0;padding:0 0 8px;position:relative"><span style="position:absolute;left:12px;top:12px;width:20px;height:20px;color:var(--muted)">${ic('search').replace('<svg','<svg style="width:20px;height:20px;display:block"')}</span><input placeholder="Search your recipes" aria-label="Search your recipes" style="padding-left:40px"></div>
+ ${L.map(([n,s])=>`<div class="mrow" style="min-height:58px;border-top:1px solid rgba(0,0,0,.06)"><span class="w"><b style="font-weight:600">${n}</b><small>${s}</small></span><button class="b mid sm" data-a="pickdish" data-v="${n}">Add</button></div>`).join('')}
+ <button class="b out" style="margin-top:12px" data-a="closeov">Cancel</button></div></div>`;}
+
+/* ---------- loading (C-066) ---------- */
+function viewLoading(){const w=wide();
+ const bars=(n,wd)=>Array.from({length:n},(_,k)=>`<div class="sk" style="height:22px;margin:22px 0;width:${wd[k%wd.length]}%"></div>`).join('');
+ return `<div class="wrap"><div class="stage"><div class="scol"><div class="card"><div class="ch"><div class="sk" style="height:14px;width:30%;margin:6px 0 16px"></div><div class="sk" style="height:34px;width:55%"></div></div><div class="cs">${bars(4,[92,88,70,40])}</div></div></div>
+ ${w?`<div class="scol"><div class="card"><div class="ch"><div class="sk" style="height:20px;width:45%"></div></div><div class="cs">${bars(2,[70,60])}<div class="sk" style="height:14px;width:32%;margin:40px 0 0"></div>${bars(2,[75,50])}</div></div></div>`:''}</div>
+ <div class="acts"><span class="sk" style="width:${isPhone()?56:140}px;height:56px;border-radius:8px"></span><span class="sk" style="width:${isPhone()?150:220}px;height:56px;border-radius:8px"></span><span class="sk" style="width:${isPhone()?110:140}px;height:56px;border-radius:8px"></span></div><div class="lab">Getting your recipe ready</div></div>`;}
+/* ---------- someone else is cooking ---------- */
+function viewBusy(){return `<div class="wrap"><div class="center"><div class="card busy"><div class="ch">${avatar('M')}<div><h2 style="font-size:28px">Mom is cooking Pancakes</h2><div class="sub">Started at 9:10 on her phone</div></div></div>
+ <div class="cs" style="--r:34px;padding-top:14px;padding-bottom:20px"><p style="font-size:18px;line-height:1.55;margin:0 0 16px;color:var(--ink2)">Your kitchen runs one cook at a time. Follow her pancakes on this screen, or take over her cook here. Your Chicken Tikka Masala can start when she's done.</p>
+ <div style="display:flex;flex-direction:column;gap:10px"><button class="b main big" data-a="follow">Follow Pancakes</button><button class="b out big" data-a="takeover">Take Over Pancakes</button><button class="b out big" data-a="leave">Not Now</button></div></div></div></div></div>`;}
+/* ---------- how did it go ---------- */
+function viewHowGo(){const r=R[S.rid];return `<div class="wrap"><div class="center"><div class="card"><div class="ch"><h2>How did it go?</h2><div class="sub">${esc(r.name)}</div></div>
+ <div class="cs" style="--r:34px;padding-top:6px;padding-bottom:22px">
+ <button class="choice" data-a="howgo" data-v="written"><b>Cooked as Written</b><span>We take out what the recipe used. You can still change any line.</span></button>
+ <button class="choice" data-a="howgo" data-v="changes"><b>Made Some Changes</b><span>You swapped or changed something. Fix the amounts on the next card.</span></button>
+ <button class="choice" data-a="howgo" data-v="partial"><b>Didn't Finish</b><span>Only what you used gets taken out.</span></button></div></div></div>
+ <div class="acts"><button class="b out big" data-a="backcook">${ic('back')}Back to Cooking</button></div></div>`;}
+/* ---------- finish card ---------- */
+const USED=[['chk','Chicken thighs','1½ lb','2 lb','½ lb'],['yog','Plain yogurt','1 cup','4 cups','3 cups'],['but','Butter','2 tbsp','8 tbsp','6 tbsp'],['oni','Onions','1','5','4'],['gm','Garam masala','4 tsp','4 tsp','0'],['tom','Crushed tomatoes','1 can','3 cans','2 cans'],['crm','Heavy cream','½ cup','1 cup','½ cup'],['ric','Basmati rice','1½ cups','6 cups','4½ cups']];
+const MUSED=[['wc','Whole chicken','5 lb','5 lb','0'],['pot','Yukon Gold potatoes','4 lb','5 lb','1 lb'],['bt','Butter','10 tbsp','3 tbsp','0'],['gb','Green beans','1 lb','1½ lb','½ lb'],['ap','Apples','6','8','2'],['mlk','Milk','1 cup','½ gallon','7 cups']];
+function usedRows(list){return list.map(([id,n,u,b,a])=>{const none=S.none.has(id),zero=a==='0'||none;
+ /* round 4: fixed columns; None Left is always there and shows as picked when the count is 0, so rows never jump */
+ return `<div class="urow ${none?'none':''}"><span class="nm" title="${n}">${n}</span><span class="used">used ${u}</span><span class="ba">${b}<span class="ar">→</span>${zero?'<span class="zero">0</span>':`<b>${a}</b>`}</span><span class="ub"><button class="b out sm" data-a="noop">Edit</button><button class="b ${zero?'sel':'out'} sm nl" data-a="noneleft" data-v="${id}" aria-pressed="${zero}">${zero?ic('check'):''}None Left</button></span></div>`;}).join('');}
+/* ---------- BUILD_LIST rows 1, 3, 5: leftover place, use-by guess, Split It ---------- */
+const guessW=(rid,p)=>`<span class="guess">${ic('info')}Our guess, not a package date.</span>`;
+function placeBtns(cur,act,extra=''){return `<span class="place three" role="radiogroup">${PLACES.map(([k,l])=>`<button class="b ${cur===k?'sel':'out'} sm" role="radio" aria-checked="${cur===k}" data-a="${act}" data-v="${k}" ${extra}>${l}</button>`).join('')}</span>`;}
+function splitHTML(total){const ps=S.parts,sum=ps.reduce((a,x)=>a+x.n,0),ok=sum===total;
+ /* round 6 (fix 3, cook-ahead only): the header says what the meal needs; the first fridge part feeds the meal, and the sum
+    line says so when it is short (the freezer part stays a spare) */
+ const A=S.ahead,mi=A?ps.findIndex(x=>x.p==='fridge'):-1,mp=mi<0?null:ps[mi],short=A&&(!mp||mp.n<AHEAD.need)?AHEAD.need-(mp?mp.n:0):0;
+ const head=A?`<span class="need">${AHEAD.meal} needs ${AHEAD.need}</span>`:`<span class="quiet">${total} Servings in all</span>`;
+ const msg=short?(mp?`Fridge part is ${short} short for ${AHEAD.meal}. Move ${short} more to it?`:`No fridge part for ${AHEAD.meal}. Put ${AHEAD.need} in the fridge?`):ok?`${ps.map(x=>x.n).join(' + ')} = ${total} Servings. Each part gets its own number.`:`${sum} of ${total} Servings placed.`;
+ return `<div class="splitp" role="group" aria-label="Split It"><div class="sph"><b>Split It</b>${head}<button class="b out sm" data-a="unsplit">Don't Split</button></div>
+  ${ps.map((x,i)=>`<div class="prow"><span class="pn">Part ${i+1}${i===mi&&!short?`<br><span class="quiet" style="font-weight:500;font-size:13.5px">for ${AHEAD.day}</span>`:''}</span><span class="stp2"><button data-a="pn" data-i="${i}" data-v="-1" aria-label="Fewer in part ${i+1}">−</button><span>${x.n} Serving${x.n===1?'':'s'}</span><button data-a="pn" data-i="${i}" data-v="1" aria-label="More in part ${i+1}">+</button></span>
+   <span class="pw">${placeBtns(x.p,'pp',`data-i="${i}"`)}<span class="quiet">Use by <b style="color:var(--ink)">${UB[S.rid][x.p]}</b> · our guess</span></span></div>`).join('')}
+  <div class="bal ${short?'short':''}">${ic(short?'warn':'check')}<span>${msg}</span>${short&&mp?`<button class="b out sm" data-a="fixshort">Make It ${AHEAD.need}</button>`:''}<button class="b out sm" data-a="addpart">${ic('add')}Add a Part</button></div></div>`;}
+function aheadFinishLeft(){const r=R.chili;
+ const one=`<div class="lfrow"><span class="lb">How Much</span><span class="ctl"><span class="stp2"><button data-a="asrv" data-v="-1" aria-label="Fewer">−</button><span>${S.aSrv} Servings</span><button data-a="asrv" data-v="1" aria-label="More">+</button></span><span class="quiet">${AHEAD.meal} needs ${AHEAD.need}</span></span></div>
+  <div class="lfrow"><span class="lb">Where</span><span class="ctl">${placeBtns(S.aPlace,'aplace')}</span></div>
+  <div class="lfrow"><span class="lb">Use By</span><span class="ctl"><span class="ub">${UB.chili[S.aPlace]}</span>${guessW()}</span></div>
+  <div class="lfrow"><span class="lb"></span><span class="ctl"><button class="b out sm" data-a="split">Split It</button><span class="quiet">Some in the fridge, some in the freezer?</span></span></div>`;
+ const thaw=!S.split&&S.aPlace!=='fridge'?`<div class="ratenote">${ic('info')}<span>It's in the freezer, so Plan reminds you on Wed night to move it to the fridge to thaw.</span></div>`:'';
+ /* round 6 (Q2): the cool timer never blocks Finish; save now, lids on when it rings */
+ const ct=S.timers.find(t=>t.d==='chili'&&t.i===5&&tLeft(t)>0);
+ const cool=ct?`<div class="coolnote">${ic('timer')}<span>Still cooling, <b data-tl="${ct.id}">${mmss(tLeft(ct))}</b> left. Save it now; put the lids on when it rings.</span></div>`:'';
+ return `<div class="sech"><h4>Save as a Leftover</h4><span class="cnt">for ${AHEAD.meal}, ${AHEAD.date}</span></div>${cool}${S.split?splitHTML(S.aSrv):one}${thaw}
+  <div class="ratenote">${ic('info')}<span>Saving gives it a number for its tape, and ${AHEAD.meal} on Plan uses it. Nothing is rated now; Thursday asks how it tasted.</span></div>`;}
+function viewFinishAhead(){
+ const hg=S.howgo==='changes'?'Made Some Changes':S.howgo==='partial'?"Didn't Finish":'Cooked as Written';
+ const outs=CUSED.filter(([id,,,,a])=>a==='0'||S.none.has(id)).map(x=>x[1]);
+ const ran=!outs.length?'':`<div class="sech"><h4>Ran Out</h4></div><div class="outbox" style="margin-top:0"><b>${esc(andList(outs))}</b>: none left now. Add ${outs.length>1?'them':'it'} to Groceries?<div class="nb"><button class="b amberb sm" data-a="groc">${S.grocAdded?ic('check')+'Added to Groceries':'Add to Groceries'}</button></div></div>`;
+ const used=`<div class="sech"><h4>What You Used</h4><span class="cnt">comes out of your Kitchen</span></div>${usedRows(CUSED)}<div class="quiet" style="line-height:var(--r)">Garlic, cumin and salt: as written. <button class="b out sm" data-a="noop" style="margin-left:6px">Show All</button></div>`;
+ const note=`<div class="sech"><h4>Note for Next Time</h4></div><textarea class="notebox sm" placeholder="Like: a little more cumin" aria-label="Note for next time"></textarea>`;
+ const L=aheadFinishLeft(),body=wide()?`<div class="gcols"><div>${L}</div><div>${ran}${used}${note}</div></div>`:L+ran+used+note;
+ const ph=isPhone();
+ return `<div class="wrap"><div class="card gcard fin"><div class="ch"><h2>Finish Cook-Ahead</h2><div class="sub subrow"><span>${ph?hg:'Beef Chili · '+hg}</span><button class="b out sm" data-a="tohowgo">Change</button></div></div><div class="cs" style="padding-bottom:calc(var(--r) * 1.5)">${body}</div></div>
+  <div class="hsub top strong">${S.hint?'<span class="hh" role="status">Hold the button for 1.2 seconds</span>':(ph?'Press and hold to save.':'Press and hold to save. What you used comes out of your Kitchen.')}</div>
+  <div class="acts"><button class="b out big back" data-a="backcook" aria-label="Back to cooking">${ic('back')}${ph?'':'Back'}</button><span style="position:relative;display:inline-flex;flex:1;justify-content:center;max-width:420px"><button class="b main big wide hold" data-hold="finish" style="width:100%">${ic('dot')}Save as a Leftover</button></span></div></div>`;}
+/* saved: the number to write on the tape, the tape how-to, and what Plan now says */
+function planPreview(no){return `<div class="planpv" aria-label="Plan, ${AHEAD.meal}"><span class="pd"><b>${AHEAD.day}</b><small>${AHEAD.date}</small></span><span class="pl"></span><span class="pm"><small>Dinner</small><b>Beef Chili</b></span><span class="ma">${ic('check')}Made ahead, <span class="tape">#${String(no).padStart(4,'0')}</span></span></div>`;}
+function viewSaved(){const ph=isPhone(),n=AHEAD.no,id=k=>`<span class="tape">#${String(k).padStart(4,'0')}</span>`;
+ const PW={fridge:'fridge',freezer:'freezer',garage:'garage freezer'},PL={fridge:'Fridge',freezer:'Freezer',garage:'Garage Freezer'};
+ /* round 6 (fix 1): the tag and its period sit in one no-wrap span, so the "." never lands alone on a line */
+ const say=(w,k)=>`<p class="idsay">${w} <span class="tw">${id(k)}.</span></p>`;
+ const parts=S.split?S.parts.map((x,i)=>`<div class="idpart"><div class="eye">${x.n} Servings · ${PL[x.p]}${i===0&&x.p==='fridge'?' · for '+AHEAD.meal:''}</div>${say(`The ${PW[x.p]} part's number is`,n+i)}<div class="guess">${ic('info')}Use by ${UB.chili[x.p]}. Our guess, not a package date.</div></div>`).join('')
+  :`<div class="idpart"><div class="eye">${S.aSrv} Servings · ${PL[S.aPlace]}</div>${say("This leftover's number is",n)}<div class="guess">${ic('info')}Use by ${UB.chili[S.aPlace]}. Our guess, not a package date.</div></div>`;
+ const tape=`<div class="tapeln"><span class="sw" aria-hidden="true"></span><span>Put a strip of blue painter's tape or clear tape on the lid. Write the number with a sharpie and look it up here.</span></div>`;
+ /* round 6 (Q3): the fridge part feeds the meal by default; Change lets you pick the other part. (Q4) Thursday names the number */
+ const spare=`<div class="pvnote">${S.split?`${AHEAD.meal} uses <span class="tw">${id(n)},</span> the fridge part.<button class="b out sm chg" data-a="chgpart">Change</button><br>${id(n+1)} waits in the freezer as a spare leftover.<br>`:''}On Thursday, Cook shows it as Already Made: Warm Up <span class="tw">${id(n)}.</span></div>`;
+ const acts=`<div class="acts"><button class="b out big" data-a="seeplan">${RAIL.plan}See It in Plan</button><button class="b main big wide" data-a="aheaddone">Done</button></div>`;
+ const card=`<div class="card savedc"><div class="ch"><h2>Saved as a Leftover</h2><div class="sub">Beef Chili · made ahead for ${AHEAD.meal}</div></div>
+  <div class="cs" style="--r:34px;padding-top:4px;padding-bottom:20px">${parts}${tape}
+  <div class="sech"><h4>Plan's ${AHEAD.meal} now says</h4></div>${planPreview(n)}${spare}</div></div>`;
+ /* round 6 (fix 5): on wider screens the buttons sit right under the card, not across an empty page; the phone keeps its bar
+    and the page scrolls with room above it */
+ if(!ph)return `<div class="wrap"><div class="center savedw"><div class="savedcol">${card}${acts}</div></div></div>`;
+ return `<div class="wrap"><div class="center savedw">${card}</div>${acts}</div>`;}
+/* ---------- the Prep page, stand-in (the real one is the Prep + Leftovers mockup) ---------- */
+function viewPrep(){const d=S.aDone,ph=isPhone();
+ const card=d?`<div class="card pcard"><div class="ch"><div class="eye">Make Ahead</div><h3>Make Ahead: Chili for ${AHEAD.meal}</h3><div class="sub">Beef Chili · 6 Servings</div></div><div class="cs">
+   <div class="pdone"><span class="ok">${ic('check')}Made ahead</span><span class="tape">#${String(AHEAD.no).padStart(4,'0')}</span><span>Fridge · Use by ${UB.chili.fridge}</span></div>
+   <div class="pline">${AHEAD.meal} on Plan uses it. On Thursday, Cook shows it as Already Made: Warm Up #0047.</div>
+   <div class="pbtns"><button class="b out" data-a="noop">See Leftover #0047</button></div></div></div>`
+  /* round 6 (fix 5): ⋯ > End Cook midway. Prep keeps the task where you stopped; nothing has come out of the Kitchen */
+  :S.stopped?`<div class="card pcard"><div class="ch"><div class="eye">Make Ahead</div><h3>Make Ahead: Chili for ${AHEAD.meal}</h3><div class="sub">Beef Chili · 6 Servings</div></div><div class="cs">
+   <div class="pstop"><span class="ok">${ic('time')}Stopped at Step 4 of 6</span><span>Simmer · ended at 3:05</span></div>
+   <div class="pline">Your ticks and steps are kept. Nothing has come out of your Kitchen yet.</div>
+   <div class="pbtns"><button class="b main big" data-a="pickup">Pick Up Where You Left Off</button><button class="b out big" data-a="startahead">Start Over</button></div></div></div>`
+  :`<div class="card pcard"><div class="ch"><div class="eye">Make Ahead</div><h3>Make Ahead: Chili for ${AHEAD.meal}</h3><div class="sub">Beef Chili · 6 Servings · about 1 hr 30 min</div></div><div class="cs">
+   <div class="pline">Cook the whole dish today. It saves as a leftover, and ${AHEAD.meal} uses it.</div>
+   <div class="pline" style="color:var(--muted)">Keeps 4 days in the fridge, 3 months in the freezer (our guess).</div>
+   <div class="pbtns"><button class="b main big" data-a="startahead">Start Cook-Ahead</button><button class="b out big" data-a="noop">Open the Recipe</button></div></div></div>`;
+ const other=`<div class="card pcard dim"><div class="ch"><div class="eye">Chop the Vegetables</div><h3>For Tue Tacos</h3></div><div class="cs"><button class="tick" data-a="noop"><span class="bx">${ic('check')}</span><span class="nm">Dice 2 onions and 2 peppers</span></button></div></div>`;
+ return `<div class="wood"><span class="wm">SupperCraft</span><span class="av T" style="width:30px;height:30px">T</span></div><div class="tan"><div class="tl"><span class="tt" style="padding-left:12px">Prep</span></div></div>
+ <div class="cb"><div class="wrap prepw"><div class="prephd"><span class="eye">Mon, Nov 30 · This week's prep</span><span class="cl">Stand-in for the Prep page</span></div>${card}${other}</div>${toastHTML()}</div>`;}
+/* ---------- round 6 (fix 5): a second way in, Plan's Thu Dinner card ⋯ > Cook It Ahead (stand-in; Plan is its own mockup).
+   Rows that go to a page use that page's grayscale rail icon (STANDARDS) ---------- */
+function viewPlan(){const ph=isPhone(),open=S.planMenu;
+ const menu=open?`<div class="pop menu" role="menu" aria-label="Thu Dinner">
+   <button class="mi" data-a="noop" role="menuitem">${RAIL.book}Open the Recipe</button>
+   <button class="mi" data-a="cookahead" role="menuitem">${RAIL.cook}<span>Cook It Ahead<small>Cook it before Thu; it saves as a leftover</small></span></button>
+   <button class="mi" data-a="noop" role="menuitem">${RAIL.prep}<span>See It in Prep<small>Make Ahead: Chili, Mon</small></span></button></div>`:'';
+ const day=(d,dt,meals)=>`<div class="pday"><span class="dn"><b>${d}</b><small>${dt}</small></span><div>${meals}</div></div>`;
+ const wed=`<div class="pmeal dim"><span class="pm"><small>Dinner</small><b>Lemon Garlic Pasta</b></span><button class="more" data-a="noop" aria-label="More for Wed Dinner">${ic('more')}</button></div>`;
+ const thu=`<div class="pmeal"><span class="pm"><small>Dinner</small><b>Beef Chili</b><span class="mk">6 Servings${ph?'':' · Make Ahead on Mon'}</span></span><button class="more ${open?'on':''}" data-a="planmore" aria-label="More for Thu Dinner" aria-expanded="${open}">${ic('more')}</button>${menu}</div>`;
+ return `<div class="wood"><span class="wm">SupperCraft</span><span class="av T" style="width:30px;height:30px">T</span></div><div class="tan"><div class="tl"><span class="tt" style="padding-left:12px">Plan</span></div></div>
+ <div class="cb"><div class="wrap planw"><div class="prephd"><span class="eye">Week of Nov 30</span><span class="cl">Stand-in for the Plan page</span></div>${day('Wed','Dec 2',wed)}${day('Thu','Dec 3',thu)}</div>${open?'<div class="scrim clear" data-a="planmore" style="z-index:15"></div>':''}${toastHTML()}</div>`;}
+function viewFinish(){
+ if(S.ahead)return viewFinishAhead();
+ const meal=S.mode==='meal',r=R[S.rid];
+ const title=S.mm?'Mark It Made':meal?'Finish Sunday Dinner':'Finish Cooking';
+ const hg=S.howgo==='changes'?'Made Some Changes':S.howgo==='partial'?"Didn't Finish":'Cooked as Written';
+ const sub=S.mm?`${esc(r.name)} · made today, no steps`:meal?'4 dishes':isPhone()?hg:`${esc(r.name)} · ${hg}`;
+ let howgo='';
+ const L3=[['written','Cooked as Written'],['changes','Made Some Changes'],['partial',"Didn't Finish"]],S3=[['written','As Written'],['changes','Some Changes'],['partial',"Didn't Finish"]];
+ if(S.mm)howgo=`<div class="sech"><h4>How It Went</h4></div><div class="dishgo"><span class="seg3" role="radiogroup">${(isPhone()?S3:L3).map(([k,l])=>`<button class="${S.howgo===k?'on':''}" role="radio" aria-checked="${S.howgo===k}" data-a="howgo2" data-v="${k}">${l}</button>`).join('')}</span></div>`;
+ /* round 4: one line by default ("All 4 dishes cooked as written"); Change opens a row of equal thirds per dish */
+ if(meal){const ch=Object.entries(S.dishGo).filter(([d,v])=>v!=='written');
+  howgo=`<div class="sech"><h4>How It Went</h4></div><div class="allgo"><span>${ch.length?`${4-ch.length} as written, ${ch.map(([d,v])=>esc(R[d].short)+(v==='changes'?' changed':" not finished")).join(', ')}`:'All 4 dishes cooked as written'}</span><button class="b out sm ${S.goOpen?'sel':''}" data-a="goopen" aria-expanded="${S.goOpen}">${S.goOpen?'Done':'Change'}</button></div>
+  ${S.goOpen?MEAL.dishes.map(d=>{const v=S.dishGo[d]||'written';return `<div class="dishgo"><span class="nm">${esc(R[d].name)}</span><span class="seg3" role="radiogroup" aria-label="${esc(R[d].name)}">${S3.map(([k,l])=>`<button class="${v===k?'on':''}" role="radio" aria-checked="${v===k}" data-a="dishgo" data-d="${d}" data-v="${k}">${l}</button>`).join('')}</span></div>`;}).join(''):''}`;}
+ const used=`<div class="sech"><h4>What You Used</h4><span class="cnt">comes out of your Kitchen when you finish</span></div>${usedRows(meal?MUSED:USED)}<div class="quiet" style="line-height:var(--r)">${meal?'14 more lines, all as written.':'Salt, lemon juice, ginger, garlic and cilantro: as written.'} <button class="b out sm" data-a="noop" style="margin-left:6px">Show All</button></div>`;
+ const left=meal?`<div class="sech"><h4>Leftovers</h4></div>
+   <div class="lrow meal"><span class="nm" title="Roast Chicken">${wide()?'Chicken':'Roast Chicken'}</span><span class="stp2"><button data-a="noop">−</button><span>2 Servings</span><button data-a="noop">+</button></span><span class="place"><button class="b sel sm">Fridge</button><button class="b out sm">Freezer</button></span><button class="b out sm splt" data-a="noop">Split It</button></div>
+   <div class="lrow meal"><span class="nm" title="Mashed Potatoes">${wide()?'Potatoes':'Mashed Potatoes'}</span><span class="stp2"><button data-a="noop">−</button><span>3 Servings</span><button data-a="noop">+</button></span><span class="place"><button class="b sel sm">Fridge</button><button class="b out sm">Freezer</button></span><button class="b out sm splt" data-a="noop">Split It</button></div>
+   <div class="lrow meal"><span class="nm" title="Green Beans">${wide()?'Beans':'Green Beans'}</span><span class="stp2"><button data-a="noop">−</button><span>None</span><button data-a="noop">+</button></span><span class="place ghost" aria-hidden="true"><button class="b out sm" tabindex="-1">Fridge</button><button class="b out sm" tabindex="-1">Freezer</button></span><span class="place ghost" aria-hidden="true"><button class="b out sm splt" tabindex="-1">Split It</button></span></div>
+   ${S.crispLater?'':`<div class="lrow meal"><span class="nm">Apple Crisp</span><span class="stp2"><button data-a="noop">−</button><span>4 Servings</span><button data-a="noop">+</button></span><span class="place"><button class="b sel sm">Fridge</button><button class="b out sm">Freezer</button></span><button class="b out sm splt" data-a="noop">Split It</button></div>`}
+   <div class="guess" style="margin-top:6px">${ic('info')}Use-by dates are our guess, not a package date.</div>`
+  :`<div class="sech"><h4>Leftovers</h4></div>${S.split?splitHTML(S.left):`<div class="lrow"><span class="stp2"><button data-a="left" data-v="-1">−</button><span>${S.left?S.left+' Servings':'None'}</span><button data-a="left" data-v="1">+</button></span><span class="place"><button class="b ${S.lplace==='fridge'?'sel':'out'} sm" data-a="place" data-v="fridge">Fridge</button><button class="b ${S.lplace==='freezer'?'sel':'out'} sm" data-a="place" data-v="freezer">Freezer</button></span>${S.left>1?'<button class="b out sm splt" data-a="split">Split It</button>':''}</div>
+   <div class="guess" style="margin-top:6px">${ic('info')}Use by ${UB.tikka[S.lplace]}. Our guess, not a package date.</div>`}`;
+ const outs=(meal?MUSED:USED).filter(([id,,,,a])=>a==='0'||S.none.has(id)).map(x=>x[1]);
+ const ran=!outs.length?'':`<div class="sech"><h4>Ran Out</h4></div><div class="outbox" style="margin-top:0"><b>${esc(andList(outs))}</b>: none left now. Add ${outs.length>1?'them':'it'} to Groceries?<div class="nb"><button class="b amberb sm" data-a="groc">${S.grocAdded?ic('check')+'Added to Groceries':'Add to Groceries'}</button></div></div>`;
+ /* round 4: the History / rating note sits right under Leftovers so it is seen (brief item 26) */
+ const rate=`<div class="ratenote">${ic('info')}<span>${meal?'This dinner is one line in Cooked Before that opens to each dish. Tomorrow, Today asks you to rate each dish, all on one sheet.':'Tomorrow, Today asks how it tasted.'}</span></div>`;
+ const extra=`<div class="photo">${ic('camera')}<span style="flex:1"><b>Add a Photo of Your Dish</b><small>On the kitchen iPad, send it to your phone to snap it.</small></span><span class="cl">Coming Later</span></div>
+  <div class="sech"><h4>Note for Next Time</h4></div><textarea class="notebox ${wide()?'sm':''}" placeholder="Like: a little less ginger" aria-label="Note for next time"></textarea>`;
+ const body=wide()?`<div class="gcols"><div>${howgo}${used}</div><div>${ran}${left}${rate}${extra}</div></div>`:howgo+ran+left+used+rate+extra;
+ const tb=S.timers.find(t=>t.d==='crisp');
+ const bake=meal&&S.crispLater?`<div class="note amber bake">${ic('timer')}<div class="nw"><b class="h">Apple Crisp is still baking, about <span data-tl="${tb?tb.id:''}">${tb?mmss(tLeft(tb)):'25:00'}</span> left.</b><span class="l2">${isPhone()?'Finish the rest now. We ask about the crisp when it rings.':'Finish the rest now. When its timer rings, we ask about the crisp alone.'}</span></div><button class="b out sm" data-a="crispnow">${isPhone()?'Done':"It's Done Now"}</button></div>`:'';
+ return `<div class="wrap">${bake}<div class="card gcard fin"><div class="ch"><h2>${title}</h2><div class="sub subrow"><span>${sub}</span>${S.mm||meal?'':`<button class="b out sm" data-a="tohowgo">Change</button>`}</div></div><div class="cs" style="padding-bottom:calc(var(--r) * 1.5)">${body}</div></div>
+  <div class="hsub top">${S.hint?'<span class="hh" role="status">Hold the button for 1.2 seconds</span>':(isPhone()?'Press and hold to finish.':'Press and hold to finish. What you used comes out of your Kitchen.')}</div>
+  <div class="acts">${S.mm?'':`<button class="b out big back" data-a="backcook" aria-label="Back to cooking">${ic('back')}${isPhone()?'':'Back'}</button>`}<span style="position:relative;display:inline-flex;flex:1;justify-content:center;max-width:420px"><button class="b main big wide hold" data-hold="finish" style="width:100%">${ic('dot')}Hold to Finish</button></span></div></div>`;}
+/* ---------- Today after finishing ---------- */
+function viewToday(){const meal=S.mode==='meal';return `<div class="wood"><span class="wm">SupperCraft</span><span class="av T" style="width:30px;height:30px">T</span></div><div class="tan"><div class="tl"><span class="tt" style="padding-left:12px">Thursday, November 26</span></div></div>
+ <div class="cb"><div class="wrap" style="max-width:760px;overflow:auto;padding-bottom:20px"><div class="tcard2"><div class="eye">Today's meals</div>
+ <div class="mrow"><span class="w"><b style="font-weight:600">Breakfast</b><small>Yogurt and granola</small></span></div>
+ <div class="mrow just"><span class="w"><b style="font-weight:600">Dinner: ${meal?'Sunday Dinner':'Chicken Tikka Masala'}</b><small>${meal?'4 dishes':'2 Servings of leftovers in the fridge'}</small></span><span class="ok">${ic('check')}Cooked at 6:42</span></div></div>
+ <div class="tcard2"><div class="eye">Looking forward to tomorrow</div><div class="mrow"><span class="w"><b style="font-weight:600">Dinner: Lemon Garlic Pasta</b><small class="amb">Take the shrimp out of the freezer tonight</small></span></div></div></div>${toastHTML()}</div>`;}
+function toastHTML(){return S.toast?`<div class="toast" role="status">${esc(S.toast.t)}${S.toast.u?`<button data-a="${S.toast.u}">Undo</button>`:''}</div>`:'';}
+
+/* =============== render =============== */
+function render(){
+ const D=DEV[S.d],k=D.k,dev=$('#dev');
+ dev.className=`${k} ${k==='computer'||k==='ipadside'?'wide':'narrow'} ${k!=='computer'?'touch':''} ${k==='phone'?'phone':''} ts-${S.ts}`;
+ dev.style.width=D.w+'px';dev.style.height=D.h+'px';dev.style.setProperty('--dh',D.h+'px');
+ let body;
+ if(S.screen==='today'||S.screen==='prep'||S.screen==='plan'){dev.innerHTML=S.screen==='prep'?viewPrep():S.screen==='plan'?viewPlan():viewToday();vlines(dev);fit();return;}
+ if(S.screen==='saved')body=viewSaved();else if(S.screen==='ready')body=viewReady();else if(S.screen==='loading')body=viewLoading();else if(S.screen==='busy')body=viewBusy();else if(S.screen==='howgo')body=viewHowGo();else if(S.screen==='finish')body=viewFinish();else body=viewStep();
+ const ringing=S.ring&&S.screen==='step';
+ const stale=S.stale?`<div class="scrim"></div><div class="dlg" role="dialog" aria-label="Still cooking?"><div class="dh"><h3>Still cooking?</h3><p>Nothing has moved for 3 hours. Your timers ended at 4:10.</p></div><div class="db"><button class="b main big" data-a="unstale">Keep Cooking</button><button class="b out big" data-a="tofinish">Finish Now</button><button class="b red big" data-a="cancel">Cancel Cooking</button></div></div>`:'';
+ /* round 6 (fix 5): ⋯ > End Cook for Now, midway through a cook-ahead */
+ const endc=S.ov==='endcook'?`<div class="scrim"></div><div class="dlg" role="dialog" aria-label="End this cook for now?"><div class="dh"><h3>End this cook for now?</h3><p>You're on Step ${S.idx.chili+1} of ${R.chili.steps.length}: ${esc(R.chili.steps[S.idx.chili].t)}. Prep keeps the Make Ahead task, so you can pick up where you left off before ${AHEAD.meal}. Nothing comes out of your Kitchen yet. Turn off the stove first.</p></div><div class="db"><button class="b main big" data-a="closeov">Keep Cooking</button><button class="b out big" data-a="doendcook">End Cook for Now</button></div></div>`:'';
+ const cancel=S.ov==='cancel'?`<div class="scrim"></div><div class="dlg" role="dialog"><div class="dh"><h3>Cancel this cook?</h3><p>Nothing comes out of your Kitchen and no dinner is recorded.</p></div><div class="db"><button class="b main big" data-a="closeov">Keep Cooking</button><button class="b red big" data-a="docancel">Cancel Cooking</button></div></div>`:'';
+ const free=S.ov==='free'?`<div class="scrim" data-a="closeov"></div><div class="dlg" role="dialog" aria-label="New timer"><div class="dh"><h3>New Timer</h3><p>For anything not on a step. It shows on the timer button with the others.</p></div><div class="db"><input id="ftn" class="notebox" style="min-height:0;height:44px" placeholder="Name it, like: Bread rising" aria-label="Timer name"><div class="mins"><span class="stp2"><button data-a="freemin" data-v="-1" aria-label="One minute less">−</button><span>${S.freeMin} Min</span><button data-a="freemin" data-v="1" aria-label="One minute more">+</button></span></div><div class="chips">${[1,5,10,20].map(m=>`<button class="b ${S.freeMin===m?'sel':'out'}" data-a="freemin" data-set="1" data-v="${m}">${m} Min</button>`).join('')}</div><div class="quiet">You can also ask out loud: "Set a timer for 12 minutes."</div><button class="b main big" data-a="freestart">${ic('timer')}Start Timer</button><button class="b out big" data-a="closeov">Cancel</button></div></div>`:'';
+ const note=S.ov==='addnote'?`<div class="scrim"></div><div class="dlg" role="dialog"><div class="dh"><h3>Add a Note</h3><p>It stays with this cook and shows next time you make it.</p></div><div class="db"><textarea class="notebox" id="nt" placeholder="Like: the sauce needed 5 more minutes"></textarea><button class="b mid big" data-a="savenote">Save Note</button><button class="b out big" data-a="closeov">Cancel</button></div></div>`:'';
+ const notes=S.ov==='notes'?`<div class="scrim" data-a="closeov"></div><div class="dlg" role="dialog"><div class="dh"><h3>Session Notes</h3><p>${S.notes.length?'Notes from this cook.':'No notes yet. Add one from the ⋯ menu.'}</p></div><div class="db">${S.notes.map(n=>`<div class="note" style="margin:0">${ic('note')}<div class="nw">${esc(n)}</div></div>`).join('')}<button class="b out big" data-a="closeov">Close</button></div></div>`:'';
+ /* BUILD_LIST row 5 (not agreed): the calm cook-ahead line under the tan bar title */
+ const aln=S.ahead&&['step','ready','finish','howgo','loading'].includes(S.screen)?`<div class="aheadln" role="note">${ic('time')}<span>Cooking ahead for <b>${AHEAD.meal}</b>${isPhone()?'':`<span class="q"> · it saves as a leftover when you finish</span>`}</span></div>`:'';
+ dev.innerHTML=tanBar()+aln+`<div class="cb ${ringing?'ringing':''}">${body}${toastHTML()}</div>${stale}${endc}${cancel}${note}${notes}${free}`;
+ if(S.ov==='menu'||S.ov==='tray'||S.ov==='steps')dev.insertAdjacentHTML('beforeend','<div class="scrim clear" data-a="closeov" style="z-index:15"></div>');
+ vlines(dev);drawTabs();S.dir=0;fit();post();
+ const hl=$('#dev .partbox.hl');if(hl&&!wide())hl.scrollIntoView({block:'center'});}
+function post(){const dev=$('#dev'),sc=dev.getBoundingClientRect().width/dev.offsetWidth||1;
+ const sl=$('#dev .slist'),a=$('#dev .acts');if(sl&&a){const room=(a.getBoundingClientRect().top-sl.getBoundingClientRect().top)/sc-10;sl.style.maxHeight=Math.max(260,room)+'px';}
+ const ap=$('#dev .askpop'),ab=$('#dev .ask');if(ap&&ab){const P1=ap.getBoundingClientRect(),B=ab.getBoundingClientRect();ap.style.setProperty('--ax',((B.left+B.width/2-P1.left)/sc)+'px');}
+ if(S.ask==='type'){const i=$('#dev .compose input');if(i)i.focus({preventScroll:true});}}
+function fit(){const D=DEV[S.d];if(FULL){$('#scaler').style.transform='none';$('#scaler').style.width=D.w+'px';$('#scaler').style.height=D.h+'px';return;}
+ const avail=$('#stage').clientWidth-32,sc=Math.min(1,avail/(D.w+16));$('#scaler').style.transform=`scale(${sc})`;$('#scaler').style.height=(D.h+16)*sc+'px';$('#scaler').style.width=(D.w+16)+'px';}
+function renderStates(){
+ ['','b'].forEach(sfx=>STATES.forEach((g,gi)=>{const el=$('#sts'+(gi+1)+sfx);el.innerHTML=`<b>${g[0]}</b>`+g[1].map(x=>`<button data-st="${x[0]}" class="${x[0]===SID?'on':''}">${x[1]}</button>`).join('');}));
+ $$('[data-st]').forEach(b=>b.onclick=()=>{applyState(b.dataset.st);$('#stpop').classList.remove('show');try{history.replaceState(null,'',setQ('state',b.dataset.st));}catch(e){}});
+ $$('#devs button').forEach(b=>b.classList.toggle('on',b.dataset.d===S.d));}
+function setQ(k,v){const u=new URL(location.href);u.searchParams.set(k,v);return u.toString();}
+/* BUILD_LIST row 4 (STANDARDS, Tyler 15:22): every on-screen "·" between items becomes a thin vertical line */
+function vlines(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),ns=[];
+ while(w.nextNode()){const n=w.currentNode;if(n.nodeValue.includes('·')&&!n.parentElement.closest('textarea,script,style'))ns.push(n);}
+ ns.forEach(n=>{const f=document.createDocumentFragment();n.nodeValue.split(/\s*·\s*/).forEach((p,i)=>{if(i){const s=document.createElement('span');s.className='vs';s.setAttribute('aria-hidden','true');f.appendChild(s);}if(p)f.appendChild(document.createTextNode(p));});n.replaceWith(f);});}
+function toast(t,u){S.toast={t,u};render();clearTimeout(toast.h);toast.h=setTimeout(()=>{S.toast=null;render();},5000);}
+
+/* =============== actions =============== */
+function go(delta){
+ const c=cur();S.ask=null;
+ if(S.mode==='one'){const n=R[S.rid].steps.length,i=S.idx[S.rid]+delta;if(i<0)return;if(i>=n){S.screen='howgo';render();return;}S.idx[S.rid]=i;}
+ else if(S.tab==='all'){const o=ORDER();let k=S.idx.all+delta;while(k>=0&&k<o.length&&((S.two&&o[k][0]==='potatoes')||S.skipped.has(o[k][0]+':'+o[k][1])))k+=delta;if(k<0)return;if(k>=o.length){S.screen='finish';render();return;}S.idx.all=k;}
+ else{const n=stepsOf(S.tab).length,i=S.idx[S.tab]+delta;if(i<0)return;if(i>=n){A.dishdone();return;}S.idx[S.tab]=i;}
+ if(S.mirror){S.catchup=true;}
+ S.ov=null;S.dir=delta;render();}
+const A={
+ next:()=>go(1),prev:()=>go(-1),
+ steps:()=>{S.ov=S.ov==='steps'?null:'steps';render();},closeov:()=>{S.ov=null;render();},
+ jump:(b)=>{const v=+b.dataset.v;if(S.mode==='one')S.idx[S.rid]=v;else if(S.tab==='all')S.idx.all=v;else S.idx[S.tab]=v;S.ov=null;S.dir=1;if(S.mirror)S.catchup=true;render();},
+ /* a dish tab opens where All Together has got to for that dish (ease 3), unless you went further on the tab itself */
+ tab:(b)=>{const d=b.dataset.v;if(d!=='all'){const o=ORDER();let n=0;for(let k=0;k<S.idx.all&&k<o.length;k++)if(o[k][0]===d&&!S.skipped.has(o[k][0]+':'+o[k][1]))n=Math.max(n,o[k][1]+1);S.idx[d]=Math.min(Math.max(S.idx[d],n),stepsOf(d).length-1);}S.tab=d;S.ov=null;S.dir=1;render();},
+ dishdone:()=>{const d=S.tab;S.dishDone.add(d);if(S.helper){toast(`${R[d].short} done. Tyler sees it on his screen.`);return;}S.tab='all';S.dir=1;toast(`${R[d].short} done. Back to All Together.`);},
+ tgo:(b)=>{const t=S.timers.find(x=>x.id===b.dataset.id);if(!t||t.free)return;if(S.mode==='one')S.idx[S.rid]=t.i;else{S.tab=t.d;S.idx[t.d]=t.i;}S.ov=null;S.dir=1;render();},
+ typeq:()=>{S.ov=null;S.ask='type';render();},
+ handback:()=>toast('Potatoes handed back. Tyler sees them in his All Together again.'),
+ tickdish:(b)=>{R[b.dataset.v].groups.forEach(g=>g[1].forEach(i=>S.ticks.add(i.id)));render();},
+ freemin:(b)=>{S.freeMin=Math.max(1,Math.min(240,(b.dataset.set?0:S.freeMin)+ +b.dataset.v));render();},
+ freestart:()=>{const nm=(($('#ftn')||{}).value||'').trim()||'Timer',m=S.freeMin,id=Math.random().toString(36).slice(2,8);S.timers.push({id,key:'free:'+id,free:true,d:null,i:null,label:nm,total:m*60,end:Date.now()+m*60000,left:m*60,run:true,rung:false});S.ov=null;toast(`${nm}: ${m} Min timer started.`);},
+ menu:()=>{S.ov=S.ov==='menu'?null:'menu';render();},tray:()=>{S.ov=S.ov==='tray'?null:'tray';render();},
+ ts:(b)=>{S.ts=b.dataset.v;render();},
+ start:(b)=>{const t=mkTimer(b.dataset.d,+b.dataset.i,stepsOf(b.dataset.d)[+b.dataset.i].tm.min*60);S.timers.push(t);render();},
+ plus:(b)=>{const t=S.timers.find(x=>x.id===b.dataset.id);if(!t)return;const add=+b.dataset.v*60;const l=tLeft(t);t.end=Date.now()+(Math.max(0,l)+add)*1000;t.run=true;t.rung=false;t.total+=0;if(S.ring===t.id)S.ring=null;render();},
+ deltimer:(b)=>{const i=S.timers.findIndex(x=>x.id===b.dataset.id);if(i<0)return;const t=S.timers.splice(i,1)[0];S.undoT=t;if(S.ring===t.id)S.ring=null;toast(`${tName(t)} timer removed.`,'undoTimer');},
+ undoTimer:()=>{if(S.undoT){S.timers.push(S.undoT);S.undoT=null;}S.toast=null;render();},
+ gotit:()=>{const t=S.timers.find(x=>x.id===S.ring);if(t)S.timers=S.timers.filter(x=>x!==t);S.ring=null;render();},
+ /* Go to Step remembers where you were and offers "Back to Step N" (friction 5) */
+ gostep:()=>{const t=S.timers.find(x=>x.id===S.ring);if(t){const c=cur();S.backTo={d:c.d,i:c.i,tab:S.mode==='meal'?S.tab:null,k:c.k};if(S.mode==='one')S.idx[S.rid]=t.i;else{S.tab=t.d;S.idx[t.d]=t.i;}t.rung=true;}S.ring=null;S.dir=1;render();},
+ freetimer:()=>{S.ov='free';render();},
+ backto:()=>{const b=S.backTo;if(b){if(S.mode==='one')S.idx[S.rid]=b.i;else{S.tab=b.tab||'all';if(b.tab&&b.tab!=='all')S.idx[b.tab]=b.i;else S.idx.all=b.k;}}S.backTo=null;S.dir=-1;render();},
+ clashopen:()=>{S.clashOpen=true;render();},goopen:()=>{S.goOpen=!S.goOpen;render();},
+ psrv:(b)=>{S.potSrv=Math.max(1,S.potSrv+ +b.dataset.v);render();},
+ leave:()=>{if(S.ahead&&S.screen==='saved'){A.aheaddone();return;}toast(S.ahead?'Back to '+S.from+'. The cook-ahead keeps going: find it on Prep and Today under Cooking Now.':'Leaving keeps the cook going. Find it on Today under Cooking Now.');},
+ addnote:()=>{S.ov='addnote';render();setTimeout(()=>$('#nt')&&$('#nt').focus(),50);},savenote:()=>{const v=($('#nt')||{}).value;if(v)S.notes.push(v);S.ov=null;toast('Note saved.');},
+ notes:()=>{S.ov='notes';render();},takeover:()=>{if(S.screen==='busy'){toast('You have the pancakes now. Mom sees "Tyler took over." (The mockup has no pancake recipe.)');return;}S.mirror=false;S.catchup=false;S.follow=false;S.ov=null;if(S.screen==='busy')S.screen='step';toast('You are cooking now. Mom sees "Tyler took over."');},
+ follow:()=>toast('Following Mom\'s pancakes. (The mockup has no pancake recipe; see the Mirroring state.)'),
+ cancel:()=>{S.stale=false;S.ov='cancel';render();},docancel:()=>{S.ov=null;S.screen='today';S.toast={t:'Cook cancelled. Nothing was taken out.',u:null};render();},
+ catchup:()=>{S.catchup=false;S.idx.tikka=4;S.dir=-1;render();},
+ tofinish:()=>{S.ov=null;S.stale=false;S.screen=S.mode==='meal'?'finish':'howgo';render();},
+ howgo:(b)=>{S.howgo=b.dataset.v;S.screen='finish';render();},howgo2:(b)=>{S.howgo=b.dataset.v;render();},dishgo:(b)=>{S.dishGo[b.dataset.d]=b.dataset.v;render();},
+ tohowgo:()=>{S.screen='howgo';render();},backcook:()=>{S.screen='step';render();},
+ noneleft:(b)=>{const v=b.dataset.v;S.none.has(v)?S.none.delete(v):S.none.add(v);render();},
+ left:(b)=>{S.left=Math.max(0,S.left+ +b.dataset.v);render();},place:(b)=>{S.lplace=b.dataset.v;render();},
+ crisplater:()=>{S.crispLater=true;S.toast=null;render();},crispnow:()=>{S.crispLater=false;toast('Apple Crisp is done. Its leftovers are in the list.','crisplater');},
+ groc:()=>{S.grocAdded=!S.grocAdded;render();},dismissout:()=>{S.missing=false;render();},
+ tick:(b)=>{const v=b.dataset.v;S.ticks.has(v)?S.ticks.delete(v):S.ticks.add(v);render();},
+ tickall:()=>{allTicks(S,S.rid);render();},
+ srv:(b)=>{S.srv=Math.max(1,S.srv+ +b.dataset.v);render();},msrv:(b)=>{S.mealSrv=Math.max(1,S.mealSrv+ +b.dataset.v);S.potSrv=Math.max(1,S.potSrv+ +b.dataset.v);render();},
+ onedish:()=>{S.ov='onedish';render();},
+ eat:(b)=>{S.eatOn=true;S.eat+= +b.dataset.v;render();},noeat:()=>{S.eatOn=!S.eatOn;render();},
+ naan:()=>{S.naanOn=!S.naanOn;render();},
+ adddish:()=>{S.ov='adddish';render();},pickdish:(b)=>{S.ov=null;toast(`${b.dataset.v} added. Get ready now lists both dishes.`);},
+ startcook:()=>{S.screen='loading';render();setTimeout(()=>{if(S.screen==='loading'){S.screen='step';S.dir=1;render();}},900);},
+ fixclash:()=>{S.clash=false;S.clashFixed=true;toast('The chicken roasts 15 minutes sooner. Start by is now 4:25.','undoClash');},undoClash:()=>{S.clash=true;S.clashFixed=false;S.toast=null;render();},
+ oven2:()=>{S.clash=false;toast('Got it: two ovens. We will remember that for this kitchen.');},
+ dismiss:()=>{S.late=false;S.clash=false;render();},
+ reorder:()=>{S.late=false;toast('Green beans moved before the garlic butter.','undoReorder');},undoReorder:()=>{S.late=true;S.toast=null;render();},
+ twoseen:()=>{S._twoSeen=true;render();},
+ mine:()=>{toast(`${R[S.tab].short} is yours. Tyler sees your name on its tab.`);},
+ skip:(b)=>{const v=b.dataset.v;if(S.skipped.has(v)){S.skipped.delete(v);render();return;}S.skipped.add(v);S.lastSkip=v;toast('Step skipped.','undoSkip');},
+ undoSkip:()=>{if(S.lastSkip)S.skipped.delete(S.lastSkip);S.toast=null;render();},
+ closeask:()=>{S.ask=null;render();},send:()=>toast('Sent. (The mockup does not answer again.)'),
+ unstale:()=>{S.stale=false;render();},
+ undoDone:()=>{S.toast=null;S.screen='finish';render();},
+ /* cook-ahead (row 5) and Split It (row 1) */
+ startahead:()=>{ahead(S,'loading');allTicks(S,'chili');render();setTimeout(()=>{if(S.screen==='loading'){S.screen='ready';render();}},900);},
+ aplace:(b)=>{S.aPlace=b.dataset.v;render();},asrv:(b)=>{S.aSrv=Math.max(1,S.aSrv+ +b.dataset.v);render();},
+ split:()=>{splitOn(S);if(!S.ahead&&S.left!==2){const a=Math.ceil(S.left/2);S.parts=[{n:a,p:'fridge'},{n:S.left-a,p:'freezer'}];}if(S.ahead&&S.aSrv!==6){const a=Math.ceil(S.aSrv/2);S.parts=[{n:a,p:'fridge'},{n:S.aSrv-a,p:'freezer'}];}render();},
+ unsplit:()=>{S.split=false;render();},
+ pn:(b)=>{const p=S.parts[+b.dataset.i];p.n=Math.max(1,p.n+ +b.dataset.v);render();},pp:(b)=>{S.parts[+b.dataset.i].p=b.dataset.v;render();},
+ addpart:()=>{const big=S.parts.reduce((a,x)=>x.n>a.n?x:a,S.parts[0]);if(big.n>1){big.n--;S.parts.push({n:1,p:'garage'});}render();},
+ aheaddone:()=>{const sp=S.split;applyState('ca_prep_done');},
+ /* round 6 */
+ prepTick:(b)=>{const v=b.dataset.v;S.prepTicks.has(v)?S.prepTicks.delete(v):S.prepTicks.add(v);render();},
+ fixshort:()=>{const f=S.parts.find(x=>x.p==='fridge');if(!f)return;let need=AHEAD.need-f.n;for(const x of S.parts){if(x===f||need<=0)continue;const m=Math.min(need,x.n-1);x.n-=m;f.n+=m;need-=m;}render();},
+ chgpart:()=>toast(`Pick which part ${AHEAD.meal} uses. (The mockup keeps the fridge part.)`),
+ endcook:()=>{S.ov='endcook';render();},
+ doendcook:()=>{applyState('ca_prep_stopped');},
+ pickup:()=>{ahead(S,'step');S.stopped=false;S.idx.chili=3;allTicks(S,'chili');render();},
+ planmore:()=>{S.planMenu=!S.planMenu;render();},
+ cookahead:()=>{S.planMenu=false;ahead(S,'loading','Plan');allTicks(S,'chili');render();setTimeout(()=>{if(S.screen==='loading'){S.screen='ready';render();}},900);},
+ seeplan:()=>toast("Plan opens on Thu, Dec 3. (The mockup has no Plan page.)"),
+ noop:()=>{}};
+document.addEventListener('click',e=>{const b=e.target.closest('#dev [data-a]');if(!b)return;if(b.disabled)return;const f=A[b.dataset.a];if(f){e.preventDefault();f(b);}});
+/* hold buttons: Hold to Ask, Hold to Finish */
+let holdT=null,holdEl=null,holdStart=0;
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('#dev [data-hold]');if(!b)return;e.preventDefault();holdEl=b.dataset.hold;holdStart=Date.now();
+ if(holdEl==='ask'){if(S.offline){holdEl=null;toast('Ask Claude needs the internet. It comes back when you do.');return;}holdT=setTimeout(()=>{S.ask='listen';S.ov=null;render();},250);}
+ if(holdEl==='finish'){S.hint=false;$$('.hh').forEach(x=>x.remove());b.classList.add('holding');holdT=setTimeout(()=>{holdEl=null;finishDone();},1200);}});
+document.addEventListener('pointerup',()=>{if(!holdEl)return;const h=holdEl;holdEl=null;
+ if(h==='ask'){clearTimeout(holdT);if(Date.now()-holdStart<250){S.ask='type';S.ov=null;}else S.ask='answer';render();}
+ if(h==='finish'){clearTimeout(holdT);$$('.hold').forEach(x=>x.classList.remove('holding'));if(Date.now()-holdStart<1200){S.hint=true;render();clearTimeout(finishDone.h);finishDone.h=setTimeout(()=>{S.hint=false;if(S.screen==='finish')render();},3500);}}});
+function finishDone(){if(S.ahead){S.screen='saved';S.hint=false;render();return;}S.screen='today';S.toast={t:S.mm?'Marked as made.':'Dinner recorded.',u:'undoDone'};render();}
+/* computer keys (brief item 13): arrows move steps, hold Space to ask */
+let spaceDown=false;
+document.addEventListener('keydown',e=>{if(kind()!=='computer'||S.screen!=='step'||e.target.closest('input,textarea'))return;
+ if(e.key==='ArrowRight'){e.preventDefault();go(1);}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1);}
+ else if(e.code==='Space'&&!e.repeat&&!spaceDown){e.preventDefault();spaceDown=true;S.ask='listen';render();}
+ else if(e.key==='Escape'){S.ov=null;S.ask=null;render();}});
+document.addEventListener('keyup',e=>{if(e.code==='Space'&&spaceDown){spaceDown=false;S.ask='answer';render();}});
+/* drag a step to move it (All Together; DESIGN 6.8 drag the row itself) */
+let dragK=null;
+document.addEventListener('dragstart',e=>{const r=e.target.closest('.srow[data-k]');if(!r)return;dragK=+r.dataset.k;r.classList.add('drag');});
+document.addEventListener('dragover',e=>{const r=e.target.closest('.srow[data-k]');if(!r||dragK==null)return;e.preventDefault();$$('.srow.over').forEach(x=>x.classList.remove('over'));r.classList.add('over');});
+document.addEventListener('drop',e=>{const r=e.target.closest('.srow[data-k]');if(!r||dragK==null)return;e.preventDefault();const to=+r.dataset.k,o=[...ORDER()];const [m]=o.splice(dragK,1);o.splice(to,0,m);S.order=o;dragK=null;render();toast('Step moved. Start times updated.');});
+/* timers tick (frozen in shots) */
+function tick(){let rang=false;S.timers.forEach(t=>{const l=tLeft(t);$$(`[data-tl="${t.id}"]`).forEach(el=>el.textContent=l<=0?'Done':mmss(l));if(l<=0&&t.run&&!t.rung){t.rung=true;S.ring=t.id;rang=true;}});if(rang)render();}
+
+/* =============== boot =============== */
+const Q=new URLSearchParams(location.search);
+const FULL=window.SC_FULL||Q.get('full');
+if(Q.get('shots'))document.documentElement.classList.add('shots');
+function fullPick(){const d=FULL==='phone'?'phone':FULL==='desktop'?'c1280':(innerWidth>innerHeight?'ipadside':'ipadup');DEV[d]={...DEV[d],w:innerWidth,h:innerHeight};return d;}
+S=base();
+if(FULL){document.documentElement.classList.add('full');S.d=fullPick();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{S.d=fullPick();render();},250);});}
+else if(Q.get('dev')&&DEV[Q.get('dev')])S.d=Q.get('dev');
+$$('#devs button').forEach(b=>b.onclick=()=>{S.d=b.dataset.d;render();renderStates();});
+$('#stfab').onclick=()=>$('#stpop').classList.toggle('show');
+addEventListener('resize',()=>{if(!FULL)fit();});
+const d0=S.d;applyState(Q.get('state')||'step_timer');S.d=d0;render();
+if(!Q.get('shots'))setInterval(tick,1000);
+</script></body></html>
