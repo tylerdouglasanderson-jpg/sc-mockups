@@ -488,5 +488,12 @@
   "name": "Cook Mode",
   "msg": "Cook-ahead simplified r7 (T-2156)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "reminders-r6",
+  "mockup": "index.html",
+  "name": "Reminders",
+  "msg": "Reminders r6 (T-2169)",
+  "date": "2026-11-27"
  }
 ]
