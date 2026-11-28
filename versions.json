@@ -544,5 +544,12 @@
   "name": "Outside pages",
   "msg": "outside pages r8: real link-preview pictures",
   "date": "2026-11-28"
+ },
+ {
+  "v": "settings-r24",
+  "mockup": "index.html",
+  "name": "Settings v2 round 24",
+  "msg": "",
+  "date": "2026-11-28"
  }
 ]
