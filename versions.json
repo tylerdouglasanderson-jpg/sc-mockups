@@ -439,5 +439,12 @@
   "name": "Prep + Leftovers",
   "msg": "Prep + Leftovers round 37 for Tyler review",
   "date": "2026-11-27"
+ },
+ {
+  "v": "settings-r16",
+  "mockup": "index.html",
+  "name": "Settings r16",
+  "msg": "",
+  "date": "2026-11-27"
  }
 ]
