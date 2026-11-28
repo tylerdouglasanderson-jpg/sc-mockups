@@ -516,5 +516,12 @@
   "name": "Outside pages",
   "msg": "Outside pages r6 (T-2174)",
   "date": "2026-11-28"
+ },
+ {
+  "v": "linking-r14",
+  "mockup": "index.html",
+  "name": "Recipe Linking",
+  "msg": "walk4 linking r14 (not agreed)",
+  "date": "2026-11-28"
  }
 ]
