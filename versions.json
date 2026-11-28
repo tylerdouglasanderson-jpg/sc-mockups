@@ -537,5 +537,12 @@
   "name": "Recipe Linking",
   "msg": "walk4 linking r15: morning choices drawn (not agreed)",
   "date": "2026-11-28"
+ },
+ {
+  "v": "outside-r8",
+  "mockup": "index.html",
+  "name": "Outside pages",
+  "msg": "outside pages r8: real link-preview pictures",
+  "date": "2026-11-28"
  }
 ]
