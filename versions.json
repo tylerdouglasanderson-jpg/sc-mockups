@@ -446,5 +446,12 @@
   "name": "Settings r16",
   "msg": "",
   "date": "2026-11-27"
+ },
+ {
+  "v": "helppane-r21",
+  "mockup": "index.html",
+  "name": "Help pane r21",
+  "msg": "help pane r21",
+  "date": "2026-11-27"
  }
 ]
