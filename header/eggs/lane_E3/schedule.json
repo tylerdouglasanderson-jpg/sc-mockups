@@ -1,0 +1,275 @@
+{
+ "N5": {
+  "n": 5,
+  "egg_days": 73,
+  "longest_gap": 8,
+  "shortest_gap": 2,
+  "back_to_back": 0,
+  "per_egg": {
+   "chives": 15,
+   "parsley": 15,
+   "chives+onion": 14,
+   "red onion": 14,
+   "scallion": 15
+  },
+  "first_10": [
+   [
+    "2027-01-02",
+    "Sat",
+    "scallion"
+   ],
+   [
+    "2027-01-10",
+    "Sun",
+    "chives"
+   ],
+   [
+    "2027-01-14",
+    "Thu",
+    "parsley"
+   ],
+   [
+    "2027-01-18",
+    "Mon",
+    "chives+onion"
+   ],
+   [
+    "2027-01-22",
+    "Fri",
+    "red onion"
+   ],
+   [
+    "2027-01-30",
+    "Sat",
+    "scallion"
+   ],
+   [
+    "2027-02-02",
+    "Tue",
+    "chives"
+   ],
+   [
+    "2027-02-08",
+    "Mon",
+    "parsley"
+   ],
+   [
+    "2027-02-14",
+    "Sun",
+    "chives+onion"
+   ],
+   [
+    "2027-02-16",
+    "Tue",
+    "red onion"
+   ]
+  ]
+ },
+ "N7": {
+  "n": 7,
+  "egg_days": 53,
+  "longest_gap": 12,
+  "shortest_gap": 2,
+  "back_to_back": 0,
+  "per_egg": {
+   "chives": 11,
+   "parsley": 11,
+   "chives+onion": 10,
+   "red onion": 10,
+   "scallion": 11
+  },
+  "first_10": [
+   [
+    "2027-01-05",
+    "Tue",
+    "scallion"
+   ],
+   [
+    "2027-01-07",
+    "Thu",
+    "chives"
+   ],
+   [
+    "2027-01-17",
+    "Sun",
+    "parsley"
+   ],
+   [
+    "2027-01-25",
+    "Mon",
+    "chives+onion"
+   ],
+   [
+    "2027-02-02",
+    "Tue",
+    "red onion"
+   ],
+   [
+    "2027-02-04",
+    "Thu",
+    "scallion"
+   ],
+   [
+    "2027-02-11",
+    "Thu",
+    "chives"
+   ],
+   [
+    "2027-02-23",
+    "Tue",
+    "parsley"
+   ],
+   [
+    "2027-03-01",
+    "Mon",
+    "chives+onion"
+   ],
+   [
+    "2027-03-07",
+    "Sun",
+    "red onion"
+   ]
+  ]
+ },
+ "N5_4eggs": {
+  "n": 5,
+  "egg_days": 73,
+  "longest_gap": 8,
+  "shortest_gap": 2,
+  "back_to_back": 0,
+  "per_egg": {
+   "chives": 19,
+   "parsley": 18,
+   "chives+onion": 18,
+   "red onion": 18
+  },
+  "first_10": [
+   [
+    "2027-01-02",
+    "Sat",
+    "chives"
+   ],
+   [
+    "2027-01-10",
+    "Sun",
+    "parsley"
+   ],
+   [
+    "2027-01-14",
+    "Thu",
+    "chives+onion"
+   ],
+   [
+    "2027-01-18",
+    "Mon",
+    "red onion"
+   ],
+   [
+    "2027-01-22",
+    "Fri",
+    "chives"
+   ],
+   [
+    "2027-01-30",
+    "Sat",
+    "parsley"
+   ],
+   [
+    "2027-02-02",
+    "Tue",
+    "chives+onion"
+   ],
+   [
+    "2027-02-08",
+    "Mon",
+    "red onion"
+   ],
+   [
+    "2027-02-14",
+    "Sun",
+    "chives"
+   ],
+   [
+    "2027-02-16",
+    "Tue",
+    "parsley"
+   ]
+  ]
+ },
+ "next_from_2026-11-28_N5": [
+  [
+   "2026-11-30",
+   "Mon",
+   "chives+onion"
+  ],
+  [
+   "2026-12-06",
+   "Sun",
+   "red onion"
+  ],
+  [
+   "2026-12-08",
+   "Tue",
+   "scallion"
+  ],
+  [
+   "2026-12-13",
+   "Sun",
+   "chives"
+  ],
+  [
+   "2026-12-21",
+   "Mon",
+   "parsley"
+  ],
+  [
+   "2026-12-25",
+   "Fri",
+   "chives+onion"
+  ],
+  [
+   "2026-12-29",
+   "Tue",
+   "red onion"
+  ],
+  [
+   "2027-01-02",
+   "Sat",
+   "scallion"
+  ],
+  [
+   "2027-01-10",
+   "Sun",
+   "chives"
+  ],
+  [
+   "2027-01-14",
+   "Thu",
+   "parsley"
+  ]
+ ],
+ "pins_5eggs": {
+  "2026-11-30": [
+   2,
+   "chives+onion"
+  ],
+  "2026-12-01": null,
+  "2026-12-06": [
+   3,
+   "red onion"
+  ],
+  "2026-12-08": [
+   4,
+   "scallion"
+  ],
+  "2026-12-13": [
+   0,
+   "chives"
+  ],
+  "2026-12-21": [
+   1,
+   "parsley"
+  ]
+ },
+ "back_to_back_10y": 0
+}

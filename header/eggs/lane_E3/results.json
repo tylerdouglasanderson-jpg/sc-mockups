@@ -1,0 +1,5832 @@
+{
+ "E3-r4-05": {
+  "tile": {
+   "bits": 86,
+   "hero": 4,
+   "kb3": 62.1,
+   "kb2": 38.6,
+   "kb1": 15.9,
+   "kb_all": 116.6,
+   "file_worst": 5.15
+  },
+  "contrast": {
+   "390": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.95,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "390web": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.95,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.27
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.35,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.15,
+    "status_bar": 5.36
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 6.23,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.15,
+    "status_bar": 5.27
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.38,
+    "status": 5.69,
+    "gold": null,
+    "behind_words_pct": 0.2,
+    "whole_bar": 5.15
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.77,
+    "acct": 5.35,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.15,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.77,
+    "acct": 6.55,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.18
+   },
+   "393": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.95,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "375web": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.92,
+    "status": 6.13,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.27
+   },
+   "360web": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.76,
+    "status": 5.38,
+    "gold": null,
+    "behind_words_pct": 0.27,
+    "whole_bar": 5.27
+   },
+   "320web": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.87,
+    "status": 5.29,
+    "gold": null,
+    "behind_words_pct": 1.05,
+    "whole_bar": 5.27
+   }
+  },
+  "shot_worst": 5.15,
+  "file": {
+   "1x": 5.18,
+   "2x": 5.15,
+   "3x": 5.21,
+   "worst": 5.15,
+   "gold_on_worst": 3.03
+  }
+ },
+ "E3-r4-03": {
+  "tile": {
+   "bits": 26,
+   "hero": 2,
+   "kb3": 60.2,
+   "kb2": 37.8,
+   "kb1": 15.7,
+   "kb_all": 113.7,
+   "file_worst": 5.17
+  },
+  "contrast": {
+   "390": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.85,
+    "status": 5.94,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "390web": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.85,
+    "status": 5.94,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "820": {
+    "name": 5.72,
+    "mark": 5.7,
+    "acct": 5.19,
+    "status": 5.87,
+    "gold": null,
+    "behind_words_pct": 0.09,
+    "whole_bar": 5.19,
+    "status_bar": 5.22
+   },
+   "1180": {
+    "name": 5.72,
+    "mark": 5.7,
+    "acct": 6.46,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.19,
+    "status_bar": 5.22
+   },
+   "1280": {
+    "name": 5.72,
+    "mark": 5.7,
+    "acct": 5.52,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.19
+   },
+   "1280@1x": {
+    "name": 5.73,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "1920@1x": {
+    "name": 5.73,
+    "mark": 5.81,
+    "acct": 5.27,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.15,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.85,
+    "status": 5.89,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "375web": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 6.13,
+    "status": 5.94,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "360web": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.85,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.32,
+    "whole_bar": 5.24
+   },
+   "320web": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.98,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.94,
+    "whole_bar": 5.24
+   }
+  },
+  "shot_worst": 5.19,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.19,
+   "3x": 5.17,
+   "worst": 5.17,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r4-01": {
+  "tile": {
+   "bits": 78,
+   "hero": 5,
+   "kb3": 61.3,
+   "kb2": 38.4,
+   "kb1": 15.8,
+   "kb_all": 115.5,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.66,
+    "acct": 6.04,
+    "status": 5.57,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.28,
+    "status_bar": 5.42
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.66,
+    "acct": 6.04,
+    "status": 5.57,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.28
+   },
+   "820": {
+    "name": 5.7,
+    "mark": 5.53,
+    "acct": 5.3,
+    "status": 5.69,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.28
+   },
+   "1180": {
+    "name": 5.7,
+    "mark": 5.53,
+    "acct": 6.08,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.28
+   },
+   "1280": {
+    "name": 5.7,
+    "mark": 5.53,
+    "acct": 5.59,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.49,
+    "mark": 5.89,
+    "acct": 5.3,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.49,
+    "mark": 5.89,
+    "acct": 6.45,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.66,
+    "acct": 6.04,
+    "status": 5.57,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.28,
+    "status_bar": 5.41
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.66,
+    "acct": 5.78,
+    "status": 6.02,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.28
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.66,
+    "acct": 5.57,
+    "status": 5.97,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.28
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.66,
+    "acct": 5.85,
+    "status": 5.44,
+    "gold": null,
+    "behind_words_pct": 0.35,
+    "whole_bar": 5.28
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.23,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r4-02": {
+  "tile": {
+   "bits": 104,
+   "hero": 5,
+   "kb3": 62.1,
+   "kb2": 38.3,
+   "kb1": 15.8,
+   "kb_all": 116.2,
+   "file_worst": 5.19
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 5.92,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.35,
+    "status_bar": 5.35
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 5.92,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.47,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.27,
+    "status_bar": 5.3
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 6.32,
+    "status": 5.69,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.22,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.14,
+    "whole_bar": 5.22
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.95,
+    "acct": 5.51,
+    "status": 5.39,
+    "gold": null,
+    "behind_words_pct": 0.12,
+    "whole_bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.95,
+    "acct": 6.4,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 5.92,
+    "status": 5.9,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.35,
+    "status_bar": 5.35
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 5.9,
+    "status": 6.16,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 5.76,
+    "status": 5.93,
+    "gold": null,
+    "behind_words_pct": 0.16,
+    "whole_bar": 5.36
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 5.83,
+    "status": 5.36,
+    "gold": null,
+    "behind_words_pct": 0.32,
+    "whole_bar": 5.36
+   }
+  },
+  "shot_worst": 5.22,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.19,
+   "worst": 5.19,
+   "gold_on_worst": 3.05
+  }
+ },
+ "E3-r4-04": {
+  "tile": {
+   "bits": 84,
+   "hero": 5,
+   "kb3": 62.8,
+   "kb2": 38.3,
+   "kb1": 15.9,
+   "kb_all": 117.0,
+   "file_worst": 5.18
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 6.0,
+    "status": 5.85,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.27
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 6.0,
+    "status": 5.85,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "820": {
+    "name": 5.88,
+    "mark": 5.95,
+    "acct": 5.2,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.05,
+    "whole_bar": 5.18,
+    "status_bar": 5.26
+   },
+   "1180": {
+    "name": 5.88,
+    "mark": 5.95,
+    "acct": 6.41,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.18,
+    "status_bar": 5.23
+   },
+   "1280": {
+    "name": 5.88,
+    "mark": 5.95,
+    "acct": 5.39,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.07,
+    "whole_bar": 5.18
+   },
+   "1280@1x": {
+    "name": 5.4,
+    "mark": 5.77,
+    "acct": 5.64,
+    "status": 5.63,
+    "gold": null,
+    "behind_words_pct": 0.02,
+    "whole_bar": 5.25
+   },
+   "1920@1x": {
+    "name": 5.4,
+    "mark": 5.77,
+    "acct": 6.2,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 6.0,
+    "status": 5.72,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.27
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 5.92,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 5.72,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.39,
+    "whole_bar": 5.25
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.55,
+    "acct": 6.11,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.67,
+    "whole_bar": 5.25
+   }
+  },
+  "shot_worst": 5.18,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.18,
+   "3x": 5.18,
+   "worst": 5.18,
+   "gold_on_worst": 3.05
+  }
+ },
+ "E3-r4-06": {
+  "tile": {
+   "bits": 29,
+   "hero": 3,
+   "kb3": 60.9,
+   "kb2": 37.8,
+   "kb1": 15.4,
+   "kb_all": 114.1,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 5.95,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3,
+    "status_bar": 5.36
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 5.95,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.57,
+    "acct": 5.34,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.3
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.57,
+    "acct": 6.23,
+    "status": 5.6,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.24
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.57,
+    "acct": 5.6,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.4,
+    "mark": 5.81,
+    "acct": 5.43,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.4,
+    "mark": 5.81,
+    "acct": 6.23,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.12,
+    "whole_bar": 5.2
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 5.95,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3,
+    "status_bar": 5.36
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 5.3,
+    "status": 6.08,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 5.3,
+    "status": 5.35,
+    "gold": null,
+    "behind_words_pct": 0.46,
+    "whole_bar": 5.3
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 5.75,
+    "status": 5.35,
+    "gold": null,
+    "behind_words_pct": 1.06,
+    "whole_bar": 5.31
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.2,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r4-07": {
+  "tile": {
+   "bits": 61,
+   "hero": 4,
+   "kb3": 61.4,
+   "kb2": 37.8,
+   "kb1": 15.6,
+   "kb_all": 114.8,
+   "file_worst": 5.15
+  },
+  "contrast": {
+   "390": {
+    "name": 6.02,
+    "mark": 5.62,
+    "acct": 5.97,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.41
+   },
+   "390web": {
+    "name": 6.02,
+    "mark": 5.62,
+    "acct": 5.97,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.46,
+    "status": 6.02,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.26
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 6.46,
+    "status": 5.9,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.59,
+    "acct": 5.4,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.14,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.73,
+    "mark": 5.81,
+    "acct": 5.33,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.21,
+    "whole_bar": 5.2
+   },
+   "1920@1x": {
+    "name": 5.73,
+    "mark": 5.81,
+    "acct": 6.23,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "393": {
+    "name": 6.02,
+    "mark": 5.62,
+    "acct": 5.97,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.38
+   },
+   "375web": {
+    "name": 6.02,
+    "mark": 5.62,
+    "acct": 6.01,
+    "status": 5.94,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "360web": {
+    "name": 6.02,
+    "mark": 5.62,
+    "acct": 5.76,
+    "status": 5.37,
+    "gold": null,
+    "behind_words_pct": 0.57,
+    "whole_bar": 5.25
+   },
+   "320web": {
+    "name": 6.02,
+    "mark": 5.62,
+    "acct": 6.08,
+    "status": 5.25,
+    "gold": null,
+    "behind_words_pct": 1.16,
+    "whole_bar": 5.25
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.18,
+   "2x": 5.15,
+   "3x": 5.24,
+   "worst": 5.15,
+   "gold_on_worst": 3.03
+  }
+ },
+ "E3-r4-08": {
+  "tile": {
+   "bits": 63,
+   "hero": 5,
+   "kb3": 61.7,
+   "kb2": 38.3,
+   "kb1": 16.0,
+   "kb_all": 116.0,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "390": {
+    "name": 5.81,
+    "mark": 5.51,
+    "acct": 5.97,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "390web": {
+    "name": 5.81,
+    "mark": 5.51,
+    "acct": 5.97,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.97,
+    "acct": 5.38,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.97,
+    "acct": 5.79,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.22
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.97,
+    "acct": 5.38,
+    "status": 5.44,
+    "gold": null,
+    "behind_words_pct": 0.17,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.46,
+    "mark": 5.81,
+    "acct": 5.23,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.14,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.46,
+    "mark": 5.81,
+    "acct": 6.01,
+    "status": 5.73,
+    "gold": null,
+    "behind_words_pct": 0.11,
+    "whole_bar": 5.21
+   },
+   "393": {
+    "name": 5.81,
+    "mark": 5.51,
+    "acct": 5.97,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "375web": {
+    "name": 5.81,
+    "mark": 5.51,
+    "acct": 5.51,
+    "status": 6.08,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "360web": {
+    "name": 5.81,
+    "mark": 5.51,
+    "acct": 5.51,
+    "status": 5.83,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "320web": {
+    "name": 5.81,
+    "mark": 5.51,
+    "acct": 5.83,
+    "status": 5.22,
+    "gold": null,
+    "behind_words_pct": 0.99,
+    "whole_bar": 5.22
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.22,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r4-09": {
+  "tile": {
+   "bits": 62,
+   "hero": 4,
+   "kb3": 62.6,
+   "kb2": 38.0,
+   "kb1": 15.9,
+   "kb_all": 116.5,
+   "file_worst": 5.15
+  },
+  "contrast": {
+   "390": {
+    "name": 6.02,
+    "mark": 5.59,
+    "acct": 5.93,
+    "status": 5.79,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "390web": {
+    "name": 6.02,
+    "mark": 5.59,
+    "acct": 5.93,
+    "status": 5.79,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "820": {
+    "name": 5.73,
+    "mark": 5.57,
+    "acct": 5.4,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16,
+    "status_bar": 5.22
+   },
+   "1180": {
+    "name": 5.73,
+    "mark": 5.57,
+    "acct": 6.42,
+    "status": 5.79,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16,
+    "status_bar": 5.22
+   },
+   "1280": {
+    "name": 5.73,
+    "mark": 5.57,
+    "acct": 5.6,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.82,
+    "acct": 5.43,
+    "status": 5.41,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.15
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.82,
+    "acct": 6.13,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.15
+   },
+   "393": {
+    "name": 6.02,
+    "mark": 5.59,
+    "acct": 5.93,
+    "status": 5.79,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "375web": {
+    "name": 6.02,
+    "mark": 5.59,
+    "acct": 5.79,
+    "status": 5.89,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "360web": {
+    "name": 6.02,
+    "mark": 5.59,
+    "acct": 5.75,
+    "status": 5.38,
+    "gold": null,
+    "behind_words_pct": 0.43,
+    "whole_bar": 5.26
+   },
+   "320web": {
+    "name": 6.02,
+    "mark": 5.59,
+    "acct": 5.99,
+    "status": 5.38,
+    "gold": null,
+    "behind_words_pct": 1.12,
+    "whole_bar": 5.26
+   }
+  },
+  "shot_worst": 5.15,
+  "file": {
+   "1x": 5.15,
+   "2x": 5.16,
+   "3x": 5.2,
+   "worst": 5.15,
+   "gold_on_worst": 3.03
+  }
+ },
+ "E3-r4-10": {
+  "tile": {
+   "bits": 69,
+   "hero": 3,
+   "kb3": 62.0,
+   "kb2": 38.2,
+   "kb1": 15.6,
+   "kb_all": 115.8,
+   "file_worst": 5.16
+  },
+  "contrast": {
+   "390": {
+    "name": 5.97,
+    "mark": 5.55,
+    "acct": 5.86,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "390web": {
+    "name": 5.97,
+    "mark": 5.55,
+    "acct": 5.86,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "820": {
+    "name": 5.97,
+    "mark": 5.73,
+    "acct": 5.46,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "1180": {
+    "name": 5.97,
+    "mark": 5.73,
+    "acct": 6.41,
+    "status": 5.62,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.23
+   },
+   "1280": {
+    "name": 5.97,
+    "mark": 5.73,
+    "acct": 5.77,
+    "status": 5.39,
+    "gold": null,
+    "behind_words_pct": 0.12,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 5.59,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.06,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 6.5,
+    "status": 5.45,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "393": {
+    "name": 5.97,
+    "mark": 5.55,
+    "acct": 5.86,
+    "status": 5.85,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "375web": {
+    "name": 5.97,
+    "mark": 5.55,
+    "acct": 5.92,
+    "status": 5.9,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "360web": {
+    "name": 5.97,
+    "mark": 5.55,
+    "acct": 5.75,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.27,
+    "whole_bar": 5.3
+   },
+   "320web": {
+    "name": 5.97,
+    "mark": 5.55,
+    "acct": 5.79,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.28,
+    "whole_bar": 5.3
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.16,
+   "worst": 5.16,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r4-11": {
+  "tile": {
+   "bits": 104,
+   "hero": 6,
+   "kb3": 61.9,
+   "kb2": 37.9,
+   "kb1": 15.7,
+   "kb_all": 115.5,
+   "file_worst": 5.17
+  },
+  "contrast": {
+   "390": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 6.04,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.24
+   },
+   "390web": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 6.04,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.24,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.28
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.76,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.28
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.77,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.01,
+    "whole_bar": 5.23
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.81,
+    "acct": 5.3,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.81,
+    "acct": 6.56,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.18
+   },
+   "393": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 6.04,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.24
+   },
+   "375web": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 5.7,
+    "status": 6.16,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "360web": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 5.7,
+    "status": 5.21,
+    "gold": null,
+    "behind_words_pct": 0.26,
+    "whole_bar": 5.21
+   },
+   "320web": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 5.87,
+    "status": 5.21,
+    "gold": null,
+    "behind_words_pct": 0.35,
+    "whole_bar": 5.21
+   }
+  },
+  "shot_worst": 5.18,
+  "file": {
+   "1x": 5.18,
+   "2x": 5.21,
+   "3x": 5.17,
+   "worst": 5.17,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r4-12": {
+  "tile": {
+   "bits": 154,
+   "hero": 7,
+   "kb3": 61.5,
+   "kb2": 37.6,
+   "kb1": 15.3,
+   "kb_all": 114.4,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 6.04,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.37,
+    "status_bar": 5.37
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 6.04,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.39
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.73,
+    "acct": 5.38,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26,
+    "status_bar": 5.26
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.73,
+    "acct": 6.52,
+    "status": 5.6,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.73,
+    "acct": 5.51,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "1280@1x": {
+    "name": 5.64,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "1920@1x": {
+    "name": 5.64,
+    "mark": 5.81,
+    "acct": 6.26,
+    "status": 5.82,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 6.04,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26,
+    "status_bar": 5.26
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 5.74,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.39
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 5.74,
+    "status": 5.66,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.39
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 6.08,
+    "status": 5.53,
+    "gold": null,
+    "behind_words_pct": 0.12,
+    "whole_bar": 5.39
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.2,
+   "2x": 5.23,
+   "3x": 5.2,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r4-13": {
+  "tile": {
+   "bits": 61,
+   "hero": 3,
+   "kb3": 62.3,
+   "kb2": 37.9,
+   "kb1": 15.7,
+   "kb_all": 115.9,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.63,
+    "acct": 5.97,
+    "status": 5.66,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.34,
+    "status_bar": 5.34
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.63,
+    "acct": 5.97,
+    "status": 5.66,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36
+   },
+   "820": {
+    "name": 5.51,
+    "mark": 5.7,
+    "acct": 5.3,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1180": {
+    "name": 5.51,
+    "mark": 5.7,
+    "acct": 6.08,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.2,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1280": {
+    "name": 5.51,
+    "mark": 5.7,
+    "acct": 5.38,
+    "status": 5.38,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.24,
+    "mark": 5.77,
+    "acct": 5.59,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.24,
+    "mark": 5.77,
+    "acct": 6.45,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.63,
+    "acct": 5.97,
+    "status": 5.75,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.31,
+    "status_bar": 5.31
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.63,
+    "acct": 5.87,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.63,
+    "acct": 5.66,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.09,
+    "whole_bar": 5.36
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.63,
+    "acct": 5.84,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.11,
+    "whole_bar": 5.38
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.23,
+   "2x": 5.21,
+   "3x": 5.2,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "N-r8-01": {
+  "contrast": {
+   "390": {
+    "name": 5.49,
+    "mark": 5.69,
+    "acct": 6.0,
+    "status": 5.65,
+    "gold": null,
+    "whole_bar": 5.35,
+    "status_bar": 5.35
+   },
+   "390web": {
+    "name": 5.49,
+    "mark": 5.69,
+    "acct": 6.0,
+    "status": 5.65,
+    "gold": null,
+    "whole_bar": 5.41
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.3,
+    "status": 5.28,
+    "gold": null,
+    "whole_bar": 5.24,
+    "status_bar": 5.25
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 6.51,
+    "status": 5.77,
+    "gold": null,
+    "whole_bar": 5.2,
+    "status_bar": 5.25
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.62,
+    "status": 5.55,
+    "gold": null,
+    "whole_bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.41,
+    "gold": null,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 6.45,
+    "status": 5.77,
+    "gold": null,
+    "whole_bar": 5.2
+   },
+   "393": {
+    "name": 5.49,
+    "mark": 5.69,
+    "acct": 6.0,
+    "status": 5.65,
+    "gold": null,
+    "whole_bar": 5.35,
+    "status_bar": 5.35
+   },
+   "375web": {
+    "name": 5.49,
+    "mark": 5.69,
+    "acct": 5.81,
+    "status": 5.99,
+    "gold": null,
+    "whole_bar": 5.41
+   },
+   "360web": {
+    "name": 5.49,
+    "mark": 5.69,
+    "acct": 5.65,
+    "status": 5.88,
+    "gold": null,
+    "whole_bar": 5.41
+   },
+   "320web": {
+    "name": 5.49,
+    "mark": 5.69,
+    "acct": 6.02,
+    "status": 5.74,
+    "gold": null,
+    "whole_bar": 5.49
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.18,
+   "2x": 5.2,
+   "3x": 5.17,
+   "worst": 5.17,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r5-01": {
+  "tile": {
+   "bits": 78,
+   "hero": 5,
+   "kb3": 62.5,
+   "kb2": 38.4,
+   "kb1": 15.6,
+   "kb_all": 116.5,
+   "file_worst": 5.16
+  },
+  "contrast": {
+   "390": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 6.04,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16,
+    "status_bar": 5.27
+   },
+   "390web": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 6.04,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16
+   },
+   "820": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 5.3,
+    "status": 5.36,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "1180": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 6.42,
+    "status": 5.44,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.22
+   },
+   "1280": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 5.49,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.16,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.86,
+    "acct": 5.35,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.15,
+    "whole_bar": 5.2
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.86,
+    "acct": 6.55,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "393": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 6.04,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16,
+    "status_bar": 5.26
+   },
+   "375web": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 5.81,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16
+   },
+   "360web": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 5.76,
+    "status": 5.89,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16
+   },
+   "320web": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 5.98,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.88,
+    "whole_bar": 5.16
+   }
+  },
+  "shot_worst": 5.16,
+  "file": {
+   "1x": 5.2,
+   "2x": 5.21,
+   "3x": 5.16,
+   "worst": 5.16,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r5-02": {
+  "tile": {
+   "bits": 74,
+   "hero": 4,
+   "kb3": 62.6,
+   "kb2": 38.4,
+   "kb1": 15.9,
+   "kb_all": 116.9,
+   "file_worst": 5.16
+  },
+  "contrast": {
+   "390": {
+    "name": 5.88,
+    "mark": 5.59,
+    "acct": 6.04,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.33
+   },
+   "390web": {
+    "name": 5.88,
+    "mark": 5.59,
+    "acct": 6.04,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.47,
+    "status": 5.78,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.17,
+    "status_bar": 5.28
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.99,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16,
+    "status_bar": 5.27
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.57,
+    "status": 5.63,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16
+   },
+   "1280@1x": {
+    "name": 5.4,
+    "mark": 5.82,
+    "acct": 5.59,
+    "status": 5.46,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "1920@1x": {
+    "name": 5.4,
+    "mark": 5.82,
+    "acct": 5.99,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.88,
+    "mark": 5.59,
+    "acct": 6.04,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.26
+   },
+   "375web": {
+    "name": 5.88,
+    "mark": 5.59,
+    "acct": 5.92,
+    "status": 5.95,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "360web": {
+    "name": 5.88,
+    "mark": 5.59,
+    "acct": 5.77,
+    "status": 5.83,
+    "gold": null,
+    "behind_words_pct": 0.08,
+    "whole_bar": 5.24
+   },
+   "320web": {
+    "name": 5.88,
+    "mark": 5.59,
+    "acct": 6.1,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.32,
+    "whole_bar": 5.24
+   }
+  },
+  "shot_worst": 5.16,
+  "file": {
+   "1x": 5.22,
+   "2x": 5.16,
+   "3x": 5.21,
+   "worst": 5.16,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r5-03": {
+  "tile": {
+   "bits": 37,
+   "hero": 3,
+   "kb3": 60.2,
+   "kb2": 37.4,
+   "kb1": 15.9,
+   "kb_all": 113.5,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "390": {
+    "name": 5.81,
+    "mark": 5.68,
+    "acct": 5.88,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "390web": {
+    "name": 5.81,
+    "mark": 5.68,
+    "acct": 5.88,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "820": {
+    "name": 5.7,
+    "mark": 5.9,
+    "acct": 5.38,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.11,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "1180": {
+    "name": 5.7,
+    "mark": 5.9,
+    "acct": 5.99,
+    "status": 5.87,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "1280": {
+    "name": 5.7,
+    "mark": 5.9,
+    "acct": 5.3,
+    "status": 5.44,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.73,
+    "acct": 5.35,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.73,
+    "acct": 5.8,
+    "status": 5.32,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.81,
+    "mark": 5.68,
+    "acct": 5.88,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "375web": {
+    "name": 5.81,
+    "mark": 5.68,
+    "acct": 5.79,
+    "status": 5.97,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "360web": {
+    "name": 5.81,
+    "mark": 5.68,
+    "acct": 5.76,
+    "status": 5.46,
+    "gold": null,
+    "behind_words_pct": 0.05,
+    "whole_bar": 5.22
+   },
+   "320web": {
+    "name": 5.81,
+    "mark": 5.68,
+    "acct": 5.87,
+    "status": 5.22,
+    "gold": null,
+    "behind_words_pct": 0.44,
+    "whole_bar": 5.22
+   }
+  },
+  "shot_worst": 5.22,
+  "file": {
+   "1x": 5.22,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r5-04": {
+  "tile": {
+   "bits": 33,
+   "hero": 3,
+   "kb3": 60.5,
+   "kb2": 38.0,
+   "kb1": 15.8,
+   "kb_all": 114.3,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.51,
+    "acct": 5.95,
+    "status": 5.67,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.51,
+    "acct": 5.95,
+    "status": 5.67,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.49,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.03,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.87,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.48,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.68,
+    "mark": 5.81,
+    "acct": 5.3,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.68,
+    "mark": 5.81,
+    "acct": 6.23,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.51,
+    "acct": 5.95,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.51,
+    "acct": 5.81,
+    "status": 6.0,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.51,
+    "acct": 5.67,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.51,
+    "acct": 5.76,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.99,
+    "whole_bar": 5.23
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.2,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r5-05": {
+  "tile": {
+   "bits": 54,
+   "hero": 4,
+   "kb3": 61.7,
+   "kb2": 38.2,
+   "kb1": 15.6,
+   "kb_all": 115.5,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "390": {
+    "name": 5.81,
+    "mark": 5.49,
+    "acct": 5.97,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.35
+   },
+   "390web": {
+    "name": 5.81,
+    "mark": 5.49,
+    "acct": 5.97,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "820": {
+    "name": 5.81,
+    "mark": 5.7,
+    "acct": 5.42,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.28
+   },
+   "1180": {
+    "name": 5.81,
+    "mark": 5.7,
+    "acct": 5.83,
+    "status": 5.24,
+    "gold": null,
+    "behind_words_pct": 0.22,
+    "whole_bar": 5.21,
+    "status_bar": 5.28
+   },
+   "1280": {
+    "name": 5.81,
+    "mark": 5.7,
+    "acct": 5.35,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.51,
+    "mark": 5.77,
+    "acct": 5.43,
+    "status": 5.46,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.51,
+    "mark": 5.77,
+    "acct": 6.25,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.03,
+    "whole_bar": 5.23
+   },
+   "393": {
+    "name": 5.81,
+    "mark": 5.49,
+    "acct": 5.97,
+    "status": 5.93,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.32
+   },
+   "375web": {
+    "name": 5.81,
+    "mark": 5.49,
+    "acct": 6.0,
+    "status": 5.67,
+    "gold": null,
+    "behind_words_pct": 0.11,
+    "whole_bar": 5.21
+   },
+   "360web": {
+    "name": 5.81,
+    "mark": 5.49,
+    "acct": 5.84,
+    "status": 5.39,
+    "gold": null,
+    "behind_words_pct": 0.48,
+    "whole_bar": 5.21
+   },
+   "320web": {
+    "name": 5.81,
+    "mark": 5.49,
+    "acct": 5.78,
+    "status": 5.21,
+    "gold": null,
+    "behind_words_pct": 0.85,
+    "whole_bar": 5.21
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.23,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r5-06": {
+  "tile": {
+   "bits": 57,
+   "hero": 4,
+   "kb3": 62.4,
+   "kb2": 38.0,
+   "kb1": 16.1,
+   "kb_all": 116.5,
+   "file_worst": 5.16
+  },
+  "contrast": {
+   "390": {
+    "name": 5.99,
+    "mark": 5.68,
+    "acct": 5.95,
+    "status": 5.48,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.29
+   },
+   "390web": {
+    "name": 5.99,
+    "mark": 5.68,
+    "acct": 5.95,
+    "status": 5.48,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 5.33,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16,
+    "status_bar": 5.28
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 6.17,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.09,
+    "whole_bar": 5.16,
+    "status_bar": 5.21
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 5.59,
+    "status": 5.41,
+    "gold": null,
+    "behind_words_pct": 0.04,
+    "whole_bar": 5.16
+   },
+   "1280@1x": {
+    "name": 5.52,
+    "mark": 5.77,
+    "acct": 5.4,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.52,
+    "mark": 5.77,
+    "acct": 6.5,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "393": {
+    "name": 5.99,
+    "mark": 5.68,
+    "acct": 5.95,
+    "status": 5.48,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.29
+   },
+   "375web": {
+    "name": 5.99,
+    "mark": 5.68,
+    "acct": 5.51,
+    "status": 5.87,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "360web": {
+    "name": 5.99,
+    "mark": 5.68,
+    "acct": 5.48,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "320web": {
+    "name": 5.99,
+    "mark": 5.68,
+    "acct": 5.85,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   }
+  },
+  "shot_worst": 5.16,
+  "file": {
+   "1x": 5.23,
+   "2x": 5.16,
+   "3x": 5.21,
+   "worst": 5.16,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r5-07": {
+  "tile": {
+   "bits": 61,
+   "hero": 3,
+   "kb3": 60.9,
+   "kb2": 37.9,
+   "kb1": 15.9,
+   "kb_all": 114.7,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.88,
+    "mark": 5.68,
+    "acct": 5.95,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36,
+    "status_bar": 5.41
+   },
+   "390web": {
+    "name": 5.88,
+    "mark": 5.68,
+    "acct": 5.95,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.47,
+    "status": 5.28,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.26
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.89,
+    "status": 5.6,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.47,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.64,
+    "mark": 5.77,
+    "acct": 5.35,
+    "status": 5.38,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.64,
+    "mark": 5.77,
+    "acct": 6.32,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "393": {
+    "name": 5.88,
+    "mark": 5.68,
+    "acct": 5.95,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.28,
+    "status_bar": 5.28
+   },
+   "375web": {
+    "name": 5.88,
+    "mark": 5.68,
+    "acct": 5.85,
+    "status": 6.17,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36
+   },
+   "360web": {
+    "name": 5.88,
+    "mark": 5.68,
+    "acct": 5.67,
+    "status": 6.23,
+    "gold": null,
+    "behind_words_pct": 0.52,
+    "whole_bar": 5.36
+   },
+   "320web": {
+    "name": 5.88,
+    "mark": 5.68,
+    "acct": 5.85,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.78,
+    "whole_bar": 5.38
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.2,
+   "3x": 5.21,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r5-08": {
+  "tile": {
+   "bits": 76,
+   "hero": 4,
+   "kb3": 62.4,
+   "kb2": 38.2,
+   "kb1": 15.6,
+   "kb_all": 116.2,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.49,
+    "acct": 5.96,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.33,
+    "status_bar": 5.33
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.49,
+    "acct": 5.96,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.33
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.7,
+    "acct": 5.36,
+    "status": 5.29,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.38
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.7,
+    "acct": 6.08,
+    "status": 5.57,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2,
+    "status_bar": 5.28
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.7,
+    "acct": 5.46,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.24,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.39,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.24,
+    "mark": 5.81,
+    "acct": 6.3,
+    "status": 5.87,
+    "gold": null,
+    "behind_words_pct": 0.17,
+    "whole_bar": 5.24
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.49,
+    "acct": 5.96,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26,
+    "status_bar": 5.26
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.49,
+    "acct": 5.76,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.33
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.49,
+    "acct": 5.65,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.11,
+    "whole_bar": 5.33
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.49,
+    "acct": 5.83,
+    "status": 5.33,
+    "gold": null,
+    "behind_words_pct": 0.83,
+    "whole_bar": 5.33
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.22,
+   "2x": 5.2,
+   "3x": 5.2,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r5-09": {
+  "tile": {
+   "bits": 118,
+   "hero": 6,
+   "kb3": 61.4,
+   "kb2": 37.5,
+   "kb1": 15.4,
+   "kb_all": 114.3,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 6.06,
+    "status": 5.66,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.25
+   },
+   "390web": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 6.06,
+    "status": 5.66,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.55
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.62,
+    "acct": 5.37,
+    "status": 5.57,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.38
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.62,
+    "acct": 6.37,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.38
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.62,
+    "acct": 5.6,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1280@1x": {
+    "name": 5.35,
+    "mark": 5.89,
+    "acct": 5.43,
+    "status": 5.39,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.35,
+    "mark": 5.89,
+    "acct": 6.28,
+    "status": 5.32,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "393": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 6.06,
+    "status": 5.72,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.25
+   },
+   "375web": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.89,
+    "status": 6.08,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.55
+   },
+   "360web": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.66,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.55
+   },
+   "320web": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.99,
+    "status": 5.66,
+    "gold": null,
+    "behind_words_pct": 0.06,
+    "whole_bar": 5.55
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.24,
+   "3x": 5.2,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r5-10": {
+  "tile": {
+   "bits": 46,
+   "hero": 4,
+   "kb3": 61.5,
+   "kb2": 37.9,
+   "kb1": 15.8,
+   "kb_all": 115.2,
+   "file_worst": 5.16
+  },
+  "contrast": {
+   "390": {
+    "name": 5.89,
+    "mark": 5.6,
+    "acct": 5.97,
+    "status": 5.71,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3,
+    "status_bar": 5.31
+   },
+   "390web": {
+    "name": 5.89,
+    "mark": 5.6,
+    "acct": 5.97,
+    "status": 5.71,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "820": {
+    "name": 5.69,
+    "mark": 5.71,
+    "acct": 5.3,
+    "status": 5.37,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.35
+   },
+   "1180": {
+    "name": 5.69,
+    "mark": 5.71,
+    "acct": 5.87,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.28
+   },
+   "1280": {
+    "name": 5.69,
+    "mark": 5.71,
+    "acct": 5.2,
+    "status": 5.41,
+    "gold": null,
+    "behind_words_pct": 0.05,
+    "whole_bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.08,
+    "whole_bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 6.32,
+    "status": 5.82,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.89,
+    "mark": 5.6,
+    "acct": 5.97,
+    "status": 5.8,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26,
+    "status_bar": 5.26
+   },
+   "375web": {
+    "name": 5.89,
+    "mark": 5.6,
+    "acct": 6.08,
+    "status": 6.15,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "360web": {
+    "name": 5.89,
+    "mark": 5.6,
+    "acct": 5.67,
+    "status": 5.36,
+    "gold": null,
+    "behind_words_pct": 0.17,
+    "whole_bar": 5.3
+   },
+   "320web": {
+    "name": 5.89,
+    "mark": 5.6,
+    "acct": 5.84,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.61,
+    "whole_bar": 5.3
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.22,
+   "2x": 5.2,
+   "3x": 5.16,
+   "worst": 5.16,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r6-01f": {
+  "tile": {
+   "bits": 64,
+   "hero": 5,
+   "kb3": 61.7,
+   "kb2": 37.8,
+   "kb1": 15.5,
+   "kb_all": 115.0,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "390": {
+    "name": 5.49,
+    "mark": 5.47,
+    "acct": 6.04,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.34,
+    "status_bar": 5.34
+   },
+   "390web": {
+    "name": 5.49,
+    "mark": 5.47,
+    "acct": 6.04,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.73,
+    "acct": 5.35,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.73,
+    "acct": 6.32,
+    "status": 5.32,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.73,
+    "acct": 5.68,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "1280@1x": {
+    "name": 5.4,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.28
+   },
+   "1920@1x": {
+    "name": 5.4,
+    "mark": 5.81,
+    "acct": 6.45,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.49,
+    "mark": 5.47,
+    "acct": 6.04,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.25
+   },
+   "375web": {
+    "name": 5.49,
+    "mark": 5.47,
+    "acct": 5.61,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.36
+   },
+   "360web": {
+    "name": 5.49,
+    "mark": 5.47,
+    "acct": 5.61,
+    "status": 5.45,
+    "gold": null,
+    "behind_words_pct": 0.04,
+    "whole_bar": 5.36
+   },
+   "320web": {
+    "name": 5.49,
+    "mark": 5.47,
+    "acct": 5.79,
+    "status": 5.36,
+    "gold": null,
+    "behind_words_pct": 0.37,
+    "whole_bar": 5.36
+   }
+  },
+  "shot_worst": 5.22,
+  "file": {
+   "1x": 5.22,
+   "2x": 5.23,
+   "3x": 5.21,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r6-01m": {
+  "tile": {
+   "bits": 99,
+   "hero": 5,
+   "kb3": 61.9,
+   "kb2": 38.9,
+   "kb1": 16.1,
+   "kb_all": 116.9,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.59,
+    "acct": 6.07,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.59,
+    "acct": 6.07,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.53,
+    "acct": 5.4,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.53,
+    "acct": 6.14,
+    "status": 5.69,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2,
+    "status_bar": 5.23
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.53,
+    "acct": 5.55,
+    "status": 5.36,
+    "gold": null,
+    "behind_words_pct": 0.05,
+    "whole_bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.64,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "1920@1x": {
+    "name": 5.64,
+    "mark": 5.81,
+    "acct": 6.45,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.59,
+    "acct": 6.07,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.59,
+    "acct": 5.7,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.59,
+    "acct": 5.65,
+    "status": 5.83,
+    "gold": null,
+    "behind_words_pct": 0.01,
+    "whole_bar": 5.26
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.59,
+    "acct": 5.74,
+    "status": 5.26,
+    "gold": null,
+    "behind_words_pct": 0.87,
+    "whole_bar": 5.26
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.2,
+   "3x": 5.2,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r6-02f": {
+  "tile": {
+   "bits": 60,
+   "hero": 4,
+   "kb3": 59.7,
+   "kb2": 37.7,
+   "kb1": 15.6,
+   "kb_all": 113.0,
+   "file_worst": 5.19
+  },
+  "contrast": {
+   "390": {
+    "name": 5.73,
+    "mark": 5.43,
+    "acct": 5.95,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26,
+    "status_bar": 5.29
+   },
+   "390web": {
+    "name": 5.73,
+    "mark": 5.43,
+    "acct": 5.95,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "820": {
+    "name": 5.81,
+    "mark": 5.53,
+    "acct": 5.3,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.28
+   },
+   "1180": {
+    "name": 5.81,
+    "mark": 5.53,
+    "acct": 5.99,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.19,
+    "status_bar": 5.19
+   },
+   "1280": {
+    "name": 5.81,
+    "mark": 5.53,
+    "acct": 5.59,
+    "status": 5.37,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.73,
+    "mark": 5.91,
+    "acct": 5.3,
+    "status": 5.36,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "1920@1x": {
+    "name": 5.73,
+    "mark": 5.91,
+    "acct": 5.34,
+    "status": 5.88,
+    "gold": null,
+    "behind_words_pct": 0.08,
+    "whole_bar": 5.2
+   },
+   "393": {
+    "name": 5.73,
+    "mark": 5.43,
+    "acct": 5.95,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26,
+    "status_bar": 5.29
+   },
+   "375web": {
+    "name": 5.73,
+    "mark": 5.43,
+    "acct": 5.51,
+    "status": 6.07,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "360web": {
+    "name": 5.73,
+    "mark": 5.43,
+    "acct": 5.51,
+    "status": 6.02,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "320web": {
+    "name": 5.73,
+    "mark": 5.43,
+    "acct": 5.98,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.5,
+    "whole_bar": 5.26
+   }
+  },
+  "shot_worst": 5.19,
+  "file": {
+   "1x": 5.2,
+   "2x": 5.19,
+   "3x": 5.19,
+   "worst": 5.19,
+   "gold_on_worst": 3.05
+  }
+ },
+ "E3-r6-02m": {
+  "tile": {
+   "bits": 93,
+   "hero": 4,
+   "kb3": 61.9,
+   "kb2": 37.9,
+   "kb1": 16.3,
+   "kb_all": 116.1,
+   "file_worst": 5.15
+  },
+  "contrast": {
+   "390": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 5.95,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "390web": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 5.95,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "820": {
+    "name": 5.73,
+    "mark": 5.93,
+    "acct": 5.4,
+    "status": 5.54,
+    "gold": null,
+    "behind_words_pct": 0.32,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1180": {
+    "name": 5.73,
+    "mark": 5.93,
+    "acct": 5.78,
+    "status": 5.34,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1280": {
+    "name": 5.73,
+    "mark": 5.93,
+    "acct": 5.34,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.02,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.77,
+    "acct": 5.3,
+    "status": 5.44,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.77,
+    "acct": 6.65,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.15
+   },
+   "393": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 5.95,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "375web": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 5.51,
+    "status": 5.93,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "360web": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 5.51,
+    "status": 5.88,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "320web": {
+    "name": 5.65,
+    "mark": 5.64,
+    "acct": 5.75,
+    "status": 5.22,
+    "gold": null,
+    "behind_words_pct": 1.44,
+    "whole_bar": 5.22
+   }
+  },
+  "shot_worst": 5.15,
+  "file": {
+   "1x": 5.15,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.15,
+   "gold_on_worst": 3.03
+  }
+ },
+ "E3-r6-03f": {
+  "tile": {
+   "bits": 27,
+   "hero": 3,
+   "kb3": 59.7,
+   "kb2": 37.7,
+   "kb1": 15.4,
+   "kb_all": 112.8,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "390": {
+    "name": 5.71,
+    "mark": 5.57,
+    "acct": 5.93,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "390web": {
+    "name": 5.71,
+    "mark": 5.57,
+    "acct": 5.93,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "820": {
+    "name": 5.91,
+    "mark": 5.71,
+    "acct": 5.42,
+    "status": 5.63,
+    "gold": null,
+    "behind_words_pct": 0.12,
+    "whole_bar": 5.25,
+    "status_bar": 5.26
+   },
+   "1180": {
+    "name": 5.91,
+    "mark": 5.71,
+    "acct": 5.89,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.91,
+    "mark": 5.71,
+    "acct": 5.45,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1280@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 5.43,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "1920@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 6.45,
+    "status": 5.87,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "393": {
+    "name": 5.71,
+    "mark": 5.57,
+    "acct": 5.93,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "375web": {
+    "name": 5.71,
+    "mark": 5.57,
+    "acct": 5.9,
+    "status": 6.0,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "360web": {
+    "name": 5.71,
+    "mark": 5.57,
+    "acct": 5.7,
+    "status": 5.62,
+    "gold": null,
+    "behind_words_pct": 0.06,
+    "whole_bar": 5.24
+   },
+   "320web": {
+    "name": 5.71,
+    "mark": 5.57,
+    "acct": 5.76,
+    "status": 5.24,
+    "gold": null,
+    "behind_words_pct": 1.23,
+    "whole_bar": 5.24
+   }
+  },
+  "shot_worst": 5.23,
+  "file": {
+   "1x": 5.22,
+   "2x": 5.23,
+   "3x": 5.2,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r6-03m": {
+  "tile": {
+   "bits": 41,
+   "hero": 3,
+   "kb3": 61.4,
+   "kb2": 38.1,
+   "kb1": 16.0,
+   "kb_all": 115.5,
+   "file_worst": 5.16
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.62,
+    "acct": 6.02,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.62,
+    "acct": 6.02,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "820": {
+    "name": 5.57,
+    "mark": 5.57,
+    "acct": 5.57,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.43,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "1180": {
+    "name": 5.57,
+    "mark": 5.57,
+    "acct": 5.87,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16,
+    "status_bar": 5.21
+   },
+   "1280": {
+    "name": 5.57,
+    "mark": 5.57,
+    "acct": 5.3,
+    "status": 5.43,
+    "gold": null,
+    "behind_words_pct": 0.14,
+    "whole_bar": 5.16
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.82,
+    "acct": 5.3,
+    "status": 5.63,
+    "gold": null,
+    "behind_words_pct": 0.11,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.82,
+    "acct": 6.14,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.62,
+    "acct": 6.02,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.62,
+    "acct": 5.49,
+    "status": 6.02,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.62,
+    "acct": 5.49,
+    "status": 5.44,
+    "gold": null,
+    "behind_words_pct": 0.18,
+    "whole_bar": 5.26
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.62,
+    "acct": 6.02,
+    "status": 5.26,
+    "gold": null,
+    "behind_words_pct": 2.21,
+    "whole_bar": 5.26
+   }
+  },
+  "shot_worst": 5.16,
+  "file": {
+   "1x": 5.23,
+   "2x": 5.16,
+   "3x": 5.21,
+   "worst": 5.16,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r6-04f": {
+  "tile": {
+   "bits": 50,
+   "hero": 3,
+   "kb3": 61.6,
+   "kb2": 37.6,
+   "kb1": 15.4,
+   "kb_all": 114.6,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "390": {
+    "name": 5.4,
+    "mark": 5.73,
+    "acct": 5.98,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.37,
+    "status_bar": 5.37
+   },
+   "390web": {
+    "name": 5.4,
+    "mark": 5.73,
+    "acct": 5.98,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.4
+   },
+   "820": {
+    "name": 6.06,
+    "mark": 5.73,
+    "acct": 5.39,
+    "status": 5.92,
+    "gold": null,
+    "behind_words_pct": 0.01,
+    "whole_bar": 5.21,
+    "status_bar": 5.28
+   },
+   "1180": {
+    "name": 6.06,
+    "mark": 5.73,
+    "acct": 6.37,
+    "status": 5.61,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.28
+   },
+   "1280": {
+    "name": 6.06,
+    "mark": 5.73,
+    "acct": 5.42,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 5.43,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 6.14,
+    "status": 5.71,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "393": {
+    "name": 5.4,
+    "mark": 5.73,
+    "acct": 5.98,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.31,
+    "status_bar": 5.31
+   },
+   "375web": {
+    "name": 5.4,
+    "mark": 5.73,
+    "acct": 5.7,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.4
+   },
+   "360web": {
+    "name": 5.4,
+    "mark": 5.73,
+    "acct": 5.7,
+    "status": 5.63,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.4
+   },
+   "320web": {
+    "name": 5.4,
+    "mark": 5.73,
+    "acct": 5.84,
+    "status": 5.63,
+    "gold": null,
+    "behind_words_pct": 0.57,
+    "whole_bar": 5.4
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r6-04m": {
+  "tile": {
+   "bits": 78,
+   "hero": 3,
+   "kb3": 62.7,
+   "kb2": 38.1,
+   "kb1": 15.9,
+   "kb_all": 116.7,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "390": {
+    "name": 5.74,
+    "mark": 5.55,
+    "acct": 6.1,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.33,
+    "status_bar": 5.33
+   },
+   "390web": {
+    "name": 5.74,
+    "mark": 5.55,
+    "acct": 6.1,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.4
+   },
+   "820": {
+    "name": 5.49,
+    "mark": 5.68,
+    "acct": 5.4,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26,
+    "status_bar": 5.38
+   },
+   "1180": {
+    "name": 5.49,
+    "mark": 5.68,
+    "acct": 5.87,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.36
+   },
+   "1280": {
+    "name": 5.49,
+    "mark": 5.68,
+    "acct": 5.59,
+    "status": 5.46,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1280@1x": {
+    "name": 5.3,
+    "mark": 5.77,
+    "acct": 5.3,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.3,
+    "mark": 5.77,
+    "acct": 6.23,
+    "status": 5.89,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "393": {
+    "name": 5.74,
+    "mark": 5.55,
+    "acct": 6.1,
+    "status": 5.85,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26,
+    "status_bar": 5.26
+   },
+   "375web": {
+    "name": 5.74,
+    "mark": 5.55,
+    "acct": 5.93,
+    "status": 6.07,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.4
+   },
+   "360web": {
+    "name": 5.74,
+    "mark": 5.55,
+    "acct": 5.77,
+    "status": 5.83,
+    "gold": null,
+    "behind_words_pct": 0.02,
+    "whole_bar": 5.4
+   },
+   "320web": {
+    "name": 5.74,
+    "mark": 5.55,
+    "acct": 5.99,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.79,
+    "whole_bar": 5.4
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.22,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r6-05f": {
+  "tile": {
+   "bits": 91,
+   "hero": 6,
+   "kb3": 61.7,
+   "kb2": 37.9,
+   "kb1": 15.6,
+   "kb_all": 115.2,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 5.96,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 5.96,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.42
+   },
+   "820": {
+    "name": 5.89,
+    "mark": 5.7,
+    "acct": 5.38,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.32
+   },
+   "1180": {
+    "name": 5.89,
+    "mark": 5.7,
+    "acct": 6.13,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.3
+   },
+   "1280": {
+    "name": 5.89,
+    "mark": 5.7,
+    "acct": 5.65,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 6.13,
+    "status": 5.73,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 5.96,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 5.64,
+    "status": 5.98,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.42
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 5.64,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.42
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.47,
+    "acct": 6.07,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.15,
+    "whole_bar": 5.42
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r6-05m": {
+  "tile": {
+   "bits": 143,
+   "hero": 6,
+   "kb3": 61.7,
+   "kb2": 38.2,
+   "kb1": 15.5,
+   "kb_all": 115.4,
+   "file_worst": 5.15
+  },
+  "contrast": {
+   "390": {
+    "name": 5.82,
+    "mark": 5.59,
+    "acct": 6.08,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.24
+   },
+   "390web": {
+    "name": 5.82,
+    "mark": 5.59,
+    "acct": 6.08,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.17,
+    "status": 5.48,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.17,
+    "status_bar": 5.27
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 6.23,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.17,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.38,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.17
+   },
+   "1280@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16
+   },
+   "1920@1x": {
+    "name": 5.32,
+    "mark": 5.81,
+    "acct": 6.23,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.16
+   },
+   "393": {
+    "name": 5.82,
+    "mark": 5.59,
+    "acct": 6.08,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.24
+   },
+   "375web": {
+    "name": 5.82,
+    "mark": 5.59,
+    "acct": 5.59,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "360web": {
+    "name": 5.82,
+    "mark": 5.59,
+    "acct": 5.59,
+    "status": 5.6,
+    "gold": null,
+    "behind_words_pct": 0.06,
+    "whole_bar": 5.21
+   },
+   "320web": {
+    "name": 5.82,
+    "mark": 5.59,
+    "acct": 5.97,
+    "status": 5.21,
+    "gold": null,
+    "behind_words_pct": 0.18,
+    "whole_bar": 5.21
+   }
+  },
+  "shot_worst": 5.16,
+  "file": {
+   "1x": 5.16,
+   "2x": 5.17,
+   "3x": 5.15,
+   "worst": 5.15,
+   "gold_on_worst": 3.03
+  }
+ },
+ "E3-r6-06f": {
+  "tile": {
+   "bits": 43,
+   "hero": 4,
+   "kb3": 61.9,
+   "kb2": 37.7,
+   "kb1": 15.7,
+   "kb_all": 115.3,
+   "file_worst": 5.16
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.44,
+    "acct": 5.93,
+    "status": 5.67,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.27,
+    "status_bar": 5.27
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.44,
+    "acct": 5.93,
+    "status": 5.67,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.27
+   },
+   "820": {
+    "name": 5.7,
+    "mark": 5.71,
+    "acct": 5.39,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1180": {
+    "name": 5.7,
+    "mark": 5.71,
+    "acct": 6.32,
+    "status": 5.82,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1280": {
+    "name": 5.7,
+    "mark": 5.71,
+    "acct": 5.59,
+    "status": 5.21,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.24,
+    "mark": 5.82,
+    "acct": 5.33,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.24,
+    "mark": 5.82,
+    "acct": 6.33,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "393": {
+    "name": 5.68,
+    "mark": 5.44,
+    "acct": 5.93,
+    "status": 5.67,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.27,
+    "status_bar": 5.27
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.44,
+    "acct": 5.94,
+    "status": 5.94,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.27
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.44,
+    "acct": 5.67,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.29,
+    "whole_bar": 5.27
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.44,
+    "acct": 5.65,
+    "status": 5.27,
+    "gold": null,
+    "behind_words_pct": 0.58,
+    "whole_bar": 5.27
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.16,
+   "2x": 5.21,
+   "3x": 5.2,
+   "worst": 5.16,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r6-06m": {
+  "tile": {
+   "bits": 66,
+   "hero": 4,
+   "kb3": 61.7,
+   "kb2": 38.2,
+   "kb1": 16.2,
+   "kb_all": 116.1,
+   "file_worst": 5.19
+  },
+  "contrast": {
+   "390": {
+    "name": 5.66,
+    "mark": 5.77,
+    "acct": 5.95,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.28
+   },
+   "390web": {
+    "name": 5.66,
+    "mark": 5.77,
+    "acct": 5.95,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "820": {
+    "name": 5.57,
+    "mark": 5.61,
+    "acct": 5.33,
+    "status": 5.62,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1180": {
+    "name": 5.57,
+    "mark": 5.61,
+    "acct": 6.06,
+    "status": 5.25,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.21
+   },
+   "1280": {
+    "name": 5.57,
+    "mark": 5.61,
+    "acct": 5.31,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "1280@1x": {
+    "name": 5.22,
+    "mark": 5.77,
+    "acct": 5.3,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "1920@1x": {
+    "name": 5.22,
+    "mark": 5.77,
+    "acct": 5.23,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.26,
+    "whole_bar": 5.2
+   },
+   "393": {
+    "name": 5.66,
+    "mark": 5.77,
+    "acct": 5.95,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.28
+   },
+   "375web": {
+    "name": 5.66,
+    "mark": 5.77,
+    "acct": 5.3,
+    "status": 6.17,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "360web": {
+    "name": 5.66,
+    "mark": 5.77,
+    "acct": 5.3,
+    "status": 5.33,
+    "gold": null,
+    "behind_words_pct": 0.44,
+    "whole_bar": 5.24
+   },
+   "320web": {
+    "name": 5.66,
+    "mark": 5.77,
+    "acct": 5.85,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.9,
+    "whole_bar": 5.24
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.2,
+   "2x": 5.21,
+   "3x": 5.19,
+   "worst": 5.19,
+   "gold_on_worst": 3.05
+  }
+ },
+ "E3-r7-01m": {
+  "tile": {
+   "bits": 101,
+   "hero": 15,
+   "strip": 3,
+   "sprinkle": 5,
+   "kb3": 62.2,
+   "kb2": 38.7,
+   "kb1": 16.1,
+   "kb_all": 117.0,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "393": {
+    "name": 5.66,
+    "mark": 5.7,
+    "acct": 6.04,
+    "status": 5.75,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.26
+   },
+   "390": {
+    "name": 5.66,
+    "mark": 5.7,
+    "acct": 6.04,
+    "status": 5.75,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.26
+   },
+   "390web": {
+    "name": 5.66,
+    "mark": 5.7,
+    "acct": 6.04,
+    "status": 5.75,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "375web": {
+    "name": 5.66,
+    "mark": 5.7,
+    "acct": 5.75,
+    "status": 6.08,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "360web": {
+    "name": 5.66,
+    "mark": 5.7,
+    "acct": 5.75,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "320web": {
+    "name": 5.66,
+    "mark": 5.7,
+    "acct": 5.93,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "820": {
+    "name": 5.85,
+    "mark": 5.68,
+    "acct": 5.59,
+    "status": 5.6,
+    "gold": null,
+    "behind_words_pct": 0.15,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "1180": {
+    "name": 5.85,
+    "mark": 5.68,
+    "acct": 5.75,
+    "status": 5.41,
+    "gold": null,
+    "behind_words_pct": 0.22,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "1280": {
+    "name": 5.85,
+    "mark": 5.68,
+    "acct": 5.43,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.17,
+    "whole_bar": 5.24
+   },
+   "1280@1x": {
+    "name": 5.51,
+    "mark": 5.77,
+    "acct": 5.55,
+    "status": 5.6,
+    "gold": null,
+    "behind_words_pct": 0.05,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.51,
+    "mark": 5.77,
+    "acct": 6.3,
+    "status": 5.48,
+    "gold": null,
+    "behind_words_pct": 0.03,
+    "whole_bar": 5.24
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.23,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ },
+ "E3-r7-01f": {
+  "tile": {
+   "bits": 71,
+   "hero": 15,
+   "strip": 3,
+   "sprinkle": 5,
+   "kb3": 62.5,
+   "kb2": 38.1,
+   "kb1": 15.7,
+   "kb_all": 116.3,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "393": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.99,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "390": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.99,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "390web": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.99,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "375web": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.49,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "360web": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.49,
+    "status": 5.66,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "320web": {
+    "name": 5.59,
+    "mark": 5.55,
+    "acct": 5.98,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "820": {
+    "name": 5.88,
+    "mark": 5.96,
+    "acct": 5.31,
+    "status": 5.87,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.3
+   },
+   "1180": {
+    "name": 5.88,
+    "mark": 5.96,
+    "acct": 6.31,
+    "status": 5.85,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.88,
+    "mark": 5.96,
+    "acct": 5.33,
+    "status": 5.26,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.73,
+    "mark": 5.81,
+    "acct": 5.35,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "1920@1x": {
+    "name": 5.73,
+    "mark": 5.81,
+    "acct": 6.14,
+    "status": 5.53,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.2,
+   "2x": 5.2,
+   "3x": 5.21,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r7-02m": {
+  "tile": {
+   "bits": 94,
+   "hero": 13,
+   "strip": 2,
+   "sprinkle": 4,
+   "kb3": 61.7,
+   "kb2": 38.8,
+   "kb1": 16.1,
+   "kb_all": 116.6,
+   "file_worst": 5.15
+  },
+  "contrast": {
+   "393": {
+    "name": 5.82,
+    "mark": 5.73,
+    "acct": 6.02,
+    "status": 5.69,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "390": {
+    "name": 5.82,
+    "mark": 5.73,
+    "acct": 6.02,
+    "status": 5.69,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "390web": {
+    "name": 5.82,
+    "mark": 5.73,
+    "acct": 6.02,
+    "status": 5.69,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "375web": {
+    "name": 5.82,
+    "mark": 5.73,
+    "acct": 5.69,
+    "status": 6.08,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "360web": {
+    "name": 5.82,
+    "mark": 5.73,
+    "acct": 5.69,
+    "status": 5.8,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "320web": {
+    "name": 5.82,
+    "mark": 5.73,
+    "acct": 5.9,
+    "status": 5.76,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23
+   },
+   "820": {
+    "name": 5.74,
+    "mark": 5.64,
+    "acct": 5.4,
+    "status": 5.3,
+    "gold": null,
+    "behind_words_pct": 0.82,
+    "whole_bar": 5.19,
+    "status_bar": 5.26
+   },
+   "1180": {
+    "name": 5.74,
+    "mark": 5.64,
+    "acct": 5.88,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.02,
+    "whole_bar": 5.19,
+    "status_bar": 5.23
+   },
+   "1280": {
+    "name": 5.74,
+    "mark": 5.64,
+    "acct": 5.6,
+    "status": 5.29,
+    "gold": null,
+    "behind_words_pct": 0.25,
+    "whole_bar": 5.19
+   },
+   "1280@1x": {
+    "name": 5.93,
+    "mark": 5.77,
+    "acct": 5.35,
+    "status": 5.53,
+    "gold": null,
+    "behind_words_pct": 0.11,
+    "whole_bar": 5.23
+   },
+   "1920@1x": {
+    "name": 5.93,
+    "mark": 5.77,
+    "acct": 5.76,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.09,
+    "whole_bar": 5.23
+   }
+  },
+  "shot_worst": 5.19,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.15,
+   "3x": 5.21,
+   "worst": 5.15,
+   "gold_on_worst": 3.03
+  }
+ },
+ "E3-r7-03m": {
+  "tile": {
+   "bits": 50,
+   "hero": 10,
+   "strip": 2,
+   "sprinkle": 4,
+   "kb3": 59.7,
+   "kb2": 38.2,
+   "kb1": 15.9,
+   "kb_all": 113.8,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "393": {
+    "name": 5.91,
+    "mark": 5.73,
+    "acct": 5.98,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.31
+   },
+   "390": {
+    "name": 5.91,
+    "mark": 5.73,
+    "acct": 5.98,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25,
+    "status_bar": 5.31
+   },
+   "390web": {
+    "name": 5.91,
+    "mark": 5.73,
+    "acct": 5.98,
+    "status": 5.81,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "375web": {
+    "name": 5.91,
+    "mark": 5.73,
+    "acct": 5.81,
+    "status": 6.0,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "360web": {
+    "name": 5.91,
+    "mark": 5.73,
+    "acct": 5.81,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "320web": {
+    "name": 5.91,
+    "mark": 5.73,
+    "acct": 6.03,
+    "status": 5.72,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.25
+   },
+   "820": {
+    "name": 5.7,
+    "mark": 5.41,
+    "acct": 5.34,
+    "status": 5.44,
+    "gold": null,
+    "behind_words_pct": 1.53,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "1180": {
+    "name": 5.7,
+    "mark": 5.41,
+    "acct": 5.87,
+    "status": 5.28,
+    "gold": null,
+    "behind_words_pct": 1.24,
+    "whole_bar": 5.21,
+    "status_bar": 5.24
+   },
+   "1280": {
+    "name": 5.7,
+    "mark": 5.41,
+    "acct": 5.2,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.09,
+    "whole_bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.51,
+    "mark": 5.82,
+    "acct": 5.44,
+    "status": 5.22,
+    "gold": null,
+    "behind_words_pct": 0.2,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.51,
+    "mark": 5.82,
+    "acct": 6.33,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.2,
+   "3x": 5.22,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r7-04m": {
+  "tile": {
+   "bits": 87,
+   "hero": 12,
+   "strip": 3,
+   "sprinkle": 4,
+   "kb3": 63.2,
+   "kb2": 38.7,
+   "kb1": 16.0,
+   "kb_all": 117.9,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "393": {
+    "name": 5.76,
+    "mark": 5.47,
+    "acct": 6.09,
+    "status": 5.54,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "390": {
+    "name": 5.76,
+    "mark": 5.47,
+    "acct": 6.09,
+    "status": 5.54,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.23,
+    "status_bar": 5.23
+   },
+   "390web": {
+    "name": 5.76,
+    "mark": 5.47,
+    "acct": 6.09,
+    "status": 5.54,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "375web": {
+    "name": 5.76,
+    "mark": 5.47,
+    "acct": 5.54,
+    "status": 6.08,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "360web": {
+    "name": 5.76,
+    "mark": 5.47,
+    "acct": 5.54,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "320web": {
+    "name": 5.76,
+    "mark": 5.47,
+    "acct": 6.02,
+    "status": 5.72,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.26
+   },
+   "820": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 5.23,
+    "status": 5.28,
+    "gold": null,
+    "behind_words_pct": 0.98,
+    "whole_bar": 5.23,
+    "status_bar": 5.32
+   },
+   "1180": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 5.56,
+    "status": 5.57,
+    "gold": null,
+    "behind_words_pct": 0.42,
+    "whole_bar": 5.2,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.59,
+    "mark": 5.68,
+    "acct": 5.52,
+    "status": 5.36,
+    "gold": null,
+    "behind_words_pct": 0.02,
+    "whole_bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.81,
+    "acct": 5.51,
+    "status": 5.39,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.81,
+    "acct": 6.45,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.2,
+   "3x": 5.21,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r7-05m": {
+  "tile": {
+   "bits": 69,
+   "hero": 12,
+   "strip": 2,
+   "sprinkle": 3,
+   "kb3": 61.3,
+   "kb2": 38.4,
+   "kb1": 15.9,
+   "kb_all": 115.6,
+   "file_worst": 5.18
+  },
+  "contrast": {
+   "393": {
+    "name": 5.73,
+    "mark": 5.59,
+    "acct": 5.97,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.25
+   },
+   "390": {
+    "name": 5.73,
+    "mark": 5.59,
+    "acct": 5.97,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.25
+   },
+   "390web": {
+    "name": 5.73,
+    "mark": 5.59,
+    "acct": 5.97,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "375web": {
+    "name": 5.73,
+    "mark": 5.59,
+    "acct": 5.7,
+    "status": 5.93,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "360web": {
+    "name": 5.73,
+    "mark": 5.59,
+    "acct": 5.7,
+    "status": 5.75,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "320web": {
+    "name": 5.73,
+    "mark": 5.59,
+    "acct": 5.76,
+    "status": 5.75,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.45,
+    "acct": 5.21,
+    "status": 5.32,
+    "gold": null,
+    "behind_words_pct": 0.25,
+    "whole_bar": 5.21,
+    "status_bar": 5.27
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.45,
+    "acct": 5.58,
+    "status": 5.34,
+    "gold": null,
+    "behind_words_pct": 0.09,
+    "whole_bar": 5.21,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.45,
+    "acct": 5.38,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.1,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.24,
+    "mark": 5.89,
+    "acct": 5.3,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.24,
+    "mark": 5.89,
+    "acct": 5.8,
+    "status": 5.68,
+    "gold": null,
+    "behind_words_pct": 0.02,
+    "whole_bar": 5.22
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.18,
+   "worst": 5.18,
+   "gold_on_worst": 3.05
+  }
+ },
+ "E3-r8-01": {
+  "tile": {
+   "bits": 103,
+   "hero": 17,
+   "strip": 3,
+   "sprinkle": 5,
+   "kb3": 62.2,
+   "kb2": 38.8,
+   "kb1": 16.2,
+   "kb_all": 117.2,
+   "file_worst": 5.16
+  },
+  "contrast": {
+   "393": {
+    "name": 5.76,
+    "mark": 5.68,
+    "acct": 5.89,
+    "status": 5.7,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.33
+   },
+   "390": {
+    "name": 5.76,
+    "mark": 5.68,
+    "acct": 5.89,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.33
+   },
+   "390web": {
+    "name": 5.76,
+    "mark": 5.68,
+    "acct": 5.89,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "375web": {
+    "name": 5.76,
+    "mark": 5.68,
+    "acct": 5.7,
+    "status": 5.98,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "360web": {
+    "name": 5.76,
+    "mark": 5.68,
+    "acct": 5.65,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "320web": {
+    "name": 5.76,
+    "mark": 5.68,
+    "acct": 5.94,
+    "status": 5.74,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.68,
+    "acct": 5.49,
+    "status": 5.57,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.24
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.68,
+    "acct": 6.08,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.24
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.68,
+    "acct": 5.21,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.51,
+    "mark": 5.82,
+    "acct": 5.32,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.17
+   },
+   "1920@1x": {
+    "name": 5.51,
+    "mark": 5.82,
+    "acct": 6.23,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.17
+   }
+  },
+  "shot_worst": 5.17,
+  "file": {
+   "1x": 5.17,
+   "2x": 5.21,
+   "3x": 5.16,
+   "worst": 5.16,
+   "gold_on_worst": 3.04
+  }
+ },
+ "E3-r8-02": {
+  "tile": {
+   "bits": 95,
+   "hero": 15,
+   "strip": 2,
+   "sprinkle": 4,
+   "kb3": 61.3,
+   "kb2": 37.8,
+   "kb1": 16.1,
+   "kb_all": 115.2,
+   "file_worst": 5.18
+  },
+  "contrast": {
+   "393": {
+    "name": 5.81,
+    "mark": 5.77,
+    "acct": 6.06,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.23
+   },
+   "390": {
+    "name": 5.81,
+    "mark": 5.77,
+    "acct": 6.06,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.23
+   },
+   "390web": {
+    "name": 5.81,
+    "mark": 5.77,
+    "acct": 6.06,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "375web": {
+    "name": 5.81,
+    "mark": 5.77,
+    "acct": 5.4,
+    "status": 5.99,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "360web": {
+    "name": 5.81,
+    "mark": 5.77,
+    "acct": 5.4,
+    "status": 5.86,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "320web": {
+    "name": 5.81,
+    "mark": 5.77,
+    "acct": 5.82,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.33,
+    "acct": 5.31,
+    "status": 5.28,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.29
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.33,
+    "acct": 6.08,
+    "status": 5.59,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.18,
+    "status_bar": 5.22
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.33,
+    "acct": 5.31,
+    "status": 5.38,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.18
+   },
+   "1280@1x": {
+    "name": 5.68,
+    "mark": 5.82,
+    "acct": 5.35,
+    "status": 5.47,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.68,
+    "mark": 5.82,
+    "acct": 6.3,
+    "status": 5.69,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   }
+  },
+  "shot_worst": 5.18,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.18,
+   "3x": 5.2,
+   "worst": 5.18,
+   "gold_on_worst": 3.05
+  }
+ },
+ "E3-r8-03": {
+  "tile": {
+   "bits": 52,
+   "hero": 12,
+   "strip": 2,
+   "sprinkle": 4,
+   "kb3": 61.2,
+   "kb2": 38.2,
+   "kb1": 16.0,
+   "kb_all": 115.4,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "393": {
+    "name": 5.68,
+    "mark": 5.6,
+    "acct": 5.99,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "390": {
+    "name": 5.68,
+    "mark": 5.6,
+    "acct": 5.99,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24,
+    "status_bar": 5.24
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.6,
+    "acct": 5.99,
+    "status": 5.65,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.6,
+    "acct": 6.05,
+    "status": 6.02,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.6,
+    "acct": 5.65,
+    "status": 5.89,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.6,
+    "acct": 6.02,
+    "status": 5.72,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "820": {
+    "name": 5.88,
+    "mark": 5.62,
+    "acct": 5.55,
+    "status": 5.26,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.27
+   },
+   "1180": {
+    "name": 5.88,
+    "mark": 5.62,
+    "acct": 5.99,
+    "status": 5.51,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.27
+   },
+   "1280": {
+    "name": 5.88,
+    "mark": 5.62,
+    "acct": 5.76,
+    "status": 5.38,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.35,
+    "mark": 5.82,
+    "acct": 5.43,
+    "status": 5.55,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "1920@1x": {
+    "name": 5.35,
+    "mark": 5.82,
+    "acct": 6.3,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.2,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r8-04": {
+  "tile": {
+   "bits": 92,
+   "hero": 17,
+   "strip": 3,
+   "sprinkle": 4,
+   "kb3": 62.3,
+   "kb2": 38.7,
+   "kb1": 16.1,
+   "kb_all": 117.1,
+   "file_worst": 5.2
+  },
+  "contrast": {
+   "393": {
+    "name": 5.71,
+    "mark": 5.62,
+    "acct": 5.86,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "390": {
+    "name": 5.71,
+    "mark": 5.62,
+    "acct": 5.86,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "390web": {
+    "name": 5.71,
+    "mark": 5.62,
+    "acct": 5.86,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "375web": {
+    "name": 5.71,
+    "mark": 5.62,
+    "acct": 5.4,
+    "status": 5.94,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "360web": {
+    "name": 5.71,
+    "mark": 5.62,
+    "acct": 5.4,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "320web": {
+    "name": 5.71,
+    "mark": 5.62,
+    "acct": 5.98,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.3
+   },
+   "820": {
+    "name": 5.88,
+    "mark": 5.73,
+    "acct": 5.34,
+    "status": 5.49,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.26
+   },
+   "1180": {
+    "name": 5.88,
+    "mark": 5.73,
+    "acct": 6.06,
+    "status": 5.24,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2,
+    "status_bar": 5.26
+   },
+   "1280": {
+    "name": 5.88,
+    "mark": 5.73,
+    "acct": 5.4,
+    "status": 5.31,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.24,
+    "mark": 5.82,
+    "acct": 5.35,
+    "status": 5.63,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.24,
+    "mark": 5.82,
+    "acct": 6.26,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.24
+   }
+  },
+  "shot_worst": 5.2,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.2,
+   "3x": 5.2,
+   "worst": 5.2,
+   "gold_on_worst": 3.06
+  }
+ },
+ "E3-r8-05": {
+  "tile": {
+   "bits": 65,
+   "hero": 13,
+   "strip": 2,
+   "sprinkle": 3,
+   "kb3": 61.6,
+   "kb2": 37.8,
+   "kb1": 15.8,
+   "kb_all": 115.2,
+   "file_worst": 5.21
+  },
+  "contrast": {
+   "393": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 6.04,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.23
+   },
+   "390": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 6.04,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.23
+   },
+   "390web": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 6.04,
+    "status": 5.84,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "375web": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 5.95,
+    "status": 6.08,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "360web": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 5.63,
+    "status": 5.94,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "320web": {
+    "name": 5.68,
+    "mark": 5.76,
+    "acct": 6.01,
+    "status": 5.77,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22
+   },
+   "820": {
+    "name": 5.68,
+    "mark": 5.92,
+    "acct": 5.42,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.22,
+    "status_bar": 5.22
+   },
+   "1180": {
+    "name": 5.68,
+    "mark": 5.92,
+    "acct": 6.27,
+    "status": 5.62,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21,
+    "status_bar": 5.22
+   },
+   "1280": {
+    "name": 5.68,
+    "mark": 5.92,
+    "acct": 5.82,
+    "status": 5.4,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.51,
+    "mark": 5.77,
+    "acct": 5.81,
+    "status": 5.52,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.51,
+    "mark": 5.77,
+    "acct": 6.23,
+    "status": 5.64,
+    "gold": null,
+    "behind_words_pct": 0.0,
+    "whole_bar": 5.21
+   }
+  },
+  "shot_worst": 5.21,
+  "file": {
+   "1x": 5.21,
+   "2x": 5.21,
+   "3x": 5.21,
+   "worst": 5.21,
+   "gold_on_worst": 3.07
+  }
+ }
+}
