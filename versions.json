@@ -460,5 +460,12 @@
   "name": "History round 40",
   "msg": "History r40",
   "date": "2026-11-27"
+ },
+ {
+  "v": "kitchen-r39",
+  "mockup": "index.html",
+  "name": "Kitchen r39",
+  "msg": "Kitchen r39",
+  "date": "2026-11-27"
  }
 ]
