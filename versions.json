@@ -453,5 +453,12 @@
   "name": "Help pane r21",
   "msg": "help pane r21",
   "date": "2026-11-27"
+ },
+ {
+  "v": "history-r40",
+  "mockup": "index.html",
+  "name": "History round 40",
+  "msg": "History r40",
+  "date": "2026-11-27"
  }
 ]
