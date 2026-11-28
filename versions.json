@@ -530,5 +530,12 @@
   "name": "Account corner round 9",
   "msg": "Account corner r9",
   "date": "2026-11-28"
+ },
+ {
+  "v": "linking-r15",
+  "mockup": "index.html",
+  "name": "Recipe Linking",
+  "msg": "walk4 linking r15: morning choices drawn (not agreed)",
+  "date": "2026-11-28"
  }
 ]
