@@ -502,5 +502,12 @@
   "name": "Reminders",
   "msg": "Reminders r8 icon pass (T-2169)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "firstrun-r12",
+  "mockup": "index.html",
+  "name": "First run round 12",
+  "msg": "First run r12",
+  "date": "2026-11-28"
  }
 ]
