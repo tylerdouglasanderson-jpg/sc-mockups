@@ -467,5 +467,12 @@
   "name": "Kitchen r39",
   "msg": "Kitchen r39",
   "date": "2026-11-27"
+ },
+ {
+  "v": "prepleft-r40",
+  "mockup": "index.html",
+  "name": "Prep + Leftovers",
+  "msg": "Prep + Leftovers r40 (T-2161)",
+  "date": "2026-11-27"
  }
 ]
