@@ -397,5 +397,12 @@
   "name": "How This Page Works r20",
   "msg": "help pane round 20 (example page beside the sheet)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "history-r34",
+  "mockup": "index.html",
+  "name": "History round 34",
+  "msg": "History r34",
+  "date": "2026-11-27"
  }
 ]
