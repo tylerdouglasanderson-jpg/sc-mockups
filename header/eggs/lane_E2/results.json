@@ -1,0 +1,2838 @@
+{
+ "E2-r1-01": {
+  "tile": {
+   "pieces": 70,
+   "kb3": 62.6,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.18,
+    "worst_any": 4.03
+   },
+   "kb2": 38.0,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.51
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 5.14
+   },
+   "kb_all": 116.1,
+   "file_worst_words": 5.18,
+   "file_worst_any": 3.51,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.77,
+    "mark": 5.7,
+    "acct": 6.04,
+    "sb": 5.86,
+    "bar": 5.46
+   },
+   "820": {
+    "name": 5.81,
+    "mark": 5.7,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.7
+   },
+   "1180": {
+    "name": 5.81,
+    "mark": 5.7,
+    "acct": 6.08,
+    "sb": null,
+    "bar": 3.51
+   },
+   "1280": {
+    "name": 5.81,
+    "mark": 5.7,
+    "acct": 5.55,
+    "sb": null,
+    "bar": 3.51
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.81,
+    "acct": 5.3,
+    "sb": null,
+    "bar": 5.14
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.81,
+    "acct": 6.3,
+    "sb": null,
+    "bar": 5.14
+   }
+  },
+  "worst": 5.3,
+  "bar_worst": 3.51,
+  "grade": {
+   "B": 6,
+   "F": 6,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 35,
+   "verdict": "cut: chives read, but too few and nothing on a phone"
+  }
+ },
+ "E2-r1-02": {
+  "tile": {
+   "pieces": 74,
+   "kb3": 61.2,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 3.75
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.16,
+    "worst_any": 3.92
+   },
+   "kb1": 15.6,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.98
+   },
+   "kb_all": 114.6,
+   "file_worst_words": 5.16,
+   "file_worst_any": 3.75,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.81,
+    "mark": 5.82,
+    "acct": 6.0,
+    "sb": 5.92,
+    "bar": 5.49
+   },
+   "820": {
+    "name": 5.68,
+    "mark": 5.45,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 3.92
+   },
+   "1180": {
+    "name": 5.68,
+    "mark": 5.45,
+    "acct": 6.14,
+    "sb": null,
+    "bar": 3.92
+   },
+   "1280": {
+    "name": 5.68,
+    "mark": 5.45,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 3.92
+   },
+   "1280@1x": {
+    "name": 5.42,
+    "mark": 5.89,
+    "acct": 5.51,
+    "sb": null,
+    "bar": 3.98
+   },
+   "1920@1x": {
+    "name": 5.42,
+    "mark": 5.89,
+    "acct": 6.3,
+    "sb": null,
+    "bar": 3.98
+   }
+  },
+  "worst": 5.35,
+  "bar_worst": 3.92,
+  "grade": {
+   "B": 6,
+   "F": 5,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 34,
+   "verdict": "keep: chives fine; onion reads as grey paper scraps"
+  }
+ },
+ "E2-r1-03": {
+  "tile": {
+   "pieces": 97,
+   "kb3": 62.3,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.18,
+    "worst_any": 5.13
+   },
+   "kb2": 37.6,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.36
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.09
+   },
+   "kb_all": 115.4,
+   "file_worst_words": 5.18,
+   "file_worst_any": 4.36,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.59,
+    "acct": 6.04,
+    "sb": 5.97,
+    "bar": 5.41
+   },
+   "820": {
+    "name": 5.9,
+    "mark": 5.81,
+    "acct": 5.46,
+    "sb": null,
+    "bar": 4.92
+   },
+   "1180": {
+    "name": 5.9,
+    "mark": 5.81,
+    "acct": 6.06,
+    "sb": null,
+    "bar": 4.36
+   },
+   "1280": {
+    "name": 5.9,
+    "mark": 5.81,
+    "acct": 5.4,
+    "sb": null,
+    "bar": 4.36
+   },
+   "1280@1x": {
+    "name": 5.76,
+    "mark": 5.81,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 5.09
+   },
+   "1920@1x": {
+    "name": 5.76,
+    "mark": 5.81,
+    "acct": 6.51,
+    "sb": null,
+    "bar": 5.09
+   }
+  },
+  "worst": 5.35,
+  "bar_worst": 4.36,
+  "grade": {
+   "B": 6,
+   "F": 5,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 34,
+   "verdict": "keep: parsley flakes look like little green stars (clip-art)"
+  }
+ },
+ "E2-r1-04": {
+  "tile": {
+   "pieces": 43,
+   "kb3": 60.8,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.29
+   },
+   "kb2": 37.7,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.26
+   },
+   "kb1": 15.8,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.57
+   },
+   "kb_all": 114.3,
+   "file_worst_words": 5.2,
+   "file_worst_any": 4.26,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.82,
+    "mark": 5.66,
+    "acct": 6.04,
+    "sb": 5.84,
+    "bar": 5.38
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 5.22,
+    "sb": null,
+    "bar": 4.26
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 6.09,
+    "sb": null,
+    "bar": 4.26
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.26
+   },
+   "1280@1x": {
+    "name": 5.35,
+    "mark": 5.77,
+    "acct": 5.51,
+    "sb": null,
+    "bar": 4.57
+   },
+   "1920@1x": {
+    "name": 5.35,
+    "mark": 5.77,
+    "acct": 6.26,
+    "sb": null,
+    "bar": 4.57
+   }
+  },
+  "worst": 5.22,
+  "bar_worst": 4.26,
+  "grade": {
+   "B": 6,
+   "F": 6,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 35,
+   "verdict": "keep: pumpkin seeds believable; sage ribbons too frosty"
+  }
+ },
+ "E2-r1-05": {
+  "tile": {
+   "pieces": 200,
+   "kb3": 61.8,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.19,
+    "worst_any": 4.38
+   },
+   "kb2": 38.1,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.32
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.95
+   },
+   "kb_all": 115.4,
+   "file_worst_words": 5.19,
+   "file_worst_any": 4.32,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.49,
+    "mark": 5.55,
+    "acct": 6.01,
+    "sb": 5.99,
+    "bar": 5.38
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.32,
+    "sb": null,
+    "bar": 4.74
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 6.45,
+    "sb": null,
+    "bar": 4.32
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.6,
+    "sb": null,
+    "bar": 4.32
+   },
+   "1280@1x": {
+    "name": 5.77,
+    "mark": 5.81,
+    "acct": 5.51,
+    "sb": null,
+    "bar": 5.18
+   },
+   "1920@1x": {
+    "name": 5.77,
+    "mark": 5.81,
+    "acct": 6.14,
+    "sb": null,
+    "bar": 5.18
+   }
+  },
+  "worst": 5.32,
+  "bar_worst": 4.32,
+  "grade": {
+   "B": 5,
+   "F": 5,
+   "L": 9,
+   "R": 9,
+   "T": 6,
+   "sum": 34,
+   "verdict": "keep: almost invisible; pepper dark on dark wood, chili red on red"
+  }
+ },
+ "E2-r1-06": {
+  "tile": {
+   "pieces": 26,
+   "kb3": 62.2,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb2": 38.0,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.22,
+    "worst_any": 5.22
+   },
+   "kb1": 15.4,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb_all": 115.6,
+   "file_worst_words": 5.21,
+   "file_worst_any": 5.21,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.4,
+    "mark": 5.55,
+    "acct": 5.97,
+    "sb": 5.93,
+    "bar": 5.38
+   },
+   "820": {
+    "name": 5.7,
+    "mark": 5.99,
+    "acct": 5.32,
+    "sb": null,
+    "bar": 5.22
+   },
+   "1180": {
+    "name": 5.7,
+    "mark": 5.99,
+    "acct": 5.92,
+    "sb": null,
+    "bar": 5.22
+   },
+   "1280": {
+    "name": 5.7,
+    "mark": 5.99,
+    "acct": 5.64,
+    "sb": null,
+    "bar": 5.22
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.89,
+    "acct": 5.43,
+    "sb": null,
+    "bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.89,
+    "acct": 5.45,
+    "sb": null,
+    "bar": 5.21
+   }
+  },
+  "worst": 5.32,
+  "bar_worst": 5.21,
+  "grade": {
+   "B": 4,
+   "F": 4,
+   "L": 6,
+   "R": 9,
+   "T": 5,
+   "sum": 28,
+   "verdict": "keep (rebuild): flour came out as grey blotchy smears"
+  }
+ },
+ "E2-r1-07": {
+  "tile": {
+   "pieces": 36,
+   "kb3": 61.1,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.39
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.65
+   },
+   "kb1": 15.4,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.3
+   },
+   "kb_all": 114.3,
+   "file_worst_words": 5.2,
+   "file_worst_any": 3.39,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.66,
+    "mark": 5.56,
+    "acct": 5.95,
+    "sb": 5.81,
+    "bar": 5.25
+   },
+   "820": {
+    "name": 5.81,
+    "mark": 5.62,
+    "acct": 5.33,
+    "sb": null,
+    "bar": 3.65
+   },
+   "1180": {
+    "name": 5.81,
+    "mark": 5.62,
+    "acct": 5.87,
+    "sb": null,
+    "bar": 3.65
+   },
+   "1280": {
+    "name": 5.81,
+    "mark": 5.62,
+    "acct": 5.21,
+    "sb": null,
+    "bar": 3.65
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.3
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 6.26,
+    "sb": null,
+    "bar": 4.3
+   }
+  },
+  "worst": 5.21,
+  "bar_worst": 3.65,
+  "grade": {
+   "B": 5,
+   "F": 4,
+   "L": 8,
+   "R": 9,
+   "T": 5,
+   "sum": 31,
+   "verdict": "keep (rebuild): scallion rings look like drawn bubbles"
+  }
+ },
+ "E2-r1-08": {
+  "tile": {
+   "pieces": 70,
+   "kb3": 60.7,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.76
+   },
+   "kb2": 37.1,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.0
+   },
+   "kb1": 15.7,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.43
+   },
+   "kb_all": 113.5,
+   "file_worst_words": 5.21,
+   "file_worst_any": 3.76,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 5.84,
+    "sb": 5.92,
+    "bar": 5.37
+   },
+   "820": {
+    "name": 5.88,
+    "mark": 5.78,
+    "acct": 5.59,
+    "sb": null,
+    "bar": 4.0
+   },
+   "1180": {
+    "name": 5.88,
+    "mark": 5.78,
+    "acct": 6.14,
+    "sb": null,
+    "bar": 4.0
+   },
+   "1280": {
+    "name": 5.88,
+    "mark": 5.78,
+    "acct": 5.68,
+    "sb": null,
+    "bar": 4.0
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.77,
+    "acct": 5.38,
+    "sb": null,
+    "bar": 4.43
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.77,
+    "acct": 6.45,
+    "sb": null,
+    "bar": 4.43
+   }
+  },
+  "worst": 5.38,
+  "bar_worst": 4.0,
+  "grade": {
+   "B": 6,
+   "F": 5,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 34,
+   "verdict": "cut: red onion too faint to tell; parsley as r1-03"
+  }
+ },
+ "E2-r1-09": {
+  "tile": {
+   "pieces": 72,
+   "kb3": 61.0,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.18,
+    "worst_any": 3.63
+   },
+   "kb2": 37.7,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.17
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.14
+   },
+   "kb_all": 114.2,
+   "file_worst_words": 5.18,
+   "file_worst_any": 3.63,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.82,
+    "mark": 5.57,
+    "acct": 6.04,
+    "sb": 5.81,
+    "bar": 5.3
+   },
+   "820": {
+    "name": 5.55,
+    "mark": 5.7,
+    "acct": 5.32,
+    "sb": null,
+    "bar": 4.57
+   },
+   "1180": {
+    "name": 5.55,
+    "mark": 5.7,
+    "acct": 6.21,
+    "sb": null,
+    "bar": 4.17
+   },
+   "1280": {
+    "name": 5.55,
+    "mark": 5.7,
+    "acct": 5.59,
+    "sb": null,
+    "bar": 4.17
+   },
+   "1280@1x": {
+    "name": 5.64,
+    "mark": 5.81,
+    "acct": 5.59,
+    "sb": null,
+    "bar": 5.14
+   },
+   "1920@1x": {
+    "name": 5.64,
+    "mark": 5.81,
+    "acct": 6.3,
+    "sb": null,
+    "bar": 5.14
+   }
+  },
+  "worst": 5.32,
+  "bar_worst": 4.17,
+  "grade": {
+   "B": 6,
+   "F": 6,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 35,
+   "verdict": "keep: cilantro and lime read as herbs"
+  }
+ },
+ "E2-r1-10": {
+  "tile": {
+   "pieces": 26,
+   "kb3": 61.1,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.76
+   },
+   "kb2": 37.5,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.22
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.55
+   },
+   "kb_all": 114.1,
+   "file_worst_words": 5.21,
+   "file_worst_any": 3.22,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.87,
+    "mark": 5.64,
+    "acct": 5.92,
+    "sb": 5.9,
+    "bar": 5.45
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.73,
+    "acct": 5.4,
+    "sb": null,
+    "bar": 4.06
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.73,
+    "acct": 6.33,
+    "sb": null,
+    "bar": 3.72
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.73,
+    "acct": 5.49,
+    "sb": null,
+    "bar": 3.72
+   },
+   "1280@1x": {
+    "name": 5.23,
+    "mark": 5.77,
+    "acct": 5.33,
+    "sb": null,
+    "bar": 3.55
+   },
+   "1920@1x": {
+    "name": 5.23,
+    "mark": 5.77,
+    "acct": 6.13,
+    "sb": null,
+    "bar": 3.55
+   }
+  },
+  "worst": 5.23,
+  "bar_worst": 3.55,
+  "grade": {
+   "B": 5,
+   "F": 5,
+   "L": 7,
+   "R": 9,
+   "T": 4,
+   "sum": 30,
+   "verdict": "cut: red pepper squares read as confetti"
+  }
+ },
+ "E2-r1-11": {
+  "tile": {
+   "pieces": 110,
+   "kb3": 60.8,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.94
+   },
+   "kb2": 37.9,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.23,
+    "worst_any": 4.0
+   },
+   "kb1": 15.6,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.77
+   },
+   "kb_all": 114.3,
+   "file_worst_words": 5.21,
+   "file_worst_any": 3.94,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.81,
+    "mark": 5.9,
+    "acct": 6.02,
+    "sb": 5.92,
+    "bar": 5.36
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.81,
+    "acct": 5.32,
+    "sb": null,
+    "bar": 4.0
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.81,
+    "acct": 5.63,
+    "sb": null,
+    "bar": 4.0
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.81,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.0
+   },
+   "1280@1x": {
+    "name": 5.55,
+    "mark": 5.81,
+    "acct": 5.51,
+    "sb": null,
+    "bar": 4.77
+   },
+   "1920@1x": {
+    "name": 5.55,
+    "mark": 5.81,
+    "acct": 6.75,
+    "sb": null,
+    "bar": 4.77
+   }
+  },
+  "worst": 5.32,
+  "bar_worst": 4.0,
+  "grade": {
+   "B": 6,
+   "F": 6,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 35,
+   "verdict": "keep: gremolata, three things that belong together"
+  }
+ },
+ "E2-r1-12": {
+  "tile": {
+   "pieces": 50,
+   "kb3": 61.2,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.22,
+    "worst_any": 3.94
+   },
+   "kb2": 37.6,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.66
+   },
+   "kb1": 15.4,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.77
+   },
+   "kb_all": 114.2,
+   "file_worst_words": 5.2,
+   "file_worst_any": 3.66,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.59,
+    "mark": 5.77,
+    "acct": 5.85,
+    "sb": 5.92,
+    "bar": 5.38
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.85,
+    "acct": 5.42,
+    "sb": null,
+    "bar": 3.66
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.85,
+    "acct": 6.18,
+    "sb": null,
+    "bar": 3.66
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.85,
+    "acct": 5.77,
+    "sb": null,
+    "bar": 3.66
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.77
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 5.83,
+    "sb": null,
+    "bar": 4.77
+   }
+  },
+  "worst": 5.35,
+  "bar_worst": 3.66,
+  "grade": {
+   "B": 5,
+   "F": 5,
+   "L": 7,
+   "R": 9,
+   "T": 4,
+   "sum": 30,
+   "verdict": "cut: orange cubes and celery arcs read as confetti"
+  }
+ },
+ "E2-r1-13": {
+  "tile": {
+   "pieces": 66,
+   "kb3": 61.6,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.87
+   },
+   "kb2": 37.5,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.97
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.28
+   },
+   "kb_all": 114.6,
+   "file_worst_words": 5.21,
+   "file_worst_any": 3.87,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.6,
+    "acct": 6.01,
+    "sb": 5.9,
+    "bar": 5.38
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.55,
+    "sb": null,
+    "bar": 4.2
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 6.27,
+    "sb": null,
+    "bar": 3.97
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.62,
+    "acct": 5.42,
+    "sb": null,
+    "bar": 3.97
+   },
+   "1280@1x": {
+    "name": 5.55,
+    "mark": 5.81,
+    "acct": 5.31,
+    "sb": null,
+    "bar": 4.28
+   },
+   "1920@1x": {
+    "name": 5.55,
+    "mark": 5.81,
+    "acct": 6.45,
+    "sb": null,
+    "bar": 4.28
+   }
+  },
+  "worst": 5.31,
+  "bar_worst": 3.97,
+  "grade": {
+   "B": 6,
+   "F": 6,
+   "L": 9,
+   "R": 9,
+   "T": 6,
+   "sum": 36,
+   "verdict": "keep: quiet, rosemary needles believable"
+  }
+ },
+ "E2-r1-14": {
+  "tile": {
+   "pieces": 104,
+   "kb3": 60.9,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.36
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.55
+   },
+   "kb1": 15.6,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 5.1
+   },
+   "kb_all": 114.3,
+   "file_worst_words": 5.2,
+   "file_worst_any": 4.36,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.74,
+    "mark": 5.82,
+    "acct": 5.97,
+    "sb": 5.92,
+    "bar": 5.38
+   },
+   "820": {
+    "name": 5.74,
+    "mark": 5.7,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.55
+   },
+   "1180": {
+    "name": 5.74,
+    "mark": 5.7,
+    "acct": 6.42,
+    "sb": null,
+    "bar": 4.55
+   },
+   "1280": {
+    "name": 5.74,
+    "mark": 5.7,
+    "acct": 5.55,
+    "sb": null,
+    "bar": 4.55
+   },
+   "1280@1x": {
+    "name": 5.55,
+    "mark": 5.77,
+    "acct": 5.31,
+    "sb": null,
+    "bar": 5.1
+   },
+   "1920@1x": {
+    "name": 5.55,
+    "mark": 5.77,
+    "acct": 6.33,
+    "sb": null,
+    "bar": 5.1
+   }
+  },
+  "worst": 5.31,
+  "bar_worst": 4.55,
+  "grade": {
+   "B": 5,
+   "F": 5,
+   "L": 8,
+   "R": 9,
+   "T": 5,
+   "sum": 32,
+   "verdict": "cut: basil ribbons read as green string"
+  }
+ },
+ "E2-r1-15": {
+  "tile": {
+   "pieces": 70,
+   "kb3": 62.0,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.05
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.01
+   },
+   "kb1": 15.6,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 5.14
+   },
+   "kb_all": 115.4,
+   "file_worst_words": 5.2,
+   "file_worst_any": 4.01,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.68,
+    "mark": 5.57,
+    "acct": 5.95,
+    "sb": 5.97,
+    "bar": 5.55
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.7,
+    "acct": 5.3,
+    "sb": null,
+    "bar": 5.24
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.7,
+    "acct": 5.87,
+    "sb": null,
+    "bar": 4.01
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.7,
+    "acct": 5.68,
+    "sb": null,
+    "bar": 4.01
+   },
+   "1280@1x": {
+    "name": 5.43,
+    "mark": 5.81,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 5.14
+   },
+   "1920@1x": {
+    "name": 5.43,
+    "mark": 5.81,
+    "acct": 6.3,
+    "sb": null,
+    "bar": 5.14
+   }
+  },
+  "worst": 5.3,
+  "bar_worst": 4.01,
+  "grade": {
+   "B": 6,
+   "F": 6,
+   "L": 9,
+   "R": 9,
+   "T": 6,
+   "sum": 36,
+   "verdict": "keep: soft-focus bits feel like a photo; merge with r1-01"
+  }
+ },
+ "E2-r1-16": {
+  "tile": {
+   "pieces": 36,
+   "kb3": 62.8,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb2": 38.0,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb1": 15.8,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.16,
+    "worst_any": 5.16
+   },
+   "kb_all": 116.6,
+   "file_worst_words": 5.16,
+   "file_worst_any": 5.16,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.87,
+    "mark": 5.44,
+    "acct": 6.04,
+    "sb": 5.9,
+    "bar": 5.36
+   },
+   "820": {
+    "name": 5.77,
+    "mark": 6.01,
+    "acct": 5.26,
+    "sb": null,
+    "bar": 5.24
+   },
+   "1180": {
+    "name": 5.77,
+    "mark": 6.01,
+    "acct": 6.16,
+    "sb": null,
+    "bar": 5.21
+   },
+   "1280": {
+    "name": 5.77,
+    "mark": 6.01,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.4,
+    "mark": 5.77,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 5.16
+   },
+   "1920@1x": {
+    "name": 5.4,
+    "mark": 5.77,
+    "acct": 6.32,
+    "sb": null,
+    "bar": 5.16
+   }
+  },
+  "worst": 5.26,
+  "bar_worst": 5.16,
+  "grade": {
+   "B": 4,
+   "F": 4,
+   "L": 6,
+   "R": 9,
+   "T": 5,
+   "sum": 28,
+   "verdict": "cut: flour smears as r1-06"
+  }
+ },
+ "N-r8-01": {
+  "contrast": {
+   "390": {
+    "name": 5.49,
+    "mark": 5.69,
+    "acct": 6.0,
+    "sb": 5.87,
+    "bar": 5.41
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.3,
+    "sb": null,
+    "bar": 5.24
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 6.51,
+    "sb": null,
+    "bar": 5.2
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.62,
+    "sb": null,
+    "bar": 5.2
+   },
+   "1280@1x": {
+    "name": 5.64,
+    "mark": 5.81,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 5.24
+   },
+   "1920@1x": {
+    "name": 5.64,
+    "mark": 5.81,
+    "acct": 6.45,
+    "sb": null,
+    "bar": 5.24
+   }
+  },
+  "worst": 5.3,
+  "bar_worst": 5.2
+ },
+ "E2-r2-01": {
+  "tile": {
+   "pieces": 95,
+   "kb3": 61.0,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.67
+   },
+   "kb2": 38.0,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.91
+   },
+   "kb1": 15.7,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.15,
+    "worst_any": 4.74
+   },
+   "kb_all": 114.7,
+   "file_worst_words": 5.15,
+   "file_worst_any": 3.67,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.66,
+    "mark": 5.51,
+    "acct": 6.04,
+    "sb": 6.04,
+    "bar": 5.4
+   },
+   "820": {
+    "name": 5.64,
+    "mark": 5.7,
+    "acct": 5.4,
+    "sb": null,
+    "bar": 4.17
+   },
+   "1180": {
+    "name": 5.64,
+    "mark": 5.7,
+    "acct": 5.87,
+    "sb": null,
+    "bar": 4.17
+   },
+   "1280": {
+    "name": 5.64,
+    "mark": 5.7,
+    "acct": 5.28,
+    "sb": null,
+    "bar": 4.17
+   },
+   "1280@1x": {
+    "name": 5.64,
+    "mark": 5.77,
+    "acct": 5.43,
+    "sb": null,
+    "bar": 4.74
+   },
+   "1920@1x": {
+    "name": 5.64,
+    "mark": 5.77,
+    "acct": 6.23,
+    "sb": null,
+    "bar": 4.74
+   }
+  },
+  "worst": 5.28,
+  "bar_worst": 4.17,
+  "grade": {
+   "B": 7,
+   "F": 7,
+   "L": 8,
+   "R": 9,
+   "T": 7,
+   "sum": 38,
+   "verdict": "keep: chopped chives with cut ends; a few soft-focus"
+  }
+ },
+ "E2-r2-02": {
+  "tile": {
+   "pieces": 75,
+   "kb3": 61.4,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.76
+   },
+   "kb2": 38.4,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.22,
+    "worst_any": 3.57
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.23,
+    "worst_any": 4.66
+   },
+   "kb_all": 115.3,
+   "file_worst_words": 5.21,
+   "file_worst_any": 3.57,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.88,
+    "mark": 5.59,
+    "acct": 5.97,
+    "sb": 6.01,
+    "bar": 5.37
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 5.34,
+    "sb": null,
+    "bar": 3.57
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 5.87,
+    "sb": null,
+    "bar": 3.57
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 5.39,
+    "sb": null,
+    "bar": 3.57
+   },
+   "1280@1x": {
+    "name": 5.68,
+    "mark": 5.81,
+    "acct": 5.49,
+    "sb": null,
+    "bar": 4.66
+   },
+   "1920@1x": {
+    "name": 5.68,
+    "mark": 5.81,
+    "acct": 5.54,
+    "sb": null,
+    "bar": 4.66
+   }
+  },
+  "worst": 5.34,
+  "bar_worst": 3.57,
+  "grade": {
+   "B": 7,
+   "F": 7,
+   "L": 8,
+   "R": 9,
+   "T": 7,
+   "sum": 38,
+   "verdict": "keep: onion now glassy slivers beside the chives"
+  }
+ },
+ "E2-r2-03": {
+  "tile": {
+   "pieces": 97,
+   "kb3": 60.7,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.26
+   },
+   "kb2": 37.5,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.88
+   },
+   "kb1": 15.2,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb_all": 113.4,
+   "file_worst_words": 5.2,
+   "file_worst_any": 4.26,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.92,
+    "mark": 5.68,
+    "acct": 5.95,
+    "sb": 5.84,
+    "bar": 5.28
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 5.29,
+    "sb": null,
+    "bar": 4.88
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 6.42,
+    "sb": null,
+    "bar": 4.88
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 5.76,
+    "sb": null,
+    "bar": 4.88
+   },
+   "1280@1x": {
+    "name": 5.73,
+    "mark": 5.81,
+    "acct": 5.59,
+    "sb": null,
+    "bar": 5.28
+   },
+   "1920@1x": {
+    "name": 5.73,
+    "mark": 5.81,
+    "acct": 6.68,
+    "sb": null,
+    "bar": 5.23
+   }
+  },
+  "worst": 5.29,
+  "bar_worst": 4.88,
+  "grade": {
+   "B": 6,
+   "F": 6,
+   "L": 9,
+   "R": 9,
+   "T": 7,
+   "sum": 37,
+   "verdict": "keep: knife-cut parsley reads; very faint at 1x"
+  }
+ },
+ "E2-r2-04": {
+  "tile": {
+   "pieces": 43,
+   "kb3": 60.9,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.93
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.27
+   },
+   "kb1": 15.8,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.78
+   },
+   "kb_all": 114.5,
+   "file_worst_words": 5.2,
+   "file_worst_any": 3.93,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.71,
+    "mark": 5.68,
+    "acct": 5.99,
+    "sb": 5.7,
+    "bar": 5.38
+   },
+   "820": {
+    "name": 5.97,
+    "mark": 5.7,
+    "acct": 5.3,
+    "sb": null,
+    "bar": 4.36
+   },
+   "1180": {
+    "name": 5.85,
+    "mark": 5.7,
+    "acct": 6.04,
+    "sb": null,
+    "bar": 4.27
+   },
+   "1280": {
+    "name": 5.85,
+    "mark": 5.7,
+    "acct": 5.43,
+    "sb": null,
+    "bar": 4.27
+   },
+   "1280@1x": {
+    "name": 5.64,
+    "mark": 5.77,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.78
+   },
+   "1920@1x": {
+    "name": 5.64,
+    "mark": 5.77,
+    "acct": 6.55,
+    "sb": null,
+    "bar": 4.78
+   }
+  },
+  "worst": 5.3,
+  "bar_worst": 4.27,
+  "grade": {
+   "B": 7,
+   "F": 6,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 36,
+   "verdict": "keep: sage still a bit frosted, too many ribbons"
+  }
+ },
+ "E2-r2-05": {
+  "tile": {
+   "pieces": 202,
+   "kb3": 61.8,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.03
+   },
+   "kb2": 38.3,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.56
+   },
+   "kb1": 15.6,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.49
+   },
+   "kb_all": 115.7,
+   "file_worst_words": 5.2,
+   "file_worst_any": 3.56,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.81,
+    "mark": 5.9,
+    "acct": 6.0,
+    "sb": 5.92,
+    "bar": 5.39
+   },
+   "820": {
+    "name": 5.77,
+    "mark": 5.81,
+    "acct": 5.24,
+    "sb": null,
+    "bar": 4.12
+   },
+   "1180": {
+    "name": 5.77,
+    "mark": 5.81,
+    "acct": 6.17,
+    "sb": null,
+    "bar": 3.56
+   },
+   "1280": {
+    "name": 5.77,
+    "mark": 5.81,
+    "acct": 5.63,
+    "sb": null,
+    "bar": 3.56
+   },
+   "1280@1x": {
+    "name": 5.51,
+    "mark": 5.77,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.77
+   },
+   "1920@1x": {
+    "name": 5.51,
+    "mark": 5.77,
+    "acct": 6.13,
+    "sb": null,
+    "bar": 4.77
+   }
+  },
+  "worst": 5.24,
+  "bar_worst": 3.56,
+  "grade": {
+   "B": 6,
+   "F": 7,
+   "L": 9,
+   "R": 9,
+   "T": 7,
+   "sum": 38,
+   "verdict": "keep: cracked pepper with broken faces reads; chili still quiet"
+  }
+ },
+ "E2-r2-06": {
+  "tile": {
+   "pieces": 16,
+   "kb3": 62.1,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb2": 37.9,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb1": 15.1,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.22,
+    "worst_any": 5.22
+   },
+   "kb_all": 115.1,
+   "file_worst_words": 5.21,
+   "file_worst_any": 5.21,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.49,
+    "mark": 5.68,
+    "acct": 6.0,
+    "sb": 5.93,
+    "bar": 5.38
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.3,
+    "sb": null,
+    "bar": 5.26
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.79,
+    "sb": null,
+    "bar": 5.21
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.9,
+    "acct": 5.59,
+    "sb": null,
+    "bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.46,
+    "mark": 5.89,
+    "acct": 5.51,
+    "sb": null,
+    "bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.46,
+    "mark": 5.89,
+    "acct": 6.36,
+    "sb": null,
+    "bar": 5.22
+   }
+  },
+  "worst": 5.3,
+  "bar_worst": 5.21,
+  "grade": {
+   "B": 6,
+   "F": 5,
+   "L": 7,
+   "R": 9,
+   "T": 6,
+   "sum": 33,
+   "verdict": "keep: no more blotches; still a faint haze, nothing on a phone"
+  }
+ },
+ "E2-r2-07": {
+  "tile": {
+   "pieces": 72,
+   "kb3": 60.8,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.82
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 3.54
+   },
+   "kb1": 15.4,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.45
+   },
+   "kb_all": 114.0,
+   "file_worst_words": 5.2,
+   "file_worst_any": 3.54,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.92,
+    "mark": 5.68,
+    "acct": 5.91,
+    "sb": 5.84,
+    "bar": 5.28
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.42,
+    "sb": null,
+    "bar": 4.41
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 6.32,
+    "sb": null,
+    "bar": 3.54
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.73,
+    "acct": 5.49,
+    "sb": null,
+    "bar": 3.54
+   },
+   "1280@1x": {
+    "name": 5.81,
+    "mark": 5.81,
+    "acct": 5.43,
+    "sb": null,
+    "bar": 4.45
+   },
+   "1920@1x": {
+    "name": 5.81,
+    "mark": 5.81,
+    "acct": 6.13,
+    "sb": null,
+    "bar": 4.45
+   }
+  },
+  "worst": 5.42,
+  "bar_worst": 3.54,
+  "grade": {
+   "B": 6,
+   "F": 5,
+   "L": 9,
+   "R": 9,
+   "T": 6,
+   "sum": 35,
+   "verdict": "cut: too faint to say what it is"
+  }
+ },
+ "E2-r2-08": {
+  "tile": {
+   "pieces": 72,
+   "kb3": 61.6,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.12
+   },
+   "kb2": 38.1,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.23,
+    "worst_any": 4.15
+   },
+   "kb1": 15.4,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb_all": 115.1,
+   "file_worst_words": 5.2,
+   "file_worst_any": 4.12,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.82,
+    "mark": 5.63,
+    "acct": 6.09,
+    "sb": 5.81,
+    "bar": 5.31
+   },
+   "820": {
+    "name": 5.93,
+    "mark": 5.99,
+    "acct": 5.3,
+    "sb": null,
+    "bar": 4.15
+   },
+   "1180": {
+    "name": 5.93,
+    "mark": 5.99,
+    "acct": 6.11,
+    "sb": null,
+    "bar": 4.15
+   },
+   "1280": {
+    "name": 5.93,
+    "mark": 5.99,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.15
+   },
+   "1280@1x": {
+    "name": 5.43,
+    "mark": 5.81,
+    "acct": 5.4,
+    "sb": null,
+    "bar": 5.21
+   },
+   "1920@1x": {
+    "name": 5.43,
+    "mark": 5.81,
+    "acct": 6.3,
+    "sb": null,
+    "bar": 5.21
+   }
+  },
+  "worst": 5.3,
+  "bar_worst": 4.15,
+  "grade": {
+   "B": 6,
+   "F": 6,
+   "L": 9,
+   "R": 9,
+   "T": 7,
+   "sum": 37,
+   "verdict": "keep: cilantro and lime, quiet"
+  }
+ },
+ "E2-r2-09": {
+  "tile": {
+   "pieces": 108,
+   "kb3": 60.6,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 3.73
+   },
+   "kb2": 38.1,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.68
+   },
+   "kb1": 15.6,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.15,
+    "worst_any": 4.71
+   },
+   "kb_all": 114.3,
+   "file_worst_words": 5.15,
+   "file_worst_any": 3.68,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.59,
+    "mark": 5.57,
+    "acct": 5.95,
+    "sb": 6.01,
+    "bar": 5.35
+   },
+   "820": {
+    "name": 6.02,
+    "mark": 5.53,
+    "acct": 5.31,
+    "sb": null,
+    "bar": 3.68
+   },
+   "1180": {
+    "name": 6.02,
+    "mark": 5.53,
+    "acct": 6.2,
+    "sb": null,
+    "bar": 3.68
+   },
+   "1280": {
+    "name": 6.02,
+    "mark": 5.53,
+    "acct": 5.22,
+    "sb": null,
+    "bar": 3.68
+   },
+   "1280@1x": {
+    "name": 5.55,
+    "mark": 5.81,
+    "acct": 5.51,
+    "sb": null,
+    "bar": 4.71
+   },
+   "1920@1x": {
+    "name": 5.55,
+    "mark": 5.81,
+    "acct": 5.49,
+    "sb": null,
+    "bar": 4.71
+   }
+  },
+  "worst": 5.22,
+  "bar_worst": 3.68,
+  "grade": {
+   "B": 7,
+   "F": 6,
+   "L": 9,
+   "R": 9,
+   "T": 7,
+   "sum": 38,
+   "verdict": "keep: gremolata, garlic bits add a pale note"
+  }
+ },
+ "E2-r2-10": {
+  "tile": {
+   "pieces": 56,
+   "kb3": 60.7,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.17,
+    "worst_any": 3.85
+   },
+   "kb2": 37.7,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.92
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.72
+   },
+   "kb_all": 113.9,
+   "file_worst_words": 5.17,
+   "file_worst_any": 3.85,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.93,
+    "mark": 5.68,
+    "acct": 5.97,
+    "sb": 5.97,
+    "bar": 5.3
+   },
+   "820": {
+    "name": 5.93,
+    "mark": 5.7,
+    "acct": 5.58,
+    "sb": null,
+    "bar": 3.92
+   },
+   "1180": {
+    "name": 5.93,
+    "mark": 5.7,
+    "acct": 5.71,
+    "sb": null,
+    "bar": 3.92
+   },
+   "1280": {
+    "name": 5.93,
+    "mark": 5.7,
+    "acct": 5.32,
+    "sb": null,
+    "bar": 3.92
+   },
+   "1280@1x": {
+    "name": 5.4,
+    "mark": 5.81,
+    "acct": 5.49,
+    "sb": null,
+    "bar": 4.72
+   },
+   "1920@1x": {
+    "name": 5.4,
+    "mark": 5.81,
+    "acct": 6.28,
+    "sb": null,
+    "bar": 4.72
+   }
+  },
+  "worst": 5.32,
+  "bar_worst": 3.92,
+  "grade": {
+   "B": 5,
+   "F": 4,
+   "L": 8,
+   "R": 9,
+   "T": 5,
+   "sum": 31,
+   "verdict": "cut: scallion rings read as crumbs (second miss)"
+  }
+ },
+ "E2-r3-01": {
+  "tile": {
+   "pieces": 109,
+   "kb3": 62.9,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.24
+   },
+   "kb2": 38.4,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.24,
+    "worst_any": 3.46
+   },
+   "kb1": 15.8,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.17,
+    "worst_any": 4.38
+   },
+   "kb_all": 117.1,
+   "file_worst_words": 5.17,
+   "file_worst_any": 3.46,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.77,
+    "mark": 5.61,
+    "acct": 6.01,
+    "sb": 5.92,
+    "bar": 5.26
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.81,
+    "acct": 5.51,
+    "sb": null,
+    "bar": 3.46
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.81,
+    "acct": 6.22,
+    "sb": null,
+    "bar": 3.46
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.81,
+    "acct": 5.68,
+    "sb": null,
+    "bar": 3.46
+   },
+   "1280@1x": {
+    "name": 5.59,
+    "mark": 5.81,
+    "acct": 5.59,
+    "sb": null,
+    "bar": 4.38
+   },
+   "1920@1x": {
+    "name": 5.59,
+    "mark": 5.81,
+    "acct": 6.36,
+    "sb": null,
+    "bar": 4.38
+   }
+  },
+  "worst": 5.51,
+  "bar_worst": 3.46,
+  "grade": {
+   "B": 8,
+   "F": 8,
+   "L": 8,
+   "R": 9,
+   "T": 8,
+   "sum": 41,
+   "verdict": "top: chopped chives, the clearest \"someone was cooking\"; quiet at 1x"
+  }
+ },
+ "E2-r3-02": {
+  "tile": {
+   "pieces": 86,
+   "kb3": 62.7,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.85
+   },
+   "kb2": 38.2,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.33
+   },
+   "kb1": 15.6,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.48
+   },
+   "kb_all": 116.5,
+   "file_worst_words": 5.2,
+   "file_worst_any": 3.33,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.88,
+    "mark": 5.63,
+    "acct": 5.62,
+    "sb": 6.11,
+    "bar": 5.25
+   },
+   "820": {
+    "name": 5.79,
+    "mark": 5.7,
+    "acct": 5.38,
+    "sb": null,
+    "bar": 4.19
+   },
+   "1180": {
+    "name": 5.79,
+    "mark": 5.7,
+    "acct": 6.16,
+    "sb": null,
+    "bar": 3.92
+   },
+   "1280": {
+    "name": 5.79,
+    "mark": 5.7,
+    "acct": 5.76,
+    "sb": null,
+    "bar": 3.92
+   },
+   "1280@1x": {
+    "name": 5.42,
+    "mark": 5.89,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.6
+   },
+   "1920@1x": {
+    "name": 5.42,
+    "mark": 5.89,
+    "acct": 6.36,
+    "sb": null,
+    "bar": 4.6
+   }
+  },
+  "worst": 5.35,
+  "bar_worst": 3.92,
+  "grade": {
+   "B": 8,
+   "F": 7,
+   "L": 8,
+   "R": 9,
+   "T": 8,
+   "sum": 40,
+   "verdict": "top: onion and chive, Tyler's own example; onion slivers glassy"
+  }
+ },
+ "E2-r3-03": {
+  "tile": {
+   "pieces": 120,
+   "kb3": 60.9,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 3.79
+   },
+   "kb2": 37.6,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.18,
+    "worst_any": 4.09
+   },
+   "kb1": 15.4,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.05
+   },
+   "kb_all": 113.9,
+   "file_worst_words": 5.18,
+   "file_worst_any": 3.79,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 5.85,
+    "sb": 5.84,
+    "bar": 5.31
+   },
+   "820": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 5.48,
+    "sb": null,
+    "bar": 5.23
+   },
+   "1180": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 5.99,
+    "sb": null,
+    "bar": 4.09
+   },
+   "1280": {
+    "name": 5.76,
+    "mark": 5.7,
+    "acct": 5.6,
+    "sb": null,
+    "bar": 4.09
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 5.05
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 6.13,
+    "sb": null,
+    "bar": 5.05
+   }
+  },
+  "worst": 5.35,
+  "bar_worst": 4.09,
+  "grade": {
+   "B": 7,
+   "F": 7,
+   "L": 9,
+   "R": 9,
+   "T": 8,
+   "sum": 40,
+   "verdict": "final: herb garden, the quietest of the green ones"
+  }
+ },
+ "E2-r3-04": {
+  "tile": {
+   "pieces": 51,
+   "kb3": 62.3,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.17,
+    "worst_any": 4.1
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.07
+   },
+   "kb1": 15.8,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.7
+   },
+   "kb_all": 115.9,
+   "file_worst_words": 5.17,
+   "file_worst_any": 4.07,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.49,
+    "mark": 5.36,
+    "acct": 6.07,
+    "sb": 5.59,
+    "bar": 5.34
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.85,
+    "acct": 5.24,
+    "sb": null,
+    "bar": 4.52
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.85,
+    "acct": 5.99,
+    "sb": null,
+    "bar": 4.52
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.85,
+    "acct": 5.68,
+    "sb": null,
+    "bar": 4.07
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.77,
+    "acct": 5.43,
+    "sb": null,
+    "bar": 5.01
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.77,
+    "acct": 6.31,
+    "sb": null,
+    "bar": 5.01
+   }
+  },
+  "worst": 5.24,
+  "bar_worst": 4.07,
+  "grade": {
+   "B": 7,
+   "F": 6,
+   "L": 8,
+   "R": 9,
+   "T": 7,
+   "sum": 37,
+   "verdict": "final: autumn; pumpkin seeds good, sage still a little grey"
+  }
+ },
+ "E2-r3-05": {
+  "tile": {
+   "pieces": 232,
+   "kb3": 62.9,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.17,
+    "worst_any": 4.03
+   },
+   "kb2": 38.1,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.15,
+    "worst_any": 4.12
+   },
+   "kb1": 15.7,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.2,
+    "worst_any": 4.5
+   },
+   "kb_all": 116.7,
+   "file_worst_words": 5.15,
+   "file_worst_any": 4.03,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.76,
+    "mark": 5.68,
+    "acct": 5.62,
+    "sb": 6.02,
+    "bar": 5.21
+   },
+   "820": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 5.41,
+    "sb": null,
+    "bar": 4.17
+   },
+   "1180": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 5.43,
+    "sb": null,
+    "bar": 4.12
+   },
+   "1280": {
+    "name": 5.87,
+    "mark": 5.57,
+    "acct": 5.45,
+    "sb": null,
+    "bar": 4.12
+   },
+   "1280@1x": {
+    "name": 5.3,
+    "mark": 5.77,
+    "acct": 5.44,
+    "sb": null,
+    "bar": 4.5
+   },
+   "1920@1x": {
+    "name": 5.3,
+    "mark": 5.77,
+    "acct": 6.33,
+    "sb": null,
+    "bar": 4.5
+   }
+  },
+  "worst": 5.3,
+  "bar_worst": 4.12,
+  "grade": {
+   "B": 7,
+   "F": 8,
+   "L": 8,
+   "R": 9,
+   "T": 8,
+   "sum": 40,
+   "verdict": "top: cracked pepper, chili and salt; the one non-green egg that works"
+  }
+ },
+ "E2-r3-06": {
+  "tile": {
+   "pieces": 18,
+   "kb3": 61.3,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb1": 15.2,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.21
+   },
+   "kb_all": 114.3,
+   "file_worst_words": 5.21,
+   "file_worst_any": 5.21,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.81,
+    "mark": 5.59,
+    "acct": 5.99,
+    "sb": 5.92,
+    "bar": 5.35
+   },
+   "820": {
+    "name": 5.74,
+    "mark": 5.73,
+    "acct": 5.34,
+    "sb": null,
+    "bar": 5.22
+   },
+   "1180": {
+    "name": 5.74,
+    "mark": 5.73,
+    "acct": 6.23,
+    "sb": null,
+    "bar": 5.21
+   },
+   "1280": {
+    "name": 5.74,
+    "mark": 5.73,
+    "acct": 5.27,
+    "sb": null,
+    "bar": 5.21
+   },
+   "1280@1x": {
+    "name": 5.68,
+    "mark": 5.81,
+    "acct": 5.24,
+    "sb": null,
+    "bar": 5.22
+   },
+   "1920@1x": {
+    "name": 5.68,
+    "mark": 5.81,
+    "acct": 6.5,
+    "sb": null,
+    "bar": 5.22
+   }
+  },
+  "worst": 5.24,
+  "bar_worst": 5.21,
+  "grade": {
+   "B": 5,
+   "F": 5,
+   "L": 8,
+   "R": 9,
+   "T": 6,
+   "sum": 33,
+   "verdict": "final (weak): flour is a faint haze at 1x, hardly seen on a phone"
+  }
+ },
+ "E2-r3-07": {
+  "tile": {
+   "pieces": 124,
+   "kb3": 60.9,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 3.73
+   },
+   "kb2": 38.1,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.24,
+    "worst_any": 3.56
+   },
+   "kb1": 15.5,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.49
+   },
+   "kb_all": 114.5,
+   "file_worst_words": 5.21,
+   "file_worst_any": 3.56,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.82,
+    "mark": 5.68,
+    "acct": 5.95,
+    "sb": 5.92,
+    "bar": 5.34
+   },
+   "820": {
+    "name": 5.71,
+    "mark": 6.02,
+    "acct": 5.3,
+    "sb": null,
+    "bar": 3.56
+   },
+   "1180": {
+    "name": 5.71,
+    "mark": 6.02,
+    "acct": 5.74,
+    "sb": null,
+    "bar": 3.56
+   },
+   "1280": {
+    "name": 5.71,
+    "mark": 6.02,
+    "acct": 5.59,
+    "sb": null,
+    "bar": 3.56
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 4.49
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.81,
+    "acct": 6.55,
+    "sb": null,
+    "bar": 4.49
+   }
+  },
+  "worst": 5.3,
+  "bar_worst": 3.56,
+  "grade": {
+   "B": 7,
+   "F": 7,
+   "L": 9,
+   "R": 9,
+   "T": 8,
+   "sum": 40,
+   "verdict": "final: gremolata"
+  }
+ },
+ "E2-r3-08": {
+  "tile": {
+   "pieces": 83,
+   "kb3": 61.3,
+   "file3": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.31
+   },
+   "kb2": 37.8,
+   "file2": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 4.0
+   },
+   "kb1": 15.8,
+   "file1": {
+    "ok": true,
+    "worst_words": 5.21,
+    "worst_any": 5.17
+   },
+   "kb_all": 114.9,
+   "file_worst_words": 5.21,
+   "file_worst_any": 4.0,
+   "file_ok": true
+  },
+  "contrast": {
+   "390": {
+    "name": 5.73,
+    "mark": 5.68,
+    "acct": 5.86,
+    "sb": 5.92,
+    "bar": 5.21
+   },
+   "820": {
+    "name": 5.7,
+    "mark": 5.68,
+    "acct": 5.36,
+    "sb": null,
+    "bar": 4.66
+   },
+   "1180": {
+    "name": 5.7,
+    "mark": 5.68,
+    "acct": 6.23,
+    "sb": null,
+    "bar": 4.0
+   },
+   "1280": {
+    "name": 5.7,
+    "mark": 5.68,
+    "acct": 5.38,
+    "sb": null,
+    "bar": 4.0
+   },
+   "1280@1x": {
+    "name": 5.48,
+    "mark": 5.77,
+    "acct": 5.35,
+    "sb": null,
+    "bar": 5.17
+   },
+   "1920@1x": {
+    "name": 5.48,
+    "mark": 5.77,
+    "acct": 6.13,
+    "sb": null,
+    "bar": 5.17
+   }
+  },
+  "worst": 5.35,
+  "bar_worst": 4.0,
+  "grade": {
+   "B": 7,
+   "F": 7,
+   "L": 9,
+   "R": 9,
+   "T": 8,
+   "sum": 40,
+   "verdict": "final: cilantro and lime"
+  }
+ }
+}
