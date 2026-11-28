@@ -495,5 +495,12 @@
   "name": "Reminders",
   "msg": "Reminders r6 (T-2169)",
   "date": "2026-11-27"
+ },
+ {
+  "v": "reminders-r8",
+  "mockup": "index.html",
+  "name": "Reminders",
+  "msg": "Reminders r8 icon pass (T-2169)",
+  "date": "2026-11-27"
  }
 ]
